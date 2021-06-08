@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites disabled="0" errors="0" failures="0" tests="1" time="0">
+<testsuite disabled="0" errors="0" failures="0" name="register_rw_bmc" skipped="0" tests="1" time="0">
+<properties>
+<property name="os" value="posix"/>
+</properties>
+<testcase classname="register_rw_bmc" name="default" status="PASS" time="0">
+<system-out>SBY 18:38:55 [register_rw_bmc] Removing directory 'register_rw_bmc'.
+SBY 18:38:55 [register_rw_bmc] Copy 'src/register_rw.v' to 'register_rw_bmc/src/register_rw.v'.
+SBY 18:38:55 [register_rw_bmc] engine_0: smtbmc
+SBY 18:38:55 [register_rw_bmc] base: starting process &quot;cd register_rw_bmc/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY 18:38:55 [register_rw_bmc] base: finished (returncode=0)
+SBY 18:38:55 [register_rw_bmc] smt2: starting process &quot;cd register_rw_bmc/model; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY 18:38:55 [register_rw_bmc] smt2: finished (returncode=0)
+SBY 18:38:55 [register_rw_bmc] engine_0: starting process &quot;cd register_rw_bmc; yosys-smtbmc --presat --unroll --noprogress -t 20  --append 0 --dump-vcd engine_0/trace.vcd --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2&quot;
+SBY 18:38:55 [register_rw_bmc] engine_0: ##   0:00:00  Solver: yices
+SBY 18:38:55 [register_rw_bmc] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 18:38:55 [register_rw_bmc] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 18:38:55 [register_rw_bmc] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 18:38:55 [register_rw_bmc] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 18:38:55 [register_rw_bmc] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY 18:38:55 [register_rw_bmc] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY 18:38:55 [register_rw_bmc] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY 18:38:55 [register_rw_bmc] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY 18:38:55 [register_rw_bmc] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY 18:38:55 [register_rw_bmc] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY 18:38:55 [register_rw_bmc] engine_0: ##   0:00:00  Checking assumptions in step 5..
+SBY 18:38:55 [register_rw_bmc] engine_0: ##   0:00:00  Checking assertions in step 5..
+SBY 18:38:55 [register_rw_bmc] engine_0: ##   0:00:00  Checking assumptions in step 6..
+SBY 18:38:55 [register_rw_bmc] engine_0: ##   0:00:00  Checking assertions in step 6..
+SBY 18:38:55 [register_rw_bmc] engine_0: ##   0:00:00  Checking assumptions in step 7..
+SBY 18:38:55 [register_rw_bmc] engine_0: ##   0:00:00  Checking assertions in step 7..
+SBY 18:38:55 [register_rw_bmc] engine_0: ##   0:00:00  Checking assumptions in step 8..
+SBY 18:38:55 [register_rw_bmc] engine_0: ##   0:00:00  Checking assertions in step 8..
+SBY 18:38:55 [register_rw_bmc] engine_0: ##   0:00:00  Checking assumptions in step 9..
+SBY 18:38:55 [register_rw_bmc] engine_0: ##   0:00:00  Checking assertions in step 9..
+SBY 18:38:56 [register_rw_bmc] engine_0: ##   0:00:00  Checking assumptions in step 10..
+SBY 18:38:56 [register_rw_bmc] engine_0: ##   0:00:00  Checking assertions in step 10..
+SBY 18:38:56 [register_rw_bmc] engine_0: ##   0:00:00  Checking assumptions in step 11..
+SBY 18:38:56 [register_rw_bmc] engine_0: ##   0:00:00  Checking assertions in step 11..
+SBY 18:38:56 [register_rw_bmc] engine_0: ##   0:00:00  Checking assumptions in step 12..
+SBY 18:38:56 [register_rw_bmc] engine_0: ##   0:00:00  Checking assertions in step 12..
+SBY 18:38:56 [register_rw_bmc] engine_0: ##   0:00:00  Checking assumptions in step 13..
+SBY 18:38:56 [register_rw_bmc] engine_0: ##   0:00:00  Checking assertions in step 13..
+SBY 18:38:56 [register_rw_bmc] engine_0: ##   0:00:00  Checking assumptions in step 14..
+SBY 18:38:56 [register_rw_bmc] engine_0: ##   0:00:00  Checking assertions in step 14..
+SBY 18:38:56 [register_rw_bmc] engine_0: ##   0:00:00  Checking assumptions in step 15..
+SBY 18:38:56 [register_rw_bmc] engine_0: ##   0:00:00  Checking assertions in step 15..
+SBY 18:38:56 [register_rw_bmc] engine_0: ##   0:00:00  Checking assumptions in step 16..
+SBY 18:38:56 [register_rw_bmc] engine_0: ##   0:00:00  Checking assertions in step 16..
+SBY 18:38:56 [register_rw_bmc] engine_0: ##   0:00:00  Checking assumptions in step 17..
+SBY 18:38:56 [register_rw_bmc] engine_0: ##   0:00:00  Checking assertions in step 17..
+SBY 18:38:56 [register_rw_bmc] engine_0: ##   0:00:00  Checking assumptions in step 18..
+SBY 18:38:56 [register_rw_bmc] engine_0: ##   0:00:00  Checking assertions in step 18..
+SBY 18:38:56 [register_rw_bmc] engine_0: ##   0:00:00  Checking assumptions in step 19..
+SBY 18:38:56 [register_rw_bmc] engine_0: ##   0:00:00  Checking assertions in step 19..
+SBY 18:38:56 [register_rw_bmc] engine_0: ##   0:00:00  Status: passed
+SBY 18:38:56 [register_rw_bmc] engine_0: finished (returncode=0)
+SBY 18:38:56 [register_rw_bmc] engine_0: Status returned by engine: pass
+SBY 18:38:56 [register_rw_bmc] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:01 (1)
+SBY 18:38:56 [register_rw_bmc] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 18:38:56 [register_rw_bmc] summary: engine_0 (smtbmc) returned pass
+SBY 18:38:56 [register_rw_bmc] DONE (PASS, rc=0)
+</system-out></testcase></testsuite></testsuites>

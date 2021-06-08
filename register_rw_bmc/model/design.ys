@@ -1,0 +1,14 @@
+# running in register_rw_bmc/src/
+read -formal register_rw.v
+prep -top register_rw
+
+memory_nordff
+async2sync
+chformal -assume -early
+chformal -live -fair -cover -remove
+opt_clean
+setundef -anyseq
+opt -keepdc -fast
+check
+hierarchy -simcheck
+write_ilang ../model/design.il

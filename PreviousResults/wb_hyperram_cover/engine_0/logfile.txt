@@ -1,0 +1,176 @@
+##   0:00:00  Solver: yices
+##   0:00:00  Checking cover reachability in step 0..
+##   0:00:01  Checking cover reachability in step 1..
+##   0:00:01  Checking cover reachability in step 2..
+##   0:00:02  Checking cover reachability in step 3..
+##   0:00:02  Checking cover reachability in step 4..
+##   0:00:03  Checking cover reachability in step 5..
+##   0:00:04  Checking cover reachability in step 6..
+##   0:00:04  Reached cover statement at _load_trmax_ in step 6.
+##   0:00:05  Writing trace to VCD file: engine_0/trace0.vcd
+##   0:00:05  Writing trace to Verilog testbench: engine_0/trace0_tb.v
+##   0:00:05  Writing trace to constraints file: engine_0/trace0.smtc
+##   0:00:05  Checking cover reachability in step 6..
+##   0:00:05  Reached cover statement at _load_tcsh_ in step 6.
+##   0:00:06  Writing trace to VCD file: engine_0/trace1.vcd
+##   0:00:06  Writing trace to Verilog testbench: engine_0/trace1_tb.v
+##   0:00:06  Writing trace to constraints file: engine_0/trace1.smtc
+##   0:00:06  Checking cover reachability in step 6..
+##   0:00:06  Reached cover statement at _load_latency_ in step 6.
+##   0:00:07  Writing trace to VCD file: engine_0/trace2.vcd
+##   0:00:07  Writing trace to Verilog testbench: engine_0/trace2_tb.v
+##   0:00:07  Writing trace to constraints file: engine_0/trace2.smtc
+##   0:00:07  Checking cover reachability in step 6..
+##   0:00:08  Reached cover statement at _load_post_ in step 6.
+##   0:00:08  Writing trace to VCD file: engine_0/trace3.vcd
+##   0:00:08  Writing trace to Verilog testbench: engine_0/trace3_tb.v
+##   0:00:08  Writing trace to constraints file: engine_0/trace3.smtc
+##   0:00:08  Checking cover reachability in step 6..
+##   0:00:09  Reached cover statement at _load_tpre_ in step 6.
+##   0:00:09  Writing trace to VCD file: engine_0/trace4.vcd
+##   0:00:09  Writing trace to Verilog testbench: engine_0/trace4_tb.v
+##   0:00:09  Writing trace to constraints file: engine_0/trace4.smtc
+##   0:00:09  Checking cover reachability in step 6..
+##   0:00:10  Checking cover reachability in step 7..
+##   0:00:11  Checking cover reachability in step 8..
+##   0:00:11  Checking cover reachability in step 9..
+##   0:00:12  Checking cover reachability in step 10..
+##   0:00:13  Checking cover reachability in step 11..
+##   0:00:14  Checking cover reachability in step 12..
+##   0:00:14  Reached cover statement at _load_fixed_ in step 12.
+##   0:00:15  Writing trace to VCD file: engine_0/trace5.vcd
+##   0:00:15  Writing trace to Verilog testbench: engine_0/trace5_tb.v
+##   0:00:15  Writing trace to constraints file: engine_0/trace5.smtc
+##   0:00:15  Checking cover reachability in step 12..
+##   0:00:16  Reached cover statement at _load_tacc_ in step 12.
+##   0:00:16  Writing trace to VCD file: engine_0/trace6.vcd
+##   0:00:17  Writing trace to Verilog testbench: engine_0/trace6_tb.v
+##   0:00:17  Writing trace to constraints file: engine_0/trace6.smtc
+##   0:00:17  Checking cover reachability in step 12..
+##   0:00:17  Reached cover statement at _load_fixed_double_ in step 12.
+##   0:00:18  Writing trace to VCD file: engine_0/trace7.vcd
+##   0:00:18  Writing trace to Verilog testbench: engine_0/trace7_tb.v
+##   0:00:18  Writing trace to constraints file: engine_0/trace7.smtc
+##   0:00:19  Checking cover reachability in step 12..
+##   0:00:20  Checking cover reachability in step 13..
+##   0:00:20  Checking cover reachability in step 14..
+##   0:00:21  Reached cover statement at _read_tcsh_ in step 14.
+##   0:00:22  Writing trace to VCD file: engine_0/trace8.vcd
+##   0:00:22  Writing trace to Verilog testbench: engine_0/trace8_tb.v
+##   0:00:22  Writing trace to constraints file: engine_0/trace8.smtc
+##   0:00:22  Checking cover reachability in step 14..
+##   0:00:23  Reached cover statement at _read_trmax_ in step 14.
+##   0:00:23  Writing trace to VCD file: engine_0/trace9.vcd
+##   0:00:24  Writing trace to Verilog testbench: engine_0/trace9_tb.v
+##   0:00:24  Writing trace to constraints file: engine_0/trace9.smtc
+##   0:00:24  Checking cover reachability in step 14..
+##   0:00:24  Reached cover statement at _read_latency_ in step 14.
+##   0:00:25  Writing trace to VCD file: engine_0/trace10.vcd
+##   0:00:25  Writing trace to Verilog testbench: engine_0/trace10_tb.v
+##   0:00:25  Writing trace to constraints file: engine_0/trace10.smtc
+##   0:00:26  Checking cover reachability in step 14..
+##   0:00:26  Reached cover statement at _read_tpre_tpost_ in step 14.
+##   0:00:27  Writing trace to VCD file: engine_0/trace11.vcd
+##   0:00:27  Writing trace to Verilog testbench: engine_0/trace11_tb.v
+##   0:00:27  Writing trace to constraints file: engine_0/trace11.smtc
+##   0:00:27  Checking cover reachability in step 14..
+##   0:00:28  Checking cover reachability in step 15..
+##   0:00:29  Checking cover reachability in step 16..
+##   0:00:30  Checking cover reachability in step 17..
+##   0:00:31  Checking cover reachability in step 18..
+##   0:00:32  Checking cover reachability in step 19..
+##   0:00:34  Checking cover reachability in step 20..
+##   0:00:35  Checking cover reachability in step 21..
+##   0:00:36  Checking cover reachability in step 22..
+##   0:00:37  Checking cover reachability in step 23..
+##   0:00:38  Checking cover reachability in step 24..
+##   0:00:39  Checking cover reachability in step 25..
+##   0:00:40  Checking cover reachability in step 26..
+##   0:00:41  Checking cover reachability in step 27..
+##   0:00:42  Checking cover reachability in step 28..
+##   0:00:43  Checking cover reachability in step 29..
+##   0:00:44  Checking cover reachability in step 30..
+##   0:00:46  Checking cover reachability in step 31..
+##   0:00:47  Checking cover reachability in step 32..
+##   0:00:48  Reached cover statement at _tx_hreg_ in step 32.
+##   0:00:50  Writing trace to VCD file: engine_0/trace12.vcd
+##   0:00:51  Writing trace to Verilog testbench: engine_0/trace12_tb.v
+##   0:00:51  Writing trace to constraints file: engine_0/trace12.smtc
+##   0:00:52  Checking cover reachability in step 32..
+##   0:00:53  Checking cover reachability in step 33..
+##   0:00:54  Checking cover reachability in step 34..
+##   0:00:56  Checking cover reachability in step 35..
+##   0:00:57  Checking cover reachability in step 36..
+##   0:00:59  Checking cover reachability in step 37..
+##   0:01:00  Checking cover reachability in step 38..
+##   0:01:02  Checking cover reachability in step 39..
+##   0:01:03  Checking cover reachability in step 40..
+##   0:01:06  Checking cover reachability in step 41..
+##   0:01:08  Checking cover reachability in step 42..
+##   0:01:11  Checking cover reachability in step 43..
+##   0:01:13  Checking cover reachability in step 44..
+##   0:01:18  Checking cover reachability in step 45..
+##   0:01:19  Checking cover reachability in step 46..
+##   0:01:24  Checking cover reachability in step 47..
+##   0:01:26  Checking cover reachability in step 48..
+##   0:01:33  Checking cover reachability in step 49..
+##   0:01:34  Checking cover reachability in step 50..
+##   0:01:42  Checking cover reachability in step 51..
+##   0:01:43  Checking cover reachability in step 52..
+##   0:01:47  Reached cover statement at _rx_hreg_ in step 52.
+##   0:01:49  Writing trace to VCD file: engine_0/trace13.vcd
+##   0:01:51  Writing trace to Verilog testbench: engine_0/trace13_tb.v
+##   0:01:51  Writing trace to constraints file: engine_0/trace13.smtc
+##   0:01:51  Checking cover reachability in step 52..
+##   0:02:01  Checking cover reachability in step 53..
+##   0:02:03  Checking cover reachability in step 54..
+##   0:02:15  Checking cover reachability in step 55..
+##   0:02:16  Checking cover reachability in step 56..
+##   0:02:28  Checking cover reachability in step 57..
+##   0:02:30  Checking cover reachability in step 58..
+##   0:02:46  Checking cover reachability in step 59..
+##   0:02:48  Checking cover reachability in step 60..
+##   0:03:12  Checking cover reachability in step 61..
+##   0:03:14  Checking cover reachability in step 62..
+##   0:03:35  Checking cover reachability in step 63..
+##   0:03:37  Checking cover reachability in step 64..
+##   0:04:03  Checking cover reachability in step 65..
+##   0:04:05  Checking cover reachability in step 66..
+##   0:04:21  Reached cover statement at _rx_hmem_ in step 66.
+##   0:04:23  Writing trace to VCD file: engine_0/trace14.vcd
+##   0:04:25  Writing trace to Verilog testbench: engine_0/trace14_tb.v
+##   0:04:26  Writing trace to constraints file: engine_0/trace14.smtc
+##   0:04:26  Checking cover reachability in step 66..
+##   0:04:51  Checking cover reachability in step 67..
+##   0:04:53  Checking cover reachability in step 68..
+##   0:05:11  Reached cover statement at _read_status_ in step 68.
+##   0:05:13  Writing trace to VCD file: engine_0/trace15.vcd
+##   0:05:15  Writing trace to Verilog testbench: engine_0/trace15_tb.v
+##   0:05:16  Writing trace to constraints file: engine_0/trace15.smtc
+##   0:05:16  Checking cover reachability in step 68..
+##   0:05:27  Checking cover reachability in step 69..
+##   0:05:29  Checking cover reachability in step 70..
+##   0:05:34  Reached cover statement at _tx_hmem_ in step 70.
+##   0:05:36  Writing trace to VCD file: engine_0/trace16.vcd
+##   0:05:38  Writing trace to Verilog testbench: engine_0/trace16_tb.v
+##   0:05:39  Writing trace to constraints file: engine_0/trace16.smtc
+##   0:05:39  Checking cover reachability in step 70..
+##   0:05:48  Checking cover reachability in step 71..
+##   0:05:51  Checking cover reachability in step 72..
+##   0:05:59  Checking cover reachability in step 73..
+##   0:06:01  Checking cover reachability in step 74..
+##   0:06:16  Checking cover reachability in step 75..
+##   0:06:18  Checking cover reachability in step 76..
+##   0:06:31  Checking cover reachability in step 77..
+##   0:06:34  Checking cover reachability in step 78..
+##   0:06:56  Checking cover reachability in step 79..
+##   0:06:58  Checking cover reachability in step 80..
+##   0:07:15  Checking cover reachability in step 81..
+##   0:07:17  Checking cover reachability in step 82..
+##   0:07:35  Checking cover reachability in step 83..
+##   0:07:37  Checking cover reachability in step 84..
+##   0:07:51  Reached cover statement at _rx_hreg_timeout in step 84.
+##   0:07:53  Writing trace to VCD file: engine_0/trace17.vcd
+##   0:07:55  Writing trace to Verilog testbench: engine_0/trace17_tb.v
+##   0:07:56  Writing trace to constraints file: engine_0/trace17.smtc
+##   0:07:56  Status: passed

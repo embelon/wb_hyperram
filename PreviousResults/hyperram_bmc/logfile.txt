@@ -1,0 +1,223 @@
+SBY 19:25:20 [hyperram_bmc] Removing directory 'hyperram_bmc'.
+SBY 19:25:20 [hyperram_bmc] Copy 'src/hyperram.v' to 'hyperram_bmc/src/hyperram.v'.
+SBY 19:25:20 [hyperram_bmc] engine_0: smtbmc
+SBY 19:25:20 [hyperram_bmc] base: starting process "cd hyperram_bmc/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 19:25:20 [hyperram_bmc] base: Warning: wire '\latency_cycles' is assigned in a block at hyperram.v:89.4-89.95.
+SBY 19:25:20 [hyperram_bmc] base: Warning: wire '\latency_cycles' is assigned in a block at hyperram.v:91.4-91.103.
+SBY 19:25:20 [hyperram_bmc] base: Warning: wire '\latency_cycles' is assigned in a block at hyperram.v:97.4-97.96.
+SBY 19:25:20 [hyperram_bmc] base: Warning: wire '\latency_cycles' is assigned in a block at hyperram.v:99.4-99.104.
+SBY 19:25:20 [hyperram_bmc] base: Warning: wire '\hb_dq_o' is assigned in a block at hyperram.v:342.13-342.59.
+SBY 19:25:20 [hyperram_bmc] base: Warning: wire '\hb_dq_o' is assigned in a block at hyperram.v:343.15-343.64.
+SBY 19:25:20 [hyperram_bmc] base: Warning: wire '\hb_dq_o' is assigned in a block at hyperram.v:344.15-344.31.
+SBY 19:25:23 [hyperram_bmc] base: finished (returncode=0)
+SBY 19:25:23 [hyperram_bmc] smt2: starting process "cd hyperram_bmc/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 19:25:24 [hyperram_bmc] smt2: finished (returncode=0)
+SBY 19:25:24 [hyperram_bmc] engine_0: starting process "cd hyperram_bmc; yosys-smtbmc --presat --unroll --noprogress -t 100  --append 0 --dump-vcd engine_0/trace.vcd --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 19:25:24 [hyperram_bmc] engine_0: ##   0:00:00  Solver: yices
+SBY 19:25:24 [hyperram_bmc] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 19:25:24 [hyperram_bmc] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 19:25:24 [hyperram_bmc] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 19:25:24 [hyperram_bmc] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 19:25:25 [hyperram_bmc] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY 19:25:25 [hyperram_bmc] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY 19:25:25 [hyperram_bmc] engine_0: ##   0:00:01  Checking assumptions in step 3..
+SBY 19:25:25 [hyperram_bmc] engine_0: ##   0:00:01  Checking assertions in step 3..
+SBY 19:25:25 [hyperram_bmc] engine_0: ##   0:00:01  Checking assumptions in step 4..
+SBY 19:25:25 [hyperram_bmc] engine_0: ##   0:00:01  Checking assertions in step 4..
+SBY 19:25:26 [hyperram_bmc] engine_0: ##   0:00:01  Checking assumptions in step 5..
+SBY 19:25:26 [hyperram_bmc] engine_0: ##   0:00:01  Checking assertions in step 5..
+SBY 19:25:26 [hyperram_bmc] engine_0: ##   0:00:02  Checking assumptions in step 6..
+SBY 19:25:26 [hyperram_bmc] engine_0: ##   0:00:02  Checking assertions in step 6..
+SBY 19:25:26 [hyperram_bmc] engine_0: ##   0:00:02  Checking assumptions in step 7..
+SBY 19:25:26 [hyperram_bmc] engine_0: ##   0:00:02  Checking assertions in step 7..
+SBY 19:25:27 [hyperram_bmc] engine_0: ##   0:00:03  Checking assumptions in step 8..
+SBY 19:25:27 [hyperram_bmc] engine_0: ##   0:00:03  Checking assertions in step 8..
+SBY 19:25:27 [hyperram_bmc] engine_0: ##   0:00:03  Checking assumptions in step 9..
+SBY 19:25:27 [hyperram_bmc] engine_0: ##   0:00:03  Checking assertions in step 9..
+SBY 19:25:28 [hyperram_bmc] engine_0: ##   0:00:03  Checking assumptions in step 10..
+SBY 19:25:28 [hyperram_bmc] engine_0: ##   0:00:04  Checking assertions in step 10..
+SBY 19:25:28 [hyperram_bmc] engine_0: ##   0:00:04  Checking assumptions in step 11..
+SBY 19:25:28 [hyperram_bmc] engine_0: ##   0:00:04  Checking assertions in step 11..
+SBY 19:25:29 [hyperram_bmc] engine_0: ##   0:00:05  Checking assumptions in step 12..
+SBY 19:25:29 [hyperram_bmc] engine_0: ##   0:00:05  Checking assertions in step 12..
+SBY 19:25:29 [hyperram_bmc] engine_0: ##   0:00:05  Checking assumptions in step 13..
+SBY 19:25:29 [hyperram_bmc] engine_0: ##   0:00:05  Checking assertions in step 13..
+SBY 19:25:30 [hyperram_bmc] engine_0: ##   0:00:06  Checking assumptions in step 14..
+SBY 19:25:30 [hyperram_bmc] engine_0: ##   0:00:06  Checking assertions in step 14..
+SBY 19:25:31 [hyperram_bmc] engine_0: ##   0:00:06  Checking assumptions in step 15..
+SBY 19:25:31 [hyperram_bmc] engine_0: ##   0:00:06  Checking assertions in step 15..
+SBY 19:25:31 [hyperram_bmc] engine_0: ##   0:00:07  Checking assumptions in step 16..
+SBY 19:25:31 [hyperram_bmc] engine_0: ##   0:00:07  Checking assertions in step 16..
+SBY 19:25:32 [hyperram_bmc] engine_0: ##   0:00:08  Checking assumptions in step 17..
+SBY 19:25:32 [hyperram_bmc] engine_0: ##   0:00:08  Checking assertions in step 17..
+SBY 19:25:33 [hyperram_bmc] engine_0: ##   0:00:09  Checking assumptions in step 18..
+SBY 19:25:33 [hyperram_bmc] engine_0: ##   0:00:09  Checking assertions in step 18..
+SBY 19:25:34 [hyperram_bmc] engine_0: ##   0:00:09  Checking assumptions in step 19..
+SBY 19:25:34 [hyperram_bmc] engine_0: ##   0:00:10  Checking assertions in step 19..
+SBY 19:25:34 [hyperram_bmc] engine_0: ##   0:00:10  Checking assumptions in step 20..
+SBY 19:25:34 [hyperram_bmc] engine_0: ##   0:00:10  Checking assertions in step 20..
+SBY 19:25:35 [hyperram_bmc] engine_0: ##   0:00:11  Checking assumptions in step 21..
+SBY 19:25:35 [hyperram_bmc] engine_0: ##   0:00:11  Checking assertions in step 21..
+SBY 19:25:36 [hyperram_bmc] engine_0: ##   0:00:12  Checking assumptions in step 22..
+SBY 19:25:36 [hyperram_bmc] engine_0: ##   0:00:12  Checking assertions in step 22..
+SBY 19:25:37 [hyperram_bmc] engine_0: ##   0:00:13  Checking assumptions in step 23..
+SBY 19:25:37 [hyperram_bmc] engine_0: ##   0:00:13  Checking assertions in step 23..
+SBY 19:25:38 [hyperram_bmc] engine_0: ##   0:00:14  Checking assumptions in step 24..
+SBY 19:25:38 [hyperram_bmc] engine_0: ##   0:00:14  Checking assertions in step 24..
+SBY 19:25:39 [hyperram_bmc] engine_0: ##   0:00:15  Checking assumptions in step 25..
+SBY 19:25:39 [hyperram_bmc] engine_0: ##   0:00:15  Checking assertions in step 25..
+SBY 19:25:40 [hyperram_bmc] engine_0: ##   0:00:16  Checking assumptions in step 26..
+SBY 19:25:41 [hyperram_bmc] engine_0: ##   0:00:16  Checking assertions in step 26..
+SBY 19:25:42 [hyperram_bmc] engine_0: ##   0:00:18  Checking assumptions in step 27..
+SBY 19:25:42 [hyperram_bmc] engine_0: ##   0:00:18  Checking assertions in step 27..
+SBY 19:25:43 [hyperram_bmc] engine_0: ##   0:00:19  Checking assumptions in step 28..
+SBY 19:25:43 [hyperram_bmc] engine_0: ##   0:00:19  Checking assertions in step 28..
+SBY 19:25:44 [hyperram_bmc] engine_0: ##   0:00:20  Checking assumptions in step 29..
+SBY 19:25:44 [hyperram_bmc] engine_0: ##   0:00:20  Checking assertions in step 29..
+SBY 19:25:45 [hyperram_bmc] engine_0: ##   0:00:21  Checking assumptions in step 30..
+SBY 19:25:45 [hyperram_bmc] engine_0: ##   0:00:21  Checking assertions in step 30..
+SBY 19:25:47 [hyperram_bmc] engine_0: ##   0:00:22  Checking assumptions in step 31..
+SBY 19:25:47 [hyperram_bmc] engine_0: ##   0:00:23  Checking assertions in step 31..
+SBY 19:25:48 [hyperram_bmc] engine_0: ##   0:00:24  Checking assumptions in step 32..
+SBY 19:25:48 [hyperram_bmc] engine_0: ##   0:00:24  Checking assertions in step 32..
+SBY 19:25:49 [hyperram_bmc] engine_0: ##   0:00:25  Checking assumptions in step 33..
+SBY 19:25:49 [hyperram_bmc] engine_0: ##   0:00:25  Checking assertions in step 33..
+SBY 19:25:50 [hyperram_bmc] engine_0: ##   0:00:26  Checking assumptions in step 34..
+SBY 19:25:51 [hyperram_bmc] engine_0: ##   0:00:26  Checking assertions in step 34..
+SBY 19:25:52 [hyperram_bmc] engine_0: ##   0:00:28  Checking assumptions in step 35..
+SBY 19:25:52 [hyperram_bmc] engine_0: ##   0:00:28  Checking assertions in step 35..
+SBY 19:25:53 [hyperram_bmc] engine_0: ##   0:00:29  Checking assumptions in step 36..
+SBY 19:25:54 [hyperram_bmc] engine_0: ##   0:00:30  Checking assertions in step 36..
+SBY 19:25:56 [hyperram_bmc] engine_0: ##   0:00:32  Checking assumptions in step 37..
+SBY 19:25:56 [hyperram_bmc] engine_0: ##   0:00:32  Checking assertions in step 37..
+SBY 19:25:58 [hyperram_bmc] engine_0: ##   0:00:34  Checking assumptions in step 38..
+SBY 19:25:58 [hyperram_bmc] engine_0: ##   0:00:34  Checking assertions in step 38..
+SBY 19:26:01 [hyperram_bmc] engine_0: ##   0:00:37  Checking assumptions in step 39..
+SBY 19:26:01 [hyperram_bmc] engine_0: ##   0:00:37  Checking assertions in step 39..
+SBY 19:26:02 [hyperram_bmc] engine_0: ##   0:00:38  Checking assumptions in step 40..
+SBY 19:26:04 [hyperram_bmc] engine_0: ##   0:00:40  Checking assertions in step 40..
+SBY 19:26:07 [hyperram_bmc] engine_0: ##   0:00:43  Checking assumptions in step 41..
+SBY 19:26:07 [hyperram_bmc] engine_0: ##   0:00:43  Checking assertions in step 41..
+SBY 19:26:09 [hyperram_bmc] engine_0: ##   0:00:44  Checking assumptions in step 42..
+SBY 19:26:09 [hyperram_bmc] engine_0: ##   0:00:45  Checking assertions in step 42..
+SBY 19:26:13 [hyperram_bmc] engine_0: ##   0:00:49  Checking assumptions in step 43..
+SBY 19:26:13 [hyperram_bmc] engine_0: ##   0:00:49  Checking assertions in step 43..
+SBY 19:26:15 [hyperram_bmc] engine_0: ##   0:00:51  Checking assumptions in step 44..
+SBY 19:26:16 [hyperram_bmc] engine_0: ##   0:00:52  Checking assertions in step 44..
+SBY 19:26:19 [hyperram_bmc] engine_0: ##   0:00:55  Checking assumptions in step 45..
+SBY 19:26:20 [hyperram_bmc] engine_0: ##   0:00:55  Checking assertions in step 45..
+SBY 19:26:21 [hyperram_bmc] engine_0: ##   0:00:57  Checking assumptions in step 46..
+SBY 19:26:23 [hyperram_bmc] engine_0: ##   0:00:59  Checking assertions in step 46..
+SBY 19:26:26 [hyperram_bmc] engine_0: ##   0:01:02  Checking assumptions in step 47..
+SBY 19:26:26 [hyperram_bmc] engine_0: ##   0:01:02  Checking assertions in step 47..
+SBY 19:26:28 [hyperram_bmc] engine_0: ##   0:01:04  Checking assumptions in step 48..
+SBY 19:26:28 [hyperram_bmc] engine_0: ##   0:01:04  Checking assertions in step 48..
+SBY 19:26:30 [hyperram_bmc] engine_0: ##   0:01:06  Checking assumptions in step 49..
+SBY 19:26:30 [hyperram_bmc] engine_0: ##   0:01:06  Checking assertions in step 49..
+SBY 19:26:32 [hyperram_bmc] engine_0: ##   0:01:08  Checking assumptions in step 50..
+SBY 19:26:32 [hyperram_bmc] engine_0: ##   0:01:08  Checking assertions in step 50..
+SBY 19:26:35 [hyperram_bmc] engine_0: ##   0:01:11  Checking assumptions in step 51..
+SBY 19:26:38 [hyperram_bmc] engine_0: ##   0:01:14  Checking assertions in step 51..
+SBY 19:26:40 [hyperram_bmc] engine_0: ##   0:01:16  Checking assumptions in step 52..
+SBY 19:26:40 [hyperram_bmc] engine_0: ##   0:01:16  Checking assertions in step 52..
+SBY 19:26:43 [hyperram_bmc] engine_0: ##   0:01:19  Checking assumptions in step 53..
+SBY 19:26:43 [hyperram_bmc] engine_0: ##   0:01:19  Checking assertions in step 53..
+SBY 19:26:46 [hyperram_bmc] engine_0: ##   0:01:22  Checking assumptions in step 54..
+SBY 19:26:46 [hyperram_bmc] engine_0: ##   0:01:22  Checking assertions in step 54..
+SBY 19:26:49 [hyperram_bmc] engine_0: ##   0:01:25  Checking assumptions in step 55..
+SBY 19:26:50 [hyperram_bmc] engine_0: ##   0:01:26  Checking assertions in step 55..
+SBY 19:26:53 [hyperram_bmc] engine_0: ##   0:01:28  Checking assumptions in step 56..
+SBY 19:26:55 [hyperram_bmc] engine_0: ##   0:01:31  Checking assertions in step 56..
+SBY 19:26:59 [hyperram_bmc] engine_0: ##   0:01:35  Checking assumptions in step 57..
+SBY 19:26:59 [hyperram_bmc] engine_0: ##   0:01:35  Checking assertions in step 57..
+SBY 19:27:01 [hyperram_bmc] engine_0: ##   0:01:37  Checking assumptions in step 58..
+SBY 19:27:02 [hyperram_bmc] engine_0: ##   0:01:37  Checking assertions in step 58..
+SBY 19:27:04 [hyperram_bmc] engine_0: ##   0:01:40  Checking assumptions in step 59..
+SBY 19:27:04 [hyperram_bmc] engine_0: ##   0:01:40  Checking assertions in step 59..
+SBY 19:27:07 [hyperram_bmc] engine_0: ##   0:01:43  Checking assumptions in step 60..
+SBY 19:27:08 [hyperram_bmc] engine_0: ##   0:01:44  Checking assertions in step 60..
+SBY 19:27:11 [hyperram_bmc] engine_0: ##   0:01:47  Checking assumptions in step 61..
+SBY 19:27:11 [hyperram_bmc] engine_0: ##   0:01:47  Checking assertions in step 61..
+SBY 19:27:15 [hyperram_bmc] engine_0: ##   0:01:50  Checking assumptions in step 62..
+SBY 19:27:17 [hyperram_bmc] engine_0: ##   0:01:52  Checking assertions in step 62..
+SBY 19:27:21 [hyperram_bmc] engine_0: ##   0:01:57  Checking assumptions in step 63..
+SBY 19:27:22 [hyperram_bmc] engine_0: ##   0:01:58  Checking assertions in step 63..
+SBY 19:27:25 [hyperram_bmc] engine_0: ##   0:02:01  Checking assumptions in step 64..
+SBY 19:27:27 [hyperram_bmc] engine_0: ##   0:02:03  Checking assertions in step 64..
+SBY 19:27:32 [hyperram_bmc] engine_0: ##   0:02:08  Checking assumptions in step 65..
+SBY 19:27:32 [hyperram_bmc] engine_0: ##   0:02:08  Checking assertions in step 65..
+SBY 19:27:36 [hyperram_bmc] engine_0: ##   0:02:12  Checking assumptions in step 66..
+SBY 19:27:38 [hyperram_bmc] engine_0: ##   0:02:14  Checking assertions in step 66..
+SBY 19:27:42 [hyperram_bmc] engine_0: ##   0:02:18  Checking assumptions in step 67..
+SBY 19:27:42 [hyperram_bmc] engine_0: ##   0:02:18  Checking assertions in step 67..
+SBY 19:27:47 [hyperram_bmc] engine_0: ##   0:02:23  Checking assumptions in step 68..
+SBY 19:27:48 [hyperram_bmc] engine_0: ##   0:02:23  Checking assertions in step 68..
+SBY 19:27:54 [hyperram_bmc] engine_0: ##   0:02:30  Checking assumptions in step 69..
+SBY 19:27:54 [hyperram_bmc] engine_0: ##   0:02:30  Checking assertions in step 69..
+SBY 19:27:59 [hyperram_bmc] engine_0: ##   0:02:34  Checking assumptions in step 70..
+SBY 19:27:59 [hyperram_bmc] engine_0: ##   0:02:35  Checking assertions in step 70..
+SBY 19:28:03 [hyperram_bmc] engine_0: ##   0:02:39  Checking assumptions in step 71..
+SBY 19:28:05 [hyperram_bmc] engine_0: ##   0:02:41  Checking assertions in step 71..
+SBY 19:28:11 [hyperram_bmc] engine_0: ##   0:02:47  Checking assumptions in step 72..
+SBY 19:28:14 [hyperram_bmc] engine_0: ##   0:02:50  Checking assertions in step 72..
+SBY 19:28:19 [hyperram_bmc] engine_0: ##   0:02:55  Checking assumptions in step 73..
+SBY 19:28:19 [hyperram_bmc] engine_0: ##   0:02:55  Checking assertions in step 73..
+SBY 19:28:26 [hyperram_bmc] engine_0: ##   0:03:02  Checking assumptions in step 74..
+SBY 19:28:26 [hyperram_bmc] engine_0: ##   0:03:02  Checking assertions in step 74..
+SBY 19:28:33 [hyperram_bmc] engine_0: ##   0:03:08  Checking assumptions in step 75..
+SBY 19:28:33 [hyperram_bmc] engine_0: ##   0:03:09  Checking assertions in step 75..
+SBY 19:28:40 [hyperram_bmc] engine_0: ##   0:03:16  Checking assumptions in step 76..
+SBY 19:28:43 [hyperram_bmc] engine_0: ##   0:03:19  Checking assertions in step 76..
+SBY 19:28:47 [hyperram_bmc] engine_0: ##   0:03:22  Checking assumptions in step 77..
+SBY 19:28:47 [hyperram_bmc] engine_0: ##   0:03:23  Checking assertions in step 77..
+SBY 19:28:56 [hyperram_bmc] engine_0: ##   0:03:32  Checking assumptions in step 78..
+SBY 19:28:56 [hyperram_bmc] engine_0: ##   0:03:32  Checking assertions in step 78..
+SBY 19:29:05 [hyperram_bmc] engine_0: ##   0:03:41  Checking assumptions in step 79..
+SBY 19:29:06 [hyperram_bmc] engine_0: ##   0:03:42  Checking assertions in step 79..
+SBY 19:29:23 [hyperram_bmc] engine_0: ##   0:03:59  Checking assumptions in step 80..
+SBY 19:29:26 [hyperram_bmc] engine_0: ##   0:04:01  Checking assertions in step 80..
+SBY 19:29:32 [hyperram_bmc] engine_0: ##   0:04:08  Checking assumptions in step 81..
+SBY 19:29:32 [hyperram_bmc] engine_0: ##   0:04:08  Checking assertions in step 81..
+SBY 19:29:39 [hyperram_bmc] engine_0: ##   0:04:15  Checking assumptions in step 82..
+SBY 19:29:40 [hyperram_bmc] engine_0: ##   0:04:16  Checking assertions in step 82..
+SBY 19:29:47 [hyperram_bmc] engine_0: ##   0:04:23  Checking assumptions in step 83..
+SBY 19:29:47 [hyperram_bmc] engine_0: ##   0:04:23  Checking assertions in step 83..
+SBY 19:29:56 [hyperram_bmc] engine_0: ##   0:04:31  Checking assumptions in step 84..
+SBY 19:29:59 [hyperram_bmc] engine_0: ##   0:04:35  Checking assertions in step 84..
+SBY 19:30:07 [hyperram_bmc] engine_0: ##   0:04:43  Checking assumptions in step 85..
+SBY 19:30:07 [hyperram_bmc] engine_0: ##   0:04:43  Checking assertions in step 85..
+SBY 19:30:19 [hyperram_bmc] engine_0: ##   0:04:55  Checking assumptions in step 86..
+SBY 19:30:19 [hyperram_bmc] engine_0: ##   0:04:55  Checking assertions in step 86..
+SBY 19:30:27 [hyperram_bmc] engine_0: ##   0:05:03  Checking assumptions in step 87..
+SBY 19:30:30 [hyperram_bmc] engine_0: ##   0:05:06  Checking assertions in step 87..
+SBY 19:30:43 [hyperram_bmc] engine_0: ##   0:05:19  Checking assumptions in step 88..
+SBY 19:30:45 [hyperram_bmc] engine_0: ##   0:05:21  Checking assertions in step 88..
+SBY 19:30:53 [hyperram_bmc] engine_0: ##   0:05:29  Checking assumptions in step 89..
+SBY 19:30:54 [hyperram_bmc] engine_0: ##   0:05:30  Checking assertions in step 89..
+SBY 19:31:04 [hyperram_bmc] engine_0: ##   0:05:40  Checking assumptions in step 90..
+SBY 19:31:04 [hyperram_bmc] engine_0: ##   0:05:40  Checking assertions in step 90..
+SBY 19:31:13 [hyperram_bmc] engine_0: ##   0:05:49  Checking assumptions in step 91..
+SBY 19:31:13 [hyperram_bmc] engine_0: ##   0:05:49  Checking assertions in step 91..
+SBY 19:31:24 [hyperram_bmc] engine_0: ##   0:06:00  Checking assumptions in step 92..
+SBY 19:31:25 [hyperram_bmc] engine_0: ##   0:06:01  Checking assertions in step 92..
+SBY 19:31:37 [hyperram_bmc] engine_0: ##   0:06:13  Checking assumptions in step 93..
+SBY 19:31:46 [hyperram_bmc] engine_0: ##   0:06:22  Checking assertions in step 93..
+SBY 19:31:57 [hyperram_bmc] engine_0: ##   0:06:33  Checking assumptions in step 94..
+SBY 19:32:04 [hyperram_bmc] engine_0: ##   0:06:40  Checking assertions in step 94..
+SBY 19:32:12 [hyperram_bmc] engine_0: ##   0:06:48  Checking assumptions in step 95..
+SBY 19:32:12 [hyperram_bmc] engine_0: ##   0:06:48  Checking assertions in step 95..
+SBY 19:32:24 [hyperram_bmc] engine_0: ##   0:07:00  Checking assumptions in step 96..
+SBY 19:32:24 [hyperram_bmc] engine_0: ##   0:07:00  Checking assertions in step 96..
+SBY 19:32:36 [hyperram_bmc] engine_0: ##   0:07:12  Checking assumptions in step 97..
+SBY 19:32:40 [hyperram_bmc] engine_0: ##   0:07:16  Checking assertions in step 97..
+SBY 19:32:56 [hyperram_bmc] engine_0: ##   0:07:32  Checking assumptions in step 98..
+SBY 19:32:59 [hyperram_bmc] engine_0: ##   0:07:35  Checking assertions in step 98..
+SBY 19:33:07 [hyperram_bmc] engine_0: ##   0:07:43  Checking assumptions in step 99..
+SBY 19:33:08 [hyperram_bmc] engine_0: ##   0:07:44  Checking assertions in step 99..
+SBY 19:33:25 [hyperram_bmc] engine_0: ##   0:08:01  Status: passed
+SBY 19:33:25 [hyperram_bmc] engine_0: finished (returncode=0)
+SBY 19:33:25 [hyperram_bmc] engine_0: Status returned by engine: pass
+SBY 19:33:25 [hyperram_bmc] summary: Elapsed clock time [H:MM:SS (secs)]: 0:08:05 (485)
+SBY 19:33:25 [hyperram_bmc] summary: Elapsed process time [H:MM:SS (secs)]: 0:08:00 (480)
+SBY 19:33:25 [hyperram_bmc] summary: engine_0 (smtbmc) returned pass
+SBY 19:33:25 [hyperram_bmc] DONE (PASS, rc=0)

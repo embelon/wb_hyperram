@@ -1,0 +1,198 @@
+SBY 21:35:07 [wb_hyperram_cover] Removing directory 'wb_hyperram_cover'.
+SBY 21:35:07 [wb_hyperram_cover] Copy 'src/wb_hyperram.v' to 'wb_hyperram_cover/src/wb_hyperram.v'.
+SBY 21:35:07 [wb_hyperram_cover] Copy 'src/hyperram.v' to 'wb_hyperram_cover/src/hyperram.v'.
+SBY 21:35:07 [wb_hyperram_cover] Copy 'src/register_rw.v' to 'wb_hyperram_cover/src/register_rw.v'.
+SBY 21:35:07 [wb_hyperram_cover] engine_0: smtbmc
+SBY 21:35:07 [wb_hyperram_cover] base: starting process "cd wb_hyperram_cover/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 21:35:14 [wb_hyperram_cover] base: finished (returncode=0)
+SBY 21:35:14 [wb_hyperram_cover] smt2: starting process "cd wb_hyperram_cover/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 21:35:16 [wb_hyperram_cover] smt2: finished (returncode=0)
+SBY 21:35:16 [wb_hyperram_cover] engine_0: starting process "cd wb_hyperram_cover; yosys-smtbmc --presat --unroll -c --noprogress -t 500  --append 0 --dump-vcd engine_0/trace%.vcd --dump-vlogtb engine_0/trace%_tb.v --dump-smtc engine_0/trace%.smtc model/design_smt2.smt2"
+SBY 21:35:17 [wb_hyperram_cover] engine_0: ##   0:00:00  Solver: yices
+SBY 21:35:17 [wb_hyperram_cover] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY 21:35:18 [wb_hyperram_cover] engine_0: ##   0:00:01  Checking cover reachability in step 1..
+SBY 21:35:19 [wb_hyperram_cover] engine_0: ##   0:00:01  Checking cover reachability in step 2..
+SBY 21:35:19 [wb_hyperram_cover] engine_0: ##   0:00:02  Checking cover reachability in step 3..
+SBY 21:35:20 [wb_hyperram_cover] engine_0: ##   0:00:03  Checking cover reachability in step 4..
+SBY 21:35:21 [wb_hyperram_cover] engine_0: ##   0:00:04  Checking cover reachability in step 5..
+SBY 21:35:21 [wb_hyperram_cover] engine_0: ##   0:00:04  Checking cover reachability in step 6..
+SBY 21:35:22 [wb_hyperram_cover] engine_0: ##   0:00:05  Reached cover statement at _load_trmax_ in step 6.
+SBY 21:35:22 [wb_hyperram_cover] engine_0: ##   0:00:05  Writing trace to VCD file: engine_0/trace0.vcd
+SBY 21:35:22 [wb_hyperram_cover] engine_0: ##   0:00:05  Writing trace to Verilog testbench: engine_0/trace0_tb.v
+SBY 21:35:22 [wb_hyperram_cover] engine_0: ##   0:00:05  Writing trace to constraints file: engine_0/trace0.smtc
+SBY 21:35:22 [wb_hyperram_cover] engine_0: ##   0:00:05  Checking cover reachability in step 6..
+SBY 21:35:23 [wb_hyperram_cover] engine_0: ##   0:00:06  Reached cover statement at _load_tcsh_ in step 6.
+SBY 21:35:23 [wb_hyperram_cover] engine_0: ##   0:00:06  Writing trace to VCD file: engine_0/trace1.vcd
+SBY 21:35:23 [wb_hyperram_cover] engine_0: ##   0:00:06  Writing trace to Verilog testbench: engine_0/trace1_tb.v
+SBY 21:35:23 [wb_hyperram_cover] engine_0: ##   0:00:06  Writing trace to constraints file: engine_0/trace1.smtc
+SBY 21:35:24 [wb_hyperram_cover] engine_0: ##   0:00:06  Checking cover reachability in step 6..
+SBY 21:35:24 [wb_hyperram_cover] engine_0: ##   0:00:07  Reached cover statement at _load_latency_ in step 6.
+SBY 21:35:24 [wb_hyperram_cover] engine_0: ##   0:00:07  Writing trace to VCD file: engine_0/trace2.vcd
+SBY 21:35:25 [wb_hyperram_cover] engine_0: ##   0:00:07  Writing trace to Verilog testbench: engine_0/trace2_tb.v
+SBY 21:35:25 [wb_hyperram_cover] engine_0: ##   0:00:08  Writing trace to constraints file: engine_0/trace2.smtc
+SBY 21:35:25 [wb_hyperram_cover] engine_0: ##   0:00:08  Checking cover reachability in step 6..
+SBY 21:35:25 [wb_hyperram_cover] engine_0: ##   0:00:08  Reached cover statement at _load_post_ in step 6.
+SBY 21:35:26 [wb_hyperram_cover] engine_0: ##   0:00:08  Writing trace to VCD file: engine_0/trace3.vcd
+SBY 21:35:26 [wb_hyperram_cover] engine_0: ##   0:00:09  Writing trace to Verilog testbench: engine_0/trace3_tb.v
+SBY 21:35:26 [wb_hyperram_cover] engine_0: ##   0:00:09  Writing trace to constraints file: engine_0/trace3.smtc
+SBY 21:35:26 [wb_hyperram_cover] engine_0: ##   0:00:09  Checking cover reachability in step 6..
+SBY 21:35:27 [wb_hyperram_cover] engine_0: ##   0:00:10  Reached cover statement at _load_tpre_ in step 6.
+SBY 21:35:27 [wb_hyperram_cover] engine_0: ##   0:00:10  Writing trace to VCD file: engine_0/trace4.vcd
+SBY 21:35:28 [wb_hyperram_cover] engine_0: ##   0:00:10  Writing trace to Verilog testbench: engine_0/trace4_tb.v
+SBY 21:35:28 [wb_hyperram_cover] engine_0: ##   0:00:11  Writing trace to constraints file: engine_0/trace4.smtc
+SBY 21:35:28 [wb_hyperram_cover] engine_0: ##   0:00:11  Checking cover reachability in step 6..
+SBY 21:35:29 [wb_hyperram_cover] engine_0: ##   0:00:11  Checking cover reachability in step 7..
+SBY 21:35:29 [wb_hyperram_cover] engine_0: ##   0:00:12  Checking cover reachability in step 8..
+SBY 21:35:30 [wb_hyperram_cover] engine_0: ##   0:00:13  Checking cover reachability in step 9..
+SBY 21:35:31 [wb_hyperram_cover] engine_0: ##   0:00:14  Checking cover reachability in step 10..
+SBY 21:35:31 [wb_hyperram_cover] engine_0: ##   0:00:14  Checking cover reachability in step 11..
+SBY 21:35:32 [wb_hyperram_cover] engine_0: ##   0:00:15  Checking cover reachability in step 12..
+SBY 21:35:33 [wb_hyperram_cover] engine_0: ##   0:00:15  Reached cover statement at _load_tacc_ in step 12.
+SBY 21:35:33 [wb_hyperram_cover] engine_0: ##   0:00:16  Writing trace to VCD file: engine_0/trace5.vcd
+SBY 21:35:33 [wb_hyperram_cover] engine_0: ##   0:00:16  Writing trace to Verilog testbench: engine_0/trace5_tb.v
+SBY 21:35:34 [wb_hyperram_cover] engine_0: ##   0:00:16  Writing trace to constraints file: engine_0/trace5.smtc
+SBY 21:35:34 [wb_hyperram_cover] engine_0: ##   0:00:17  Checking cover reachability in step 12..
+SBY 21:35:34 [wb_hyperram_cover] engine_0: ##   0:00:17  Reached cover statement at _load_fixed_ in step 12.
+SBY 21:35:35 [wb_hyperram_cover] engine_0: ##   0:00:17  Writing trace to VCD file: engine_0/trace6.vcd
+SBY 21:35:35 [wb_hyperram_cover] engine_0: ##   0:00:18  Writing trace to Verilog testbench: engine_0/trace6_tb.v
+SBY 21:35:35 [wb_hyperram_cover] engine_0: ##   0:00:18  Writing trace to constraints file: engine_0/trace6.smtc
+SBY 21:35:35 [wb_hyperram_cover] engine_0: ##   0:00:18  Checking cover reachability in step 12..
+SBY 21:35:36 [wb_hyperram_cover] engine_0: ##   0:00:19  Reached cover statement at _load_fixed_double_ in step 12.
+SBY 21:35:36 [wb_hyperram_cover] engine_0: ##   0:00:19  Writing trace to VCD file: engine_0/trace7.vcd
+SBY 21:35:36 [wb_hyperram_cover] engine_0: ##   0:00:19  Writing trace to Verilog testbench: engine_0/trace7_tb.v
+SBY 21:35:37 [wb_hyperram_cover] engine_0: ##   0:00:19  Writing trace to constraints file: engine_0/trace7.smtc
+SBY 21:35:37 [wb_hyperram_cover] engine_0: ##   0:00:20  Checking cover reachability in step 12..
+SBY 21:35:37 [wb_hyperram_cover] engine_0: ##   0:00:20  Checking cover reachability in step 13..
+SBY 21:35:38 [wb_hyperram_cover] engine_0: ##   0:00:21  Checking cover reachability in step 14..
+SBY 21:35:39 [wb_hyperram_cover] engine_0: ##   0:00:22  Reached cover statement at _read_latency_ in step 14.
+SBY 21:35:39 [wb_hyperram_cover] engine_0: ##   0:00:22  Writing trace to VCD file: engine_0/trace8.vcd
+SBY 21:35:40 [wb_hyperram_cover] engine_0: ##   0:00:23  Writing trace to Verilog testbench: engine_0/trace8_tb.v
+SBY 21:35:40 [wb_hyperram_cover] engine_0: ##   0:00:23  Writing trace to constraints file: engine_0/trace8.smtc
+SBY 21:35:40 [wb_hyperram_cover] engine_0: ##   0:00:23  Checking cover reachability in step 14..
+SBY 21:35:41 [wb_hyperram_cover] engine_0: ##   0:00:23  Reached cover statement at _read_tpre_tpost_ in step 14.
+SBY 21:35:41 [wb_hyperram_cover] engine_0: ##   0:00:24  Writing trace to VCD file: engine_0/trace9.vcd
+SBY 21:35:41 [wb_hyperram_cover] engine_0: ##   0:00:24  Writing trace to Verilog testbench: engine_0/trace9_tb.v
+SBY 21:35:42 [wb_hyperram_cover] engine_0: ##   0:00:24  Writing trace to constraints file: engine_0/trace9.smtc
+SBY 21:35:42 [wb_hyperram_cover] engine_0: ##   0:00:25  Checking cover reachability in step 14..
+SBY 21:35:42 [wb_hyperram_cover] engine_0: ##   0:00:25  Reached cover statement at _read_trmax_ in step 14.
+SBY 21:35:43 [wb_hyperram_cover] engine_0: ##   0:00:25  Writing trace to VCD file: engine_0/trace10.vcd
+SBY 21:35:43 [wb_hyperram_cover] engine_0: ##   0:00:26  Writing trace to Verilog testbench: engine_0/trace10_tb.v
+SBY 21:35:43 [wb_hyperram_cover] engine_0: ##   0:00:26  Writing trace to constraints file: engine_0/trace10.smtc
+SBY 21:35:43 [wb_hyperram_cover] engine_0: ##   0:00:26  Checking cover reachability in step 14..
+SBY 21:35:44 [wb_hyperram_cover] engine_0: ##   0:00:27  Reached cover statement at _read_tcsh_ in step 14.
+SBY 21:35:44 [wb_hyperram_cover] engine_0: ##   0:00:27  Writing trace to VCD file: engine_0/trace11.vcd
+SBY 21:35:45 [wb_hyperram_cover] engine_0: ##   0:00:28  Writing trace to Verilog testbench: engine_0/trace11_tb.v
+SBY 21:35:45 [wb_hyperram_cover] engine_0: ##   0:00:28  Writing trace to constraints file: engine_0/trace11.smtc
+SBY 21:35:45 [wb_hyperram_cover] engine_0: ##   0:00:28  Checking cover reachability in step 14..
+SBY 21:35:46 [wb_hyperram_cover] engine_0: ##   0:00:29  Checking cover reachability in step 15..
+SBY 21:35:47 [wb_hyperram_cover] engine_0: ##   0:00:30  Checking cover reachability in step 16..
+SBY 21:35:48 [wb_hyperram_cover] engine_0: ##   0:00:31  Checking cover reachability in step 17..
+SBY 21:35:49 [wb_hyperram_cover] engine_0: ##   0:00:32  Checking cover reachability in step 18..
+SBY 21:35:50 [wb_hyperram_cover] engine_0: ##   0:00:32  Checking cover reachability in step 19..
+SBY 21:35:51 [wb_hyperram_cover] engine_0: ##   0:00:33  Checking cover reachability in step 20..
+SBY 21:35:52 [wb_hyperram_cover] engine_0: ##   0:00:34  Checking cover reachability in step 21..
+SBY 21:35:53 [wb_hyperram_cover] engine_0: ##   0:00:35  Checking cover reachability in step 22..
+SBY 21:35:54 [wb_hyperram_cover] engine_0: ##   0:00:37  Checking cover reachability in step 23..
+SBY 21:35:55 [wb_hyperram_cover] engine_0: ##   0:00:38  Checking cover reachability in step 24..
+SBY 21:35:56 [wb_hyperram_cover] engine_0: ##   0:00:39  Checking cover reachability in step 25..
+SBY 21:35:57 [wb_hyperram_cover] engine_0: ##   0:00:40  Checking cover reachability in step 26..
+SBY 21:35:58 [wb_hyperram_cover] engine_0: ##   0:00:41  Checking cover reachability in step 27..
+SBY 21:35:59 [wb_hyperram_cover] engine_0: ##   0:00:42  Checking cover reachability in step 28..
+SBY 21:36:01 [wb_hyperram_cover] engine_0: ##   0:00:44  Checking cover reachability in step 29..
+SBY 21:36:02 [wb_hyperram_cover] engine_0: ##   0:00:45  Checking cover reachability in step 30..
+SBY 21:36:04 [wb_hyperram_cover] engine_0: ##   0:00:46  Checking cover reachability in step 31..
+SBY 21:36:05 [wb_hyperram_cover] engine_0: ##   0:00:48  Checking cover reachability in step 32..
+SBY 21:36:06 [wb_hyperram_cover] engine_0: ##   0:00:49  Checking cover reachability in step 33..
+SBY 21:36:08 [wb_hyperram_cover] engine_0: ##   0:00:51  Checking cover reachability in step 34..
+SBY 21:36:10 [wb_hyperram_cover] engine_0: ##   0:00:53  Checking cover reachability in step 35..
+SBY 21:36:12 [wb_hyperram_cover] engine_0: ##   0:00:55  Checking cover reachability in step 36..
+SBY 21:36:15 [wb_hyperram_cover] engine_0: ##   0:00:58  Checking cover reachability in step 37..
+SBY 21:36:17 [wb_hyperram_cover] engine_0: ##   0:00:59  Checking cover reachability in step 38..
+SBY 21:36:19 [wb_hyperram_cover] engine_0: ##   0:01:02  Reached cover statement at _tx_hreg_ in step 38.
+SBY 21:36:20 [wb_hyperram_cover] engine_0: ##   0:01:03  Writing trace to VCD file: engine_0/trace12.vcd
+SBY 21:36:21 [wb_hyperram_cover] engine_0: ##   0:01:04  Writing trace to Verilog testbench: engine_0/trace12_tb.v
+SBY 21:36:21 [wb_hyperram_cover] engine_0: ##   0:01:04  Writing trace to constraints file: engine_0/trace12.smtc
+SBY 21:36:22 [wb_hyperram_cover] engine_0: ##   0:01:04  Checking cover reachability in step 38..
+SBY 21:36:24 [wb_hyperram_cover] engine_0: ##   0:01:07  Checking cover reachability in step 39..
+SBY 21:36:26 [wb_hyperram_cover] engine_0: ##   0:01:08  Checking cover reachability in step 40..
+SBY 21:36:29 [wb_hyperram_cover] engine_0: ##   0:01:12  Checking cover reachability in step 41..
+SBY 21:36:30 [wb_hyperram_cover] engine_0: ##   0:01:13  Checking cover reachability in step 42..
+SBY 21:36:34 [wb_hyperram_cover] engine_0: ##   0:01:17  Checking cover reachability in step 43..
+SBY 21:36:35 [wb_hyperram_cover] engine_0: ##   0:01:18  Checking cover reachability in step 44..
+SBY 21:36:41 [wb_hyperram_cover] engine_0: ##   0:01:24  Checking cover reachability in step 45..
+SBY 21:36:43 [wb_hyperram_cover] engine_0: ##   0:01:26  Checking cover reachability in step 46..
+SBY 21:36:49 [wb_hyperram_cover] engine_0: ##   0:01:32  Checking cover reachability in step 47..
+SBY 21:36:51 [wb_hyperram_cover] engine_0: ##   0:01:34  Checking cover reachability in step 48..
+SBY 21:36:58 [wb_hyperram_cover] engine_0: ##   0:01:41  Checking cover reachability in step 49..
+SBY 21:37:00 [wb_hyperram_cover] engine_0: ##   0:01:43  Checking cover reachability in step 50..
+SBY 21:37:08 [wb_hyperram_cover] engine_0: ##   0:01:50  Checking cover reachability in step 51..
+SBY 21:37:10 [wb_hyperram_cover] engine_0: ##   0:01:52  Checking cover reachability in step 52..
+SBY 21:37:19 [wb_hyperram_cover] engine_0: ##   0:02:02  Reached cover statement at _rx_hreg_ in step 52.
+SBY 21:37:20 [wb_hyperram_cover] engine_0: ##   0:02:03  Writing trace to VCD file: engine_0/trace13.vcd
+SBY 21:37:22 [wb_hyperram_cover] engine_0: ##   0:02:05  Writing trace to Verilog testbench: engine_0/trace13_tb.v
+SBY 21:37:22 [wb_hyperram_cover] engine_0: ##   0:02:05  Writing trace to constraints file: engine_0/trace13.smtc
+SBY 21:37:22 [wb_hyperram_cover] engine_0: ##   0:02:05  Checking cover reachability in step 52..
+SBY 21:37:32 [wb_hyperram_cover] engine_0: ##   0:02:15  Checking cover reachability in step 53..
+SBY 21:37:34 [wb_hyperram_cover] engine_0: ##   0:02:17  Checking cover reachability in step 54..
+SBY 21:37:44 [wb_hyperram_cover] engine_0: ##   0:02:26  Checking cover reachability in step 55..
+SBY 21:37:46 [wb_hyperram_cover] engine_0: ##   0:02:29  Checking cover reachability in step 56..
+SBY 21:37:58 [wb_hyperram_cover] engine_0: ##   0:02:41  Checking cover reachability in step 57..
+SBY 21:38:00 [wb_hyperram_cover] engine_0: ##   0:02:43  Checking cover reachability in step 58..
+SBY 21:38:21 [wb_hyperram_cover] engine_0: ##   0:03:03  Checking cover reachability in step 59..
+SBY 21:38:23 [wb_hyperram_cover] engine_0: ##   0:03:06  Checking cover reachability in step 60..
+SBY 21:38:39 [wb_hyperram_cover] engine_0: ##   0:03:22  Checking cover reachability in step 61..
+SBY 21:38:42 [wb_hyperram_cover] engine_0: ##   0:03:25  Checking cover reachability in step 62..
+SBY 21:39:06 [wb_hyperram_cover] engine_0: ##   0:03:49  Checking cover reachability in step 63..
+SBY 21:39:08 [wb_hyperram_cover] engine_0: ##   0:03:51  Checking cover reachability in step 64..
+SBY 21:39:33 [wb_hyperram_cover] engine_0: ##   0:04:16  Checking cover reachability in step 65..
+SBY 21:39:35 [wb_hyperram_cover] engine_0: ##   0:04:18  Checking cover reachability in step 66..
+SBY 21:40:03 [wb_hyperram_cover] engine_0: ##   0:04:46  Checking cover reachability in step 67..
+SBY 21:40:05 [wb_hyperram_cover] engine_0: ##   0:04:48  Checking cover reachability in step 68..
+SBY 21:40:34 [wb_hyperram_cover] engine_0: ##   0:05:17  Reached cover statement at _read_status_ in step 68.
+SBY 21:40:36 [wb_hyperram_cover] engine_0: ##   0:05:19  Writing trace to VCD file: engine_0/trace14.vcd
+SBY 21:40:38 [wb_hyperram_cover] engine_0: ##   0:05:21  Writing trace to Verilog testbench: engine_0/trace14_tb.v
+SBY 21:40:38 [wb_hyperram_cover] engine_0: ##   0:05:21  Writing trace to constraints file: engine_0/trace14.smtc
+SBY 21:40:38 [wb_hyperram_cover] engine_0: ##   0:05:21  Checking cover reachability in step 68..
+SBY 21:40:58 [wb_hyperram_cover] engine_0: ##   0:05:41  Checking cover reachability in step 69..
+SBY 21:41:01 [wb_hyperram_cover] engine_0: ##   0:05:43  Checking cover reachability in step 70..
+SBY 21:41:21 [wb_hyperram_cover] engine_0: ##   0:06:04  Checking cover reachability in step 71..
+SBY 21:41:24 [wb_hyperram_cover] engine_0: ##   0:06:07  Checking cover reachability in step 72..
+SBY 21:41:39 [wb_hyperram_cover] engine_0: ##   0:06:22  Reached cover statement at _rx_hmem_ in step 72.
+SBY 21:41:41 [wb_hyperram_cover] engine_0: ##   0:06:24  Writing trace to VCD file: engine_0/trace15.vcd
+SBY 21:41:44 [wb_hyperram_cover] engine_0: ##   0:06:27  Writing trace to Verilog testbench: engine_0/trace15_tb.v
+SBY 21:41:44 [wb_hyperram_cover] engine_0: ##   0:06:27  Writing trace to constraints file: engine_0/trace15.smtc
+SBY 21:41:44 [wb_hyperram_cover] engine_0: ##   0:06:27  Checking cover reachability in step 72..
+SBY 21:42:01 [wb_hyperram_cover] engine_0: ##   0:06:44  Checking cover reachability in step 73..
+SBY 21:42:04 [wb_hyperram_cover] engine_0: ##   0:06:46  Checking cover reachability in step 74..
+SBY 21:42:22 [wb_hyperram_cover] engine_0: ##   0:07:05  Checking cover reachability in step 75..
+SBY 21:42:24 [wb_hyperram_cover] engine_0: ##   0:07:07  Checking cover reachability in step 76..
+SBY 21:42:41 [wb_hyperram_cover] engine_0: ##   0:07:24  Reached cover statement at _tx_hmem_ in step 76.
+SBY 21:42:43 [wb_hyperram_cover] engine_0: ##   0:07:26  Writing trace to VCD file: engine_0/trace16.vcd
+SBY 21:42:46 [wb_hyperram_cover] engine_0: ##   0:07:28  Writing trace to Verilog testbench: engine_0/trace16_tb.v
+SBY 21:42:46 [wb_hyperram_cover] engine_0: ##   0:07:29  Writing trace to constraints file: engine_0/trace16.smtc
+SBY 21:42:46 [wb_hyperram_cover] engine_0: ##   0:07:29  Checking cover reachability in step 76..
+SBY 21:42:57 [wb_hyperram_cover] engine_0: ##   0:07:39  Checking cover reachability in step 77..
+SBY 21:42:59 [wb_hyperram_cover] engine_0: ##   0:07:42  Checking cover reachability in step 78..
+SBY 21:43:18 [wb_hyperram_cover] engine_0: ##   0:08:01  Checking cover reachability in step 79..
+SBY 21:43:21 [wb_hyperram_cover] engine_0: ##   0:08:04  Checking cover reachability in step 80..
+SBY 21:43:35 [wb_hyperram_cover] engine_0: ##   0:08:18  Checking cover reachability in step 81..
+SBY 21:43:38 [wb_hyperram_cover] engine_0: ##   0:08:21  Checking cover reachability in step 82..
+SBY 21:43:56 [wb_hyperram_cover] engine_0: ##   0:08:39  Checking cover reachability in step 83..
+SBY 21:43:59 [wb_hyperram_cover] engine_0: ##   0:08:42  Checking cover reachability in step 84..
+SBY 21:44:14 [wb_hyperram_cover] engine_0: ##   0:08:57  Reached cover statement at _rx_hreg_timeout in step 84.
+SBY 21:44:16 [wb_hyperram_cover] engine_0: ##   0:08:59  Writing trace to VCD file: engine_0/trace17.vcd
+SBY 21:44:19 [wb_hyperram_cover] engine_0: ##   0:09:02  Writing trace to Verilog testbench: engine_0/trace17_tb.v
+SBY 21:44:19 [wb_hyperram_cover] engine_0: ##   0:09:02  Writing trace to constraints file: engine_0/trace17.smtc
+SBY 21:44:20 [wb_hyperram_cover] engine_0: ##   0:09:03  Status: passed
+SBY 21:44:20 [wb_hyperram_cover] engine_0: finished (returncode=0)
+SBY 21:44:20 [wb_hyperram_cover] engine_0: Status returned by engine: pass
+SBY 21:44:20 [wb_hyperram_cover] summary: Elapsed clock time [H:MM:SS (secs)]: 0:09:12 (552)
+SBY 21:44:20 [wb_hyperram_cover] summary: Elapsed process time [H:MM:SS (secs)]: 0:09:17 (557)
+SBY 21:44:20 [wb_hyperram_cover] summary: engine_0 (smtbmc) returned pass
+SBY 21:44:20 [wb_hyperram_cover] summary: trace: wb_hyperram_cover/engine_0/trace0.vcd
+SBY 21:44:20 [wb_hyperram_cover] summary: trace: wb_hyperram_cover/engine_0/trace1.vcd
+SBY 21:44:20 [wb_hyperram_cover] summary: trace: wb_hyperram_cover/engine_0/trace2.vcd
+SBY 21:44:20 [wb_hyperram_cover] summary: trace: wb_hyperram_cover/engine_0/trace3.vcd
+SBY 21:44:20 [wb_hyperram_cover] summary: trace: wb_hyperram_cover/engine_0/trace4.vcd
+SBY 21:44:20 [wb_hyperram_cover] summary: and 13 further traces
+SBY 21:44:20 [wb_hyperram_cover] DONE (PASS, rc=0)

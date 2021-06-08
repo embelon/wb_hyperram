@@ -1,0 +1,25 @@
+# HyperBus
+set_io -nowarn hb_rstn_o	2
+set_io -nowarn hb_clk_o	46
+set_io -nowarn hb_clkn_o  	47
+set_io -nowarn	hb_dq7		3
+set_io -nowarn	hb_dq6		4
+set_io -nowarn	hb_dq5		44
+set_io -nowarn	hb_dq4		6
+set_io -nowarn	hb_dq3		9
+set_io -nowarn	hb_dq2		11
+set_io -nowarn	hb_dq1		18
+set_io -nowarn	hb_dq0		19
+set_io -nowarn	hb_rwds	13
+
+# /CS1 - HyperRAM
+set_io -nowarn	hb_cs1n	21
+
+# /CS0 - HyperFlash (not populated)
+#set_io -nowarn	hb_cs0n	12
+# set_io -nowarn hb_psc     	45
+# set_io -nowarn hb_pscn     	48
+
+# synchronous reset
+# set_io -nowarn reset      4
+

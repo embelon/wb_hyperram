@@ -1,0 +1,14 @@
+[options]
+mode bmc
+multiclock on
+depth 100
+
+[engines]
+smtbmc
+
+[script]
+read -formal hyperram.v
+prep -top hyperram
+
+[files]
+src/hyperram.v

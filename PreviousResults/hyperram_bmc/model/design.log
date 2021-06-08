@@ -1,0 +1,1481 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Wolf <claire@symbioticeda.com>          |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.9+4081 (open-tool-forge build) (git sha1 ef4ddfac, gcc 9.3.0-17ubuntu1~20.04 -Os)
+
+
+-- Executing script file `../model/design.ys' --
+
+1. Executing Verilog-2005 frontend: hyperram.v
+Parsing formal SystemVerilog input from `hyperram.v' to AST representation.
+Storing AST representation for module `$abstract\hyperram'.
+Successfully finished Verilog frontend.
+
+2. Executing PREP pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.2. Executing AST frontend in derive mode using pre-parsed AST for module `\hyperram'.
+Generating RTLIL representation for module `\hyperram'.
+Warning: wire '\latency_cycles' is assigned in a block at hyperram.v:89.4-89.95.
+Warning: wire '\latency_cycles' is assigned in a block at hyperram.v:91.4-91.103.
+Warning: wire '\latency_cycles' is assigned in a block at hyperram.v:97.4-97.96.
+Warning: wire '\latency_cycles' is assigned in a block at hyperram.v:99.4-99.104.
+Warning: wire '\hb_dq_o' is assigned in a block at hyperram.v:342.13-342.59.
+Warning: wire '\hb_dq_o' is assigned in a block at hyperram.v:343.15-343.64.
+Warning: wire '\hb_dq_o' is assigned in a block at hyperram.v:344.15-344.31.
+
+2.2.1. Analyzing design hierarchy..
+Top module:  \hyperram
+
+2.2.2. Analyzing design hierarchy..
+Top module:  \hyperram
+Removing unused module `$abstract\hyperram'.
+Removed 1 unused modules.
+Module hyperram directly or indirectly contains formal properties -> setting "keep" attribute.
+
+2.3. Executing PROC pass (convert processes to netlists).
+
+2.3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 8 switch rules as full_case in process $proc$hyperram.v:389$270 in module hyperram.
+Marked 1 switch rules as full_case in process $proc$hyperram.v:340$264 in module hyperram.
+Marked 2 switch rules as full_case in process $proc$hyperram.v:276$237 in module hyperram.
+Marked 10 switch rules as full_case in process $proc$hyperram.v:116$190 in module hyperram.
+Marked 3 switch rules as full_case in process $proc$hyperram.v:83$171 in module hyperram.
+Removed a total of 0 dead cases.
+
+2.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 4 redundant assignments.
+Promoted 172 assignments to connections.
+
+2.3.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\hyperram.$proc$hyperram.v:0$1031'.
+  Set init value: $formal$hyperram.v:1069$170_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$1029'.
+  Set init value: $formal$hyperram.v:1068$169_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$1027'.
+  Set init value: $formal$hyperram.v:1067$168_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$1025'.
+  Set init value: $formal$hyperram.v:1066$167_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$1023'.
+  Set init value: $formal$hyperram.v:1058$166_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$1021'.
+  Set init value: $formal$hyperram.v:1057$165_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$1019'.
+  Set init value: $formal$hyperram.v:1056$164_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$1017'.
+  Set init value: $formal$hyperram.v:1055$163_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$1015'.
+  Set init value: $formal$hyperram.v:1052$162_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$1013'.
+  Set init value: $formal$hyperram.v:1047$161_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$1011'.
+  Set init value: $formal$hyperram.v:1044$160_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$1009'.
+  Set init value: $formal$hyperram.v:1039$159_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$1007'.
+  Set init value: $formal$hyperram.v:1035$158_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$1005'.
+  Set init value: $formal$hyperram.v:1033$157_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$1003'.
+  Set init value: $formal$hyperram.v:1029$156_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$1001'.
+  Set init value: $formal$hyperram.v:1024$155_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$999'.
+  Set init value: $formal$hyperram.v:1021$154_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$997'.
+  Set init value: $formal$hyperram.v:1018$153_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$995'.
+  Set init value: $formal$hyperram.v:1015$152_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$993'.
+  Set init value: $formal$hyperram.v:1012$151_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$991'.
+  Set init value: $formal$hyperram.v:1007$150_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$989'.
+  Set init value: $formal$hyperram.v:1004$149_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$987'.
+  Set init value: $formal$hyperram.v:1001$148_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$985'.
+  Set init value: $formal$hyperram.v:997$147_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$983'.
+  Set init value: $formal$hyperram.v:995$146_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$981'.
+  Set init value: $formal$hyperram.v:993$145_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$979'.
+  Set init value: $formal$hyperram.v:989$144_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$977'.
+  Set init value: $formal$hyperram.v:987$143_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$975'.
+  Set init value: $formal$hyperram.v:983$142_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$973'.
+  Set init value: $formal$hyperram.v:980$141_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$971'.
+  Set init value: $formal$hyperram.v:977$140_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$969'.
+  Set init value: $formal$hyperram.v:974$139_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$967'.
+  Set init value: $formal$hyperram.v:968$138_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$965'.
+  Set init value: $formal$hyperram.v:965$137_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$963'.
+  Set init value: $formal$hyperram.v:962$136_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$961'.
+  Set init value: $formal$hyperram.v:959$135_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$959'.
+  Set init value: $formal$hyperram.v:956$134_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$957'.
+  Set init value: $formal$hyperram.v:953$133_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$955'.
+  Set init value: $formal$hyperram.v:950$132_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$953'.
+  Set init value: $formal$hyperram.v:947$131_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$951'.
+  Set init value: $formal$hyperram.v:944$130_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$949'.
+  Set init value: $formal$hyperram.v:941$129_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$947'.
+  Set init value: $formal$hyperram.v:937$128_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$945'.
+  Set init value: $formal$hyperram.v:931$127_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$943'.
+  Set init value: $formal$hyperram.v:929$126_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$941'.
+  Set init value: $formal$hyperram.v:928$125_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$939'.
+  Set init value: $formal$hyperram.v:927$124_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$937'.
+  Set init value: $formal$hyperram.v:926$123_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$935'.
+  Set init value: $formal$hyperram.v:919$122_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$933'.
+  Set init value: $formal$hyperram.v:917$121_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$931'.
+  Set init value: $formal$hyperram.v:913$120_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$929'.
+  Set init value: $formal$hyperram.v:911$119_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$927'.
+  Set init value: $formal$hyperram.v:903$118_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$925'.
+  Set init value: $formal$hyperram.v:902$117_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$923'.
+  Set init value: $formal$hyperram.v:901$116_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$921'.
+  Set init value: $formal$hyperram.v:900$115_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$919'.
+  Set init value: $formal$hyperram.v:894$114_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$917'.
+  Set init value: $formal$hyperram.v:893$113_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$915'.
+  Set init value: $formal$hyperram.v:892$112_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$913'.
+  Set init value: $formal$hyperram.v:891$111_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$911'.
+  Set init value: $formal$hyperram.v:890$110_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$909'.
+  Set init value: $formal$hyperram.v:889$109_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$907'.
+  Set init value: $formal$hyperram.v:885$108_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$905'.
+  Set init value: $formal$hyperram.v:883$107_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$903'.
+  Set init value: $formal$hyperram.v:875$106_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$901'.
+  Set init value: $formal$hyperram.v:873$105_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$899'.
+  Set init value: $formal$hyperram.v:873$104_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$897'.
+  Set init value: $formal$hyperram.v:871$103_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$895'.
+  Set init value: $formal$hyperram.v:868$102_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$893'.
+  Set init value: $formal$hyperram.v:866$101_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$891'.
+  Set init value: $formal$hyperram.v:863$100_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$889'.
+  Set init value: $formal$hyperram.v:862$99_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$887'.
+  Set init value: $formal$hyperram.v:861$98_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$885'.
+  Set init value: $formal$hyperram.v:855$97_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$883'.
+  Set init value: $formal$hyperram.v:854$96_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$881'.
+  Set init value: $formal$hyperram.v:848$95_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$879'.
+  Set init value: $formal$hyperram.v:398$94_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:0$877'.
+  Set init value: $formal$hyperram.v:395$93_EN = 1'0
+Found init rule in `\hyperram.$proc$hyperram.v:359$869'.
+  Set init value: \f_past_valid = 1'0
+
+2.3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+2.3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$1031'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$1029'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$1027'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$1025'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$1023'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$1021'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$1019'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$1017'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$1015'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$1013'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$1011'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$1009'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$1007'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$1005'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$1003'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$1001'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$999'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$997'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$995'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$993'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$991'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$989'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$987'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$985'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$983'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$981'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$979'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$977'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$975'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$973'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$971'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$969'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$967'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$965'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$963'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$961'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$959'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$957'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$955'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$953'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$951'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$949'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$947'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$945'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$943'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$941'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$939'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$937'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$935'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$933'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$931'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$929'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$927'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$925'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$923'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$921'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$919'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$917'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$915'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$913'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$911'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$909'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$907'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$905'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$903'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$901'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$899'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$897'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$895'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$893'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$891'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$889'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$887'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$885'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$883'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$881'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$879'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$877'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$873'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:0$870'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:359$869'.
+Creating decoders for process `\hyperram.$proc$hyperram.v:389$270'.
+     1/156: $0$formal$hyperram.v:395$93_EN[0:0]$360
+     2/156: $0$formal$hyperram.v:395$93_CHECK[0:0]$359
+     3/156: $0$formal$hyperram.v:398$94_EN[0:0]$362
+     4/156: $0$formal$hyperram.v:398$94_CHECK[0:0]$361
+     5/156: $0$formal$hyperram.v:848$95_EN[0:0]$364
+     6/156: $0$formal$hyperram.v:848$95_CHECK[0:0]$363
+     7/156: $0$formal$hyperram.v:854$96_EN[0:0]$366
+     8/156: $0$formal$hyperram.v:854$96_CHECK[0:0]$365
+     9/156: $0$formal$hyperram.v:855$97_EN[0:0]$368
+    10/156: $0$formal$hyperram.v:855$97_CHECK[0:0]$367
+    11/156: $0$formal$hyperram.v:861$98_EN[0:0]$370
+    12/156: $0$formal$hyperram.v:861$98_CHECK[0:0]$369
+    13/156: $0$formal$hyperram.v:862$99_EN[0:0]$372
+    14/156: $0$formal$hyperram.v:862$99_CHECK[0:0]$371
+    15/156: $0$formal$hyperram.v:863$100_EN[0:0]$374
+    16/156: $0$formal$hyperram.v:863$100_CHECK[0:0]$373
+    17/156: $0$formal$hyperram.v:866$101_EN[0:0]$376
+    18/156: $0$formal$hyperram.v:866$101_CHECK[0:0]$375
+    19/156: $0$formal$hyperram.v:868$102_EN[0:0]$378
+    20/156: $0$formal$hyperram.v:868$102_CHECK[0:0]$377
+    21/156: $0$formal$hyperram.v:871$103_EN[0:0]$380
+    22/156: $0$formal$hyperram.v:871$103_CHECK[0:0]$379
+    23/156: $0$formal$hyperram.v:873$104_EN[0:0]$382
+    24/156: $0$formal$hyperram.v:873$104_CHECK[0:0]$381
+    25/156: $0$formal$hyperram.v:873$105_EN[0:0]$384
+    26/156: $0$formal$hyperram.v:873$105_CHECK[0:0]$383
+    27/156: $0$formal$hyperram.v:875$106_EN[0:0]$386
+    28/156: $0$formal$hyperram.v:875$106_CHECK[0:0]$385
+    29/156: $0$formal$hyperram.v:883$107_EN[0:0]$388
+    30/156: $0$formal$hyperram.v:883$107_CHECK[0:0]$387
+    31/156: $0$formal$hyperram.v:885$108_EN[0:0]$390
+    32/156: $0$formal$hyperram.v:885$108_CHECK[0:0]$389
+    33/156: $0$formal$hyperram.v:889$109_EN[0:0]$392
+    34/156: $0$formal$hyperram.v:889$109_CHECK[0:0]$391
+    35/156: $0$formal$hyperram.v:890$110_EN[0:0]$394
+    36/156: $0$formal$hyperram.v:890$110_CHECK[0:0]$393
+    37/156: $0$formal$hyperram.v:891$111_EN[0:0]$396
+    38/156: $0$formal$hyperram.v:891$111_CHECK[0:0]$395
+    39/156: $0$formal$hyperram.v:892$112_EN[0:0]$398
+    40/156: $0$formal$hyperram.v:892$112_CHECK[0:0]$397
+    41/156: $0$formal$hyperram.v:893$113_EN[0:0]$400
+    42/156: $0$formal$hyperram.v:893$113_CHECK[0:0]$399
+    43/156: $0$formal$hyperram.v:894$114_EN[0:0]$402
+    44/156: $0$formal$hyperram.v:894$114_CHECK[0:0]$401
+    45/156: $0$formal$hyperram.v:900$115_EN[0:0]$404
+    46/156: $0$formal$hyperram.v:900$115_CHECK[0:0]$403
+    47/156: $0$formal$hyperram.v:901$116_EN[0:0]$406
+    48/156: $0$formal$hyperram.v:901$116_CHECK[0:0]$405
+    49/156: $0$formal$hyperram.v:902$117_EN[0:0]$408
+    50/156: $0$formal$hyperram.v:902$117_CHECK[0:0]$407
+    51/156: $0$formal$hyperram.v:903$118_EN[0:0]$410
+    52/156: $0$formal$hyperram.v:903$118_CHECK[0:0]$409
+    53/156: $0$formal$hyperram.v:911$119_EN[0:0]$412
+    54/156: $0$formal$hyperram.v:911$119_CHECK[0:0]$411
+    55/156: $0$formal$hyperram.v:913$120_EN[0:0]$414
+    56/156: $0$formal$hyperram.v:913$120_CHECK[0:0]$413
+    57/156: $0$formal$hyperram.v:917$121_EN[0:0]$416
+    58/156: $0$formal$hyperram.v:917$121_CHECK[0:0]$415
+    59/156: $0$formal$hyperram.v:919$122_EN[0:0]$418
+    60/156: $0$formal$hyperram.v:919$122_CHECK[0:0]$417
+    61/156: $0$formal$hyperram.v:926$123_EN[0:0]$420
+    62/156: $0$formal$hyperram.v:926$123_CHECK[0:0]$419
+    63/156: $0$formal$hyperram.v:927$124_EN[0:0]$422
+    64/156: $0$formal$hyperram.v:927$124_CHECK[0:0]$421
+    65/156: $0$formal$hyperram.v:928$125_EN[0:0]$424
+    66/156: $0$formal$hyperram.v:928$125_CHECK[0:0]$423
+    67/156: $0$formal$hyperram.v:929$126_EN[0:0]$426
+    68/156: $0$formal$hyperram.v:929$126_CHECK[0:0]$425
+    69/156: $0$formal$hyperram.v:931$127_EN[0:0]$428
+    70/156: $0$formal$hyperram.v:931$127_CHECK[0:0]$427
+    71/156: $0$formal$hyperram.v:937$128_EN[0:0]$430
+    72/156: $0$formal$hyperram.v:937$128_CHECK[0:0]$429
+    73/156: $0$formal$hyperram.v:941$129_EN[0:0]$432
+    74/156: $0$formal$hyperram.v:941$129_CHECK[0:0]$431
+    75/156: $0$formal$hyperram.v:944$130_EN[0:0]$434
+    76/156: $0$formal$hyperram.v:944$130_CHECK[0:0]$433
+    77/156: $0$formal$hyperram.v:947$131_EN[0:0]$436
+    78/156: $0$formal$hyperram.v:947$131_CHECK[0:0]$435
+    79/156: $0$formal$hyperram.v:950$132_EN[0:0]$438
+    80/156: $0$formal$hyperram.v:950$132_CHECK[0:0]$437
+    81/156: $0$formal$hyperram.v:953$133_EN[0:0]$440
+    82/156: $0$formal$hyperram.v:953$133_CHECK[0:0]$439
+    83/156: $0$formal$hyperram.v:956$134_EN[0:0]$442
+    84/156: $0$formal$hyperram.v:956$134_CHECK[0:0]$441
+    85/156: $0$formal$hyperram.v:959$135_EN[0:0]$444
+    86/156: $0$formal$hyperram.v:959$135_CHECK[0:0]$443
+    87/156: $0$formal$hyperram.v:962$136_EN[0:0]$446
+    88/156: $0$formal$hyperram.v:962$136_CHECK[0:0]$445
+    89/156: $0$formal$hyperram.v:965$137_EN[0:0]$448
+    90/156: $0$formal$hyperram.v:965$137_CHECK[0:0]$447
+    91/156: $0$formal$hyperram.v:968$138_EN[0:0]$450
+    92/156: $0$formal$hyperram.v:968$138_CHECK[0:0]$449
+    93/156: $0$formal$hyperram.v:974$139_EN[0:0]$452
+    94/156: $0$formal$hyperram.v:974$139_CHECK[0:0]$451
+    95/156: $0$formal$hyperram.v:977$140_EN[0:0]$454
+    96/156: $0$formal$hyperram.v:977$140_CHECK[0:0]$453
+    97/156: $0$formal$hyperram.v:980$141_EN[0:0]$456
+    98/156: $0$formal$hyperram.v:980$141_CHECK[0:0]$455
+    99/156: $0$formal$hyperram.v:983$142_EN[0:0]$458
+   100/156: $0$formal$hyperram.v:983$142_CHECK[0:0]$457
+   101/156: $0$formal$hyperram.v:987$143_EN[0:0]$460
+   102/156: $0$formal$hyperram.v:987$143_CHECK[0:0]$459
+   103/156: $0$formal$hyperram.v:989$144_EN[0:0]$462
+   104/156: $0$formal$hyperram.v:989$144_CHECK[0:0]$461
+   105/156: $0$formal$hyperram.v:993$145_EN[0:0]$464
+   106/156: $0$formal$hyperram.v:993$145_CHECK[0:0]$463
+   107/156: $0$formal$hyperram.v:995$146_EN[0:0]$466
+   108/156: $0$formal$hyperram.v:995$146_CHECK[0:0]$465
+   109/156: $0$formal$hyperram.v:997$147_EN[0:0]$468
+   110/156: $0$formal$hyperram.v:997$147_CHECK[0:0]$467
+   111/156: $0$formal$hyperram.v:1001$148_EN[0:0]$470
+   112/156: $0$formal$hyperram.v:1001$148_CHECK[0:0]$469
+   113/156: $0$formal$hyperram.v:1004$149_EN[0:0]$472
+   114/156: $0$formal$hyperram.v:1004$149_CHECK[0:0]$471
+   115/156: $0$formal$hyperram.v:1007$150_EN[0:0]$474
+   116/156: $0$formal$hyperram.v:1007$150_CHECK[0:0]$473
+   117/156: $0$formal$hyperram.v:1012$151_EN[0:0]$476
+   118/156: $0$formal$hyperram.v:1012$151_CHECK[0:0]$475
+   119/156: $0$formal$hyperram.v:1015$152_EN[0:0]$478
+   120/156: $0$formal$hyperram.v:1015$152_CHECK[0:0]$477
+   121/156: $0$formal$hyperram.v:1018$153_EN[0:0]$480
+   122/156: $0$formal$hyperram.v:1018$153_CHECK[0:0]$479
+   123/156: $0$formal$hyperram.v:1021$154_EN[0:0]$482
+   124/156: $0$formal$hyperram.v:1021$154_CHECK[0:0]$481
+   125/156: $0$formal$hyperram.v:1024$155_EN[0:0]$484
+   126/156: $0$formal$hyperram.v:1024$155_CHECK[0:0]$483
+   127/156: $0$formal$hyperram.v:1029$156_EN[0:0]$486
+   128/156: $0$formal$hyperram.v:1029$156_CHECK[0:0]$485
+   129/156: $0$formal$hyperram.v:1033$157_EN[0:0]$488
+   130/156: $0$formal$hyperram.v:1033$157_CHECK[0:0]$487
+   131/156: $0$formal$hyperram.v:1035$158_EN[0:0]$490
+   132/156: $0$formal$hyperram.v:1035$158_CHECK[0:0]$489
+   133/156: $0$formal$hyperram.v:1039$159_EN[0:0]$492
+   134/156: $0$formal$hyperram.v:1039$159_CHECK[0:0]$491
+   135/156: $0$formal$hyperram.v:1044$160_EN[0:0]$494
+   136/156: $0$formal$hyperram.v:1044$160_CHECK[0:0]$493
+   137/156: $0$formal$hyperram.v:1047$161_EN[0:0]$496
+   138/156: $0$formal$hyperram.v:1047$161_CHECK[0:0]$495
+   139/156: $0$formal$hyperram.v:1052$162_EN[0:0]$498
+   140/156: $0$formal$hyperram.v:1052$162_CHECK[0:0]$497
+   141/156: $0$formal$hyperram.v:1055$163_EN[0:0]$500
+   142/156: $0$formal$hyperram.v:1055$163_CHECK[0:0]$499
+   143/156: $0$formal$hyperram.v:1056$164_EN[0:0]$502
+   144/156: $0$formal$hyperram.v:1056$164_CHECK[0:0]$501
+   145/156: $0$formal$hyperram.v:1057$165_EN[0:0]$504
+   146/156: $0$formal$hyperram.v:1057$165_CHECK[0:0]$503
+   147/156: $0$formal$hyperram.v:1058$166_EN[0:0]$506
+   148/156: $0$formal$hyperram.v:1058$166_CHECK[0:0]$505
+   149/156: $0$formal$hyperram.v:1066$167_EN[0:0]$508
+   150/156: $0$formal$hyperram.v:1066$167_CHECK[0:0]$507
+   151/156: $0$formal$hyperram.v:1067$168_EN[0:0]$510
+   152/156: $0$formal$hyperram.v:1067$168_CHECK[0:0]$509
+   153/156: $0$formal$hyperram.v:1068$169_EN[0:0]$512
+   154/156: $0$formal$hyperram.v:1068$169_CHECK[0:0]$511
+   155/156: $0$formal$hyperram.v:1069$170_EN[0:0]$514
+   156/156: $0$formal$hyperram.v:1069$170_CHECK[0:0]$513
+Creating decoders for process `\hyperram.$proc$hyperram.v:340$264'.
+     1/1: $0\hb_dq_o[7:0]
+Creating decoders for process `\hyperram.$proc$hyperram.v:276$237'.
+     1/8: $0\datar_r[31:0] [15:8]
+     2/8: $0\datar_r[31:0] [7:0]
+     3/8: $0\datar_r[31:0] [23:16]
+     4/8: $0\datar_r[31:0] [31:24]
+     5/8: $0\bus_clk_r[0:0]
+     6/8: $0\read_cnt_r[2:0]
+     7/8: $0\rwds_2x_latency_r[0:0]
+     8/8: $0\rwds_r[0:0]
+Creating decoders for process `\hyperram.$proc$hyperram.v:116$190'.
+     1/20: $0\CA_r[47:0] [15:3]
+     2/20: $0\CA_r[47:0] [2:0]
+     3/20: $0\CA_r[47:0] [44:16]
+     4/20: $0\CA_r[47:0] [45]
+     5/20: $0\CA_r[47:0] [46]
+     6/20: $0\CA_r[47:0] [47]
+     7/20: $0\cycle_cnt_r[5:0]
+     8/20: $0\bus_state_r[2:0]
+     9/20: $0\read_timeout_r[0:0]
+    10/20: $0\busy_r[0:0]
+    11/20: $0\sel_r[3:0]
+    12/20: $0\valid_r[0:0]
+    13/20: $0\dataw_r[31:0]
+    14/20: $0\double_latency_r[0:0]
+    15/20: $0\fixed_latency_r[0:0]
+    16/20: $0\trmax_r[4:0]
+    17/20: $0\tpost_r[3:0]
+    18/20: $0\tacc_r[3:0]
+    19/20: $0\tpre_r[3:0]
+    20/20: $0\tcsh_r[3:0]
+Creating decoders for process `\hyperram.$proc$hyperram.v:83$171'.
+     1/1: $0\latency_cycles[5:0]
+
+2.3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\hyperram.$formal$hyperram.v:386$91_CHECK' from process `\hyperram.$proc$hyperram.v:0$873'.
+No latch inferred for signal `\hyperram.$formal$hyperram.v:386$91_EN' from process `\hyperram.$proc$hyperram.v:0$873'.
+No latch inferred for signal `\hyperram.$formal$hyperram.v:385$89_CHECK' from process `\hyperram.$proc$hyperram.v:0$870'.
+No latch inferred for signal `\hyperram.$formal$hyperram.v:385$89_EN' from process `\hyperram.$proc$hyperram.v:0$870'.
+No latch inferred for signal `\hyperram.\hb_dq_o' from process `\hyperram.$proc$hyperram.v:340$264'.
+No latch inferred for signal `\hyperram.\latency_cycles' from process `\hyperram.$proc$hyperram.v:83$171'.
+
+2.3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\hyperram.\f_past_valid' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2219' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:395$1$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2220' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:395$2$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2221' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:396$3$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2222' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:399$4$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2223' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:849$5$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2224' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:860$6$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2225' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:861$7$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2226' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:862$8$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2227' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:863$9$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2228' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:865$10$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2229' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:866$11$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2230' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:870$12$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2231' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:871$13$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2232' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:875$14$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2233' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:876$15$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2234' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:931$16$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2235' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:936$17$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2236' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:940$18$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2237' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:943$19$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2238' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:946$20$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2239' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:949$21$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2240' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:952$22$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2241' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:955$23$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2242' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:958$24$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2243' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:961$25$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2244' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:961$26$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2245' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:961$27$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2246' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:962$28$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2247' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:964$29$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2248' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:964$30$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2249' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:964$31$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2250' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:967$32$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2251' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:967$33$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2252' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:967$34$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2253' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:967$35$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2254' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:973$36$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2255' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:973$37$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2256' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:974$38$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2257' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:976$39$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2258' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:976$40$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2259' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:979$41$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2260' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:979$42$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2261' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:982$43$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2262' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:982$44$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2263' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:985$45$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2264' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:985$46$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2265' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:992$47$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2266' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:992$48$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2267' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1000$49$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2268' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1000$50$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2269' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1003$51$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2270' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1003$52$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2271' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1003$53$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2272' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1006$54$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2273' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1006$55$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2274' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1014$56$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2275' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1014$57$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2276' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1014$58$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2277' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1014$59$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2278' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1017$60$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2279' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1020$61$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2280' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1020$62$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2281' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1020$63$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2282' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1020$64$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2283' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1031$65$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2284' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1032$66$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2285' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1032$67$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2286' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1038$68$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2287' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1046$69$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2288' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1046$70$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2289' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1046$71$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2290' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1047$72$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2291' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1050$73$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2292' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1050$74$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2293' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1051$75$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2294' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1052$76$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2295' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1055$77$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2296' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1056$78$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2297' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1057$79$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2298' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1058$80$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2299' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1064$81$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2300' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1065$82$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2301' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1065$83$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2302' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1065$84$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2303' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1066$85$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2304' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1067$86$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2305' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1068$87$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2306' with global clock.
+Creating register for signal `\hyperram.$past$hyperram.v:1069$88$0' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2307' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:395$93_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2308' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:395$93_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2309' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:398$94_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2310' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:398$94_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2311' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:848$95_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2312' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:848$95_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2313' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:854$96_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2314' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:854$96_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2315' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:855$97_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2316' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:855$97_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2317' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:861$98_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2318' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:861$98_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2319' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:862$99_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2320' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:862$99_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2321' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:863$100_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2322' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:863$100_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2323' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:866$101_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2324' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:866$101_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2325' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:868$102_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2326' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:868$102_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2327' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:871$103_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2328' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:871$103_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2329' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:873$104_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2330' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:873$104_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2331' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:873$105_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2332' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:873$105_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2333' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:875$106_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2334' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:875$106_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2335' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:883$107_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2336' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:883$107_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2337' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:885$108_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2338' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:885$108_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2339' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:889$109_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2340' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:889$109_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2341' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:890$110_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2342' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:890$110_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2343' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:891$111_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2344' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:891$111_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2345' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:892$112_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2346' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:892$112_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2347' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:893$113_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2348' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:893$113_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2349' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:894$114_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2350' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:894$114_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2351' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:900$115_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2352' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:900$115_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2353' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:901$116_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2354' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:901$116_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2355' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:902$117_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2356' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:902$117_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2357' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:903$118_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2358' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:903$118_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2359' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:911$119_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2360' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:911$119_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2361' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:913$120_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2362' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:913$120_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2363' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:917$121_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2364' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:917$121_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2365' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:919$122_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2366' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:919$122_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2367' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:926$123_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2368' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:926$123_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2369' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:927$124_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2370' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:927$124_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2371' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:928$125_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2372' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:928$125_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2373' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:929$126_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2374' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:929$126_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2375' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:931$127_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2376' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:931$127_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2377' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:937$128_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2378' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:937$128_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2379' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:941$129_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2380' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:941$129_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2381' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:944$130_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2382' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:944$130_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2383' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:947$131_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2384' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:947$131_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2385' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:950$132_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2386' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:950$132_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2387' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:953$133_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2388' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:953$133_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2389' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:956$134_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2390' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:956$134_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2391' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:959$135_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2392' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:959$135_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2393' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:962$136_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2394' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:962$136_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2395' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:965$137_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2396' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:965$137_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2397' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:968$138_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2398' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:968$138_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2399' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:974$139_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2400' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:974$139_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2401' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:977$140_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2402' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:977$140_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2403' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:980$141_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2404' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:980$141_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2405' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:983$142_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2406' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:983$142_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2407' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:987$143_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2408' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:987$143_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2409' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:989$144_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2410' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:989$144_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2411' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:993$145_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2412' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:993$145_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2413' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:995$146_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2414' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:995$146_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2415' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:997$147_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2416' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:997$147_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2417' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1001$148_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2418' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1001$148_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2419' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1004$149_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2420' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1004$149_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2421' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1007$150_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2422' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1007$150_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2423' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1012$151_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2424' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1012$151_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2425' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1015$152_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2426' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1015$152_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2427' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1018$153_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2428' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1018$153_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2429' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1021$154_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2430' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1021$154_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2431' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1024$155_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2432' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1024$155_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2433' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1029$156_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2434' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1029$156_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2435' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1033$157_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2436' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1033$157_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2437' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1035$158_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2438' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1035$158_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2439' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1039$159_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2440' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1039$159_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2441' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1044$160_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2442' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1044$160_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2443' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1047$161_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2444' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1047$161_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2445' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1052$162_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2446' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1052$162_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2447' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1055$163_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2448' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1055$163_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2449' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1056$164_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2450' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1056$164_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2451' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1057$165_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2452' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1057$165_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2453' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1058$166_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2454' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1058$166_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2455' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1066$167_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2456' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1066$167_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2457' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1067$168_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2458' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1067$168_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2459' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1068$169_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2460' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1068$169_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2461' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1069$170_CHECK' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2462' with global clock.
+Creating register for signal `\hyperram.$formal$hyperram.v:1069$170_EN' using process `\hyperram.$proc$hyperram.v:389$270'.
+  created $ff cell `$procdff$2463' with global clock.
+Creating register for signal `\hyperram.\rwds_r' using process `\hyperram.$proc$hyperram.v:276$237'.
+  created $dff cell `$procdff$2464' with negative edge clock.
+Creating register for signal `\hyperram.\rwds_2x_latency_r' using process `\hyperram.$proc$hyperram.v:276$237'.
+  created $dff cell `$procdff$2465' with negative edge clock.
+Creating register for signal `\hyperram.\read_cnt_r' using process `\hyperram.$proc$hyperram.v:276$237'.
+  created $dff cell `$procdff$2466' with negative edge clock.
+Creating register for signal `\hyperram.\bus_clk_r' using process `\hyperram.$proc$hyperram.v:276$237'.
+  created $dff cell `$procdff$2467' with negative edge clock.
+Creating register for signal `\hyperram.\datar_r' using process `\hyperram.$proc$hyperram.v:276$237'.
+  created $dff cell `$procdff$2468' with negative edge clock.
+Creating register for signal `\hyperram.\tcsh_r' using process `\hyperram.$proc$hyperram.v:116$190'.
+  created $dff cell `$procdff$2469' with positive edge clock.
+Creating register for signal `\hyperram.\tpre_r' using process `\hyperram.$proc$hyperram.v:116$190'.
+  created $dff cell `$procdff$2470' with positive edge clock.
+Creating register for signal `\hyperram.\tacc_r' using process `\hyperram.$proc$hyperram.v:116$190'.
+  created $dff cell `$procdff$2471' with positive edge clock.
+Creating register for signal `\hyperram.\tpost_r' using process `\hyperram.$proc$hyperram.v:116$190'.
+  created $dff cell `$procdff$2472' with positive edge clock.
+Creating register for signal `\hyperram.\trmax_r' using process `\hyperram.$proc$hyperram.v:116$190'.
+  created $dff cell `$procdff$2473' with positive edge clock.
+Creating register for signal `\hyperram.\fixed_latency_r' using process `\hyperram.$proc$hyperram.v:116$190'.
+  created $dff cell `$procdff$2474' with positive edge clock.
+Creating register for signal `\hyperram.\double_latency_r' using process `\hyperram.$proc$hyperram.v:116$190'.
+  created $dff cell `$procdff$2475' with positive edge clock.
+Creating register for signal `\hyperram.\dataw_r' using process `\hyperram.$proc$hyperram.v:116$190'.
+  created $dff cell `$procdff$2476' with positive edge clock.
+Creating register for signal `\hyperram.\CA_r' using process `\hyperram.$proc$hyperram.v:116$190'.
+  created $dff cell `$procdff$2477' with positive edge clock.
+Creating register for signal `\hyperram.\sel_r' using process `\hyperram.$proc$hyperram.v:116$190'.
+  created $dff cell `$procdff$2478' with positive edge clock.
+Creating register for signal `\hyperram.\busy_r' using process `\hyperram.$proc$hyperram.v:116$190'.
+  created $dff cell `$procdff$2479' with positive edge clock.
+Creating register for signal `\hyperram.\read_timeout_r' using process `\hyperram.$proc$hyperram.v:116$190'.
+  created $dff cell `$procdff$2480' with positive edge clock.
+Creating register for signal `\hyperram.\bus_state_r' using process `\hyperram.$proc$hyperram.v:116$190'.
+  created $dff cell `$procdff$2481' with positive edge clock.
+Creating register for signal `\hyperram.\valid_r' using process `\hyperram.$proc$hyperram.v:116$190'.
+  created $dff cell `$procdff$2482' with positive edge clock.
+Creating register for signal `\hyperram.\cycle_cnt_r' using process `\hyperram.$proc$hyperram.v:116$190'.
+  created $dff cell `$procdff$2483' with positive edge clock.
+
+2.3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `hyperram.$proc$hyperram.v:0$1031'.
+Removing empty process `hyperram.$proc$hyperram.v:0$1029'.
+Removing empty process `hyperram.$proc$hyperram.v:0$1027'.
+Removing empty process `hyperram.$proc$hyperram.v:0$1025'.
+Removing empty process `hyperram.$proc$hyperram.v:0$1023'.
+Removing empty process `hyperram.$proc$hyperram.v:0$1021'.
+Removing empty process `hyperram.$proc$hyperram.v:0$1019'.
+Removing empty process `hyperram.$proc$hyperram.v:0$1017'.
+Removing empty process `hyperram.$proc$hyperram.v:0$1015'.
+Removing empty process `hyperram.$proc$hyperram.v:0$1013'.
+Removing empty process `hyperram.$proc$hyperram.v:0$1011'.
+Removing empty process `hyperram.$proc$hyperram.v:0$1009'.
+Removing empty process `hyperram.$proc$hyperram.v:0$1007'.
+Removing empty process `hyperram.$proc$hyperram.v:0$1005'.
+Removing empty process `hyperram.$proc$hyperram.v:0$1003'.
+Removing empty process `hyperram.$proc$hyperram.v:0$1001'.
+Removing empty process `hyperram.$proc$hyperram.v:0$999'.
+Removing empty process `hyperram.$proc$hyperram.v:0$997'.
+Removing empty process `hyperram.$proc$hyperram.v:0$995'.
+Removing empty process `hyperram.$proc$hyperram.v:0$993'.
+Removing empty process `hyperram.$proc$hyperram.v:0$991'.
+Removing empty process `hyperram.$proc$hyperram.v:0$989'.
+Removing empty process `hyperram.$proc$hyperram.v:0$987'.
+Removing empty process `hyperram.$proc$hyperram.v:0$985'.
+Removing empty process `hyperram.$proc$hyperram.v:0$983'.
+Removing empty process `hyperram.$proc$hyperram.v:0$981'.
+Removing empty process `hyperram.$proc$hyperram.v:0$979'.
+Removing empty process `hyperram.$proc$hyperram.v:0$977'.
+Removing empty process `hyperram.$proc$hyperram.v:0$975'.
+Removing empty process `hyperram.$proc$hyperram.v:0$973'.
+Removing empty process `hyperram.$proc$hyperram.v:0$971'.
+Removing empty process `hyperram.$proc$hyperram.v:0$969'.
+Removing empty process `hyperram.$proc$hyperram.v:0$967'.
+Removing empty process `hyperram.$proc$hyperram.v:0$965'.
+Removing empty process `hyperram.$proc$hyperram.v:0$963'.
+Removing empty process `hyperram.$proc$hyperram.v:0$961'.
+Removing empty process `hyperram.$proc$hyperram.v:0$959'.
+Removing empty process `hyperram.$proc$hyperram.v:0$957'.
+Removing empty process `hyperram.$proc$hyperram.v:0$955'.
+Removing empty process `hyperram.$proc$hyperram.v:0$953'.
+Removing empty process `hyperram.$proc$hyperram.v:0$951'.
+Removing empty process `hyperram.$proc$hyperram.v:0$949'.
+Removing empty process `hyperram.$proc$hyperram.v:0$947'.
+Removing empty process `hyperram.$proc$hyperram.v:0$945'.
+Removing empty process `hyperram.$proc$hyperram.v:0$943'.
+Removing empty process `hyperram.$proc$hyperram.v:0$941'.
+Removing empty process `hyperram.$proc$hyperram.v:0$939'.
+Removing empty process `hyperram.$proc$hyperram.v:0$937'.
+Removing empty process `hyperram.$proc$hyperram.v:0$935'.
+Removing empty process `hyperram.$proc$hyperram.v:0$933'.
+Removing empty process `hyperram.$proc$hyperram.v:0$931'.
+Removing empty process `hyperram.$proc$hyperram.v:0$929'.
+Removing empty process `hyperram.$proc$hyperram.v:0$927'.
+Removing empty process `hyperram.$proc$hyperram.v:0$925'.
+Removing empty process `hyperram.$proc$hyperram.v:0$923'.
+Removing empty process `hyperram.$proc$hyperram.v:0$921'.
+Removing empty process `hyperram.$proc$hyperram.v:0$919'.
+Removing empty process `hyperram.$proc$hyperram.v:0$917'.
+Removing empty process `hyperram.$proc$hyperram.v:0$915'.
+Removing empty process `hyperram.$proc$hyperram.v:0$913'.
+Removing empty process `hyperram.$proc$hyperram.v:0$911'.
+Removing empty process `hyperram.$proc$hyperram.v:0$909'.
+Removing empty process `hyperram.$proc$hyperram.v:0$907'.
+Removing empty process `hyperram.$proc$hyperram.v:0$905'.
+Removing empty process `hyperram.$proc$hyperram.v:0$903'.
+Removing empty process `hyperram.$proc$hyperram.v:0$901'.
+Removing empty process `hyperram.$proc$hyperram.v:0$899'.
+Removing empty process `hyperram.$proc$hyperram.v:0$897'.
+Removing empty process `hyperram.$proc$hyperram.v:0$895'.
+Removing empty process `hyperram.$proc$hyperram.v:0$893'.
+Removing empty process `hyperram.$proc$hyperram.v:0$891'.
+Removing empty process `hyperram.$proc$hyperram.v:0$889'.
+Removing empty process `hyperram.$proc$hyperram.v:0$887'.
+Removing empty process `hyperram.$proc$hyperram.v:0$885'.
+Removing empty process `hyperram.$proc$hyperram.v:0$883'.
+Removing empty process `hyperram.$proc$hyperram.v:0$881'.
+Removing empty process `hyperram.$proc$hyperram.v:0$879'.
+Removing empty process `hyperram.$proc$hyperram.v:0$877'.
+Removing empty process `hyperram.$proc$hyperram.v:0$873'.
+Removing empty process `hyperram.$proc$hyperram.v:0$870'.
+Removing empty process `hyperram.$proc$hyperram.v:359$869'.
+Found and cleaned up 62 empty switches in `\hyperram.$proc$hyperram.v:389$270'.
+Removing empty process `hyperram.$proc$hyperram.v:389$270'.
+Found and cleaned up 1 empty switch in `\hyperram.$proc$hyperram.v:340$264'.
+Removing empty process `hyperram.$proc$hyperram.v:340$264'.
+Found and cleaned up 7 empty switches in `\hyperram.$proc$hyperram.v:276$237'.
+Removing empty process `hyperram.$proc$hyperram.v:276$237'.
+Found and cleaned up 15 empty switches in `\hyperram.$proc$hyperram.v:116$190'.
+Removing empty process `hyperram.$proc$hyperram.v:116$190'.
+Found and cleaned up 3 empty switches in `\hyperram.$proc$hyperram.v:83$171'.
+Removing empty process `hyperram.$proc$hyperram.v:83$171'.
+Cleaned up 88 empty switches.
+
+2.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module hyperram.
+<suppressed ~61 debug messages>
+
+2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \hyperram..
+Removed 1 unused cells and 785 unused wires.
+<suppressed ~7 debug messages>
+
+2.6. Executing CHECK pass (checking for obvious problems).
+Checking module hyperram...
+Found and reported 0 problems.
+
+2.7. Executing OPT pass (performing simple optimizations).
+
+2.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module hyperram.
+<suppressed ~3 debug messages>
+
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\hyperram'.
+<suppressed ~978 debug messages>
+Removed a total of 326 cells.
+
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \hyperram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port B of cell $procmux$1159: \hb_dq_oen -> 1'1
+      Replacing known input bits on port B of cell $procmux$1341: \hb_rwds_oen -> 1'1
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~187 debug messages>
+
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \hyperram.
+Performed a total of 0 changes.
+
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\hyperram'.
+<suppressed ~149 debug messages>
+Removed a total of 50 cells.
+
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \hyperram..
+Removed 0 unused cells and 378 unused wires.
+<suppressed ~2 debug messages>
+
+2.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module hyperram.
+
+2.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \hyperram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~178 debug messages>
+
+2.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \hyperram.
+Performed a total of 0 changes.
+
+2.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\hyperram'.
+Removed a total of 0 cells.
+
+2.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \hyperram..
+
+2.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module hyperram.
+
+2.7.14. Finished OPT passes. (There is nothing left to do.)
+
+2.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 26 bits (of 32) from port A of cell hyperram.$sub$hyperram.v:89$172 ($sub).
+Removed top 30 bits (of 32) from port B of cell hyperram.$sub$hyperram.v:89$172 ($sub).
+Removed top 25 bits (of 32) from port Y of cell hyperram.$sub$hyperram.v:89$172 ($sub).
+Removed top 27 bits (of 32) from port A of cell hyperram.$sub$hyperram.v:89$173 ($sub).
+Removed top 30 bits (of 32) from port B of cell hyperram.$sub$hyperram.v:89$173 ($sub).
+Removed top 26 bits (of 32) from port Y of cell hyperram.$sub$hyperram.v:89$173 ($sub).
+Removed top 26 bits (of 32) from mux cell hyperram.$ternary$hyperram.v:89$174 ($mux).
+Removed top 31 bits (of 32) from port B of cell hyperram.$sub$hyperram.v:91$176 ($sub).
+Removed top 31 bits (of 32) from port B of cell hyperram.$sub$hyperram.v:91$178 ($sub).
+Removed top 26 bits (of 32) from mux cell hyperram.$ternary$hyperram.v:91$179 ($mux).
+Removed top 26 bits (of 32) from mux cell hyperram.$ternary$hyperram.v:97$182 ($mux).
+Removed top 26 bits (of 32) from mux cell hyperram.$ternary$hyperram.v:99$187 ($mux).
+Removed top 31 bits (of 32) from port B of cell hyperram.$sub$hyperram.v:143$192 ($sub).
+Removed top 26 bits (of 32) from port Y of cell hyperram.$sub$hyperram.v:143$192 ($sub).
+Removed top 30 bits (of 32) from port B of cell hyperram.$ge$hyperram.v:172$202 ($ge).
+Removed top 28 bits (of 32) from mux cell hyperram.$ternary$hyperram.v:172$204 ($mux).
+Removed top 29 bits (of 32) from port B of cell hyperram.$ge$hyperram.v:174$205 ($ge).
+Removed top 27 bits (of 32) from mux cell hyperram.$ternary$hyperram.v:174$207 ($mux).
+Removed top 31 bits (of 32) from port B of cell hyperram.$sub$hyperram.v:221$214 ($sub).
+Removed top 27 bits (of 32) from port Y of cell hyperram.$sub$hyperram.v:221$214 ($sub).
+Removed top 2 bits (of 3) from port B of cell hyperram.$ne$hyperram.v:269$228 ($ne).
+Removed top 30 bits (of 32) from port B of cell hyperram.$lt$hyperram.v:269$233 ($lt).
+Removed top 31 bits (of 32) from port A of cell hyperram.$not$hyperram.v:286$239 ($not).
+Removed top 31 bits (of 32) from mux cell hyperram.$ternary$hyperram.v:286$240 ($mux).
+Removed top 4 bits (of 6) from port B of cell hyperram.$eq$hyperram.v:296$241 ($eq).
+Removed top 31 bits (of 32) from port B of cell hyperram.$sub$hyperram.v:311$247 ($sub).
+Removed top 29 bits (of 32) from port Y of cell hyperram.$sub$hyperram.v:311$247 ($sub).
+Removed top 31 bits (of 32) from port A of cell hyperram.$not$hyperram.v:334$259 ($not).
+Removed top 31 bits (of 32) from mux cell hyperram.$ternary$hyperram.v:334$260 ($mux).
+Removed top 28 bits (of 32) from port A of cell hyperram.$mul$hyperram.v:342$265 ($mul).
+Removed top 22 bits (of 32) from port Y of cell hyperram.$mul$hyperram.v:342$265 ($mul).
+Removed top 21 bits (of 32) from port B of cell hyperram.$shiftx$hyperram.v:0$266 ($shiftx).
+Removed top 21 bits (of 32) from port B of cell hyperram.$shiftx$hyperram.v:0$268 ($shiftx).
+Removed top 31 bits (of 32) from port B of cell hyperram.$and$hyperram.v:0$515 ($and).
+Removed top 31 bits (of 32) from port Y of cell hyperram.$and$hyperram.v:0$515 ($and).
+Removed top 31 bits (of 32) from port B of cell hyperram.$and$hyperram.v:0$516 ($and).
+Removed top 31 bits (of 32) from port Y of cell hyperram.$and$hyperram.v:0$516 ($and).
+Removed top 31 bits (of 32) from port B of cell hyperram.$and$hyperram.v:0$525 ($and).
+Removed top 31 bits (of 32) from port Y of cell hyperram.$and$hyperram.v:0$525 ($and).
+Removed top 30 bits (of 32) from port B of cell hyperram.$ge$hyperram.v:854$535 ($ge).
+Removed top 29 bits (of 32) from port B of cell hyperram.$ge$hyperram.v:855$536 ($ge).
+Removed top 2 bits (of 3) from port B of cell hyperram.$eq$hyperram.v:860$540 ($eq).
+Removed top 29 bits (of 32) from port B of cell hyperram.$ge$hyperram.v:865$545 ($ge).
+Removed top 2 bits (of 5) from port B of cell hyperram.$eq$hyperram.v:868$547 ($eq).
+Removed top 30 bits (of 32) from port B of cell hyperram.$ge$hyperram.v:870$548 ($ge).
+Removed top 2 bits (of 4) from port B of cell hyperram.$eq$hyperram.v:873$550 ($eq).
+Removed top 2 bits (of 3) from port B of cell hyperram.$eq$hyperram.v:943$599 ($eq).
+Removed top 1 bits (of 3) from port B of cell hyperram.$eq$hyperram.v:946$603 ($eq).
+Removed top 1 bits (of 3) from port B of cell hyperram.$eq$hyperram.v:952$614 ($eq).
+Removed top 31 bits (of 32) from port B of cell hyperram.$add$hyperram.v:974$669 ($add).
+Removed top 25 bits (of 32) from port Y of cell hyperram.$add$hyperram.v:974$669 ($add).
+Removed top 25 bits (of 32) from port B of cell hyperram.$eq$hyperram.v:974$670 ($eq).
+Removed top 31 bits (of 32) from port B of cell hyperram.$and$hyperram.v:0$671 ($and).
+Removed top 31 bits (of 32) from port Y of cell hyperram.$and$hyperram.v:0$671 ($and).
+Removed top 3 bits (of 6) from port B of cell hyperram.$eq$hyperram.v:980$688 ($eq).
+Removed top 5 bits (of 6) from port B of cell hyperram.$eq$hyperram.v:983$697 ($eq).
+Removed top 31 bits (of 32) from port B of cell hyperram.$add$hyperram.v:987$706 ($add).
+Removed top 30 bits (of 32) from port Y of cell hyperram.$add$hyperram.v:987$706 ($add).
+Removed top 30 bits (of 32) from port A of cell hyperram.$mul$hyperram.v:987$707 ($mul).
+Removed top 30 bits (of 32) from port B of cell hyperram.$mul$hyperram.v:987$707 ($mul).
+Removed top 28 bits (of 32) from port Y of cell hyperram.$mul$hyperram.v:987$707 ($mul).
+Removed top 28 bits (of 32) from port A of cell hyperram.$mul$hyperram.v:987$708 ($mul).
+Removed top 24 bits (of 32) from port Y of cell hyperram.$mul$hyperram.v:987$708 ($mul).
+Removed top 24 bits (of 32) from port A of cell hyperram.$sub$hyperram.v:987$709 ($sub).
+Removed top 30 bits (of 32) from port B of cell hyperram.$sub$hyperram.v:987$709 ($sub).
+Removed top 23 bits (of 32) from port Y of cell hyperram.$sub$hyperram.v:987$709 ($sub).
+Removed top 31 bits (of 32) from port B of cell hyperram.$sub$hyperram.v:987$711 ($sub).
+Removed top 31 bits (of 32) from port B of cell hyperram.$add$hyperram.v:989$713 ($add).
+Removed top 30 bits (of 32) from port Y of cell hyperram.$add$hyperram.v:989$713 ($add).
+Removed top 30 bits (of 32) from port A of cell hyperram.$mul$hyperram.v:989$714 ($mul).
+Removed top 30 bits (of 32) from port B of cell hyperram.$mul$hyperram.v:989$714 ($mul).
+Removed top 28 bits (of 32) from port Y of cell hyperram.$mul$hyperram.v:989$714 ($mul).
+Removed top 28 bits (of 32) from port A of cell hyperram.$mul$hyperram.v:989$715 ($mul).
+Removed top 24 bits (of 32) from port Y of cell hyperram.$mul$hyperram.v:989$715 ($mul).
+Removed top 24 bits (of 32) from port A of cell hyperram.$sub$hyperram.v:989$716 ($sub).
+Removed top 30 bits (of 32) from port B of cell hyperram.$sub$hyperram.v:989$716 ($sub).
+Removed top 23 bits (of 32) from port Y of cell hyperram.$sub$hyperram.v:989$716 ($sub).
+Removed top 31 bits (of 32) from port B of cell hyperram.$sub$hyperram.v:989$718 ($sub).
+Removed top 30 bits (of 32) from port A of cell hyperram.$mul$hyperram.v:993$728 ($mul).
+Removed top 25 bits (of 32) from port Y of cell hyperram.$mul$hyperram.v:993$728 ($mul).
+Removed top 25 bits (of 32) from port A of cell hyperram.$sub$hyperram.v:993$729 ($sub).
+Removed top 30 bits (of 32) from port B of cell hyperram.$sub$hyperram.v:993$729 ($sub).
+Removed top 24 bits (of 32) from port Y of cell hyperram.$sub$hyperram.v:993$729 ($sub).
+Removed top 1 bits (of 3) from port B of cell hyperram.$eq$hyperram.v:995$731 ($eq).
+Removed top 4 bits (of 6) from port B of cell hyperram.$eq$hyperram.v:1001$741 ($eq).
+Removed top 1 bits (of 3) from port B of cell hyperram.$eq$hyperram.v:1038$798 ($eq).
+Removed top 1 bits (of 3) from port B of cell hyperram.$eq$hyperram.v:1038$799 ($eq).
+Removed top 31 bits (of 32) from port B of cell hyperram.$add$hyperram.v:1047$816 ($add).
+Removed top 28 bits (of 32) from port Y of cell hyperram.$add$hyperram.v:1047$816 ($add).
+Removed top 28 bits (of 32) from port A of cell hyperram.$eq$hyperram.v:1047$817 ($eq).
+Removed top 1 bits (of 3) from port B of cell hyperram.$ne$hyperram.v:1046$847 ($ne).
+Removed top 3 bits (of 6) from port B of cell hyperram.$procmux$1200_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell hyperram.$procmux$1735_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell hyperram.$procmux$1767_CMP0 ($eq).
+Removed top 2 bits (of 3) from mux cell hyperram.$procmux$2041 ($mux).
+Removed top 26 bits (of 32) from port Y of cell hyperram.$sub$hyperram.v:91$176 ($sub).
+Removed top 26 bits (of 32) from port A of cell hyperram.$sub$hyperram.v:91$176 ($sub).
+Removed top 26 bits (of 32) from port Y of cell hyperram.$sub$hyperram.v:91$178 ($sub).
+Removed top 26 bits (of 32) from port A of cell hyperram.$sub$hyperram.v:91$178 ($sub).
+Removed top 31 bits (of 32) from port Y of cell hyperram.$not$hyperram.v:286$239 ($not).
+Removed top 31 bits (of 32) from port Y of cell hyperram.$not$hyperram.v:334$259 ($not).
+Removed top 1 bits (of 7) from port Y of cell hyperram.$sub$hyperram.v:89$172 ($sub).
+Removed top 28 bits (of 32) from wire hyperram.$add$hyperram.v:1047$816_Y.
+Removed top 25 bits (of 32) from wire hyperram.$add$hyperram.v:974$669_Y.
+Removed top 30 bits (of 32) from wire hyperram.$add$hyperram.v:987$706_Y.
+Removed top 30 bits (of 32) from wire hyperram.$add$hyperram.v:989$713_Y.
+Removed top 31 bits (of 32) from wire hyperram.$and$hyperram.v:0$515_Y.
+Removed top 31 bits (of 32) from wire hyperram.$and$hyperram.v:0$516_Y.
+Removed top 31 bits (of 32) from wire hyperram.$and$hyperram.v:0$524_Y.
+Removed top 31 bits (of 32) from wire hyperram.$and$hyperram.v:0$525_Y.
+Removed top 31 bits (of 32) from wire hyperram.$extend$hyperram.v:334$258_Y.
+Removed top 31 bits (of 32) from wire hyperram.$logic_not$hyperram.v:987$710_Y.
+Removed top 22 bits (of 32) from wire hyperram.$mul$hyperram.v:342$265_Y.
+Removed top 28 bits (of 32) from wire hyperram.$mul$hyperram.v:987$707_Y.
+Removed top 24 bits (of 32) from wire hyperram.$mul$hyperram.v:987$708_Y.
+Removed top 28 bits (of 32) from wire hyperram.$mul$hyperram.v:989$714_Y.
+Removed top 24 bits (of 32) from wire hyperram.$mul$hyperram.v:989$715_Y.
+Removed top 25 bits (of 32) from wire hyperram.$mul$hyperram.v:993$728_Y.
+Removed top 31 bits (of 32) from wire hyperram.$not$hyperram.v:286$239_Y.
+Removed top 2 bits (of 3) from wire hyperram.$procmux$2041_Y.
+Removed top 26 bits (of 32) from wire hyperram.$sub$hyperram.v:143$192_Y.
+Removed top 26 bits (of 32) from wire hyperram.$sub$hyperram.v:89$172_Y.
+Removed top 26 bits (of 32) from wire hyperram.$sub$hyperram.v:91$176_Y.
+Removed top 26 bits (of 32) from wire hyperram.$ternary$hyperram.v:89$174_Y.
+
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \hyperram..
+Removed 0 unused cells and 23 unused wires.
+<suppressed ~1 debug messages>
+
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.11. Executing OPT pass (performing simple optimizations).
+
+2.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module hyperram.
+<suppressed ~4 debug messages>
+
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\hyperram'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \hyperram..
+Removed 0 unused cells and 6 unused wires.
+<suppressed ~1 debug messages>
+
+2.11.4. Finished fast OPT passes.
+
+2.12. Printing statistics.
+
+=== hyperram ===
+
+   Number of wires:                877
+   Number of wire bits:           2740
+   Number of public wires:          68
+   Number of public wire bits:     434
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                927
+     $add                            4
+     $and                            1
+     $assert                        75
+     $assume                         4
+     $dff                           20
+     $eq                            60
+     $ff                           165
+     $ge                             6
+     $initstate                      1
+     $logic_and                     59
+     $logic_not                     26
+     $logic_or                      21
+     $lt                             1
+     $mul                            6
+     $mux                          428
+     $ne                             9
+     $not                            8
+     $pmux                          11
+     $reduce_bool                    6
+     $reduce_or                      1
+     $shiftx                         3
+     $sub                           12
+
+2.13. Executing CHECK pass (checking for obvious problems).
+Checking module hyperram...
+Found and reported 0 problems.
+
+3. Executing MEMORY_NORDFF pass (extracting $dff cells from memories).
+
+4. Executing CLK2FFLOGIC pass (convert clocked FFs to generic $ff cells).
+Replacing hyperram.$procdff$2464 ($dff): CLK=\clk_i, D=$0\rwds_r[0:0], Q=\rwds_r
+Replacing hyperram.$procdff$2465 ($dff): CLK=\clk_i, D=$0\rwds_2x_latency_r[0:0], Q=\rwds_2x_latency_r
+Replacing hyperram.$procdff$2466 ($dff): CLK=\clk_i, D=$0\read_cnt_r[2:0], Q=\read_cnt_r
+Replacing hyperram.$procdff$2467 ($dff): CLK=\clk_i, D=$0\bus_clk_r[0:0], Q=\bus_clk_r
+Replacing hyperram.$procdff$2468 ($dff): CLK=\clk_i, D=$0\datar_r[31:0], Q=\datar_r
+Replacing hyperram.$procdff$2469 ($dff): CLK=\clk_i, D=$0\tcsh_r[3:0], Q=\tcsh_r
+Replacing hyperram.$procdff$2470 ($dff): CLK=\clk_i, D=$0\tpre_r[3:0], Q=\tpre_r
+Replacing hyperram.$procdff$2471 ($dff): CLK=\clk_i, D=$0\tacc_r[3:0], Q=\tacc_r
+Replacing hyperram.$procdff$2472 ($dff): CLK=\clk_i, D=$0\tpost_r[3:0], Q=\tpost_r
+Replacing hyperram.$procdff$2473 ($dff): CLK=\clk_i, D=$0\trmax_r[4:0], Q=\trmax_r
+Replacing hyperram.$procdff$2474 ($dff): CLK=\clk_i, D=$0\fixed_latency_r[0:0], Q=\fixed_latency_r
+Replacing hyperram.$procdff$2475 ($dff): CLK=\clk_i, D=$0\double_latency_r[0:0], Q=\double_latency_r
+Replacing hyperram.$procdff$2476 ($dff): CLK=\clk_i, D=$0\dataw_r[31:0], Q=\dataw_r
+Replacing hyperram.$procdff$2477 ($dff): CLK=\clk_i, D=$0\CA_r[47:0], Q=\CA_r
+Replacing hyperram.$procdff$2478 ($dff): CLK=\clk_i, D=$0\sel_r[3:0], Q=\sel_r
+Replacing hyperram.$procdff$2479 ($dff): CLK=\clk_i, D=$0\busy_r[0:0], Q=\busy_r
+Replacing hyperram.$procdff$2480 ($dff): CLK=\clk_i, D=$0\read_timeout_r[0:0], Q=\read_timeout_r
+Replacing hyperram.$procdff$2481 ($dff): CLK=\clk_i, D=$0\bus_state_r[2:0], Q=\bus_state_r
+Replacing hyperram.$procdff$2482 ($dff): CLK=\clk_i, D=$0\valid_r[0:0], Q=\valid_r
+Replacing hyperram.$procdff$2483 ($dff): CLK=\clk_i, D=$0\cycle_cnt_r[5:0], Q=\cycle_cnt_r
+
+5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \hyperram..
+Removed 0 unused cells and 20 unused wires.
+<suppressed ~1 debug messages>
+
+6. Executing SETUNDEF pass (replace undef values with defined constants).
+
+7. Executing OPT pass (performing simple optimizations).
+
+7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module hyperram.
+
+7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\hyperram'.
+<suppressed ~126 debug messages>
+Removed a total of 42 cells.
+
+7.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \hyperram..
+Removed 7 unused cells and 49 unused wires.
+<suppressed ~8 debug messages>
+
+7.5. Finished fast OPT passes.
+
+8. Executing CHECK pass (checking for obvious problems).
+Checking module hyperram...
+Found and reported 0 problems.
+
+9. Executing HIERARCHY pass (managing design hierarchy).
+
+9.1. Analyzing design hierarchy..
+Top module:  \hyperram
+
+9.2. Analyzing design hierarchy..
+Top module:  \hyperram
+Removed 0 unused modules.
+Module hyperram directly or indirectly contains formal properties -> setting "keep" attribute.
+
+10. Executing RTLIL backend.
+Output filename: ../model/design.il
+
+Warnings: 7 unique messages, 7 total
+End of script. Logfile hash: 90dc2ed605, CPU: user 2.85s system 0.05s, MEM: 18.27 MB peak
+Yosys 0.9+4081 (open-tool-forge build) (git sha1 ef4ddfac, gcc 9.3.0-17ubuntu1~20.04 -Os)
+Time spent: 21% 7x opt_clean (0 sec), 15% 6x opt_expr (0 sec), ...

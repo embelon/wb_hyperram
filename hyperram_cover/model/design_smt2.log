@@ -1,0 +1,75 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Wolf <claire@symbioticeda.com>          |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.9+4081 (open-tool-forge build) (git sha1 ef4ddfac, gcc 9.3.0-17ubuntu1~20.04 -Os)
+
+
+-- Executing script file `design_smt2.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design.il
+
+2. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+3. Printing statistics.
+
+=== hyperram ===
+
+   Number of wires:               1285
+   Number of wire bits:           3333
+   Number of public wires:          59
+   Number of public wire bits:     362
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               1367
+     $add                            4
+     $and                            1
+     $anyseq                       179
+     $assert                        69
+     $assume                         4
+     $cover                         28
+     $eq                            72
+     $eqx                            2
+     $ff                           218
+     $ge                             6
+     $gt                             5
+     $initstate                      1
+     $logic_and                    234
+     $logic_not                     31
+     $logic_or                      21
+     $lt                             1
+     $mul                            6
+     $mux                          432
+     $ne                             9
+     $not                            9
+     $pmux                          13
+     $reduce_bool                    6
+     $reduce_or                      1
+     $shiftx                         3
+     $sub                           12
+
+4. Executing SMT2 backend.
+Creating SMT-LIBv2 representation of module hyperram.
+
+End of script. Logfile hash: ac2445dc49, CPU: user 0.26s system 0.00s, MEM: 12.16 MB peak
+Yosys 0.9+4081 (open-tool-forge build) (git sha1 ef4ddfac, gcc 9.3.0-17ubuntu1~20.04 -Os)
+Time spent: 50% 2x read_ilang (0 sec), 46% 2x write_smt2 (0 sec), ...
