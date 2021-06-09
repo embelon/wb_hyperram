@@ -407,7 +407,7 @@ always @($global_clock) begin
     end      
 
 	// LOAD timings
-/*
+
     if (f_past_valid)
         _load_tacc_: cover(!rst_i && (tacc_r > 7));   
 
@@ -849,7 +849,7 @@ always @($global_clock) begin
 								&& read_timeout_r 
 								&& CA_r[2:0] 
 								&& CA_r[44:16]);
-*/
+
 	// clock input is changing every cycle
 	if (f_past_valid && !rst_i) begin
 		assert( clk_i == ~$past(clk_i) );
