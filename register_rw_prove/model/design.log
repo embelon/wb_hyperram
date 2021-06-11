@@ -1,0 +1,338 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Wolf <claire@symbioticeda.com>          |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.9+4081 (open-tool-forge build) (git sha1 ef4ddfac, gcc 9.3.0-17ubuntu1~20.04 -Os)
+
+
+-- Executing script file `../model/design.ys' --
+
+1. Executing Verilog-2005 frontend: register_rw.v
+Parsing formal SystemVerilog input from `register_rw.v' to AST representation.
+Storing AST representation for module `$abstract\register_rw'.
+Successfully finished Verilog frontend.
+
+2. Executing PREP pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.2. Executing AST frontend in derive mode using pre-parsed AST for module `\register_rw'.
+Generating RTLIL representation for module `\register_rw'.
+
+2.2.1. Analyzing design hierarchy..
+Top module:  \register_rw
+
+2.2.2. Analyzing design hierarchy..
+Top module:  \register_rw
+Removing unused module `$abstract\register_rw'.
+Removed 1 unused modules.
+Module register_rw directly or indirectly contains formal properties -> setting "keep" attribute.
+
+2.3. Executing PROC pass (convert processes to netlists).
+
+2.3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$register_rw.v:19$15 in module register_rw.
+Removed a total of 0 dead cases.
+
+2.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 16 assignments to connections.
+
+2.3.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\register_rw.$proc$register_rw.v:0$66'.
+  Set init value: $formal$register_rw.v:57$14_EN = 1'0
+Found init rule in `\register_rw.$proc$register_rw.v:0$64'.
+  Set init value: $formal$register_rw.v:53$13_EN = 1'0
+Found init rule in `\register_rw.$proc$register_rw.v:0$62'.
+  Set init value: $formal$register_rw.v:47$12_EN = 1'0
+Found init rule in `\register_rw.$proc$register_rw.v:0$60'.
+  Set init value: $formal$register_rw.v:44$11_EN = 1'0
+Found init rule in `\register_rw.$proc$register_rw.v:34$56'.
+  Set init value: \f_past_valid = 1'0
+
+2.3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+2.3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\register_rw.$proc$register_rw.v:0$66'.
+Creating decoders for process `\register_rw.$proc$register_rw.v:0$64'.
+Creating decoders for process `\register_rw.$proc$register_rw.v:0$62'.
+Creating decoders for process `\register_rw.$proc$register_rw.v:0$60'.
+Creating decoders for process `\register_rw.$proc$register_rw.v:0$57'.
+Creating decoders for process `\register_rw.$proc$register_rw.v:34$56'.
+Creating decoders for process `\register_rw.$proc$register_rw.v:39$16'.
+     1/8: $0$formal$register_rw.v:44$11_EN[0:0]$26
+     2/8: $0$formal$register_rw.v:44$11_CHECK[0:0]$25
+     3/8: $0$formal$register_rw.v:47$12_EN[0:0]$28
+     4/8: $0$formal$register_rw.v:47$12_CHECK[0:0]$27
+     5/8: $0$formal$register_rw.v:53$13_EN[0:0]$30
+     6/8: $0$formal$register_rw.v:53$13_CHECK[0:0]$29
+     7/8: $0$formal$register_rw.v:57$14_EN[0:0]$32
+     8/8: $0$formal$register_rw.v:57$14_CHECK[0:0]$31
+Creating decoders for process `\register_rw.$proc$register_rw.v:19$15'.
+     1/1: $0\dffreg[31:0]
+
+2.3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\register_rw.$formal$register_rw.v:37$9_CHECK' from process `\register_rw.$proc$register_rw.v:0$57'.
+No latch inferred for signal `\register_rw.$formal$register_rw.v:37$9_EN' from process `\register_rw.$proc$register_rw.v:0$57'.
+
+2.3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\register_rw.\f_past_valid' using process `\register_rw.$proc$register_rw.v:39$16'.
+  created $dff cell `$procdff$97' with positive edge clock.
+Creating register for signal `\register_rw.$past$register_rw.v:48$1$0' using process `\register_rw.$proc$register_rw.v:39$16'.
+  created $dff cell `$procdff$98' with positive edge clock.
+Creating register for signal `\register_rw.$past$register_rw.v:48$2$0' using process `\register_rw.$proc$register_rw.v:39$16'.
+  created $dff cell `$procdff$99' with positive edge clock.
+Creating register for signal `\register_rw.$past$register_rw.v:52$3$0' using process `\register_rw.$proc$register_rw.v:39$16'.
+  created $dff cell `$procdff$100' with positive edge clock.
+Creating register for signal `\register_rw.$past$register_rw.v:52$4$0' using process `\register_rw.$proc$register_rw.v:39$16'.
+  created $dff cell `$procdff$101' with positive edge clock.
+Creating register for signal `\register_rw.$past$register_rw.v:53$5$0' using process `\register_rw.$proc$register_rw.v:39$16'.
+  created $dff cell `$procdff$102' with positive edge clock.
+Creating register for signal `\register_rw.$past$register_rw.v:56$6$0' using process `\register_rw.$proc$register_rw.v:39$16'.
+  created $dff cell `$procdff$103' with positive edge clock.
+Creating register for signal `\register_rw.$past$register_rw.v:56$7$0' using process `\register_rw.$proc$register_rw.v:39$16'.
+  created $dff cell `$procdff$104' with positive edge clock.
+Creating register for signal `\register_rw.$past$register_rw.v:57$8$0' using process `\register_rw.$proc$register_rw.v:39$16'.
+  created $dff cell `$procdff$105' with positive edge clock.
+Creating register for signal `\register_rw.$formal$register_rw.v:44$11_CHECK' using process `\register_rw.$proc$register_rw.v:39$16'.
+  created $dff cell `$procdff$106' with positive edge clock.
+Creating register for signal `\register_rw.$formal$register_rw.v:44$11_EN' using process `\register_rw.$proc$register_rw.v:39$16'.
+  created $dff cell `$procdff$107' with positive edge clock.
+Creating register for signal `\register_rw.$formal$register_rw.v:47$12_CHECK' using process `\register_rw.$proc$register_rw.v:39$16'.
+  created $dff cell `$procdff$108' with positive edge clock.
+Creating register for signal `\register_rw.$formal$register_rw.v:47$12_EN' using process `\register_rw.$proc$register_rw.v:39$16'.
+  created $dff cell `$procdff$109' with positive edge clock.
+Creating register for signal `\register_rw.$formal$register_rw.v:53$13_CHECK' using process `\register_rw.$proc$register_rw.v:39$16'.
+  created $dff cell `$procdff$110' with positive edge clock.
+Creating register for signal `\register_rw.$formal$register_rw.v:53$13_EN' using process `\register_rw.$proc$register_rw.v:39$16'.
+  created $dff cell `$procdff$111' with positive edge clock.
+Creating register for signal `\register_rw.$formal$register_rw.v:57$14_CHECK' using process `\register_rw.$proc$register_rw.v:39$16'.
+  created $dff cell `$procdff$112' with positive edge clock.
+Creating register for signal `\register_rw.$formal$register_rw.v:57$14_EN' using process `\register_rw.$proc$register_rw.v:39$16'.
+  created $dff cell `$procdff$113' with positive edge clock.
+Creating register for signal `\register_rw.\dffreg' using process `\register_rw.$proc$register_rw.v:19$15'.
+  created $dff cell `$procdff$114' with positive edge clock.
+
+2.3.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.3.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `register_rw.$proc$register_rw.v:0$66'.
+Removing empty process `register_rw.$proc$register_rw.v:0$64'.
+Removing empty process `register_rw.$proc$register_rw.v:0$62'.
+Removing empty process `register_rw.$proc$register_rw.v:0$60'.
+Removing empty process `register_rw.$proc$register_rw.v:0$57'.
+Removing empty process `register_rw.$proc$register_rw.v:34$56'.
+Found and cleaned up 6 empty switches in `\register_rw.$proc$register_rw.v:39$16'.
+Removing empty process `register_rw.$proc$register_rw.v:39$16'.
+Found and cleaned up 2 empty switches in `\register_rw.$proc$register_rw.v:19$15'.
+Removing empty process `register_rw.$proc$register_rw.v:19$15'.
+Cleaned up 8 empty switches.
+
+2.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module register_rw.
+
+2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \register_rw..
+Removed 0 unused cells and 41 unused wires.
+<suppressed ~1 debug messages>
+
+2.6. Executing CHECK pass (checking for obvious problems).
+Checking module register_rw...
+Found and reported 0 problems.
+
+2.7. Executing OPT pass (performing simple optimizations).
+
+2.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module register_rw.
+
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\register_rw'.
+<suppressed ~24 debug messages>
+Removed a total of 8 cells.
+
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \register_rw..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \register_rw.
+Performed a total of 0 changes.
+
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\register_rw'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \register_rw..
+Removed 0 unused cells and 10 unused wires.
+<suppressed ~1 debug messages>
+
+2.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module register_rw.
+
+2.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \register_rw..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~8 debug messages>
+
+2.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \register_rw.
+Performed a total of 0 changes.
+
+2.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\register_rw'.
+Removed a total of 0 cells.
+
+2.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \register_rw..
+
+2.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module register_rw.
+
+2.7.14. Finished OPT passes. (There is nothing left to do.)
+
+2.8. Executing WREDUCE pass (reducing word size of cells).
+
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \register_rw..
+
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.11. Executing OPT pass (performing simple optimizations).
+
+2.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module register_rw.
+
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\register_rw'.
+Removed a total of 0 cells.
+
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \register_rw..
+
+2.11.4. Finished fast OPT passes.
+
+2.12. Printing statistics.
+
+=== register_rw ===
+
+   Number of wires:                 48
+   Number of wire bits:            265
+   Number of public wires:           7
+   Number of public wire bits:     100
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 48
+     $assert                         2
+     $assume                         1
+     $cover                          2
+     $dff                           13
+     $eq                             2
+     $initstate                      1
+     $logic_and                      8
+     $logic_not                      5
+     $mux                           13
+     $reduce_or                      1
+
+2.13. Executing CHECK pass (checking for obvious problems).
+Checking module register_rw...
+Found and reported 0 problems.
+
+3. Executing MEMORY_NORDFF pass (extracting $dff cells from memories).
+
+4. Executing ASYNC2SYNC pass.
+
+5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \register_rw..
+Removed 13 unused cells and 13 unused wires.
+<suppressed ~14 debug messages>
+
+6. Executing SETUNDEF pass (replace undef values with defined constants).
+
+7. Executing OPT pass (performing simple optimizations).
+
+7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module register_rw.
+
+7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\register_rw'.
+Removed a total of 0 cells.
+
+7.3. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$114 ($dff) from module register_rw (D = $procmux$92_Y, Q = \dffreg, rval = 0).
+Adding EN signal on $auto$opt_dff.cc:702:run$123 ($sdff) from module register_rw (D = \data_in, Q = \dffreg).
+Adding SRST signal on $procdff$113 ($dff) from module register_rw (D = $procmux$84_Y, Q = $formal$register_rw.v:57$14_EN, rval = 1'0).
+Adding SRST signal on $procdff$111 ($dff) from module register_rw (D = $procmux$76_Y, Q = $formal$register_rw.v:53$13_EN, rval = 1'0).
+
+7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \register_rw..
+Removed 4 unused cells and 4 unused wires.
+<suppressed ~5 debug messages>
+
+7.5. Rerunning OPT passes. (Removed registers in this run.)
+
+7.6. Executing OPT_EXPR pass (perform const folding).
+Optimizing module register_rw.
+
+7.7. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\register_rw'.
+Removed a total of 0 cells.
+
+7.8. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \register_rw..
+
+7.10. Finished fast OPT passes.
+
+8. Executing CHECK pass (checking for obvious problems).
+Checking module register_rw...
+Found and reported 0 problems.
+
+9. Executing HIERARCHY pass (managing design hierarchy).
+
+9.1. Analyzing design hierarchy..
+Top module:  \register_rw
+
+9.2. Analyzing design hierarchy..
+Top module:  \register_rw
+Removed 0 unused modules.
+Module register_rw directly or indirectly contains formal properties -> setting "keep" attribute.
+
+10. Executing RTLIL backend.
+Output filename: ../model/design.il
+
+End of script. Logfile hash: f4566c4684, CPU: user 0.18s system 0.01s, MEM: 8.84 MB peak
+Yosys 0.9+4081 (open-tool-forge build) (git sha1 ef4ddfac, gcc 9.3.0-17ubuntu1~20.04 -Os)
+Time spent: 31% 8x opt_clean (0 sec), 18% 7x opt_expr (0 sec), ...

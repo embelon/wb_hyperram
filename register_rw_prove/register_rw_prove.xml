@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites disabled="0" errors="0" failures="0" tests="1" time="0">
+<testsuite disabled="0" errors="0" failures="0" name="register_rw_prove" skipped="0" tests="1" time="0">
+<properties>
+<property name="os" value="posix"/>
+</properties>
+<testcase classname="register_rw_prove" name="default" status="PASS" time="0">
+<system-out>SBY 21:53:01 [register_rw_prove] Removing directory 'register_rw_prove'.
+SBY 21:53:01 [register_rw_prove] Copy 'src/register_rw.v' to 'register_rw_prove/src/register_rw.v'.
+SBY 21:53:01 [register_rw_prove] engine_0: smtbmc
+SBY 21:53:01 [register_rw_prove] base: starting process &quot;cd register_rw_prove/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY 21:53:01 [register_rw_prove] base: finished (returncode=0)
+SBY 21:53:01 [register_rw_prove] smt2: starting process &quot;cd register_rw_prove/model; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY 21:53:01 [register_rw_prove] smt2: finished (returncode=0)
+SBY 21:53:01 [register_rw_prove] engine_0.basecase: starting process &quot;cd register_rw_prove; yosys-smtbmc --presat --unroll --noprogress -t 20  --append 0 --dump-vcd engine_0/trace.vcd --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2&quot;
+SBY 21:53:01 [register_rw_prove] engine_0.induction: starting process &quot;cd register_rw_prove; yosys-smtbmc --presat --unroll -i --noprogress -t 20  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2&quot;
+SBY 21:53:01 [register_rw_prove] engine_0.basecase: ##   0:00:00  Solver: yices
+SBY 21:53:01 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 0..
+SBY 21:53:01 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 0..
+SBY 21:53:01 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 1..
+SBY 21:53:01 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 1..
+SBY 21:53:01 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 2..
+SBY 21:53:01 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 2..
+SBY 21:53:01 [register_rw_prove] engine_0.induction: ##   0:00:00  Solver: yices
+SBY 21:53:01 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 3..
+SBY 21:53:01 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 3..
+SBY 21:53:01 [register_rw_prove] engine_0.induction: ##   0:00:00  Trying induction in step 20..
+SBY 21:53:01 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 4..
+SBY 21:53:01 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 4..
+SBY 21:53:01 [register_rw_prove] engine_0.induction: ##   0:00:00  Trying induction in step 19..
+SBY 21:53:01 [register_rw_prove] engine_0.induction: ##   0:00:00  Trying induction in step 18..
+SBY 21:53:01 [register_rw_prove] engine_0.induction: ##   0:00:00  Temporal induction successful.
+SBY 21:53:01 [register_rw_prove] engine_0.induction: ##   0:00:00  Status: passed
+SBY 21:53:01 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 5..
+SBY 21:53:01 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 5..
+SBY 21:53:01 [register_rw_prove] engine_0.induction: finished (returncode=0)
+SBY 21:53:01 [register_rw_prove] engine_0: Status returned by engine for induction: pass
+SBY 21:53:01 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 6..
+SBY 21:53:01 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 6..
+SBY 21:53:01 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 7..
+SBY 21:53:01 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 7..
+SBY 21:53:01 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 8..
+SBY 21:53:01 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 8..
+SBY 21:53:01 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 9..
+SBY 21:53:01 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 9..
+SBY 21:53:01 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 10..
+SBY 21:53:01 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 10..
+SBY 21:53:01 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 11..
+SBY 21:53:01 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 11..
+SBY 21:53:02 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 12..
+SBY 21:53:02 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 12..
+SBY 21:53:02 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 13..
+SBY 21:53:02 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 13..
+SBY 21:53:02 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 14..
+SBY 21:53:02 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 14..
+SBY 21:53:02 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 15..
+SBY 21:53:02 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 15..
+SBY 21:53:02 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 16..
+SBY 21:53:02 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 16..
+SBY 21:53:02 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 17..
+SBY 21:53:02 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 17..
+SBY 21:53:02 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 18..
+SBY 21:53:02 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 18..
+SBY 21:53:02 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 19..
+SBY 21:53:02 [register_rw_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 19..
+SBY 21:53:02 [register_rw_prove] engine_0.basecase: ##   0:00:00  Status: passed
+SBY 21:53:02 [register_rw_prove] engine_0.basecase: finished (returncode=0)
+SBY 21:53:02 [register_rw_prove] engine_0: Status returned by engine for basecase: pass
+SBY 21:53:02 [register_rw_prove] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:01 (1)
+SBY 21:53:02 [register_rw_prove] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 21:53:02 [register_rw_prove] summary: engine_0 (smtbmc) returned pass for induction
+SBY 21:53:02 [register_rw_prove] summary: engine_0 (smtbmc) returned pass for basecase
+SBY 21:53:02 [register_rw_prove] summary: successful proof by k-induction.
+SBY 21:53:02 [register_rw_prove] DONE (PASS, rc=0)
+</system-out></testcase></testsuite></testsuites>
