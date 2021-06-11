@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites disabled="0" errors="0" failures="0" tests="1" time="26">
+<testsuite disabled="0" errors="0" failures="0" name="wb_hyperram_prove" skipped="0" tests="1" time="26">
+<properties>
+<property name="os" value="posix"/>
+</properties>
+<testcase classname="wb_hyperram_prove" name="default" status="PASS" time="26">
+<system-out>SBY 23:04:13 [wb_hyperram_prove] Removing directory 'wb_hyperram_prove'.
+SBY 23:04:13 [wb_hyperram_prove] Copy 'src/wb_hyperram.v' to 'wb_hyperram_prove/src/wb_hyperram.v'.
+SBY 23:04:13 [wb_hyperram_prove] Copy 'src/hyperram.v' to 'wb_hyperram_prove/src/hyperram.v'.
+SBY 23:04:13 [wb_hyperram_prove] Copy 'src/register_rw.v' to 'wb_hyperram_prove/src/register_rw.v'.
+SBY 23:04:13 [wb_hyperram_prove] engine_0: smtbmc
+SBY 23:04:13 [wb_hyperram_prove] base: starting process &quot;cd wb_hyperram_prove/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY 23:04:19 [wb_hyperram_prove] base: finished (returncode=0)
+SBY 23:04:19 [wb_hyperram_prove] smt2: starting process &quot;cd wb_hyperram_prove/model; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY 23:04:19 [wb_hyperram_prove] smt2: finished (returncode=0)
+SBY 23:04:19 [wb_hyperram_prove] engine_0.basecase: starting process &quot;cd wb_hyperram_prove; yosys-smtbmc --presat --unroll --noprogress -t 20  --append 0 --dump-vcd engine_0/trace.vcd --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2&quot;
+SBY 23:04:19 [wb_hyperram_prove] engine_0.induction: starting process &quot;cd wb_hyperram_prove; yosys-smtbmc --presat --unroll -i --noprogress -t 20  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2&quot;
+SBY 23:04:19 [wb_hyperram_prove] engine_0.induction: ##   0:00:00  Solver: yices
+SBY 23:04:19 [wb_hyperram_prove] engine_0.basecase: ##   0:00:00  Solver: yices
+SBY 23:04:20 [wb_hyperram_prove] engine_0.induction: ##   0:00:00  Trying induction in step 20..
+SBY 23:04:20 [wb_hyperram_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 0..
+SBY 23:04:20 [wb_hyperram_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 0..
+SBY 23:04:20 [wb_hyperram_prove] engine_0.induction: ##   0:00:01  Trying induction in step 19..
+SBY 23:04:21 [wb_hyperram_prove] engine_0.induction: ##   0:00:01  Trying induction in step 18..
+SBY 23:04:21 [wb_hyperram_prove] engine_0.basecase: ##   0:00:01  Checking assumptions in step 1..
+SBY 23:04:21 [wb_hyperram_prove] engine_0.basecase: ##   0:00:01  Checking assertions in step 1..
+SBY 23:04:21 [wb_hyperram_prove] engine_0.induction: ##   0:00:01  Trying induction in step 17..
+SBY 23:04:22 [wb_hyperram_prove] engine_0.basecase: ##   0:00:02  Checking assumptions in step 2..
+SBY 23:04:22 [wb_hyperram_prove] engine_0.basecase: ##   0:00:02  Checking assertions in step 2..
+SBY 23:04:22 [wb_hyperram_prove] engine_0.induction: ##   0:00:02  Trying induction in step 16..
+SBY 23:04:22 [wb_hyperram_prove] engine_0.induction: ##   0:00:02  Trying induction in step 15..
+SBY 23:04:22 [wb_hyperram_prove] engine_0.induction: ##   0:00:02  Temporal induction successful.
+SBY 23:04:22 [wb_hyperram_prove] engine_0.induction: ##   0:00:02  Status: passed
+SBY 23:04:22 [wb_hyperram_prove] engine_0.basecase: ##   0:00:02  Checking assumptions in step 3..
+SBY 23:04:22 [wb_hyperram_prove] engine_0.basecase: ##   0:00:02  Checking assertions in step 3..
+SBY 23:04:22 [wb_hyperram_prove] engine_0.induction: finished (returncode=0)
+SBY 23:04:22 [wb_hyperram_prove] engine_0: Status returned by engine for induction: pass
+SBY 23:04:23 [wb_hyperram_prove] engine_0.basecase: ##   0:00:03  Checking assumptions in step 4..
+SBY 23:04:23 [wb_hyperram_prove] engine_0.basecase: ##   0:00:03  Checking assertions in step 4..
+SBY 23:04:23 [wb_hyperram_prove] engine_0.basecase: ##   0:00:04  Checking assumptions in step 5..
+SBY 23:04:23 [wb_hyperram_prove] engine_0.basecase: ##   0:00:04  Checking assertions in step 5..
+SBY 23:04:24 [wb_hyperram_prove] engine_0.basecase: ##   0:00:04  Checking assumptions in step 6..
+SBY 23:04:24 [wb_hyperram_prove] engine_0.basecase: ##   0:00:04  Checking assertions in step 6..
+SBY 23:04:25 [wb_hyperram_prove] engine_0.basecase: ##   0:00:05  Checking assumptions in step 7..
+SBY 23:04:25 [wb_hyperram_prove] engine_0.basecase: ##   0:00:05  Checking assertions in step 7..
+SBY 23:04:25 [wb_hyperram_prove] engine_0.basecase: ##   0:00:05  Checking assumptions in step 8..
+SBY 23:04:25 [wb_hyperram_prove] engine_0.basecase: ##   0:00:05  Checking assertions in step 8..
+SBY 23:04:26 [wb_hyperram_prove] engine_0.basecase: ##   0:00:06  Checking assumptions in step 9..
+SBY 23:04:26 [wb_hyperram_prove] engine_0.basecase: ##   0:00:06  Checking assertions in step 9..
+SBY 23:04:27 [wb_hyperram_prove] engine_0.basecase: ##   0:00:07  Checking assumptions in step 10..
+SBY 23:04:27 [wb_hyperram_prove] engine_0.basecase: ##   0:00:07  Checking assertions in step 10..
+SBY 23:04:28 [wb_hyperram_prove] engine_0.basecase: ##   0:00:08  Checking assumptions in step 11..
+SBY 23:04:28 [wb_hyperram_prove] engine_0.basecase: ##   0:00:08  Checking assertions in step 11..
+SBY 23:04:28 [wb_hyperram_prove] engine_0.basecase: ##   0:00:08  Checking assumptions in step 12..
+SBY 23:04:28 [wb_hyperram_prove] engine_0.basecase: ##   0:00:08  Checking assertions in step 12..
+SBY 23:04:29 [wb_hyperram_prove] engine_0.basecase: ##   0:00:09  Checking assumptions in step 13..
+SBY 23:04:29 [wb_hyperram_prove] engine_0.basecase: ##   0:00:09  Checking assertions in step 13..
+SBY 23:04:30 [wb_hyperram_prove] engine_0.basecase: ##   0:00:10  Checking assumptions in step 14..
+SBY 23:04:30 [wb_hyperram_prove] engine_0.basecase: ##   0:00:10  Checking assertions in step 14..
+SBY 23:04:31 [wb_hyperram_prove] engine_0.basecase: ##   0:00:11  Checking assumptions in step 15..
+SBY 23:04:31 [wb_hyperram_prove] engine_0.basecase: ##   0:00:11  Checking assertions in step 15..
+SBY 23:04:32 [wb_hyperram_prove] engine_0.basecase: ##   0:00:13  Checking assumptions in step 16..
+SBY 23:04:32 [wb_hyperram_prove] engine_0.basecase: ##   0:00:13  Checking assertions in step 16..
+SBY 23:04:34 [wb_hyperram_prove] engine_0.basecase: ##   0:00:14  Checking assumptions in step 17..
+SBY 23:04:34 [wb_hyperram_prove] engine_0.basecase: ##   0:00:14  Checking assertions in step 17..
+SBY 23:04:35 [wb_hyperram_prove] engine_0.basecase: ##   0:00:15  Checking assumptions in step 18..
+SBY 23:04:35 [wb_hyperram_prove] engine_0.basecase: ##   0:00:15  Checking assertions in step 18..
+SBY 23:04:36 [wb_hyperram_prove] engine_0.basecase: ##   0:00:16  Checking assumptions in step 19..
+SBY 23:04:36 [wb_hyperram_prove] engine_0.basecase: ##   0:00:16  Checking assertions in step 19..
+SBY 23:04:37 [wb_hyperram_prove] engine_0.basecase: ##   0:00:17  Status: passed
+SBY 23:04:37 [wb_hyperram_prove] engine_0.basecase: finished (returncode=0)
+SBY 23:04:37 [wb_hyperram_prove] engine_0: Status returned by engine for basecase: pass
+SBY 23:04:37 [wb_hyperram_prove] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:24 (24)
+SBY 23:04:37 [wb_hyperram_prove] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:26 (26)
+SBY 23:04:37 [wb_hyperram_prove] summary: engine_0 (smtbmc) returned pass for induction
+SBY 23:04:37 [wb_hyperram_prove] summary: engine_0 (smtbmc) returned pass for basecase
+SBY 23:04:37 [wb_hyperram_prove] summary: successful proof by k-induction.
+SBY 23:04:37 [wb_hyperram_prove] DONE (PASS, rc=0)
+</system-out></testcase></testsuite></testsuites>
