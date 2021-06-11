@@ -40,13 +40,13 @@ module register_rw
         
         // update past_valid reg so we know it's safe to use $past()
         f_past_valid <= 1;
-/*
+
 		if (f_past_valid)
 		cover(data_out && !rst);
 	    
 		if (f_past_valid)
 		cover(~|data_out && $past(data_out) && !$past(rst) && !rst);
-*/
+
         // load works
 		if (f_past_valid)
 			if ($past(wren) && !wren && !$past(rst))

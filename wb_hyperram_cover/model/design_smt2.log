@@ -34,7 +34,7 @@ Input filename: design.il
 === wb_hyperram ===
 
    Number of wires:                608
-   Number of wire bits:           1201
+   Number of wire bits:           1170
    Number of public wires:          46
    Number of public wire bits:     266
    Number of memories:               0
@@ -53,9 +53,9 @@ Input filename: design.il
      $initstate                      1
      $logic_and                    133
      $logic_not                     27
-     $logic_or                      12
+     $logic_or                      13
      $lt                             1
-     $mux                          140
+     $mux                          139
      $ne                             1
      $or                             1
      $paramod$0bb65c9adccbb8b5bdd22886d32571d8dcb03d28\register_rw      1
@@ -67,121 +67,129 @@ Input filename: design.il
 
 === hyperram ===
 
-   Number of wires:                995
-   Number of wire bits:           3043
+   Number of wires:                996
+   Number of wire bits:           3044
    Number of public wires:          59
    Number of public wire bits:     362
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:               1049
+   Number of cells:               1050
      $add                            4
      $and                            1
-     $anyseq                       151
+     $anyseq                       150
      $assert                        69
      $assume                         4
      $eq                            52
      $eqx                            2
-     $ff                           189
+     $ff                           190
      $ge                             6
      $initstate                      1
-     $logic_and                     59
-     $logic_not                     26
-     $logic_or                      21
+     $logic_and                     60
+     $logic_not                     27
+     $logic_or                      22
      $lt                             1
      $mul                            6
-     $mux                          404
-     $ne                             9
+     $mux                          402
+     $ne                            10
      $not                            9
      $pmux                          13
-     $reduce_bool                    6
+     $reduce_bool                    5
      $reduce_or                      1
      $shiftx                         3
      $sub                           12
 
 === $paramod$d13e8dadfccc27092c88b79af8c27ba50a9734f7\register_rw ===
 
-   Number of wires:                 60
-   Number of wire bits:            108
+   Number of wires:                 81
+   Number of wire bits:            129
    Number of public wires:           7
    Number of public wire bits:      19
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:                 58
-     $anyseq                         4
+   Number of cells:                 81
+     $anyseq                         6
      $assert                         2
      $assume                         1
+     $cover                          2
      $eq                             2
      $eqx                            1
-     $ff                            20
+     $ff                            26
      $initstate                      1
-     $logic_and                      4
-     $logic_not                      3
-     $mux                           20
+     $logic_and                      8
+     $logic_not                      5
+     $mux                           26
+     $reduce_or                      1
 
 === $paramod$7c35477155378bfbfbca6ad3e10976003272f73c\register_rw ===
 
-   Number of wires:                 60
-   Number of wire bits:            144
+   Number of wires:                 81
+   Number of wire bits:            165
    Number of public wires:           7
    Number of public wire bits:      28
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:                 58
-     $anyseq                         4
+   Number of cells:                 81
+     $anyseq                         6
      $assert                         2
      $assume                         1
+     $cover                          2
      $eq                             2
      $eqx                            1
-     $ff                            20
+     $ff                            26
      $initstate                      1
-     $logic_and                      4
-     $logic_not                      3
-     $mux                           20
+     $logic_and                      8
+     $logic_not                      5
+     $mux                           26
+     $reduce_or                      1
 
 === $paramod$0cb3357dc5241add6b274ec068a87eceeeb433f5\register_rw ===
 
-   Number of wires:                 60
-   Number of wire bits:            120
+   Number of wires:                 81
+   Number of wire bits:            141
    Number of public wires:           7
    Number of public wire bits:      22
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:                 58
-     $anyseq                         4
+   Number of cells:                 81
+     $anyseq                         6
      $assert                         2
      $assume                         1
+     $cover                          2
      $eq                             2
      $eqx                            1
-     $ff                            20
+     $ff                            26
      $initstate                      1
-     $logic_and                      4
-     $logic_not                      3
-     $mux                           20
+     $logic_and                      8
+     $logic_not                      5
+     $mux                           26
+     $reduce_or                      1
 
 === $paramod$0bb65c9adccbb8b5bdd22886d32571d8dcb03d28\register_rw ===
 
-   Number of wires:                 60
-   Number of wire bits:             96
+   Number of wires:                 81
+   Number of wire bits:            117
    Number of public wires:           7
    Number of public wire bits:      16
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:                 58
-     $anyseq                         4
+   Number of cells:                 81
+     $anyseq                         6
      $assert                         2
      $assume                         1
+     $cover                          2
      $eq                             2
      $eqx                            1
-     $ff                            20
+     $ff                            26
      $initstate                      1
-     $logic_and                      4
-     $logic_not                      3
-     $mux                           20
+     $logic_and                      8
+     $logic_not                      5
+     $mux                           26
+     $reduce_or                      1
 
 === design hierarchy ===
 
@@ -192,38 +200,38 @@ Input filename: design.il
      $paramod$d13e8dadfccc27092c88b79af8c27ba50a9734f7\register_rw      1
      hyperram                        1
 
-   Number of wires:               1843
-   Number of wire bits:           4712
+   Number of wires:               1928
+   Number of wire bits:           4766
    Number of public wires:         133
    Number of public wire bits:     713
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:               1916
+   Number of cells:               2009
      $add                            4
      $and                           14
-     $anyseq                       242
+     $anyseq                       249
      $assert                        91
      $assume                        33
-     $cover                         18
+     $cover                         26
      $eq                           112
      $eqx                            7
-     $ff                           383
+     $ff                           408
      $ge                             6
      $gt                             5
      $initstate                      6
-     $logic_and                    208
-     $logic_not                     65
-     $logic_or                      33
+     $logic_and                    225
+     $logic_not                     74
+     $logic_or                      35
      $lt                             2
      $mul                            6
-     $mux                          624
-     $ne                            10
+     $mux                          645
+     $ne                            11
      $not                            9
      $or                             1
      $pmux                          15
-     $reduce_bool                    6
-     $reduce_or                      1
+     $reduce_bool                    5
+     $reduce_or                      5
      $shiftx                         3
      $sub                           12
 
@@ -235,6 +243,6 @@ Creating SMT-LIBv2 representation of module $paramod$d13e8dadfccc27092c88b79af8c
 Creating SMT-LIBv2 representation of module hyperram.
 Creating SMT-LIBv2 representation of module wb_hyperram.
 
-End of script. Logfile hash: 5167a75adb, CPU: user 1.53s system 0.31s, MEM: 13.06 MB peak
+End of script. Logfile hash: 7a2380345d, CPU: user 0.38s system 0.02s, MEM: 13.44 MB peak
 Yosys 0.9+4081 (open-tool-forge build) (git sha1 ef4ddfac, gcc 9.3.0-17ubuntu1~20.04 -Os)
-Time spent: 68% 2x read_ilang (1 sec), 28% 2x write_smt2 (0 sec), ...
+Time spent: 49% 2x write_smt2 (0 sec), 47% 2x read_ilang (0 sec), ...

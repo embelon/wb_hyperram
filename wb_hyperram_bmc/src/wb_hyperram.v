@@ -2,7 +2,7 @@
 module wb_hyperram
 #(
 	parameter BASE_ADDR = 32'h3000_0000,
-	parameter MEM_SIZE = 32'h0400_0000		// 64MB
+	parameter MEM_SIZE = 32'h0080_0000		// 8MB
 )
 (
 	input			wb_clk_i,
@@ -19,36 +19,39 @@ module wb_hyperram
 
 	input			rst_i,
 
-	output			hb_rstn_o,
-	output			hb_csn_o,
+	output			hb_rstn_o,					// #RST
+	output			hb_csn_o,					// #CS
 	output			hb_clk_o,
-	output			hb_clkn_o,
+	output			hb_clkn_o,					// #CLK
 	output			hb_rwds_o,
-	output			hb_rwds_oen,
+	output			hb_rwds_oen,				// #RWDS_OE
 	output	[7:0]	hb_dq_o,
-	output			hb_dq_oen,
+	output			hb_dq_oen,					// #DQ_OE
 	input			hb_rwds_i,
-	input	[7:0]	hb_dq_i	
+	input	[7:0]	hb_dq_i
 );
 
-	// 30xxxxxx, 31xxxxxx, 32xxxxxx, 33xxxxxx -> RAM
-	// 340100xx -> RAM REG
-	// 340200xx -> CSR
-	parameter HB_RAM_BASE_MASK = 32'hfc00_0000;
+	// 3000_0000 - 307f_ffff -> RAM
+	// 3080_00xx -> register space
+	// 3090_00xx -> CSR
+	parameter HB_RAM_ADDR_MASK = 32'hff80_0000;
+	// RAM memory base address, RAM is first in the space
 	parameter HB_RAM_BASE = BASE_ADDR;
-	parameter HB_REG_BASE_MASK = 32'hffff_ff00;
-	parameter HB_REG_BASE = BASE_ADDR + 32'h0401_0000;
-	parameter CSR_BASE_MASK = 32'hffff_ff00;
-	parameter CSR_BASE = BASE_ADDR + 32'h0402_0000;
+	// Differentiate between register space (inside HB chip) and SoC CSRs
+	parameter HB_REG_OR_CSR_ADDR_MASK = 32'hffc0_0000;
+	// Register space base address
+	parameter HB_REG_BASE = BASE_ADDR + 32'h0080_0000;
+	// CSRs base address
+	parameter CSR_BASE = BASE_ADDR + 32'h00c0_0000;
 	
 	// Combinatorial decoding
 	wire hb_ram_valid;
 	wire hb_reg_valid;
 	wire csr_valid;	
 	
-	assign hb_ram_valid = wbs_stb_i && wbs_cyc_i && ((wbs_addr_i & HB_RAM_BASE_MASK) == HB_RAM_BASE);
-	assign hb_reg_valid = wbs_stb_i && wbs_cyc_i && ((wbs_addr_i & HB_REG_BASE_MASK) == HB_REG_BASE);
-	assign csr_valid = wbs_stb_i && wbs_cyc_i && ((wbs_addr_i & CSR_BASE_MASK) == CSR_BASE);
+	assign hb_ram_valid = wbs_stb_i && wbs_cyc_i && ((wbs_addr_i & HB_RAM_ADDR_MASK) == HB_RAM_BASE);
+	assign hb_reg_valid = wbs_stb_i && wbs_cyc_i && ((wbs_addr_i & HB_REG_OR_CSR_ADDR_MASK) == HB_REG_BASE);
+	assign csr_valid = wbs_stb_i && wbs_cyc_i && ((wbs_addr_i & HB_REG_OR_CSR_ADDR_MASK) == CSR_BASE);
 	
 	// last cycle value of csr_valid
 	// needed to satisfy Wishbone handshake on wbs_ack_o -> wbs_stb_i
@@ -62,12 +65,10 @@ module wb_hyperram
 
 	logic [31:0] sub_address;
 	always @(*) begin
-		if (hb_reg_valid)
-			sub_address <= wbs_addr_i & ~HB_REG_BASE_MASK;
-		else if (hb_ram_valid)
-			sub_address <= wbs_addr_i & ~HB_RAM_BASE_MASK;
-		else if (csr_valid)
-			sub_address <= wbs_addr_i & ~CSR_BASE_MASK;
+		if (hb_ram_valid)
+			sub_address <= wbs_addr_i & ~HB_RAM_ADDR_MASK;
+		else if (hb_reg_valid || csr_valid)
+			sub_address <= wbs_addr_i & ~HB_REG_OR_CSR_ADDR_MASK;
 		else
 			sub_address <= 0;
 	end
@@ -161,7 +162,7 @@ module wb_hyperram
 		.valid_i( hb_ram_valid | hb_reg_valid ),
 		.wren_i(wbs_we_i),
 		.regspace_i( hb_reg_valid ),
-		.addr_i( sub_address ),
+		.addr_i( {1'b0, sub_address[31:1]} ),
 		.sel_i(wbs_sel_i),
 		.data_i(wbs_dat_i),
 		.ready_o(hb_ready),
@@ -201,7 +202,7 @@ module wb_hyperram
 				CSR_TRMAX_BASE:			data_out <= {29'h00_0000, trmax};
 				CSR_STATUS_BASE:		data_out <= {31'h0000_0000, hb_read_timeout};
 				default: begin
-					if (((wbs_addr_i & HB_RAM_BASE_MASK) == HB_RAM_BASE) || ((wbs_addr_i & HB_REG_BASE_MASK) == HB_REG_BASE))
+					if (((wbs_addr_i & HB_RAM_ADDR_MASK) == HB_RAM_BASE) || ((wbs_addr_i & HB_REG_OR_CSR_ADDR_MASK) == HB_REG_BASE))
 						data_out <= hb_data_out;
 					else
 						data_out <= 32'h0000_0000;
@@ -554,17 +555,17 @@ always @($global_clock) begin
 
 	// reading hyperram
 	if (f_past_valid && !rst_i && !wb_rst_i) begin
-		if (wbs_cyc_i && wbs_stb_i && !wbs_we_i && ((wbs_addr_i & HB_RAM_BASE_MASK) == HB_RAM_BASE))
+		if (wbs_cyc_i && wbs_stb_i && !wbs_we_i && ((wbs_addr_i & HB_RAM_ADDR_MASK) == HB_RAM_BASE))
 			_read_hb_ram_:				assert(wbs_dat_o == hb_data_out);
-		if (wbs_cyc_i && wbs_stb_i && !wbs_we_i && ((wbs_addr_i & HB_REG_BASE_MASK) == HB_REG_BASE))
+		if (wbs_cyc_i && wbs_stb_i && !wbs_we_i && ((wbs_addr_i & HB_REG_OR_CSR_ADDR_MASK) == HB_REG_BASE))
 			_read_hb_reg_:				assert(wbs_dat_o == hb_data_out);
 	end
 
 	// hyperram operation
 	if (f_past_valid && !rst_i && !wb_rst_i) begin
-		if (wbs_cyc_i && wbs_stb_i && wbs_we_i && ((wbs_addr_i & HB_RAM_BASE_MASK) == HB_RAM_BASE) && !hb_csn_o)
+		if (wbs_cyc_i && wbs_stb_i && wbs_we_i && ((wbs_addr_i & HB_RAM_ADDR_MASK) == HB_RAM_BASE) && !hb_csn_o)
 			_rd_wr_hb_ram_:				assert(!wbs_ack_o);
-		if (wbs_cyc_i && wbs_stb_i && wbs_we_i && ((wbs_addr_i & HB_REG_BASE_MASK) == HB_REG_BASE) && !hb_csn_o)
+		if (wbs_cyc_i && wbs_stb_i && wbs_we_i && ((wbs_addr_i & HB_REG_OR_CSR_ADDR_MASK) == HB_REG_BASE) && !hb_csn_o)
 			_rd_wr_hb_reg_:				assert(!wbs_ack_o);			
 	end
 

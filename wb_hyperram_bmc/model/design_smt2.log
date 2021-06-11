@@ -34,7 +34,7 @@ Input filename: design.il
 === wb_hyperram ===
 
    Number of wires:                412
-   Number of wire bits:            951
+   Number of wire bits:            920
    Number of public wires:          46
    Number of public wire bits:     266
    Number of memories:               0
@@ -51,8 +51,8 @@ Input filename: design.il
      $initstate                      1
      $logic_and                     47
      $logic_not                     20
-     $logic_or                      12
-     $mux                          122
+     $logic_or                      13
+     $mux                          121
      $ne                             1
      $or                             1
      $paramod$0bb65c9adccbb8b5bdd22886d32571d8dcb03d28\register_rw      1
@@ -64,34 +64,34 @@ Input filename: design.il
 
 === hyperram ===
 
-   Number of wires:                995
-   Number of wire bits:           3043
+   Number of wires:                996
+   Number of wire bits:           3044
    Number of public wires:          59
    Number of public wire bits:     362
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:               1049
+   Number of cells:               1050
      $add                            4
      $and                            1
-     $anyseq                       151
+     $anyseq                       150
      $assert                        69
      $assume                         4
      $eq                            52
      $eqx                            2
-     $ff                           189
+     $ff                           190
      $ge                             6
      $initstate                      1
-     $logic_and                     59
-     $logic_not                     26
-     $logic_or                      21
+     $logic_and                     60
+     $logic_not                     27
+     $logic_or                      22
      $lt                             1
      $mul                            6
-     $mux                          404
-     $ne                             9
+     $mux                          402
+     $ne                            10
      $not                            9
      $pmux                          13
-     $reduce_bool                    6
+     $reduce_bool                    5
      $reduce_or                      1
      $shiftx                         3
      $sub                           12
@@ -189,35 +189,35 @@ Input filename: design.il
      $paramod$d13e8dadfccc27092c88b79af8c27ba50a9734f7\register_rw      1
      hyperram                        1
 
-   Number of wires:               1647
-   Number of wire bits:           4462
+   Number of wires:               1648
+   Number of wire bits:           4432
    Number of public wires:         133
    Number of public wire bits:     713
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:               1702
+   Number of cells:               1703
      $add                            4
      $and                           14
-     $anyseq                       224
+     $anyseq                       223
      $assert                        91
      $assume                        33
      $eq                            88
      $eqx                            7
-     $ff                           346
+     $ff                           347
      $ge                             6
      $initstate                      6
-     $logic_and                    122
-     $logic_not                     58
-     $logic_or                      33
+     $logic_and                    123
+     $logic_not                     59
+     $logic_or                      35
      $lt                             1
      $mul                            6
-     $mux                          606
-     $ne                            10
+     $mux                          603
+     $ne                            11
      $not                            9
      $or                             1
      $pmux                          15
-     $reduce_bool                    6
+     $reduce_bool                    5
      $reduce_or                      1
      $shiftx                         3
      $sub                           12
@@ -230,6 +230,6 @@ Creating SMT-LIBv2 representation of module $paramod$d13e8dadfccc27092c88b79af8c
 Creating SMT-LIBv2 representation of module hyperram.
 Creating SMT-LIBv2 representation of module wb_hyperram.
 
-End of script. Logfile hash: 51519d84fe, CPU: user 0.32s system 0.02s, MEM: 12.56 MB peak
+End of script. Logfile hash: f2d686d0d7, CPU: user 0.33s system 0.00s, MEM: 12.57 MB peak
 Yosys 0.9+4081 (open-tool-forge build) (git sha1 ef4ddfac, gcc 9.3.0-17ubuntu1~20.04 -Os)
 Time spent: 51% 2x write_smt2 (0 sec), 45% 2x read_ilang (0 sec), ...
