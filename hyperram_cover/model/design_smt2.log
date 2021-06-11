@@ -33,36 +33,36 @@ Input filename: design.il
 
 === hyperram ===
 
-   Number of wires:               1285
-   Number of wire bits:           3333
+   Number of wires:               1286
+   Number of wire bits:           3334
    Number of public wires:          59
    Number of public wire bits:     362
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:               1367
+   Number of cells:               1368
      $add                            4
      $and                            1
-     $anyseq                       179
+     $anyseq                       178
      $assert                        69
      $assume                         4
      $cover                         28
      $eq                            72
      $eqx                            2
-     $ff                           218
+     $ff                           219
      $ge                             6
      $gt                             5
      $initstate                      1
-     $logic_and                    234
-     $logic_not                     31
-     $logic_or                      21
+     $logic_and                    235
+     $logic_not                     32
+     $logic_or                      22
      $lt                             1
      $mul                            6
-     $mux                          432
-     $ne                             9
+     $mux                          430
+     $ne                            10
      $not                            9
      $pmux                          13
-     $reduce_bool                    6
+     $reduce_bool                    5
      $reduce_or                      1
      $shiftx                         3
      $sub                           12
@@ -70,6 +70,6 @@ Input filename: design.il
 4. Executing SMT2 backend.
 Creating SMT-LIBv2 representation of module hyperram.
 
-End of script. Logfile hash: ac2445dc49, CPU: user 0.26s system 0.00s, MEM: 12.16 MB peak
+End of script. Logfile hash: ae04ec1f0e, CPU: user 0.26s system 0.01s, MEM: 12.18 MB peak
 Yosys 0.9+4081 (open-tool-forge build) (git sha1 ef4ddfac, gcc 9.3.0-17ubuntu1~20.04 -Os)
-Time spent: 50% 2x read_ilang (0 sec), 46% 2x write_smt2 (0 sec), ...
+Time spent: 49% 2x read_ilang (0 sec), 47% 2x write_smt2 (0 sec), ...

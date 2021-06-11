@@ -6,13 +6,13 @@
 ; yosys-smt2-input wren_i 1
 ; yosys-smt2-wire wren_i 1
 (define-fun |hyperram_n wren_i| ((state |hyperram_s|)) Bool (|hyperram#0| state))
-(declare-fun |hyperram#1| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:156:execute$3690
-(declare-fun |hyperram#2| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:192:execute$3696
-(declare-fun |hyperram#3| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:168:execute$3562
+(declare-fun |hyperram#1| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:156:execute$3684
+(declare-fun |hyperram#2| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:192:execute$3690
+(declare-fun |hyperram#3| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:168:execute$3556
 (declare-fun |hyperram#4| (|hyperram_s|) (_ BitVec 1)) ; \clk_i
-(define-fun |hyperram#5| ((state |hyperram_s|)) Bool (= (concat (|hyperram#4| state) (|hyperram#3| state)) #b10)) ; $auto$rtlil.cc:2167:Eqx$3565
+(define-fun |hyperram#5| ((state |hyperram_s|)) Bool (= (concat (|hyperram#4| state) (|hyperram#3| state)) #b10)) ; $auto$rtlil.cc:2167:Eqx$3559
 (define-fun |hyperram#6| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#5| state) (|hyperram#2| state) (|hyperram#1| state))) ; \valid_r
-(define-fun |hyperram#7| ((state |hyperram_s|)) (_ BitVec 1) (bvnot (|hyperram#6| state))) ; $not$hyperram.v:109$322_Y
+(define-fun |hyperram#7| ((state |hyperram_s|)) (_ BitVec 1) (bvnot (|hyperram#6| state))) ; $not$hyperram.v:109$321_Y
 (declare-fun |hyperram#8| (|hyperram_s|) (_ BitVec 1)) ; \valid_i
 (define-fun |hyperram#9| ((state |hyperram_s|)) (_ BitVec 1) (bvand (|hyperram#7| state) (|hyperram#8| state))) ; \valid_start
 ; yosys-smt2-wire valid_start 1
@@ -22,8 +22,8 @@
 ; yosys-smt2-input valid_i 1
 ; yosys-smt2-wire valid_i 1
 (define-fun |hyperram_n valid_i| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#8| state)) #b1))
-(declare-fun |hyperram#10| (|hyperram_s|) (_ BitVec 5)) ; $auto$clk2fflogic.cc:156:execute$3600
-(declare-fun |hyperram#11| (|hyperram_s|) (_ BitVec 5)) ; $auto$clk2fflogic.cc:192:execute$3606
+(declare-fun |hyperram#10| (|hyperram_s|) (_ BitVec 5)) ; $auto$clk2fflogic.cc:156:execute$3594
+(declare-fun |hyperram#11| (|hyperram_s|) (_ BitVec 5)) ; $auto$clk2fflogic.cc:192:execute$3600
 (define-fun |hyperram#12| ((state |hyperram_s|)) (_ BitVec 5) (ite (|hyperram#5| state) (|hyperram#11| state) (|hyperram#10| state))) ; \trmax_r
 ; yosys-smt2-wire trmax_r 5
 (define-fun |hyperram_n trmax_r| ((state |hyperram_s|)) (_ BitVec 5) (|hyperram#12| state))
@@ -31,8 +31,8 @@
 ; yosys-smt2-input trmax_i 5
 ; yosys-smt2-wire trmax_i 5
 (define-fun |hyperram_n trmax_i| ((state |hyperram_s|)) (_ BitVec 5) (|hyperram#13| state))
-(declare-fun |hyperram#14| (|hyperram_s|) (_ BitVec 4)) ; $auto$clk2fflogic.cc:156:execute$3570
-(declare-fun |hyperram#15| (|hyperram_s|) (_ BitVec 4)) ; $auto$clk2fflogic.cc:192:execute$3576
+(declare-fun |hyperram#14| (|hyperram_s|) (_ BitVec 4)) ; $auto$clk2fflogic.cc:156:execute$3564
+(declare-fun |hyperram#15| (|hyperram_s|) (_ BitVec 4)) ; $auto$clk2fflogic.cc:192:execute$3570
 (define-fun |hyperram#16| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#5| state) (|hyperram#15| state) (|hyperram#14| state))) ; \tpre_r
 ; yosys-smt2-wire tpre_r 4
 (define-fun |hyperram_n tpre_r| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#16| state))
@@ -40,8 +40,8 @@
 ; yosys-smt2-input tpre_i 4
 ; yosys-smt2-wire tpre_i 4
 (define-fun |hyperram_n tpre_i| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#17| state))
-(declare-fun |hyperram#18| (|hyperram_s|) (_ BitVec 4)) ; $auto$clk2fflogic.cc:156:execute$3590
-(declare-fun |hyperram#19| (|hyperram_s|) (_ BitVec 4)) ; $auto$clk2fflogic.cc:192:execute$3596
+(declare-fun |hyperram#18| (|hyperram_s|) (_ BitVec 4)) ; $auto$clk2fflogic.cc:156:execute$3584
+(declare-fun |hyperram#19| (|hyperram_s|) (_ BitVec 4)) ; $auto$clk2fflogic.cc:192:execute$3590
 (define-fun |hyperram#20| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#5| state) (|hyperram#19| state) (|hyperram#18| state))) ; \tpost_r
 ; yosys-smt2-wire tpost_r 4
 (define-fun |hyperram_n tpost_r| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#20| state))
@@ -49,8 +49,8 @@
 ; yosys-smt2-input tpost_i 4
 ; yosys-smt2-wire tpost_i 4
 (define-fun |hyperram_n tpost_i| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#21| state))
-(declare-fun |hyperram#22| (|hyperram_s|) (_ BitVec 4)) ; $auto$clk2fflogic.cc:156:execute$3560
-(declare-fun |hyperram#23| (|hyperram_s|) (_ BitVec 4)) ; $auto$clk2fflogic.cc:192:execute$3566
+(declare-fun |hyperram#22| (|hyperram_s|) (_ BitVec 4)) ; $auto$clk2fflogic.cc:156:execute$3554
+(declare-fun |hyperram#23| (|hyperram_s|) (_ BitVec 4)) ; $auto$clk2fflogic.cc:192:execute$3560
 (define-fun |hyperram#24| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#5| state) (|hyperram#23| state) (|hyperram#22| state))) ; \tcsh_r
 ; yosys-smt2-wire tcsh_r 4
 (define-fun |hyperram_n tcsh_r| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#24| state))
@@ -58,8 +58,8 @@
 ; yosys-smt2-input tcsh_i 4
 ; yosys-smt2-wire tcsh_i 4
 (define-fun |hyperram_n tcsh_i| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#25| state))
-(declare-fun |hyperram#26| (|hyperram_s|) (_ BitVec 4)) ; $auto$clk2fflogic.cc:156:execute$3580
-(declare-fun |hyperram#27| (|hyperram_s|) (_ BitVec 4)) ; $auto$clk2fflogic.cc:192:execute$3586
+(declare-fun |hyperram#26| (|hyperram_s|) (_ BitVec 4)) ; $auto$clk2fflogic.cc:156:execute$3574
+(declare-fun |hyperram#27| (|hyperram_s|) (_ BitVec 4)) ; $auto$clk2fflogic.cc:192:execute$3580
 (define-fun |hyperram#28| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#5| state) (|hyperram#27| state) (|hyperram#26| state))) ; \tacc_r
 ; yosys-smt2-wire tacc_r 4
 (define-fun |hyperram_n tacc_r| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#28| state))
@@ -67,8 +67,8 @@
 ; yosys-smt2-input tacc_i 4
 ; yosys-smt2-wire tacc_i 4
 (define-fun |hyperram_n tacc_i| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#29| state))
-(declare-fun |hyperram#30| (|hyperram_s|) (_ BitVec 4)) ; $auto$clk2fflogic.cc:156:execute$3650
-(declare-fun |hyperram#31| (|hyperram_s|) (_ BitVec 4)) ; $auto$clk2fflogic.cc:192:execute$3656
+(declare-fun |hyperram#30| (|hyperram_s|) (_ BitVec 4)) ; $auto$clk2fflogic.cc:156:execute$3644
+(declare-fun |hyperram#31| (|hyperram_s|) (_ BitVec 4)) ; $auto$clk2fflogic.cc:192:execute$3650
 (define-fun |hyperram#32| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#5| state) (|hyperram#31| state) (|hyperram#30| state))) ; \sel_r
 ; yosys-smt2-wire sel_r 4
 (define-fun |hyperram_n sel_r| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#32| state))
@@ -76,15 +76,15 @@
 ; yosys-smt2-input sel_i 4
 ; yosys-smt2-wire sel_i 4
 (define-fun |hyperram_n sel_i| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#33| state))
-(declare-fun |hyperram#34| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:156:execute$3510
-(declare-fun |hyperram#35| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:192:execute$3516
-(declare-fun |hyperram#36| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:168:execute$3512
-(define-fun |hyperram#37| ((state |hyperram_s|)) Bool (= (concat (|hyperram#4| state) (|hyperram#36| state)) #b01)) ; $auto$rtlil.cc:2167:Eqx$3515
+(declare-fun |hyperram#34| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:156:execute$3504
+(declare-fun |hyperram#35| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:192:execute$3510
+(declare-fun |hyperram#36| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:168:execute$3506
+(define-fun |hyperram#37| ((state |hyperram_s|)) Bool (= (concat (|hyperram#4| state) (|hyperram#36| state)) #b01)) ; $auto$rtlil.cc:2167:Eqx$3509
 (define-fun |hyperram#38| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#37| state) (|hyperram#35| state) (|hyperram#34| state))) ; \rwds_r
 ; yosys-smt2-wire rwds_r 1
 (define-fun |hyperram_n rwds_r| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#38| state)) #b1))
-(declare-fun |hyperram#39| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:156:execute$3520
-(declare-fun |hyperram#40| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:192:execute$3526
+(declare-fun |hyperram#39| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:156:execute$3514
+(declare-fun |hyperram#40| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:192:execute$3520
 (define-fun |hyperram#41| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#37| state) (|hyperram#40| state) (|hyperram#39| state))) ; \rwds_2x_latency_r
 ; yosys-smt2-wire rwds_2x_latency_r 1
 (define-fun |hyperram_n rwds_2x_latency_r| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#41| state)) #b1))
@@ -96,20 +96,20 @@
 ; yosys-smt2-input regspace_i 1
 ; yosys-smt2-wire regspace_i 1
 (define-fun |hyperram_n regspace_i| ((state |hyperram_s|)) Bool (|hyperram#43| state))
-(declare-fun |hyperram#44| (|hyperram_s|) (_ BitVec 48)) ; $auto$clk2fflogic.cc:156:execute$3640
-(declare-fun |hyperram#45| (|hyperram_s|) (_ BitVec 48)) ; $auto$clk2fflogic.cc:192:execute$3646
+(declare-fun |hyperram#44| (|hyperram_s|) (_ BitVec 48)) ; $auto$clk2fflogic.cc:156:execute$3634
+(declare-fun |hyperram#45| (|hyperram_s|) (_ BitVec 48)) ; $auto$clk2fflogic.cc:192:execute$3640
 (define-fun |hyperram#46| ((state |hyperram_s|)) (_ BitVec 48) (ite (|hyperram#5| state) (|hyperram#45| state) (|hyperram#44| state))) ; \CA_r
 ; yosys-smt2-wire reg_access 1
 (define-fun |hyperram_n reg_access| ((state |hyperram_s|)) Bool (= ((_ extract 46 46) (|hyperram#46| state)) #b1))
-(declare-fun |hyperram#47| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:156:execute$3660
-(declare-fun |hyperram#48| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:192:execute$3666
+(declare-fun |hyperram#47| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:156:execute$3654
+(declare-fun |hyperram#48| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:192:execute$3660
 (define-fun |hyperram#49| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#5| state) (|hyperram#48| state) (|hyperram#47| state))) ; \busy_r
 (define-fun |hyperram#50| ((state |hyperram_s|)) (_ BitVec 1) (bvnot (|hyperram#49| state))) ; \ready_o
 ; yosys-smt2-output ready_o 1
 ; yosys-smt2-wire ready_o 1
 (define-fun |hyperram_n ready_o| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#50| state)) #b1))
-(declare-fun |hyperram#51| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:156:execute$3670
-(declare-fun |hyperram#52| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:192:execute$3676
+(declare-fun |hyperram#51| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:156:execute$3664
+(declare-fun |hyperram#52| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:192:execute$3670
 (define-fun |hyperram#53| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#5| state) (|hyperram#52| state) (|hyperram#51| state))) ; \read_timeout_r
 ; yosys-smt2-wire read_timeout_r 1
 (define-fun |hyperram_n read_timeout_r| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#53| state)) #b1))
@@ -118,2135 +118,2137 @@
 (define-fun |hyperram_n read_timeout_o| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#53| state)) #b1))
 ; yosys-smt2-wire read_op 1
 (define-fun |hyperram_n read_op| ((state |hyperram_s|)) Bool (= ((_ extract 47 47) (|hyperram#46| state)) #b1))
-(declare-fun |hyperram#54| (|hyperram_s|) (_ BitVec 3)) ; $auto$clk2fflogic.cc:156:execute$3530
-(declare-fun |hyperram#55| (|hyperram_s|) (_ BitVec 3)) ; $auto$clk2fflogic.cc:192:execute$3536
+(declare-fun |hyperram#54| (|hyperram_s|) (_ BitVec 3)) ; $auto$clk2fflogic.cc:156:execute$3524
+(declare-fun |hyperram#55| (|hyperram_s|) (_ BitVec 3)) ; $auto$clk2fflogic.cc:192:execute$3530
 (define-fun |hyperram#56| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#37| state) (|hyperram#55| state) (|hyperram#54| state))) ; \read_cnt_r
 ; yosys-smt2-wire read_cnt_r 3
 (define-fun |hyperram_n read_cnt_r| ((state |hyperram_s|)) (_ BitVec 3) (|hyperram#56| state))
-(define-fun |hyperram#57| ((state |hyperram_s|)) (_ BitVec 6) (bvsub (concat #b0 (concat (|hyperram#28| state) #b0)) #b000010)) ; { $sub$hyperram.v:89$307_Y [31] $sub$hyperram.v:89$307_Y [4:0] }
-(define-fun |hyperram#58| ((state |hyperram_s|)) (_ BitVec 6) (bvsub (|hyperram#57| state) #b000001)) ; $sub$hyperram.v:91$312_Y [5:0]
-(define-fun |hyperram#59| ((state |hyperram_s|)) (_ BitVec 6) (bvsub (concat (|hyperram#28| state) #b00) #b000010)) ; $auto$wreduce.cc:454:run$3506 [5:0]
-(define-fun |hyperram#60| ((state |hyperram_s|)) (_ BitVec 6) (bvsub (|hyperram#59| state) #b000001)) ; $auto$wreduce.cc:454:run$3507 [5:0]
-(define-fun |hyperram#61| ((state |hyperram_s|)) (_ BitVec 6) (ite (= ((_ extract 0 0) (|hyperram#41| state)) #b1) (|hyperram#60| state) (|hyperram#58| state))) ; $ternary$hyperram.v:99$321_Y [5:0]
-(define-fun |hyperram#62| ((state |hyperram_s|)) (_ BitVec 6) (ite (= ((_ extract 0 0) (|hyperram#41| state)) #b1) (|hyperram#59| state) (|hyperram#57| state))) ; $auto$wreduce.cc:454:run$3509 [5:0]
-(define-fun |hyperram#63| ((state |hyperram_s|)) (_ BitVec 6) (ite (= ((_ extract 47 47) (|hyperram#46| state)) #b1) (|hyperram#62| state) (|hyperram#61| state))) ; $procmux$3057_Y
-(declare-fun |hyperram#64| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:156:execute$3620
-(declare-fun |hyperram#65| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:192:execute$3626
+(define-fun |hyperram#57| ((state |hyperram_s|)) (_ BitVec 6) (bvsub (concat #b0 (concat (|hyperram#28| state) #b0)) #b000010)) ; { $sub$hyperram.v:89$306_Y [31] $sub$hyperram.v:89$306_Y [4:0] }
+(define-fun |hyperram#58| ((state |hyperram_s|)) (_ BitVec 6) (bvsub (|hyperram#57| state) #b000001)) ; $sub$hyperram.v:91$311_Y [5:0]
+(define-fun |hyperram#59| ((state |hyperram_s|)) (_ BitVec 6) (bvsub (concat (|hyperram#28| state) #b00) #b000010)) ; $auto$wreduce.cc:454:run$3499 [5:0]
+(define-fun |hyperram#60| ((state |hyperram_s|)) (_ BitVec 6) (bvsub (|hyperram#59| state) #b000001)) ; $auto$wreduce.cc:454:run$3500 [5:0]
+(define-fun |hyperram#61| ((state |hyperram_s|)) (_ BitVec 6) (ite (= ((_ extract 0 0) (|hyperram#41| state)) #b1) (|hyperram#60| state) (|hyperram#58| state))) ; $ternary$hyperram.v:99$320_Y [5:0]
+(define-fun |hyperram#62| ((state |hyperram_s|)) (_ BitVec 6) (ite (= ((_ extract 0 0) (|hyperram#41| state)) #b1) (|hyperram#59| state) (|hyperram#57| state))) ; $auto$wreduce.cc:454:run$3503 [5:0]
+(define-fun |hyperram#63| ((state |hyperram_s|)) (_ BitVec 6) (ite (= ((_ extract 47 47) (|hyperram#46| state)) #b1) (|hyperram#62| state) (|hyperram#61| state))) ; $procmux$3050_Y
+(declare-fun |hyperram#64| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:156:execute$3614
+(declare-fun |hyperram#65| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:192:execute$3620
 (define-fun |hyperram#66| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#5| state) (|hyperram#65| state) (|hyperram#64| state))) ; \double_latency_r
-(define-fun |hyperram#67| ((state |hyperram_s|)) (_ BitVec 6) (ite (= ((_ extract 0 0) (|hyperram#66| state)) #b1) (|hyperram#60| state) (|hyperram#58| state))) ; $ternary$hyperram.v:91$313_Y [5:0]
-(define-fun |hyperram#68| ((state |hyperram_s|)) (_ BitVec 6) (ite (= ((_ extract 0 0) (|hyperram#66| state)) #b1) (|hyperram#59| state) (|hyperram#57| state))) ; $auto$wreduce.cc:454:run$3508 [5:0]
-(define-fun |hyperram#69| ((state |hyperram_s|)) (_ BitVec 6) (ite (= ((_ extract 47 47) (|hyperram#46| state)) #b1) (|hyperram#68| state) (|hyperram#67| state))) ; $procmux$3061_Y
-(declare-fun |hyperram#70| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:156:execute$3610
-(declare-fun |hyperram#71| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:192:execute$3616
+(define-fun |hyperram#67| ((state |hyperram_s|)) (_ BitVec 6) (ite (= ((_ extract 0 0) (|hyperram#66| state)) #b1) (|hyperram#60| state) (|hyperram#58| state))) ; $ternary$hyperram.v:91$312_Y [5:0]
+(define-fun |hyperram#68| ((state |hyperram_s|)) (_ BitVec 6) (ite (= ((_ extract 0 0) (|hyperram#66| state)) #b1) (|hyperram#59| state) (|hyperram#57| state))) ; $auto$wreduce.cc:454:run$3502 [5:0]
+(define-fun |hyperram#69| ((state |hyperram_s|)) (_ BitVec 6) (ite (= ((_ extract 47 47) (|hyperram#46| state)) #b1) (|hyperram#68| state) (|hyperram#67| state))) ; $procmux$3054_Y
+(declare-fun |hyperram#70| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:156:execute$3604
+(declare-fun |hyperram#71| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:192:execute$3610
 (define-fun |hyperram#72| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#5| state) (|hyperram#71| state) (|hyperram#70| state))) ; \fixed_latency_r
 (define-fun |hyperram#73| ((state |hyperram_s|)) (_ BitVec 6) (ite (= ((_ extract 0 0) (|hyperram#72| state)) #b1) (|hyperram#69| state) (|hyperram#63| state))) ; \latency_cycles
 ; yosys-smt2-wire latency_cycles 6
 (define-fun |hyperram_n latency_cycles| ((state |hyperram_s|)) (_ BitVec 6) (|hyperram#73| state))
-(declare-fun |hyperram#74| (|hyperram_s|) (_ BitVec 3)) ; $auto$clk2fflogic.cc:156:execute$3680
-(declare-fun |hyperram#75| (|hyperram_s|) (_ BitVec 3)) ; $auto$clk2fflogic.cc:192:execute$3686
+(declare-fun |hyperram#74| (|hyperram_s|) (_ BitVec 3)) ; $auto$clk2fflogic.cc:156:execute$3674
+(declare-fun |hyperram#75| (|hyperram_s|) (_ BitVec 3)) ; $auto$clk2fflogic.cc:192:execute$3680
 (define-fun |hyperram#76| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#5| state) (|hyperram#75| state) (|hyperram#74| state))) ; \bus_state_r
-(define-fun |hyperram#77| ((state |hyperram_s|)) Bool (= (|hyperram#76| state) #b100)) ; $eq$hyperram.v:1000$1512_Y
-(define-fun |hyperram#78| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 46 46) (|hyperram#46| state)) #b1) false))) ; $logic_not$hyperram.v:333$387_Y
-(define-fun |hyperram#79| ((state |hyperram_s|)) Bool (and (or  (|hyperram#77| state) false) (or  (|hyperram#78| state) false))) ; \hb_rwds_oen
+(define-fun |hyperram#77| ((state |hyperram_s|)) Bool (distinct (|hyperram#76| state) #b100)) ; $ne$hyperram.v:333$385_Y
+(define-fun |hyperram#78| ((state |hyperram_s|)) Bool (or  (|hyperram#77| state) false  (= ((_ extract 46 46) (|hyperram#46| state)) #b1) false)) ; \hb_rwds_oen
 ; yosys-smt2-output hb_rwds_oen 1
 ; yosys-smt2-wire hb_rwds_oen 1
-(define-fun |hyperram_n hb_rwds_oen| ((state |hyperram_s|)) Bool (|hyperram#79| state))
-(declare-fun |hyperram#80| (|hyperram_s|) (_ BitVec 6)) ; $auto$clk2fflogic.cc:156:execute$3700
-(declare-fun |hyperram#81| (|hyperram_s|) (_ BitVec 6)) ; $auto$clk2fflogic.cc:192:execute$3706
-(define-fun |hyperram#82| ((state |hyperram_s|)) (_ BitVec 6) (ite (|hyperram#5| state) (|hyperram#81| state) (|hyperram#80| state))) ; \cycle_cnt_r
-(define-fun |hyperram#83| ((state |hyperram_s|)) (_ BitVec 1) ((_ extract 0 0) (bvlshr (concat #b00 (|hyperram#32| state)) (|hyperram#82| state)))) ; $auto$wreduce.cc:454:run$3494 [0]
-(define-fun |hyperram#84| ((state |hyperram_s|)) (_ BitVec 1) (bvnot (|hyperram#83| state))) ; $not$hyperram.v:335$394_Y [0]
-(define-fun |hyperram#85| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#79| state) (|hyperram#84| state) #b0)) ; \hb_rwds_o
+(define-fun |hyperram_n hb_rwds_oen| ((state |hyperram_s|)) Bool (|hyperram#78| state))
+(declare-fun |hyperram#79| (|hyperram_s|) (_ BitVec 6)) ; $auto$clk2fflogic.cc:156:execute$3694
+(declare-fun |hyperram#80| (|hyperram_s|) (_ BitVec 6)) ; $auto$clk2fflogic.cc:192:execute$3700
+(define-fun |hyperram#81| ((state |hyperram_s|)) (_ BitVec 6) (ite (|hyperram#5| state) (|hyperram#80| state) (|hyperram#79| state))) ; \cycle_cnt_r
+(define-fun |hyperram#82| ((state |hyperram_s|)) (_ BitVec 1) ((_ extract 0 0) (bvlshr (concat #b00 (|hyperram#32| state)) (|hyperram#81| state)))) ; $auto$wreduce.cc:454:run$3486 [0]
+(define-fun |hyperram#83| ((state |hyperram_s|)) (_ BitVec 1) (bvnot (|hyperram#82| state))) ; $not$hyperram.v:335$392_Y [0]
+(define-fun |hyperram#84| ((state |hyperram_s|)) Bool (= (|hyperram#76| state) #b100)) ; $eq$hyperram.v:1000$1509_Y
+(define-fun |hyperram#85| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 46 46) (|hyperram#46| state)) #b1) false))) ; $logic_not$hyperram.v:335$388_Y
+(define-fun |hyperram#86| ((state |hyperram_s|)) Bool (and (or  (|hyperram#84| state) false) (or  (|hyperram#85| state) false))) ; $logic_and$hyperram.v:335$389_Y
+(define-fun |hyperram#87| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#86| state) (|hyperram#83| state) #b0)) ; \hb_rwds_o
 ; yosys-smt2-output hb_rwds_o 1
 ; yosys-smt2-wire hb_rwds_o 1
-(define-fun |hyperram_n hb_rwds_o| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#85| state)) #b1))
-(declare-fun |hyperram#86| (|hyperram_s|) Bool) ; \hb_rwds_i
+(define-fun |hyperram_n hb_rwds_o| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#87| state)) #b1))
+(declare-fun |hyperram#88| (|hyperram_s|) Bool) ; \hb_rwds_i
 ; yosys-smt2-input hb_rwds_i 1
 ; yosys-smt2-wire hb_rwds_i 1
-(define-fun |hyperram_n hb_rwds_i| ((state |hyperram_s|)) Bool (|hyperram#86| state))
-(define-fun |hyperram#87| ((state |hyperram_s|)) (_ BitVec 1) (bvnot (ite (|hyperram#42| state) #b1 #b0))) ; \hb_rstn_o
+(define-fun |hyperram_n hb_rwds_i| ((state |hyperram_s|)) Bool (|hyperram#88| state))
+(define-fun |hyperram#89| ((state |hyperram_s|)) (_ BitVec 1) (bvnot (ite (|hyperram#42| state) #b1 #b0))) ; \hb_rstn_o
 ; yosys-smt2-output hb_rstn_o 1
 ; yosys-smt2-wire hb_rstn_o 1
-(define-fun |hyperram_n hb_rstn_o| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#87| state)) #b1))
-(define-fun |hyperram#88| ((state |hyperram_s|)) Bool (= (|hyperram#76| state) #b010)) ; $eq$hyperram.v:1056$1615_Y
-(define-fun |hyperram#89| ((state |hyperram_s|)) Bool (or  (|hyperram#88| state) false  (|hyperram#77| state) false)) ; \hb_dq_oen
+(define-fun |hyperram_n hb_rstn_o| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#89| state)) #b1))
+(define-fun |hyperram#90| ((state |hyperram_s|)) Bool (distinct (|hyperram#76| state) #b010)) ; $ne$hyperram.v:338$394_Y
+(define-fun |hyperram#91| ((state |hyperram_s|)) Bool (and (or  (|hyperram#90| state) false) (or  (|hyperram#77| state) false))) ; \hb_dq_oen
 ; yosys-smt2-output hb_dq_oen 1
 ; yosys-smt2-wire hb_dq_oen 1
-(define-fun |hyperram_n hb_dq_oen| ((state |hyperram_s|)) Bool (|hyperram#89| state))
-(declare-fun |hyperram#90| (|hyperram_s|) (_ BitVec 32)) ; $auto$clk2fflogic.cc:156:execute$3630
-(declare-fun |hyperram#91| (|hyperram_s|) (_ BitVec 32)) ; $auto$clk2fflogic.cc:192:execute$3636
-(define-fun |hyperram#92| ((state |hyperram_s|)) (_ BitVec 32) (ite (|hyperram#5| state) (|hyperram#91| state) (|hyperram#90| state))) ; \dataw_r
-(define-fun |hyperram#93| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#82| state)) #b1) (= ((_ extract 1 1) (|hyperram#82| state)) #b1) (= ((_ extract 2 2) (|hyperram#82| state)) #b1) (= ((_ extract 3 3) (|hyperram#82| state)) #b1) (= ((_ extract 4 4) (|hyperram#82| state)) #b1) (= ((_ extract 5 5) (|hyperram#82| state)) #b1)))) ; $eq$hyperram.v:240$351_Y
-(define-fun |hyperram#94| ((state |hyperram_s|)) Bool (= (|hyperram#82| state) #b000001)) ; $eq$hyperram.v:1001$1514_Y
-(define-fun |hyperram#95| ((state |hyperram_s|)) Bool (= (|hyperram#82| state) #b000010)) ; $eq$hyperram.v:297$375_Y
-(define-fun |hyperram#96| ((state |hyperram_s|)) Bool (= (|hyperram#82| state) #b000011)) ; $eq$hyperram.v:1019$1558_Y
-(define-fun |hyperram#97| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#96| state) ((_ extract 31 24) (|hyperram#92| state)) (ite (|hyperram#95| state) ((_ extract 23 16) (|hyperram#92| state)) (ite (|hyperram#94| state) ((_ extract 15 8) (|hyperram#92| state)) (ite (|hyperram#93| state) ((_ extract 7 0) (|hyperram#92| state)) #b00000000))))) ; $procmux$2657_Y
-(define-fun |hyperram#98| ((state |hyperram_s|)) Bool (= (|hyperram#82| state) #b000100)) ; $procmux$2670_CMP
-(define-fun |hyperram#99| ((state |hyperram_s|)) Bool (= (|hyperram#82| state) #b000101)) ; $eq$hyperram.v:998$1505_Y
-(define-fun |hyperram#100| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#99| state) ((_ extract 47 40) (|hyperram#46| state)) (ite (|hyperram#98| state) ((_ extract 39 32) (|hyperram#46| state)) (ite (|hyperram#96| state) ((_ extract 31 24) (|hyperram#46| state)) (ite (|hyperram#95| state) ((_ extract 23 16) (|hyperram#46| state)) (ite (|hyperram#94| state) ((_ extract 15 8) (|hyperram#46| state)) (ite (|hyperram#93| state) ((_ extract 7 0) (|hyperram#46| state)) #b00000000))))))) ; $procmux$2665_Y
-(define-fun |hyperram#101| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#88| state) (|hyperram#100| state) (ite (|hyperram#77| state) (|hyperram#97| state) #b00000000))) ; \hb_dq_o
+(define-fun |hyperram_n hb_dq_oen| ((state |hyperram_s|)) Bool (|hyperram#91| state))
+(declare-fun |hyperram#92| (|hyperram_s|) (_ BitVec 32)) ; $auto$clk2fflogic.cc:156:execute$3624
+(declare-fun |hyperram#93| (|hyperram_s|) (_ BitVec 32)) ; $auto$clk2fflogic.cc:192:execute$3630
+(define-fun |hyperram#94| ((state |hyperram_s|)) (_ BitVec 32) (ite (|hyperram#5| state) (|hyperram#93| state) (|hyperram#92| state))) ; \dataw_r
+(define-fun |hyperram#95| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#81| state)) #b1) (= ((_ extract 1 1) (|hyperram#81| state)) #b1) (= ((_ extract 2 2) (|hyperram#81| state)) #b1) (= ((_ extract 3 3) (|hyperram#81| state)) #b1) (= ((_ extract 4 4) (|hyperram#81| state)) #b1) (= ((_ extract 5 5) (|hyperram#81| state)) #b1)))) ; $eq$hyperram.v:240$350_Y
+(define-fun |hyperram#96| ((state |hyperram_s|)) Bool (= (|hyperram#81| state) #b000001)) ; $eq$hyperram.v:1001$1511_Y
+(define-fun |hyperram#97| ((state |hyperram_s|)) Bool (= (|hyperram#81| state) #b000010)) ; $eq$hyperram.v:297$374_Y
+(define-fun |hyperram#98| ((state |hyperram_s|)) Bool (= (|hyperram#81| state) #b000011)) ; $eq$hyperram.v:1019$1555_Y
+(define-fun |hyperram#99| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#98| state) ((_ extract 31 24) (|hyperram#94| state)) (ite (|hyperram#97| state) ((_ extract 23 16) (|hyperram#94| state)) (ite (|hyperram#96| state) ((_ extract 15 8) (|hyperram#94| state)) (ite (|hyperram#95| state) ((_ extract 7 0) (|hyperram#94| state)) #b00000000))))) ; $procmux$2650_Y
+(define-fun |hyperram#100| ((state |hyperram_s|)) Bool (= (|hyperram#81| state) #b000100)) ; $procmux$2663_CMP
+(define-fun |hyperram#101| ((state |hyperram_s|)) Bool (= (|hyperram#81| state) #b000101)) ; $eq$hyperram.v:998$1502_Y
+(define-fun |hyperram#102| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#101| state) ((_ extract 47 40) (|hyperram#46| state)) (ite (|hyperram#100| state) ((_ extract 39 32) (|hyperram#46| state)) (ite (|hyperram#98| state) ((_ extract 31 24) (|hyperram#46| state)) (ite (|hyperram#97| state) ((_ extract 23 16) (|hyperram#46| state)) (ite (|hyperram#96| state) ((_ extract 15 8) (|hyperram#46| state)) (ite (|hyperram#95| state) ((_ extract 7 0) (|hyperram#46| state)) #b00000000))))))) ; $procmux$2658_Y
+(define-fun |hyperram#103| ((state |hyperram_s|)) Bool (= (|hyperram#76| state) #b010)) ; $eq$hyperram.v:1056$1612_Y
+(define-fun |hyperram#104| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#103| state) (|hyperram#102| state) (ite (|hyperram#84| state) (|hyperram#99| state) #b00000000))) ; \hb_dq_o
 ; yosys-smt2-output hb_dq_o 8
 ; yosys-smt2-wire hb_dq_o 8
-(define-fun |hyperram_n hb_dq_o| ((state |hyperram_s|)) (_ BitVec 8) (|hyperram#101| state))
-(declare-fun |hyperram#102| (|hyperram_s|) (_ BitVec 8)) ; \hb_dq_i
+(define-fun |hyperram_n hb_dq_o| ((state |hyperram_s|)) (_ BitVec 8) (|hyperram#104| state))
+(declare-fun |hyperram#105| (|hyperram_s|) (_ BitVec 8)) ; \hb_dq_i
 ; yosys-smt2-input hb_dq_i 8
 ; yosys-smt2-wire hb_dq_i 8
-(define-fun |hyperram_n hb_dq_i| ((state |hyperram_s|)) (_ BitVec 8) (|hyperram#102| state))
+(define-fun |hyperram_n hb_dq_i| ((state |hyperram_s|)) (_ BitVec 8) (|hyperram#105| state))
 ; yosys-smt2-wire hb_data_out 8
-(define-fun |hyperram_n hb_data_out| ((state |hyperram_s|)) (_ BitVec 8) (|hyperram#101| state))
-(define-fun |hyperram#103| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#76| state)) #b1) (= ((_ extract 1 1) (|hyperram#76| state)) #b1) (= ((_ extract 2 2) (|hyperram#76| state)) #b1)))) ; $eq$hyperram.v:1024$1576_Y
-(define-fun |hyperram#104| ((state |hyperram_s|)) Bool (or  (|hyperram#103| state) false  (|hyperram#42| state) false)) ; \hb_csn_o
+(define-fun |hyperram_n hb_data_out| ((state |hyperram_s|)) (_ BitVec 8) (|hyperram#104| state))
+(define-fun |hyperram#106| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#76| state)) #b1) (= ((_ extract 1 1) (|hyperram#76| state)) #b1) (= ((_ extract 2 2) (|hyperram#76| state)) #b1)))) ; $eq$hyperram.v:1024$1573_Y
+(define-fun |hyperram#107| ((state |hyperram_s|)) Bool (or  (|hyperram#106| state) false  (|hyperram#42| state) false)) ; \hb_csn_o
 ; yosys-smt2-output hb_csn_o 1
 ; yosys-smt2-wire hb_csn_o 1
-(define-fun |hyperram_n hb_csn_o| ((state |hyperram_s|)) Bool (|hyperram#104| state))
-(declare-fun |hyperram#105| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:156:execute$3540
-(declare-fun |hyperram#106| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:192:execute$3546
-(define-fun |hyperram#107| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#37| state) (|hyperram#106| state) (|hyperram#105| state))) ; \bus_clk_r
-(define-fun |hyperram#108| ((state |hyperram_s|)) (_ BitVec 1) (bvnot (|hyperram#107| state))) ; \hb_clkn_o
+(define-fun |hyperram_n hb_csn_o| ((state |hyperram_s|)) Bool (|hyperram#107| state))
+(declare-fun |hyperram#108| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:156:execute$3534
+(declare-fun |hyperram#109| (|hyperram_s|) (_ BitVec 1)) ; $auto$clk2fflogic.cc:192:execute$3540
+(define-fun |hyperram#110| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#37| state) (|hyperram#109| state) (|hyperram#108| state))) ; \bus_clk_r
+(define-fun |hyperram#111| ((state |hyperram_s|)) (_ BitVec 1) (bvnot (|hyperram#110| state))) ; \hb_clkn_o
 ; yosys-smt2-output hb_clkn_o 1
 ; yosys-smt2-wire hb_clkn_o 1
-(define-fun |hyperram_n hb_clkn_o| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#108| state)) #b1))
+(define-fun |hyperram_n hb_clkn_o| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#111| state)) #b1))
 ; yosys-smt2-output hb_clk_o 1
 ; yosys-smt2-wire hb_clk_o 1
-(define-fun |hyperram_n hb_clk_o| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#107| state)) #b1))
+(define-fun |hyperram_n hb_clk_o| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#110| state)) #b1))
 ; yosys-smt2-wire fixed_latency_r 1
 (define-fun |hyperram_n fixed_latency_r| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#72| state)) #b1))
-(declare-fun |hyperram#109| (|hyperram_s|) Bool) ; \fixed_latency_i
+(declare-fun |hyperram#112| (|hyperram_s|) Bool) ; \fixed_latency_i
 ; yosys-smt2-input fixed_latency_i 1
 ; yosys-smt2-wire fixed_latency_i 1
-(define-fun |hyperram_n fixed_latency_i| ((state |hyperram_s|)) Bool (|hyperram#109| state))
-(declare-fun |hyperram#110| (|hyperram_s|) (_ BitVec 1)) ; \f_past_valid
+(define-fun |hyperram_n fixed_latency_i| ((state |hyperram_s|)) Bool (|hyperram#112| state))
+(declare-fun |hyperram#113| (|hyperram_s|) (_ BitVec 1)) ; \f_past_valid
 ; yosys-smt2-register f_past_valid 1
 ; yosys-smt2-wire f_past_valid 1
-(define-fun |hyperram_n f_past_valid| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#110| state)) #b1))
+(define-fun |hyperram_n f_past_valid| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#113| state)) #b1))
 ; yosys-smt2-wire double_latency_r 1
 (define-fun |hyperram_n double_latency_r| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#66| state)) #b1))
-(declare-fun |hyperram#111| (|hyperram_s|) Bool) ; \double_latency_i
+(declare-fun |hyperram#114| (|hyperram_s|) Bool) ; \double_latency_i
 ; yosys-smt2-input double_latency_i 1
 ; yosys-smt2-wire double_latency_i 1
-(define-fun |hyperram_n double_latency_i| ((state |hyperram_s|)) Bool (|hyperram#111| state))
+(define-fun |hyperram_n double_latency_i| ((state |hyperram_s|)) Bool (|hyperram#114| state))
 ; yosys-smt2-wire dataw_r 32
-(define-fun |hyperram_n dataw_r| ((state |hyperram_s|)) (_ BitVec 32) (|hyperram#92| state))
-(declare-fun |hyperram#112| (|hyperram_s|) (_ BitVec 32)) ; $auto$clk2fflogic.cc:156:execute$3550
-(declare-fun |hyperram#113| (|hyperram_s|) (_ BitVec 32)) ; $auto$clk2fflogic.cc:192:execute$3556
-(define-fun |hyperram#114| ((state |hyperram_s|)) (_ BitVec 32) (ite (|hyperram#37| state) (|hyperram#113| state) (|hyperram#112| state))) ; \datar_r
+(define-fun |hyperram_n dataw_r| ((state |hyperram_s|)) (_ BitVec 32) (|hyperram#94| state))
+(declare-fun |hyperram#115| (|hyperram_s|) (_ BitVec 32)) ; $auto$clk2fflogic.cc:156:execute$3544
+(declare-fun |hyperram#116| (|hyperram_s|) (_ BitVec 32)) ; $auto$clk2fflogic.cc:192:execute$3550
+(define-fun |hyperram#117| ((state |hyperram_s|)) (_ BitVec 32) (ite (|hyperram#37| state) (|hyperram#116| state) (|hyperram#115| state))) ; \datar_r
 ; yosys-smt2-wire datar_r 32
-(define-fun |hyperram_n datar_r| ((state |hyperram_s|)) (_ BitVec 32) (|hyperram#114| state))
+(define-fun |hyperram_n datar_r| ((state |hyperram_s|)) (_ BitVec 32) (|hyperram#117| state))
 ; yosys-smt2-wire datar_3 8
-(define-fun |hyperram_n datar_3| ((state |hyperram_s|)) (_ BitVec 8) ((_ extract 31 24) (|hyperram#114| state)))
+(define-fun |hyperram_n datar_3| ((state |hyperram_s|)) (_ BitVec 8) ((_ extract 31 24) (|hyperram#117| state)))
 ; yosys-smt2-wire datar_2 8
-(define-fun |hyperram_n datar_2| ((state |hyperram_s|)) (_ BitVec 8) ((_ extract 23 16) (|hyperram#114| state)))
+(define-fun |hyperram_n datar_2| ((state |hyperram_s|)) (_ BitVec 8) ((_ extract 23 16) (|hyperram#117| state)))
 ; yosys-smt2-wire datar_1 8
-(define-fun |hyperram_n datar_1| ((state |hyperram_s|)) (_ BitVec 8) ((_ extract 15 8) (|hyperram#114| state)))
+(define-fun |hyperram_n datar_1| ((state |hyperram_s|)) (_ BitVec 8) ((_ extract 15 8) (|hyperram#117| state)))
 ; yosys-smt2-wire datar_0 8
-(define-fun |hyperram_n datar_0| ((state |hyperram_s|)) (_ BitVec 8) ((_ extract 7 0) (|hyperram#114| state)))
+(define-fun |hyperram_n datar_0| ((state |hyperram_s|)) (_ BitVec 8) ((_ extract 7 0) (|hyperram#117| state)))
 ; yosys-smt2-output data_o 32
 ; yosys-smt2-wire data_o 32
-(define-fun |hyperram_n data_o| ((state |hyperram_s|)) (_ BitVec 32) (|hyperram#114| state))
-(declare-fun |hyperram#115| (|hyperram_s|) (_ BitVec 32)) ; \data_i
+(define-fun |hyperram_n data_o| ((state |hyperram_s|)) (_ BitVec 32) (|hyperram#117| state))
+(declare-fun |hyperram#118| (|hyperram_s|) (_ BitVec 32)) ; \data_i
 ; yosys-smt2-input data_i 32
 ; yosys-smt2-wire data_i 32
-(define-fun |hyperram_n data_i| ((state |hyperram_s|)) (_ BitVec 32) (|hyperram#115| state))
+(define-fun |hyperram_n data_i| ((state |hyperram_s|)) (_ BitVec 32) (|hyperram#118| state))
 ; yosys-smt2-wire cycle_cnt_r 6
-(define-fun |hyperram_n cycle_cnt_r| ((state |hyperram_s|)) (_ BitVec 6) (|hyperram#82| state))
+(define-fun |hyperram_n cycle_cnt_r| ((state |hyperram_s|)) (_ BitVec 6) (|hyperram#81| state))
 ; yosys-smt2-input clk_i 1
 ; yosys-smt2-wire clk_i 1
 (define-fun |hyperram_n clk_i| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#4| state)) #b1))
-(define-fun |hyperram#116| ((state |hyperram_s|)) Bool (distinct (|hyperram#76| state) #b000)) ; $ne$hyperram.v:1041$1603_Y
-(define-fun |hyperram#117| ((state |hyperram_s|)) Bool (distinct (|hyperram#76| state) #b001)) ; $ne$hyperram.v:270$362_Y
-(define-fun |hyperram#118| ((state |hyperram_s|)) Bool (and (or  (|hyperram#116| state) false) (or  (|hyperram#117| state) false))) ; $logic_and$hyperram.v:270$363_Y
-(define-fun |hyperram#119| ((state |hyperram_s|)) Bool (distinct (|hyperram#76| state) #b110)) ; $ne$hyperram.v:270$364_Y
-(define-fun |hyperram#120| ((state |hyperram_s|)) Bool (and (or  (|hyperram#118| state) false) (or  (|hyperram#119| state) false))) ; $logic_and$hyperram.v:270$365_Y
-(define-fun |hyperram#121| ((state |hyperram_s|)) Bool (= (|hyperram#76| state) #b101)) ; $eq$hyperram.v:1010$1543_Y
-(define-fun |hyperram#122| ((state |hyperram_s|)) Bool (bvult (|hyperram#56| state) #b010)) ; $lt$hyperram.v:270$367_Y
-(define-fun |hyperram#123| ((state |hyperram_s|)) Bool (and (or  (|hyperram#121| state) false) (or  (|hyperram#122| state) false))) ; $logic_and$hyperram.v:270$368_Y
-(define-fun |hyperram#124| ((state |hyperram_s|)) Bool (not (or  (|hyperram#123| state) false))) ; $logic_not$hyperram.v:270$369_Y
-(define-fun |hyperram#125| ((state |hyperram_s|)) Bool (and (or  (|hyperram#120| state) false) (or  (|hyperram#124| state) false))) ; \clk_active
+(define-fun |hyperram#119| ((state |hyperram_s|)) Bool (distinct (|hyperram#76| state) #b000)) ; $ne$hyperram.v:1041$1600_Y
+(define-fun |hyperram#120| ((state |hyperram_s|)) Bool (distinct (|hyperram#76| state) #b001)) ; $ne$hyperram.v:270$361_Y
+(define-fun |hyperram#121| ((state |hyperram_s|)) Bool (and (or  (|hyperram#119| state) false) (or  (|hyperram#120| state) false))) ; $logic_and$hyperram.v:270$362_Y
+(define-fun |hyperram#122| ((state |hyperram_s|)) Bool (distinct (|hyperram#76| state) #b110)) ; $ne$hyperram.v:270$363_Y
+(define-fun |hyperram#123| ((state |hyperram_s|)) Bool (and (or  (|hyperram#121| state) false) (or  (|hyperram#122| state) false))) ; $logic_and$hyperram.v:270$364_Y
+(define-fun |hyperram#124| ((state |hyperram_s|)) Bool (= (|hyperram#76| state) #b101)) ; $eq$hyperram.v:1010$1540_Y
+(define-fun |hyperram#125| ((state |hyperram_s|)) Bool (bvult (|hyperram#56| state) #b010)) ; $lt$hyperram.v:270$366_Y
+(define-fun |hyperram#126| ((state |hyperram_s|)) Bool (and (or  (|hyperram#124| state) false) (or  (|hyperram#125| state) false))) ; $logic_and$hyperram.v:270$367_Y
+(define-fun |hyperram#127| ((state |hyperram_s|)) Bool (not (or  (|hyperram#126| state) false))) ; $logic_not$hyperram.v:270$368_Y
+(define-fun |hyperram#128| ((state |hyperram_s|)) Bool (and (or  (|hyperram#123| state) false) (or  (|hyperram#127| state) false))) ; \clk_active
 ; yosys-smt2-wire clk_active 1
-(define-fun |hyperram_n clk_active| ((state |hyperram_s|)) Bool (|hyperram#125| state))
+(define-fun |hyperram_n clk_active| ((state |hyperram_s|)) Bool (|hyperram#128| state))
 ; yosys-smt2-wire busy_r 1
 (define-fun |hyperram_n busy_r| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#49| state)) #b1))
 ; yosys-smt2-wire bus_state_r 3
 (define-fun |hyperram_n bus_state_r| ((state |hyperram_s|)) (_ BitVec 3) (|hyperram#76| state))
 ; yosys-smt2-wire bus_clk_r 1
-(define-fun |hyperram_n bus_clk_r| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#107| state)) #b1))
-(declare-fun |hyperram#126| (|hyperram_s|) (_ BitVec 32)) ; \addr_i
+(define-fun |hyperram_n bus_clk_r| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#110| state)) #b1))
+(declare-fun |hyperram#129| (|hyperram_s|) (_ BitVec 32)) ; \addr_i
 ; yosys-smt2-input addr_i 32
 ; yosys-smt2-wire addr_i 32
-(define-fun |hyperram_n addr_i| ((state |hyperram_s|)) (_ BitVec 32) (|hyperram#126| state))
+(define-fun |hyperram_n addr_i| ((state |hyperram_s|)) (_ BitVec 32) (|hyperram#129| state))
 ; yosys-smt2-wire CA_r 48
 (define-fun |hyperram_n CA_r| ((state |hyperram_s|)) (_ BitVec 48) (|hyperram#46| state))
-(declare-fun |hyperram#127| (|hyperram_s|) (_ BitVec 1)) ; $past$hyperram.v:882$127$0
+(declare-fun |hyperram#130| (|hyperram_s|) (_ BitVec 1)) ; $past$hyperram.v:882$127$0
 ; yosys-smt2-register $past$hyperram.v:882$127$0 1
-(define-fun |hyperram_n $past$hyperram.v:882$127$0| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#127| state)) #b1))
-(declare-fun |hyperram#128| (|hyperram_s|) (_ BitVec 1)) ; $past$hyperram.v:881$126$0
+(define-fun |hyperram_n $past$hyperram.v:882$127$0| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#130| state)) #b1))
+(declare-fun |hyperram#131| (|hyperram_s|) (_ BitVec 1)) ; $past$hyperram.v:881$126$0
 ; yosys-smt2-register $past$hyperram.v:881$126$0 1
-(define-fun |hyperram_n $past$hyperram.v:881$126$0| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#128| state)) #b1))
-(declare-fun |hyperram#129| (|hyperram_s|) (_ BitVec 4)) ; $past$hyperram.v:876$124$0
+(define-fun |hyperram_n $past$hyperram.v:881$126$0| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#131| state)) #b1))
+(declare-fun |hyperram#132| (|hyperram_s|) (_ BitVec 4)) ; $past$hyperram.v:876$124$0
 ; yosys-smt2-register $past$hyperram.v:876$124$0 4
-(define-fun |hyperram_n $past$hyperram.v:876$124$0| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#129| state))
-(declare-fun |hyperram#130| (|hyperram_s|) (_ BitVec 5)) ; $past$hyperram.v:871$122$0
+(define-fun |hyperram_n $past$hyperram.v:876$124$0| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#132| state))
+(declare-fun |hyperram#133| (|hyperram_s|) (_ BitVec 5)) ; $past$hyperram.v:871$122$0
 ; yosys-smt2-register $past$hyperram.v:871$122$0 5
-(define-fun |hyperram_n $past$hyperram.v:871$122$0| ((state |hyperram_s|)) (_ BitVec 5) (|hyperram#130| state))
-(declare-fun |hyperram#131| (|hyperram_s|) (_ BitVec 4)) ; $past$hyperram.v:869$121$0
+(define-fun |hyperram_n $past$hyperram.v:871$122$0| ((state |hyperram_s|)) (_ BitVec 5) (|hyperram#133| state))
+(declare-fun |hyperram#134| (|hyperram_s|) (_ BitVec 4)) ; $past$hyperram.v:869$121$0
 ; yosys-smt2-register $past$hyperram.v:869$121$0 4
-(define-fun |hyperram_n $past$hyperram.v:869$121$0| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#131| state))
-(declare-fun |hyperram#132| (|hyperram_s|) (_ BitVec 4)) ; $past$hyperram.v:868$120$0
+(define-fun |hyperram_n $past$hyperram.v:869$121$0| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#134| state))
+(declare-fun |hyperram#135| (|hyperram_s|) (_ BitVec 4)) ; $past$hyperram.v:868$120$0
 ; yosys-smt2-register $past$hyperram.v:868$120$0 4
-(define-fun |hyperram_n $past$hyperram.v:868$120$0| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#132| state))
-(declare-fun |hyperram#133| (|hyperram_s|) (_ BitVec 4)) ; $past$hyperram.v:867$119$0
+(define-fun |hyperram_n $past$hyperram.v:868$120$0| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#135| state))
+(declare-fun |hyperram#136| (|hyperram_s|) (_ BitVec 4)) ; $past$hyperram.v:867$119$0
 ; yosys-smt2-register $past$hyperram.v:867$119$0 4
-(define-fun |hyperram_n $past$hyperram.v:867$119$0| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#133| state))
-(declare-fun |hyperram#134| (|hyperram_s|) (_ BitVec 1)) ; $past$hyperram.v:436$6$0
+(define-fun |hyperram_n $past$hyperram.v:867$119$0| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#136| state))
+(declare-fun |hyperram#137| (|hyperram_s|) (_ BitVec 1)) ; $past$hyperram.v:436$6$0
 ; yosys-smt2-register $past$hyperram.v:436$6$0 1
-(define-fun |hyperram_n $past$hyperram.v:436$6$0| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#134| state)) #b1))
-(declare-fun |hyperram#135| (|hyperram_s|) (_ BitVec 1)) ; $past$hyperram.v:1087$200$0
-; yosys-smt2-register $past$hyperram.v:1087$200$0 1
-(define-fun |hyperram_n $past$hyperram.v:1087$200$0| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#135| state)) #b1))
-(declare-fun |hyperram#136| (|hyperram_s|) (_ BitVec 1)) ; $past$hyperram.v:1086$199$0
-; yosys-smt2-register $past$hyperram.v:1086$199$0 1
-(define-fun |hyperram_n $past$hyperram.v:1086$199$0| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#136| state)) #b1))
-(declare-fun |hyperram#137| (|hyperram_s|) (_ BitVec 4)) ; $past$hyperram.v:1085$198$0
-; yosys-smt2-register $past$hyperram.v:1085$198$0 4
-(define-fun |hyperram_n $past$hyperram.v:1085$198$0| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#137| state))
-(declare-fun |hyperram#138| (|hyperram_s|) (_ BitVec 32)) ; $past$hyperram.v:1084$197$0
-; yosys-smt2-register $past$hyperram.v:1084$197$0 32
-(define-fun |hyperram_n $past$hyperram.v:1084$197$0| ((state |hyperram_s|)) (_ BitVec 32) (|hyperram#138| state))
-(declare-fun |hyperram#139| (|hyperram_s|) (_ BitVec 8)) ; $past$hyperram.v:1069$187$0
-; yosys-smt2-register $past$hyperram.v:1069$187$0 8
-(define-fun |hyperram_n $past$hyperram.v:1069$187$0| ((state |hyperram_s|)) (_ BitVec 8) (|hyperram#139| state))
-(declare-fun |hyperram#140| (|hyperram_s|) (_ BitVec 1)) ; $past$hyperram.v:1064$183$0
-; yosys-smt2-register $past$hyperram.v:1064$183$0 1
-(define-fun |hyperram_n $past$hyperram.v:1064$183$0| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#140| state)) #b1))
-(declare-fun |hyperram#141| (|hyperram_s|) (_ BitVec 1)) ; $past$hyperram.v:1064$182$0
-; yosys-smt2-register $past$hyperram.v:1064$182$0 1
-(define-fun |hyperram_n $past$hyperram.v:1064$182$0| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#141| state)) #b1))
-(declare-fun |hyperram#142| (|hyperram_s|) (_ BitVec 1)) ; $past$hyperram.v:1032$171$0
+(define-fun |hyperram_n $past$hyperram.v:436$6$0| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#137| state)) #b1))
+(declare-fun |hyperram#138| (|hyperram_s|) (_ BitVec 1)) ; $past$hyperram.v:1091$199$0
+; yosys-smt2-register $past$hyperram.v:1091$199$0 1
+(define-fun |hyperram_n $past$hyperram.v:1091$199$0| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#138| state)) #b1))
+(declare-fun |hyperram#139| (|hyperram_s|) (_ BitVec 1)) ; $past$hyperram.v:1090$198$0
+; yosys-smt2-register $past$hyperram.v:1090$198$0 1
+(define-fun |hyperram_n $past$hyperram.v:1090$198$0| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#139| state)) #b1))
+(declare-fun |hyperram#140| (|hyperram_s|) (_ BitVec 4)) ; $past$hyperram.v:1089$197$0
+; yosys-smt2-register $past$hyperram.v:1089$197$0 4
+(define-fun |hyperram_n $past$hyperram.v:1089$197$0| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#140| state))
+(declare-fun |hyperram#141| (|hyperram_s|) (_ BitVec 32)) ; $past$hyperram.v:1088$196$0
+; yosys-smt2-register $past$hyperram.v:1088$196$0 32
+(define-fun |hyperram_n $past$hyperram.v:1088$196$0| ((state |hyperram_s|)) (_ BitVec 32) (|hyperram#141| state))
+(declare-fun |hyperram#142| (|hyperram_s|) (_ BitVec 8)) ; $past$hyperram.v:1077$188$0
+; yosys-smt2-register $past$hyperram.v:1077$188$0 8
+(define-fun |hyperram_n $past$hyperram.v:1077$188$0| ((state |hyperram_s|)) (_ BitVec 8) (|hyperram#142| state))
+(declare-fun |hyperram#143| (|hyperram_s|) (_ BitVec 1)) ; $past$hyperram.v:1067$184$0
+; yosys-smt2-register $past$hyperram.v:1067$184$0 1
+(define-fun |hyperram_n $past$hyperram.v:1067$184$0| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#143| state)) #b1))
+(declare-fun |hyperram#144| (|hyperram_s|) (_ BitVec 1)) ; $past$hyperram.v:1067$183$0
+; yosys-smt2-register $past$hyperram.v:1067$183$0 1
+(define-fun |hyperram_n $past$hyperram.v:1067$183$0| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#144| state)) #b1))
+(declare-fun |hyperram#145| (|hyperram_s|) (_ BitVec 1)) ; $past$hyperram.v:1064$181$0
+; yosys-smt2-register $past$hyperram.v:1064$181$0 1
+(define-fun |hyperram_n $past$hyperram.v:1064$181$0| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#145| state)) #b1))
+(declare-fun |hyperram#146| (|hyperram_s|) (_ BitVec 1)) ; $past$hyperram.v:1032$171$0
 ; yosys-smt2-register $past$hyperram.v:1032$171$0 1
-(define-fun |hyperram_n $past$hyperram.v:1032$171$0| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#142| state)) #b1))
-(declare-fun |hyperram#143| (|hyperram_s|) (_ BitVec 1)) ; $past$hyperram.v:1032$170$0
+(define-fun |hyperram_n $past$hyperram.v:1032$171$0| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#146| state)) #b1))
+(declare-fun |hyperram#147| (|hyperram_s|) (_ BitVec 1)) ; $past$hyperram.v:1032$170$0
 ; yosys-smt2-register $past$hyperram.v:1032$170$0 1
-(define-fun |hyperram_n $past$hyperram.v:1032$170$0| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#143| state)) #b1))
-(declare-fun |hyperram#144| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:998$275_EN
-; yosys-smt2-register $formal$hyperram.v:998$275_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:998$275_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#144| state)) #b1))
-(declare-fun |hyperram#145| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:998$275_CHECK
-; yosys-smt2-register $formal$hyperram.v:998$275_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:998$275_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#145| state)) #b1))
-(declare-fun |hyperram#146| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:995$274_EN
-; yosys-smt2-register $formal$hyperram.v:995$274_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:995$274_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#146| state)) #b1))
-(declare-fun |hyperram#147| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:995$274_CHECK
-; yosys-smt2-register $formal$hyperram.v:995$274_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:995$274_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#147| state)) #b1))
-(declare-fun |hyperram#148| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:992$273_EN
-; yosys-smt2-register $formal$hyperram.v:992$273_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:992$273_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#148| state)) #b1))
-(declare-fun |hyperram#149| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:992$273_CHECK
-; yosys-smt2-register $formal$hyperram.v:992$273_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:992$273_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#149| state)) #b1))
-(declare-fun |hyperram#150| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:986$272_EN
-; yosys-smt2-register $formal$hyperram.v:986$272_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:986$272_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#150| state)) #b1))
-(declare-fun |hyperram#151| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:986$272_CHECK
-; yosys-smt2-register $formal$hyperram.v:986$272_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:986$272_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#151| state)) #b1))
-(declare-fun |hyperram#152| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:983$271_EN
-; yosys-smt2-register $formal$hyperram.v:983$271_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:983$271_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#152| state)) #b1))
-(declare-fun |hyperram#153| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:983$271_CHECK
-; yosys-smt2-register $formal$hyperram.v:983$271_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:983$271_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#153| state)) #b1))
-(declare-fun |hyperram#154| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:980$270_EN
-; yosys-smt2-register $formal$hyperram.v:980$270_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:980$270_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#154| state)) #b1))
-(declare-fun |hyperram#155| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:980$270_CHECK
-; yosys-smt2-register $formal$hyperram.v:980$270_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:980$270_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#155| state)) #b1))
-(declare-fun |hyperram#156| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:977$269_EN
-; yosys-smt2-register $formal$hyperram.v:977$269_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:977$269_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#156| state)) #b1))
-(declare-fun |hyperram#157| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:977$269_CHECK
-; yosys-smt2-register $formal$hyperram.v:977$269_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:977$269_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#157| state)) #b1))
-(declare-fun |hyperram#158| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:974$268_EN
-; yosys-smt2-register $formal$hyperram.v:974$268_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:974$268_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#158| state)) #b1))
-(declare-fun |hyperram#159| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:974$268_CHECK
-; yosys-smt2-register $formal$hyperram.v:974$268_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:974$268_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#159| state)) #b1))
-(declare-fun |hyperram#160| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:971$267_EN
-; yosys-smt2-register $formal$hyperram.v:971$267_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:971$267_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#160| state)) #b1))
-(declare-fun |hyperram#161| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:971$267_CHECK
-; yosys-smt2-register $formal$hyperram.v:971$267_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:971$267_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#161| state)) #b1))
-(declare-fun |hyperram#162| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:968$266_EN
-; yosys-smt2-register $formal$hyperram.v:968$266_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:968$266_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#162| state)) #b1))
-(declare-fun |hyperram#163| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:968$266_CHECK
-; yosys-smt2-register $formal$hyperram.v:968$266_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:968$266_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#163| state)) #b1))
-(declare-fun |hyperram#164| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:965$265_EN
-; yosys-smt2-register $formal$hyperram.v:965$265_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:965$265_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#164| state)) #b1))
-(declare-fun |hyperram#165| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:965$265_CHECK
-; yosys-smt2-register $formal$hyperram.v:965$265_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:965$265_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#165| state)) #b1))
-(declare-fun |hyperram#166| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:962$264_EN
-; yosys-smt2-register $formal$hyperram.v:962$264_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:962$264_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#166| state)) #b1))
-(declare-fun |hyperram#167| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:962$264_CHECK
-; yosys-smt2-register $formal$hyperram.v:962$264_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:962$264_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#167| state)) #b1))
-(declare-fun |hyperram#168| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:959$263_EN
-; yosys-smt2-register $formal$hyperram.v:959$263_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:959$263_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#168| state)) #b1))
-(declare-fun |hyperram#169| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:959$263_CHECK
-; yosys-smt2-register $formal$hyperram.v:959$263_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:959$263_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#169| state)) #b1))
-(declare-fun |hyperram#170| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:955$262_EN
-; yosys-smt2-register $formal$hyperram.v:955$262_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:955$262_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#170| state)) #b1))
-(declare-fun |hyperram#171| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:955$262_CHECK
-; yosys-smt2-register $formal$hyperram.v:955$262_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:955$262_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#171| state)) #b1))
-(declare-fun |hyperram#172| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:949$261_EN
-; yosys-smt2-register $formal$hyperram.v:949$261_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:949$261_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#172| state)) #b1))
-(declare-fun |hyperram#173| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:949$261_CHECK
-; yosys-smt2-register $formal$hyperram.v:949$261_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:949$261_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#173| state)) #b1))
-(declare-fun |hyperram#174| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:947$260_CHECK
-; yosys-smt2-register $formal$hyperram.v:947$260_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:947$260_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#174| state)) #b1))
-(declare-fun |hyperram#175| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:946$259_CHECK
-; yosys-smt2-register $formal$hyperram.v:946$259_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:946$259_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#175| state)) #b1))
-(declare-fun |hyperram#176| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:945$258_CHECK
-; yosys-smt2-register $formal$hyperram.v:945$258_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:945$258_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#176| state)) #b1))
-(declare-fun |hyperram#177| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:944$257_EN
-; yosys-smt2-register $formal$hyperram.v:944$257_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:944$257_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#177| state)) #b1))
-(declare-fun |hyperram#178| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:944$257_CHECK
-; yosys-smt2-register $formal$hyperram.v:944$257_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:944$257_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#178| state)) #b1))
-(declare-fun |hyperram#179| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:939$256_EN
-; yosys-smt2-register $formal$hyperram.v:939$256_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:939$256_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#179| state)) #b1))
-(declare-fun |hyperram#180| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:939$256_CHECK
-; yosys-smt2-register $formal$hyperram.v:939$256_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:939$256_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#180| state)) #b1))
-(declare-fun |hyperram#181| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:937$255_EN
-; yosys-smt2-register $formal$hyperram.v:937$255_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:937$255_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#181| state)) #b1))
-(declare-fun |hyperram#182| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:937$255_CHECK
-; yosys-smt2-register $formal$hyperram.v:937$255_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:937$255_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#182| state)) #b1))
-(declare-fun |hyperram#183| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:931$254_EN
-; yosys-smt2-register $formal$hyperram.v:931$254_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:931$254_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#183| state)) #b1))
-(declare-fun |hyperram#184| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:931$254_CHECK
-; yosys-smt2-register $formal$hyperram.v:931$254_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:931$254_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#184| state)) #b1))
-(declare-fun |hyperram#185| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:929$253_EN
-; yosys-smt2-register $formal$hyperram.v:929$253_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:929$253_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#185| state)) #b1))
-(declare-fun |hyperram#186| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:929$253_CHECK
-; yosys-smt2-register $formal$hyperram.v:929$253_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:929$253_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#186| state)) #b1))
-(declare-fun |hyperram#187| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:925$252_EN
-; yosys-smt2-register $formal$hyperram.v:925$252_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:925$252_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#187| state)) #b1))
-(declare-fun |hyperram#188| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:925$252_CHECK
-; yosys-smt2-register $formal$hyperram.v:925$252_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:925$252_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#188| state)) #b1))
-(declare-fun |hyperram#189| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:923$251_EN
-; yosys-smt2-register $formal$hyperram.v:923$251_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:923$251_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#189| state)) #b1))
-(declare-fun |hyperram#190| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:923$251_CHECK
-; yosys-smt2-register $formal$hyperram.v:923$251_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:923$251_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#190| state)) #b1))
-(declare-fun |hyperram#191| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:907$250_EN
-; yosys-smt2-register $formal$hyperram.v:907$250_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:907$250_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#191| state)) #b1))
-(declare-fun |hyperram#192| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:907$250_CHECK
-; yosys-smt2-register $formal$hyperram.v:907$250_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:907$250_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#192| state)) #b1))
-(declare-fun |hyperram#193| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:893$249_EN
-; yosys-smt2-register $formal$hyperram.v:893$249_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:893$249_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#193| state)) #b1))
-(declare-fun |hyperram#194| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:893$249_CHECK
-; yosys-smt2-register $formal$hyperram.v:893$249_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:893$249_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#194| state)) #b1))
-(declare-fun |hyperram#195| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:891$248_EN
-; yosys-smt2-register $formal$hyperram.v:891$248_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:891$248_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#195| state)) #b1))
-(declare-fun |hyperram#196| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:891$248_CHECK
-; yosys-smt2-register $formal$hyperram.v:891$248_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:891$248_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#196| state)) #b1))
-(declare-fun |hyperram#197| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:889$247_EN
-; yosys-smt2-register $formal$hyperram.v:889$247_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:889$247_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#197| state)) #b1))
-(declare-fun |hyperram#198| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:889$247_CHECK
-; yosys-smt2-register $formal$hyperram.v:889$247_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:889$247_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#198| state)) #b1))
-(declare-fun |hyperram#199| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:881$246_CHECK
-; yosys-smt2-register $formal$hyperram.v:881$246_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:881$246_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#199| state)) #b1))
-(declare-fun |hyperram#200| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:879$245_CHECK
-; yosys-smt2-register $formal$hyperram.v:879$245_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:879$245_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#200| state)) #b1))
-(declare-fun |hyperram#201| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:879$244_EN
-; yosys-smt2-register $formal$hyperram.v:879$244_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:879$244_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#201| state)) #b1))
-(declare-fun |hyperram#202| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:879$244_CHECK
+(define-fun |hyperram_n $past$hyperram.v:1032$170$0| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#147| state)) #b1))
+(declare-fun |hyperram#148| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:998$274_EN
+; yosys-smt2-register $formal$hyperram.v:998$274_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:998$274_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#148| state)) #b1))
+(declare-fun |hyperram#149| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:998$274_CHECK
+; yosys-smt2-register $formal$hyperram.v:998$274_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:998$274_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#149| state)) #b1))
+(declare-fun |hyperram#150| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:995$273_EN
+; yosys-smt2-register $formal$hyperram.v:995$273_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:995$273_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#150| state)) #b1))
+(declare-fun |hyperram#151| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:995$273_CHECK
+; yosys-smt2-register $formal$hyperram.v:995$273_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:995$273_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#151| state)) #b1))
+(declare-fun |hyperram#152| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:992$272_EN
+; yosys-smt2-register $formal$hyperram.v:992$272_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:992$272_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#152| state)) #b1))
+(declare-fun |hyperram#153| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:992$272_CHECK
+; yosys-smt2-register $formal$hyperram.v:992$272_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:992$272_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#153| state)) #b1))
+(declare-fun |hyperram#154| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:986$271_EN
+; yosys-smt2-register $formal$hyperram.v:986$271_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:986$271_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#154| state)) #b1))
+(declare-fun |hyperram#155| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:986$271_CHECK
+; yosys-smt2-register $formal$hyperram.v:986$271_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:986$271_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#155| state)) #b1))
+(declare-fun |hyperram#156| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:983$270_EN
+; yosys-smt2-register $formal$hyperram.v:983$270_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:983$270_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#156| state)) #b1))
+(declare-fun |hyperram#157| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:983$270_CHECK
+; yosys-smt2-register $formal$hyperram.v:983$270_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:983$270_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#157| state)) #b1))
+(declare-fun |hyperram#158| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:980$269_EN
+; yosys-smt2-register $formal$hyperram.v:980$269_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:980$269_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#158| state)) #b1))
+(declare-fun |hyperram#159| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:980$269_CHECK
+; yosys-smt2-register $formal$hyperram.v:980$269_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:980$269_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#159| state)) #b1))
+(declare-fun |hyperram#160| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:977$268_EN
+; yosys-smt2-register $formal$hyperram.v:977$268_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:977$268_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#160| state)) #b1))
+(declare-fun |hyperram#161| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:977$268_CHECK
+; yosys-smt2-register $formal$hyperram.v:977$268_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:977$268_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#161| state)) #b1))
+(declare-fun |hyperram#162| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:974$267_EN
+; yosys-smt2-register $formal$hyperram.v:974$267_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:974$267_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#162| state)) #b1))
+(declare-fun |hyperram#163| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:974$267_CHECK
+; yosys-smt2-register $formal$hyperram.v:974$267_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:974$267_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#163| state)) #b1))
+(declare-fun |hyperram#164| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:971$266_EN
+; yosys-smt2-register $formal$hyperram.v:971$266_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:971$266_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#164| state)) #b1))
+(declare-fun |hyperram#165| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:971$266_CHECK
+; yosys-smt2-register $formal$hyperram.v:971$266_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:971$266_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#165| state)) #b1))
+(declare-fun |hyperram#166| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:968$265_EN
+; yosys-smt2-register $formal$hyperram.v:968$265_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:968$265_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#166| state)) #b1))
+(declare-fun |hyperram#167| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:968$265_CHECK
+; yosys-smt2-register $formal$hyperram.v:968$265_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:968$265_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#167| state)) #b1))
+(declare-fun |hyperram#168| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:965$264_EN
+; yosys-smt2-register $formal$hyperram.v:965$264_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:965$264_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#168| state)) #b1))
+(declare-fun |hyperram#169| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:965$264_CHECK
+; yosys-smt2-register $formal$hyperram.v:965$264_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:965$264_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#169| state)) #b1))
+(declare-fun |hyperram#170| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:962$263_EN
+; yosys-smt2-register $formal$hyperram.v:962$263_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:962$263_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#170| state)) #b1))
+(declare-fun |hyperram#171| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:962$263_CHECK
+; yosys-smt2-register $formal$hyperram.v:962$263_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:962$263_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#171| state)) #b1))
+(declare-fun |hyperram#172| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:959$262_EN
+; yosys-smt2-register $formal$hyperram.v:959$262_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:959$262_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#172| state)) #b1))
+(declare-fun |hyperram#173| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:959$262_CHECK
+; yosys-smt2-register $formal$hyperram.v:959$262_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:959$262_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#173| state)) #b1))
+(declare-fun |hyperram#174| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:955$261_EN
+; yosys-smt2-register $formal$hyperram.v:955$261_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:955$261_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#174| state)) #b1))
+(declare-fun |hyperram#175| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:955$261_CHECK
+; yosys-smt2-register $formal$hyperram.v:955$261_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:955$261_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#175| state)) #b1))
+(declare-fun |hyperram#176| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:949$260_EN
+; yosys-smt2-register $formal$hyperram.v:949$260_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:949$260_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#176| state)) #b1))
+(declare-fun |hyperram#177| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:949$260_CHECK
+; yosys-smt2-register $formal$hyperram.v:949$260_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:949$260_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#177| state)) #b1))
+(declare-fun |hyperram#178| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:947$259_CHECK
+; yosys-smt2-register $formal$hyperram.v:947$259_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:947$259_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#178| state)) #b1))
+(declare-fun |hyperram#179| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:946$258_CHECK
+; yosys-smt2-register $formal$hyperram.v:946$258_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:946$258_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#179| state)) #b1))
+(declare-fun |hyperram#180| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:945$257_CHECK
+; yosys-smt2-register $formal$hyperram.v:945$257_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:945$257_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#180| state)) #b1))
+(declare-fun |hyperram#181| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:944$256_EN
+; yosys-smt2-register $formal$hyperram.v:944$256_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:944$256_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#181| state)) #b1))
+(declare-fun |hyperram#182| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:944$256_CHECK
+; yosys-smt2-register $formal$hyperram.v:944$256_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:944$256_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#182| state)) #b1))
+(declare-fun |hyperram#183| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:939$255_EN
+; yosys-smt2-register $formal$hyperram.v:939$255_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:939$255_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#183| state)) #b1))
+(declare-fun |hyperram#184| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:939$255_CHECK
+; yosys-smt2-register $formal$hyperram.v:939$255_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:939$255_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#184| state)) #b1))
+(declare-fun |hyperram#185| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:937$254_EN
+; yosys-smt2-register $formal$hyperram.v:937$254_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:937$254_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#185| state)) #b1))
+(declare-fun |hyperram#186| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:937$254_CHECK
+; yosys-smt2-register $formal$hyperram.v:937$254_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:937$254_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#186| state)) #b1))
+(declare-fun |hyperram#187| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:931$253_EN
+; yosys-smt2-register $formal$hyperram.v:931$253_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:931$253_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#187| state)) #b1))
+(declare-fun |hyperram#188| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:931$253_CHECK
+; yosys-smt2-register $formal$hyperram.v:931$253_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:931$253_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#188| state)) #b1))
+(declare-fun |hyperram#189| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:929$252_EN
+; yosys-smt2-register $formal$hyperram.v:929$252_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:929$252_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#189| state)) #b1))
+(declare-fun |hyperram#190| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:929$252_CHECK
+; yosys-smt2-register $formal$hyperram.v:929$252_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:929$252_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#190| state)) #b1))
+(declare-fun |hyperram#191| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:925$251_EN
+; yosys-smt2-register $formal$hyperram.v:925$251_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:925$251_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#191| state)) #b1))
+(declare-fun |hyperram#192| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:925$251_CHECK
+; yosys-smt2-register $formal$hyperram.v:925$251_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:925$251_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#192| state)) #b1))
+(declare-fun |hyperram#193| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:923$250_EN
+; yosys-smt2-register $formal$hyperram.v:923$250_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:923$250_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#193| state)) #b1))
+(declare-fun |hyperram#194| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:923$250_CHECK
+; yosys-smt2-register $formal$hyperram.v:923$250_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:923$250_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#194| state)) #b1))
+(declare-fun |hyperram#195| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:907$249_EN
+; yosys-smt2-register $formal$hyperram.v:907$249_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:907$249_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#195| state)) #b1))
+(declare-fun |hyperram#196| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:907$249_CHECK
+; yosys-smt2-register $formal$hyperram.v:907$249_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:907$249_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#196| state)) #b1))
+(declare-fun |hyperram#197| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:893$248_EN
+; yosys-smt2-register $formal$hyperram.v:893$248_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:893$248_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#197| state)) #b1))
+(declare-fun |hyperram#198| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:893$248_CHECK
+; yosys-smt2-register $formal$hyperram.v:893$248_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:893$248_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#198| state)) #b1))
+(declare-fun |hyperram#199| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:891$247_EN
+; yosys-smt2-register $formal$hyperram.v:891$247_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:891$247_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#199| state)) #b1))
+(declare-fun |hyperram#200| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:891$247_CHECK
+; yosys-smt2-register $formal$hyperram.v:891$247_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:891$247_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#200| state)) #b1))
+(declare-fun |hyperram#201| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:889$246_EN
+; yosys-smt2-register $formal$hyperram.v:889$246_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:889$246_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#201| state)) #b1))
+(declare-fun |hyperram#202| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:889$246_CHECK
+; yosys-smt2-register $formal$hyperram.v:889$246_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:889$246_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#202| state)) #b1))
+(declare-fun |hyperram#203| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:881$245_CHECK
+; yosys-smt2-register $formal$hyperram.v:881$245_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:881$245_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#203| state)) #b1))
+(declare-fun |hyperram#204| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:879$244_CHECK
 ; yosys-smt2-register $formal$hyperram.v:879$244_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:879$244_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#202| state)) #b1))
-(declare-fun |hyperram#203| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:877$243_EN
-; yosys-smt2-register $formal$hyperram.v:877$243_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:877$243_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#203| state)) #b1))
-(declare-fun |hyperram#204| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:877$243_CHECK
-; yosys-smt2-register $formal$hyperram.v:877$243_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:877$243_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#204| state)) #b1))
-(declare-fun |hyperram#205| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:874$242_EN
-; yosys-smt2-register $formal$hyperram.v:874$242_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:874$242_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#205| state)) #b1))
-(declare-fun |hyperram#206| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:874$242_CHECK
-; yosys-smt2-register $formal$hyperram.v:874$242_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:874$242_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#206| state)) #b1))
-(declare-fun |hyperram#207| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:872$241_EN
-; yosys-smt2-register $formal$hyperram.v:872$241_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:872$241_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#207| state)) #b1))
-(declare-fun |hyperram#208| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:872$241_CHECK
-; yosys-smt2-register $formal$hyperram.v:872$241_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:872$241_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#208| state)) #b1))
-(declare-fun |hyperram#209| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:869$240_CHECK
-; yosys-smt2-register $formal$hyperram.v:869$240_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:869$240_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#209| state)) #b1))
-(declare-fun |hyperram#210| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:868$239_CHECK
-; yosys-smt2-register $formal$hyperram.v:868$239_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:868$239_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#210| state)) #b1))
-(declare-fun |hyperram#211| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:867$238_EN
-; yosys-smt2-register $formal$hyperram.v:867$238_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:867$238_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#211| state)) #b1))
-(declare-fun |hyperram#212| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:867$238_CHECK
-; yosys-smt2-register $formal$hyperram.v:867$238_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:867$238_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#212| state)) #b1))
-(declare-fun |hyperram#213| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:861$237_CHECK
-; yosys-smt2-register $formal$hyperram.v:861$237_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:861$237_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#213| state)) #b1))
-(declare-fun |hyperram#214| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:860$236_CHECK
-; yosys-smt2-register $formal$hyperram.v:860$236_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:860$236_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#214| state)) #b1))
-(declare-fun |hyperram#215| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:854$235_EN
-; yosys-smt2-register $formal$hyperram.v:854$235_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:854$235_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#215| state)) #b1))
-(declare-fun |hyperram#216| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:854$235_CHECK
-; yosys-smt2-register $formal$hyperram.v:854$235_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:854$235_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#216| state)) #b1))
-(declare-fun |hyperram#217| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:838$234_CHECK
-; yosys-smt2-register $formal$hyperram.v:838$234_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:838$234_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#217| state)) #b1))
-(declare-fun |hyperram#218| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:820$233_CHECK
-; yosys-smt2-register $formal$hyperram.v:820$233_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:820$233_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#218| state)) #b1))
-(declare-fun |hyperram#219| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:803$232_CHECK
-; yosys-smt2-register $formal$hyperram.v:803$232_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:803$232_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#219| state)) #b1))
-(declare-fun |hyperram#220| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:784$231_CHECK
-; yosys-smt2-register $formal$hyperram.v:784$231_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:784$231_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#220| state)) #b1))
-(declare-fun |hyperram#221| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:768$230_CHECK
-; yosys-smt2-register $formal$hyperram.v:768$230_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:768$230_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#221| state)) #b1))
-(declare-fun |hyperram#222| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:752$229_CHECK
-; yosys-smt2-register $formal$hyperram.v:752$229_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:752$229_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#222| state)) #b1))
-(declare-fun |hyperram#223| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:733$228_CHECK
-; yosys-smt2-register $formal$hyperram.v:733$228_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:733$228_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#223| state)) #b1))
-(declare-fun |hyperram#224| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:716$227_CHECK
-; yosys-smt2-register $formal$hyperram.v:716$227_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:716$227_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#224| state)) #b1))
-(declare-fun |hyperram#225| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:695$226_CHECK
-; yosys-smt2-register $formal$hyperram.v:695$226_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:695$226_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#225| state)) #b1))
-(declare-fun |hyperram#226| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:675$225_CHECK
-; yosys-smt2-register $formal$hyperram.v:675$225_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:675$225_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#226| state)) #b1))
-(declare-fun |hyperram#227| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:655$224_CHECK
-; yosys-smt2-register $formal$hyperram.v:655$224_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:655$224_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#227| state)) #b1))
-(declare-fun |hyperram#228| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:638$223_CHECK
-; yosys-smt2-register $formal$hyperram.v:638$223_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:638$223_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#228| state)) #b1))
-(declare-fun |hyperram#229| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:622$222_CHECK
-; yosys-smt2-register $formal$hyperram.v:622$222_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:622$222_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#229| state)) #b1))
-(declare-fun |hyperram#230| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:600$221_CHECK
-; yosys-smt2-register $formal$hyperram.v:600$221_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:600$221_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#230| state)) #b1))
-(declare-fun |hyperram#231| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:580$220_CHECK
-; yosys-smt2-register $formal$hyperram.v:580$220_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:580$220_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#231| state)) #b1))
-(declare-fun |hyperram#232| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:559$219_CHECK
-; yosys-smt2-register $formal$hyperram.v:559$219_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:559$219_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#232| state)) #b1))
-(declare-fun |hyperram#233| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:540$218_CHECK
-; yosys-smt2-register $formal$hyperram.v:540$218_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:540$218_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#233| state)) #b1))
-(declare-fun |hyperram#234| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:524$217_CHECK
-; yosys-smt2-register $formal$hyperram.v:524$217_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:524$217_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#234| state)) #b1))
-(declare-fun |hyperram#235| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:502$216_CHECK
-; yosys-smt2-register $formal$hyperram.v:502$216_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:502$216_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#235| state)) #b1))
-(declare-fun |hyperram#236| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:482$215_CHECK
-; yosys-smt2-register $formal$hyperram.v:482$215_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:482$215_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#236| state)) #b1))
-(declare-fun |hyperram#237| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:462$214_CHECK
-; yosys-smt2-register $formal$hyperram.v:462$214_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:462$214_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#237| state)) #b1))
-(declare-fun |hyperram#238| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:445$213_CHECK
-; yosys-smt2-register $formal$hyperram.v:445$213_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:445$213_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#238| state)) #b1))
-(declare-fun |hyperram#239| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:430$212_CHECK
-; yosys-smt2-register $formal$hyperram.v:430$212_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:430$212_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#239| state)) #b1))
-(declare-fun |hyperram#240| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:424$211_CHECK
-; yosys-smt2-register $formal$hyperram.v:424$211_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:424$211_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#240| state)) #b1))
-(declare-fun |hyperram#241| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:421$210_CHECK
-; yosys-smt2-register $formal$hyperram.v:421$210_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:421$210_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#241| state)) #b1))
-(declare-fun |hyperram#242| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:418$209_CHECK
-; yosys-smt2-register $formal$hyperram.v:418$209_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:418$209_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#242| state)) #b1))
-(declare-fun |hyperram#243| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:415$208_CHECK
-; yosys-smt2-register $formal$hyperram.v:415$208_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:415$208_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#243| state)) #b1))
-(declare-fun |hyperram#244| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:412$207_CHECK
-; yosys-smt2-register $formal$hyperram.v:412$207_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:412$207_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#244| state)) #b1))
-(declare-fun |hyperram#245| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:405$206_EN
-; yosys-smt2-register $formal$hyperram.v:405$206_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:405$206_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#245| state)) #b1))
-(declare-fun |hyperram#246| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:405$206_CHECK
-; yosys-smt2-register $formal$hyperram.v:405$206_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:405$206_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#246| state)) #b1))
-(declare-fun |hyperram#247| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:402$205_EN
-; yosys-smt2-register $formal$hyperram.v:402$205_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:402$205_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#247| state)) #b1))
-(declare-fun |hyperram#248| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:402$205_CHECK
-; yosys-smt2-register $formal$hyperram.v:402$205_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:402$205_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#248| state)) #b1))
-(declare-fun |hyperram#249| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1087$304_CHECK
-; yosys-smt2-register $formal$hyperram.v:1087$304_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:1087$304_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#249| state)) #b1))
-(declare-fun |hyperram#250| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1086$303_CHECK
-; yosys-smt2-register $formal$hyperram.v:1086$303_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:1086$303_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#250| state)) #b1))
-(declare-fun |hyperram#251| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1085$302_CHECK
-; yosys-smt2-register $formal$hyperram.v:1085$302_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:1085$302_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#251| state)) #b1))
-(declare-fun |hyperram#252| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1084$301_EN
-; yosys-smt2-register $formal$hyperram.v:1084$301_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:1084$301_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#252| state)) #b1))
-(declare-fun |hyperram#253| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1084$301_CHECK
-; yosys-smt2-register $formal$hyperram.v:1084$301_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:1084$301_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#253| state)) #b1))
-(declare-fun |hyperram#254| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1076$300_EN
-; yosys-smt2-register $formal$hyperram.v:1076$300_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:1076$300_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#254| state)) #b1))
-(declare-fun |hyperram#255| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1076$300_CHECK
-; yosys-smt2-register $formal$hyperram.v:1076$300_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:1076$300_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#255| state)) #b1))
-(declare-fun |hyperram#256| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1075$299_EN
-; yosys-smt2-register $formal$hyperram.v:1075$299_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:1075$299_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#256| state)) #b1))
-(declare-fun |hyperram#257| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1075$299_CHECK
-; yosys-smt2-register $formal$hyperram.v:1075$299_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:1075$299_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#257| state)) #b1))
-(declare-fun |hyperram#258| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1074$298_EN
-; yosys-smt2-register $formal$hyperram.v:1074$298_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:1074$298_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#258| state)) #b1))
-(declare-fun |hyperram#259| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1074$298_CHECK
-; yosys-smt2-register $formal$hyperram.v:1074$298_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:1074$298_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#259| state)) #b1))
-(declare-fun |hyperram#260| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1073$297_EN
-; yosys-smt2-register $formal$hyperram.v:1073$297_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:1073$297_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#260| state)) #b1))
-(declare-fun |hyperram#261| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1073$297_CHECK
-; yosys-smt2-register $formal$hyperram.v:1073$297_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:1073$297_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#261| state)) #b1))
-(declare-fun |hyperram#262| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1070$296_EN
-; yosys-smt2-register $formal$hyperram.v:1070$296_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:1070$296_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#262| state)) #b1))
-(declare-fun |hyperram#263| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1070$296_CHECK
-; yosys-smt2-register $formal$hyperram.v:1070$296_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:1070$296_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#263| state)) #b1))
-(declare-fun |hyperram#264| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1065$295_EN
-; yosys-smt2-register $formal$hyperram.v:1065$295_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:1065$295_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#264| state)) #b1))
-(declare-fun |hyperram#265| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1065$295_CHECK
-; yosys-smt2-register $formal$hyperram.v:1065$295_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:1065$295_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#265| state)) #b1))
-(declare-fun |hyperram#266| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1057$293_EN
-; yosys-smt2-register $formal$hyperram.v:1057$293_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:1057$293_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#266| state)) #b1))
-(declare-fun |hyperram#267| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1057$293_CHECK
-; yosys-smt2-register $formal$hyperram.v:1057$293_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:1057$293_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#267| state)) #b1))
-(declare-fun |hyperram#268| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1053$292_EN
-; yosys-smt2-register $formal$hyperram.v:1053$292_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:1053$292_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#268| state)) #b1))
-(declare-fun |hyperram#269| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1053$292_CHECK
-; yosys-smt2-register $formal$hyperram.v:1053$292_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:1053$292_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#269| state)) #b1))
-(declare-fun |hyperram#270| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1051$291_EN
-; yosys-smt2-register $formal$hyperram.v:1051$291_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:1051$291_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#270| state)) #b1))
-(declare-fun |hyperram#271| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1051$291_CHECK
-; yosys-smt2-register $formal$hyperram.v:1051$291_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:1051$291_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#271| state)) #b1))
-(declare-fun |hyperram#272| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1047$290_CHECK
-; yosys-smt2-register $formal$hyperram.v:1047$290_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:1047$290_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#272| state)) #b1))
-(declare-fun |hyperram#273| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1042$289_EN
-; yosys-smt2-register $formal$hyperram.v:1042$289_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:1042$289_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#273| state)) #b1))
-(declare-fun |hyperram#274| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1042$289_CHECK
-; yosys-smt2-register $formal$hyperram.v:1042$289_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:1042$289_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#274| state)) #b1))
-(declare-fun |hyperram#275| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1039$288_EN
-; yosys-smt2-register $formal$hyperram.v:1039$288_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:1039$288_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#275| state)) #b1))
-(declare-fun |hyperram#276| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1039$288_CHECK
-; yosys-smt2-register $formal$hyperram.v:1039$288_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:1039$288_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#276| state)) #b1))
-(declare-fun |hyperram#277| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1036$287_EN
-; yosys-smt2-register $formal$hyperram.v:1036$287_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:1036$287_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#277| state)) #b1))
-(declare-fun |hyperram#278| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1036$287_CHECK
-; yosys-smt2-register $formal$hyperram.v:1036$287_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:1036$287_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#278| state)) #b1))
-(declare-fun |hyperram#279| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1033$286_EN
-; yosys-smt2-register $formal$hyperram.v:1033$286_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:1033$286_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#279| state)) #b1))
-(declare-fun |hyperram#280| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1033$286_CHECK
-; yosys-smt2-register $formal$hyperram.v:1033$286_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:1033$286_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#280| state)) #b1))
-(declare-fun |hyperram#281| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1030$285_CHECK
-; yosys-smt2-register $formal$hyperram.v:1030$285_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:1030$285_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#281| state)) #b1))
-(declare-fun |hyperram#282| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1025$284_EN
-; yosys-smt2-register $formal$hyperram.v:1025$284_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:1025$284_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#282| state)) #b1))
-(declare-fun |hyperram#283| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1025$284_CHECK
-; yosys-smt2-register $formal$hyperram.v:1025$284_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:1025$284_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#283| state)) #b1))
-(declare-fun |hyperram#284| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1022$283_EN
-; yosys-smt2-register $formal$hyperram.v:1022$283_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:1022$283_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#284| state)) #b1))
-(declare-fun |hyperram#285| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1022$283_CHECK
-; yosys-smt2-register $formal$hyperram.v:1022$283_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:1022$283_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#285| state)) #b1))
-(declare-fun |hyperram#286| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1019$282_EN
-; yosys-smt2-register $formal$hyperram.v:1019$282_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:1019$282_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#286| state)) #b1))
-(declare-fun |hyperram#287| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1019$282_CHECK
-; yosys-smt2-register $formal$hyperram.v:1019$282_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:1019$282_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#287| state)) #b1))
-(declare-fun |hyperram#288| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1015$281_EN
-; yosys-smt2-register $formal$hyperram.v:1015$281_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:1015$281_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#288| state)) #b1))
-(declare-fun |hyperram#289| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1015$281_CHECK
-; yosys-smt2-register $formal$hyperram.v:1015$281_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:1015$281_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#289| state)) #b1))
-(declare-fun |hyperram#290| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1013$280_EN
-; yosys-smt2-register $formal$hyperram.v:1013$280_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:1013$280_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#290| state)) #b1))
-(declare-fun |hyperram#291| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1013$280_CHECK
-; yosys-smt2-register $formal$hyperram.v:1013$280_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:1013$280_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#291| state)) #b1))
-(declare-fun |hyperram#292| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1011$279_EN
-; yosys-smt2-register $formal$hyperram.v:1011$279_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:1011$279_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#292| state)) #b1))
-(declare-fun |hyperram#293| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1011$279_CHECK
-; yosys-smt2-register $formal$hyperram.v:1011$279_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:1011$279_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#293| state)) #b1))
-(declare-fun |hyperram#294| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1007$278_EN
-; yosys-smt2-register $formal$hyperram.v:1007$278_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:1007$278_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#294| state)) #b1))
-(declare-fun |hyperram#295| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1007$278_CHECK
-; yosys-smt2-register $formal$hyperram.v:1007$278_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:1007$278_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#295| state)) #b1))
-(declare-fun |hyperram#296| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1005$277_EN
-; yosys-smt2-register $formal$hyperram.v:1005$277_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:1005$277_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#296| state)) #b1))
-(declare-fun |hyperram#297| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1005$277_CHECK
-; yosys-smt2-register $formal$hyperram.v:1005$277_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:1005$277_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#297| state)) #b1))
-(declare-fun |hyperram#298| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1001$276_EN
-; yosys-smt2-register $formal$hyperram.v:1001$276_EN 1
-(define-fun |hyperram_n $formal$hyperram.v:1001$276_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#298| state)) #b1))
-(declare-fun |hyperram#299| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1001$276_CHECK
-; yosys-smt2-register $formal$hyperram.v:1001$276_CHECK 1
-(define-fun |hyperram_n $formal$hyperram.v:1001$276_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#299| state)) #b1))
-; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3706 6
-(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3706| ((state |hyperram_s|)) (_ BitVec 6) (|hyperram#81| state))
-; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3696 1
-(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3696| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#2| state)) #b1))
-; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3686 3
-(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3686| ((state |hyperram_s|)) (_ BitVec 3) (|hyperram#75| state))
-; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3676 1
-(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3676| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#52| state)) #b1))
-; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3666 1
-(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3666| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#48| state)) #b1))
-; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3656 4
-(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3656| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#31| state))
-; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3646 48
-(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3646| ((state |hyperram_s|)) (_ BitVec 48) (|hyperram#45| state))
-; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3636 32
-(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3636| ((state |hyperram_s|)) (_ BitVec 32) (|hyperram#91| state))
-; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3626 1
-(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3626| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#65| state)) #b1))
-; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3616 1
-(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3616| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#71| state)) #b1))
-; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3606 5
-(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3606| ((state |hyperram_s|)) (_ BitVec 5) (|hyperram#11| state))
-; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3596 4
-(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3596| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#19| state))
-; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3586 4
-(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3586| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#27| state))
-; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3576 4
-(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3576| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#15| state))
-; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3566 4
-(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3566| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#23| state))
-; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3556 32
-(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3556| ((state |hyperram_s|)) (_ BitVec 32) (|hyperram#113| state))
-; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3546 1
-(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3546| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#106| state)) #b1))
-; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3536 3
-(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3536| ((state |hyperram_s|)) (_ BitVec 3) (|hyperram#55| state))
-; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3526 1
-(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3526| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#40| state)) #b1))
-; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3516 1
-(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3516| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#35| state)) #b1))
-; yosys-smt2-register $auto$clk2fflogic.cc:168:execute$3562 1
-(define-fun |hyperram_n $auto$clk2fflogic.cc:168:execute$3562| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#3| state)) #b1))
-; yosys-smt2-register $auto$clk2fflogic.cc:168:execute$3512 1
-(define-fun |hyperram_n $auto$clk2fflogic.cc:168:execute$3512| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#36| state)) #b1))
-; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3700 6
-(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3700| ((state |hyperram_s|)) (_ BitVec 6) (|hyperram#80| state))
-; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3690 1
-(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3690| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#1| state)) #b1))
-; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3680 3
-(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3680| ((state |hyperram_s|)) (_ BitVec 3) (|hyperram#74| state))
-; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3670 1
-(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3670| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#51| state)) #b1))
-; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3660 1
-(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3660| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#47| state)) #b1))
-; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3650 4
-(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3650| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#30| state))
-; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3640 48
-(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3640| ((state |hyperram_s|)) (_ BitVec 48) (|hyperram#44| state))
-; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3630 32
-(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3630| ((state |hyperram_s|)) (_ BitVec 32) (|hyperram#90| state))
-; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3620 1
-(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3620| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#64| state)) #b1))
-; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3610 1
-(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3610| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#70| state)) #b1))
-; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3600 5
-(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3600| ((state |hyperram_s|)) (_ BitVec 5) (|hyperram#10| state))
-; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3590 4
-(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3590| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#18| state))
-; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3580 4
-(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3580| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#26| state))
-; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3570 4
-(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3570| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#14| state))
-; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3560 4
-(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3560| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#22| state))
-; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3550 32
-(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3550| ((state |hyperram_s|)) (_ BitVec 32) (|hyperram#112| state))
-; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3540 1
-(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3540| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#105| state)) #b1))
-; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3530 3
-(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3530| ((state |hyperram_s|)) (_ BitVec 3) (|hyperram#54| state))
-; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3520 1
-(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3520| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#39| state)) #b1))
-; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3510 1
-(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3510| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#34| state)) #b1))
-(declare-fun |hyperram#300| (|hyperram_s|) (_ BitVec 1)) ; $and$hyperram.v:0$802_Y
-; yosys-smt2-register $and$hyperram.v:0$802_Y 1
-(define-fun |hyperram_n $and$hyperram.v:0$802_Y| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#300| state)) #b1))
-(declare-fun |hyperram#301| (|hyperram_s|) (_ BitVec 1)) ; $and$hyperram.v:0$1448_Y
-; yosys-smt2-register $and$hyperram.v:0$1448_Y 1
-(define-fun |hyperram_n $and$hyperram.v:0$1448_Y| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#301| state)) #b1))
+(define-fun |hyperram_n $formal$hyperram.v:879$244_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#204| state)) #b1))
+(declare-fun |hyperram#205| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:879$243_EN
+; yosys-smt2-register $formal$hyperram.v:879$243_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:879$243_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#205| state)) #b1))
+(declare-fun |hyperram#206| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:879$243_CHECK
+; yosys-smt2-register $formal$hyperram.v:879$243_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:879$243_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#206| state)) #b1))
+(declare-fun |hyperram#207| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:877$242_EN
+; yosys-smt2-register $formal$hyperram.v:877$242_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:877$242_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#207| state)) #b1))
+(declare-fun |hyperram#208| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:877$242_CHECK
+; yosys-smt2-register $formal$hyperram.v:877$242_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:877$242_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#208| state)) #b1))
+(declare-fun |hyperram#209| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:874$241_EN
+; yosys-smt2-register $formal$hyperram.v:874$241_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:874$241_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#209| state)) #b1))
+(declare-fun |hyperram#210| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:874$241_CHECK
+; yosys-smt2-register $formal$hyperram.v:874$241_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:874$241_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#210| state)) #b1))
+(declare-fun |hyperram#211| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:872$240_EN
+; yosys-smt2-register $formal$hyperram.v:872$240_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:872$240_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#211| state)) #b1))
+(declare-fun |hyperram#212| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:872$240_CHECK
+; yosys-smt2-register $formal$hyperram.v:872$240_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:872$240_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#212| state)) #b1))
+(declare-fun |hyperram#213| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:869$239_CHECK
+; yosys-smt2-register $formal$hyperram.v:869$239_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:869$239_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#213| state)) #b1))
+(declare-fun |hyperram#214| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:868$238_CHECK
+; yosys-smt2-register $formal$hyperram.v:868$238_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:868$238_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#214| state)) #b1))
+(declare-fun |hyperram#215| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:867$237_EN
+; yosys-smt2-register $formal$hyperram.v:867$237_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:867$237_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#215| state)) #b1))
+(declare-fun |hyperram#216| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:867$237_CHECK
+; yosys-smt2-register $formal$hyperram.v:867$237_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:867$237_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#216| state)) #b1))
+(declare-fun |hyperram#217| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:861$236_CHECK
+; yosys-smt2-register $formal$hyperram.v:861$236_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:861$236_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#217| state)) #b1))
+(declare-fun |hyperram#218| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:860$235_CHECK
+; yosys-smt2-register $formal$hyperram.v:860$235_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:860$235_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#218| state)) #b1))
+(declare-fun |hyperram#219| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:854$234_EN
+; yosys-smt2-register $formal$hyperram.v:854$234_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:854$234_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#219| state)) #b1))
+(declare-fun |hyperram#220| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:854$234_CHECK
+; yosys-smt2-register $formal$hyperram.v:854$234_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:854$234_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#220| state)) #b1))
+(declare-fun |hyperram#221| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:838$233_CHECK
+; yosys-smt2-register $formal$hyperram.v:838$233_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:838$233_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#221| state)) #b1))
+(declare-fun |hyperram#222| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:820$232_CHECK
+; yosys-smt2-register $formal$hyperram.v:820$232_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:820$232_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#222| state)) #b1))
+(declare-fun |hyperram#223| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:803$231_CHECK
+; yosys-smt2-register $formal$hyperram.v:803$231_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:803$231_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#223| state)) #b1))
+(declare-fun |hyperram#224| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:784$230_CHECK
+; yosys-smt2-register $formal$hyperram.v:784$230_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:784$230_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#224| state)) #b1))
+(declare-fun |hyperram#225| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:768$229_CHECK
+; yosys-smt2-register $formal$hyperram.v:768$229_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:768$229_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#225| state)) #b1))
+(declare-fun |hyperram#226| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:752$228_CHECK
+; yosys-smt2-register $formal$hyperram.v:752$228_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:752$228_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#226| state)) #b1))
+(declare-fun |hyperram#227| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:733$227_CHECK
+; yosys-smt2-register $formal$hyperram.v:733$227_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:733$227_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#227| state)) #b1))
+(declare-fun |hyperram#228| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:716$226_CHECK
+; yosys-smt2-register $formal$hyperram.v:716$226_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:716$226_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#228| state)) #b1))
+(declare-fun |hyperram#229| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:695$225_CHECK
+; yosys-smt2-register $formal$hyperram.v:695$225_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:695$225_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#229| state)) #b1))
+(declare-fun |hyperram#230| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:675$224_CHECK
+; yosys-smt2-register $formal$hyperram.v:675$224_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:675$224_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#230| state)) #b1))
+(declare-fun |hyperram#231| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:655$223_CHECK
+; yosys-smt2-register $formal$hyperram.v:655$223_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:655$223_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#231| state)) #b1))
+(declare-fun |hyperram#232| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:638$222_CHECK
+; yosys-smt2-register $formal$hyperram.v:638$222_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:638$222_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#232| state)) #b1))
+(declare-fun |hyperram#233| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:622$221_CHECK
+; yosys-smt2-register $formal$hyperram.v:622$221_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:622$221_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#233| state)) #b1))
+(declare-fun |hyperram#234| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:600$220_CHECK
+; yosys-smt2-register $formal$hyperram.v:600$220_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:600$220_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#234| state)) #b1))
+(declare-fun |hyperram#235| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:580$219_CHECK
+; yosys-smt2-register $formal$hyperram.v:580$219_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:580$219_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#235| state)) #b1))
+(declare-fun |hyperram#236| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:559$218_CHECK
+; yosys-smt2-register $formal$hyperram.v:559$218_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:559$218_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#236| state)) #b1))
+(declare-fun |hyperram#237| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:540$217_CHECK
+; yosys-smt2-register $formal$hyperram.v:540$217_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:540$217_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#237| state)) #b1))
+(declare-fun |hyperram#238| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:524$216_CHECK
+; yosys-smt2-register $formal$hyperram.v:524$216_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:524$216_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#238| state)) #b1))
+(declare-fun |hyperram#239| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:502$215_CHECK
+; yosys-smt2-register $formal$hyperram.v:502$215_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:502$215_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#239| state)) #b1))
+(declare-fun |hyperram#240| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:482$214_CHECK
+; yosys-smt2-register $formal$hyperram.v:482$214_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:482$214_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#240| state)) #b1))
+(declare-fun |hyperram#241| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:462$213_CHECK
+; yosys-smt2-register $formal$hyperram.v:462$213_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:462$213_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#241| state)) #b1))
+(declare-fun |hyperram#242| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:445$212_CHECK
+; yosys-smt2-register $formal$hyperram.v:445$212_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:445$212_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#242| state)) #b1))
+(declare-fun |hyperram#243| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:430$211_CHECK
+; yosys-smt2-register $formal$hyperram.v:430$211_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:430$211_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#243| state)) #b1))
+(declare-fun |hyperram#244| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:424$210_CHECK
+; yosys-smt2-register $formal$hyperram.v:424$210_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:424$210_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#244| state)) #b1))
+(declare-fun |hyperram#245| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:421$209_CHECK
+; yosys-smt2-register $formal$hyperram.v:421$209_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:421$209_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#245| state)) #b1))
+(declare-fun |hyperram#246| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:418$208_CHECK
+; yosys-smt2-register $formal$hyperram.v:418$208_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:418$208_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#246| state)) #b1))
+(declare-fun |hyperram#247| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:415$207_CHECK
+; yosys-smt2-register $formal$hyperram.v:415$207_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:415$207_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#247| state)) #b1))
+(declare-fun |hyperram#248| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:412$206_CHECK
+; yosys-smt2-register $formal$hyperram.v:412$206_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:412$206_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#248| state)) #b1))
+(declare-fun |hyperram#249| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:405$205_EN
+; yosys-smt2-register $formal$hyperram.v:405$205_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:405$205_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#249| state)) #b1))
+(declare-fun |hyperram#250| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:405$205_CHECK
+; yosys-smt2-register $formal$hyperram.v:405$205_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:405$205_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#250| state)) #b1))
+(declare-fun |hyperram#251| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:402$204_EN
+; yosys-smt2-register $formal$hyperram.v:402$204_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:402$204_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#251| state)) #b1))
+(declare-fun |hyperram#252| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:402$204_CHECK
+; yosys-smt2-register $formal$hyperram.v:402$204_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:402$204_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#252| state)) #b1))
+(declare-fun |hyperram#253| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1091$303_CHECK
+; yosys-smt2-register $formal$hyperram.v:1091$303_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:1091$303_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#253| state)) #b1))
+(declare-fun |hyperram#254| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1090$302_CHECK
+; yosys-smt2-register $formal$hyperram.v:1090$302_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:1090$302_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#254| state)) #b1))
+(declare-fun |hyperram#255| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1089$301_CHECK
+; yosys-smt2-register $formal$hyperram.v:1089$301_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:1089$301_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#255| state)) #b1))
+(declare-fun |hyperram#256| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1088$300_EN
+; yosys-smt2-register $formal$hyperram.v:1088$300_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:1088$300_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#256| state)) #b1))
+(declare-fun |hyperram#257| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1088$300_CHECK
+; yosys-smt2-register $formal$hyperram.v:1088$300_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:1088$300_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#257| state)) #b1))
+(declare-fun |hyperram#258| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1080$299_EN
+; yosys-smt2-register $formal$hyperram.v:1080$299_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:1080$299_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#258| state)) #b1))
+(declare-fun |hyperram#259| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1080$299_CHECK
+; yosys-smt2-register $formal$hyperram.v:1080$299_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:1080$299_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#259| state)) #b1))
+(declare-fun |hyperram#260| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1079$298_EN
+; yosys-smt2-register $formal$hyperram.v:1079$298_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:1079$298_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#260| state)) #b1))
+(declare-fun |hyperram#261| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1079$298_CHECK
+; yosys-smt2-register $formal$hyperram.v:1079$298_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:1079$298_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#261| state)) #b1))
+(declare-fun |hyperram#262| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1078$297_EN
+; yosys-smt2-register $formal$hyperram.v:1078$297_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:1078$297_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#262| state)) #b1))
+(declare-fun |hyperram#263| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1078$297_CHECK
+; yosys-smt2-register $formal$hyperram.v:1078$297_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:1078$297_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#263| state)) #b1))
+(declare-fun |hyperram#264| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1077$296_EN
+; yosys-smt2-register $formal$hyperram.v:1077$296_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:1077$296_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#264| state)) #b1))
+(declare-fun |hyperram#265| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1077$296_CHECK
+; yosys-smt2-register $formal$hyperram.v:1077$296_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:1077$296_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#265| state)) #b1))
+(declare-fun |hyperram#266| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1068$295_EN
+; yosys-smt2-register $formal$hyperram.v:1068$295_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:1068$295_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#266| state)) #b1))
+(declare-fun |hyperram#267| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1068$295_CHECK
+; yosys-smt2-register $formal$hyperram.v:1068$295_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:1068$295_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#267| state)) #b1))
+(declare-fun |hyperram#268| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1065$294_EN
+; yosys-smt2-register $formal$hyperram.v:1065$294_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:1065$294_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#268| state)) #b1))
+(declare-fun |hyperram#269| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1065$294_CHECK
+; yosys-smt2-register $formal$hyperram.v:1065$294_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:1065$294_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#269| state)) #b1))
+(declare-fun |hyperram#270| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1057$292_EN
+; yosys-smt2-register $formal$hyperram.v:1057$292_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:1057$292_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#270| state)) #b1))
+(declare-fun |hyperram#271| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1057$292_CHECK
+; yosys-smt2-register $formal$hyperram.v:1057$292_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:1057$292_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#271| state)) #b1))
+(declare-fun |hyperram#272| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1053$291_EN
+; yosys-smt2-register $formal$hyperram.v:1053$291_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:1053$291_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#272| state)) #b1))
+(declare-fun |hyperram#273| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1053$291_CHECK
+; yosys-smt2-register $formal$hyperram.v:1053$291_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:1053$291_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#273| state)) #b1))
+(declare-fun |hyperram#274| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1051$290_EN
+; yosys-smt2-register $formal$hyperram.v:1051$290_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:1051$290_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#274| state)) #b1))
+(declare-fun |hyperram#275| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1051$290_CHECK
+; yosys-smt2-register $formal$hyperram.v:1051$290_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:1051$290_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#275| state)) #b1))
+(declare-fun |hyperram#276| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1047$289_CHECK
+; yosys-smt2-register $formal$hyperram.v:1047$289_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:1047$289_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#276| state)) #b1))
+(declare-fun |hyperram#277| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1042$288_EN
+; yosys-smt2-register $formal$hyperram.v:1042$288_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:1042$288_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#277| state)) #b1))
+(declare-fun |hyperram#278| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1042$288_CHECK
+; yosys-smt2-register $formal$hyperram.v:1042$288_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:1042$288_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#278| state)) #b1))
+(declare-fun |hyperram#279| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1039$287_EN
+; yosys-smt2-register $formal$hyperram.v:1039$287_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:1039$287_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#279| state)) #b1))
+(declare-fun |hyperram#280| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1039$287_CHECK
+; yosys-smt2-register $formal$hyperram.v:1039$287_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:1039$287_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#280| state)) #b1))
+(declare-fun |hyperram#281| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1036$286_EN
+; yosys-smt2-register $formal$hyperram.v:1036$286_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:1036$286_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#281| state)) #b1))
+(declare-fun |hyperram#282| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1036$286_CHECK
+; yosys-smt2-register $formal$hyperram.v:1036$286_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:1036$286_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#282| state)) #b1))
+(declare-fun |hyperram#283| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1033$285_EN
+; yosys-smt2-register $formal$hyperram.v:1033$285_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:1033$285_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#283| state)) #b1))
+(declare-fun |hyperram#284| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1033$285_CHECK
+; yosys-smt2-register $formal$hyperram.v:1033$285_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:1033$285_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#284| state)) #b1))
+(declare-fun |hyperram#285| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1030$284_CHECK
+; yosys-smt2-register $formal$hyperram.v:1030$284_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:1030$284_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#285| state)) #b1))
+(declare-fun |hyperram#286| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1025$283_EN
+; yosys-smt2-register $formal$hyperram.v:1025$283_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:1025$283_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#286| state)) #b1))
+(declare-fun |hyperram#287| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1025$283_CHECK
+; yosys-smt2-register $formal$hyperram.v:1025$283_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:1025$283_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#287| state)) #b1))
+(declare-fun |hyperram#288| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1022$282_EN
+; yosys-smt2-register $formal$hyperram.v:1022$282_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:1022$282_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#288| state)) #b1))
+(declare-fun |hyperram#289| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1022$282_CHECK
+; yosys-smt2-register $formal$hyperram.v:1022$282_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:1022$282_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#289| state)) #b1))
+(declare-fun |hyperram#290| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1019$281_EN
+; yosys-smt2-register $formal$hyperram.v:1019$281_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:1019$281_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#290| state)) #b1))
+(declare-fun |hyperram#291| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1019$281_CHECK
+; yosys-smt2-register $formal$hyperram.v:1019$281_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:1019$281_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#291| state)) #b1))
+(declare-fun |hyperram#292| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1015$280_EN
+; yosys-smt2-register $formal$hyperram.v:1015$280_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:1015$280_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#292| state)) #b1))
+(declare-fun |hyperram#293| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1015$280_CHECK
+; yosys-smt2-register $formal$hyperram.v:1015$280_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:1015$280_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#293| state)) #b1))
+(declare-fun |hyperram#294| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1013$279_EN
+; yosys-smt2-register $formal$hyperram.v:1013$279_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:1013$279_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#294| state)) #b1))
+(declare-fun |hyperram#295| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1013$279_CHECK
+; yosys-smt2-register $formal$hyperram.v:1013$279_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:1013$279_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#295| state)) #b1))
+(declare-fun |hyperram#296| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1011$278_EN
+; yosys-smt2-register $formal$hyperram.v:1011$278_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:1011$278_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#296| state)) #b1))
+(declare-fun |hyperram#297| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1011$278_CHECK
+; yosys-smt2-register $formal$hyperram.v:1011$278_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:1011$278_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#297| state)) #b1))
+(declare-fun |hyperram#298| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1007$277_EN
+; yosys-smt2-register $formal$hyperram.v:1007$277_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:1007$277_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#298| state)) #b1))
+(declare-fun |hyperram#299| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1007$277_CHECK
+; yosys-smt2-register $formal$hyperram.v:1007$277_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:1007$277_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#299| state)) #b1))
+(declare-fun |hyperram#300| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1005$276_EN
+; yosys-smt2-register $formal$hyperram.v:1005$276_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:1005$276_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#300| state)) #b1))
+(declare-fun |hyperram#301| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1005$276_CHECK
+; yosys-smt2-register $formal$hyperram.v:1005$276_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:1005$276_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#301| state)) #b1))
+(declare-fun |hyperram#302| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1001$275_EN
+; yosys-smt2-register $formal$hyperram.v:1001$275_EN 1
+(define-fun |hyperram_n $formal$hyperram.v:1001$275_EN| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#302| state)) #b1))
+(declare-fun |hyperram#303| (|hyperram_s|) (_ BitVec 1)) ; $formal$hyperram.v:1001$275_CHECK
+; yosys-smt2-register $formal$hyperram.v:1001$275_CHECK 1
+(define-fun |hyperram_n $formal$hyperram.v:1001$275_CHECK| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#303| state)) #b1))
+; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3700 6
+(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3700| ((state |hyperram_s|)) (_ BitVec 6) (|hyperram#80| state))
+; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3690 1
+(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3690| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#2| state)) #b1))
+; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3680 3
+(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3680| ((state |hyperram_s|)) (_ BitVec 3) (|hyperram#75| state))
+; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3670 1
+(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3670| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#52| state)) #b1))
+; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3660 1
+(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3660| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#48| state)) #b1))
+; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3650 4
+(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3650| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#31| state))
+; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3640 48
+(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3640| ((state |hyperram_s|)) (_ BitVec 48) (|hyperram#45| state))
+; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3630 32
+(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3630| ((state |hyperram_s|)) (_ BitVec 32) (|hyperram#93| state))
+; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3620 1
+(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3620| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#65| state)) #b1))
+; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3610 1
+(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3610| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#71| state)) #b1))
+; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3600 5
+(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3600| ((state |hyperram_s|)) (_ BitVec 5) (|hyperram#11| state))
+; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3590 4
+(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3590| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#19| state))
+; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3580 4
+(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3580| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#27| state))
+; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3570 4
+(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3570| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#15| state))
+; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3560 4
+(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3560| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#23| state))
+; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3550 32
+(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3550| ((state |hyperram_s|)) (_ BitVec 32) (|hyperram#116| state))
+; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3540 1
+(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3540| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#109| state)) #b1))
+; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3530 3
+(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3530| ((state |hyperram_s|)) (_ BitVec 3) (|hyperram#55| state))
+; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3520 1
+(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3520| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#40| state)) #b1))
+; yosys-smt2-register $auto$clk2fflogic.cc:192:execute$3510 1
+(define-fun |hyperram_n $auto$clk2fflogic.cc:192:execute$3510| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#35| state)) #b1))
+; yosys-smt2-register $auto$clk2fflogic.cc:168:execute$3556 1
+(define-fun |hyperram_n $auto$clk2fflogic.cc:168:execute$3556| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#3| state)) #b1))
+; yosys-smt2-register $auto$clk2fflogic.cc:168:execute$3506 1
+(define-fun |hyperram_n $auto$clk2fflogic.cc:168:execute$3506| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#36| state)) #b1))
+; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3694 6
+(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3694| ((state |hyperram_s|)) (_ BitVec 6) (|hyperram#79| state))
+; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3684 1
+(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3684| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#1| state)) #b1))
+; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3674 3
+(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3674| ((state |hyperram_s|)) (_ BitVec 3) (|hyperram#74| state))
+; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3664 1
+(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3664| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#51| state)) #b1))
+; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3654 1
+(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3654| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#47| state)) #b1))
+; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3644 4
+(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3644| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#30| state))
+; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3634 48
+(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3634| ((state |hyperram_s|)) (_ BitVec 48) (|hyperram#44| state))
+; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3624 32
+(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3624| ((state |hyperram_s|)) (_ BitVec 32) (|hyperram#92| state))
+; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3614 1
+(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3614| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#64| state)) #b1))
+; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3604 1
+(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3604| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#70| state)) #b1))
+; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3594 5
+(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3594| ((state |hyperram_s|)) (_ BitVec 5) (|hyperram#10| state))
+; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3584 4
+(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3584| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#18| state))
+; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3574 4
+(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3574| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#26| state))
+; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3564 4
+(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3564| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#14| state))
+; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3554 4
+(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3554| ((state |hyperram_s|)) (_ BitVec 4) (|hyperram#22| state))
+; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3544 32
+(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3544| ((state |hyperram_s|)) (_ BitVec 32) (|hyperram#115| state))
+; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3534 1
+(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3534| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#108| state)) #b1))
+; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3524 3
+(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3524| ((state |hyperram_s|)) (_ BitVec 3) (|hyperram#54| state))
+; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3514 1
+(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3514| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#39| state)) #b1))
+; yosys-smt2-register $auto$clk2fflogic.cc:156:execute$3504 1
+(define-fun |hyperram_n $auto$clk2fflogic.cc:156:execute$3504| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#34| state)) #b1))
+(declare-fun |hyperram#304| (|hyperram_s|) (_ BitVec 1)) ; $and$hyperram.v:0$799_Y
+; yosys-smt2-register $and$hyperram.v:0$799_Y 1
+(define-fun |hyperram_n $and$hyperram.v:0$799_Y| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#304| state)) #b1))
+(declare-fun |hyperram#305| (|hyperram_s|) (_ BitVec 1)) ; $and$hyperram.v:0$1445_Y
+; yosys-smt2-register $and$hyperram.v:0$1445_Y 1
+(define-fun |hyperram_n $and$hyperram.v:0$1445_Y| ((state |hyperram_s|)) Bool (= ((_ extract 0 0) (|hyperram#305| state)) #b1))
 ; yosys-smt2-assert 0 _write_then_post_
-(define-fun |hyperram_a 0| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#163| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#162| state)) #b1)))) ; _write_then_post_
+(define-fun |hyperram_a 0| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#167| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#166| state)) #b1)))) ; _write_then_post_
 ; yosys-smt2-cover 0 _tx_hreg_tpre3_tpost5
-(define-fun |hyperram_c 0| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#236| state)) #b1) (= ((_ extract 0 0) (|hyperram#245| state)) #b1))) ; _tx_hreg_tpre3_tpost5
+(define-fun |hyperram_c 0| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#240| state)) #b1) (= ((_ extract 0 0) (|hyperram#249| state)) #b1))) ; _tx_hreg_tpre3_tpost5
 ; yosys-smt2-cover 1 _tx_hreg_tpre15_tpost15
-(define-fun |hyperram_c 1| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#235| state)) #b1) (= ((_ extract 0 0) (|hyperram#245| state)) #b1))) ; _tx_hreg_tpre15_tpost15
+(define-fun |hyperram_c 1| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#239| state)) #b1) (= ((_ extract 0 0) (|hyperram#249| state)) #b1))) ; _tx_hreg_tpre15_tpost15
 ; yosys-smt2-cover 2 _tx_hreg_tpre0_tpost0_
-(define-fun |hyperram_c 2| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#237| state)) #b1) (= ((_ extract 0 0) (|hyperram#245| state)) #b1))) ; _tx_hreg_tpre0_tpost0_
+(define-fun |hyperram_c 2| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#241| state)) #b1) (= ((_ extract 0 0) (|hyperram#249| state)) #b1))) ; _tx_hreg_tpre0_tpost0_
 ; yosys-smt2-cover 3 _tx_hreg_tcsh_
-(define-fun |hyperram_c 3| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#239| state)) #b1) (= ((_ extract 0 0) (|hyperram#245| state)) #b1))) ; _tx_hreg_tcsh_
+(define-fun |hyperram_c 3| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#243| state)) #b1) (= ((_ extract 0 0) (|hyperram#249| state)) #b1))) ; _tx_hreg_tcsh_
 ; yosys-smt2-cover 4 _tx_hreg_
-(define-fun |hyperram_c 4| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#238| state)) #b1) (= ((_ extract 0 0) (|hyperram#245| state)) #b1))) ; _tx_hreg_
+(define-fun |hyperram_c 4| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#242| state)) #b1) (= ((_ extract 0 0) (|hyperram#249| state)) #b1))) ; _tx_hreg_
 ; yosys-smt2-cover 5 _tx_hmem_tacc4x2_tpre15_tpost15_
-(define-fun |hyperram_c 5| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#232| state)) #b1) (= ((_ extract 0 0) (|hyperram#245| state)) #b1))) ; _tx_hmem_tacc4x2_tpre15_tpost15_
+(define-fun |hyperram_c 5| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#236| state)) #b1) (= ((_ extract 0 0) (|hyperram#249| state)) #b1))) ; _tx_hmem_tacc4x2_tpre15_tpost15_
 ; yosys-smt2-cover 6 _tx_hmem_tacc4_tpre2_tpost3_
-(define-fun |hyperram_c 6| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#233| state)) #b1) (= ((_ extract 0 0) (|hyperram#245| state)) #b1))) ; _tx_hmem_tacc4_tpre2_tpost3_
+(define-fun |hyperram_c 6| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#237| state)) #b1) (= ((_ extract 0 0) (|hyperram#249| state)) #b1))) ; _tx_hmem_tacc4_tpre2_tpost3_
 ; yosys-smt2-cover 7 _tx_hmem_fixedlatency_
-(define-fun |hyperram_c 7| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#231| state)) #b1) (= ((_ extract 0 0) (|hyperram#245| state)) #b1))) ; _tx_hmem_fixedlatency_
+(define-fun |hyperram_c 7| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#235| state)) #b1) (= ((_ extract 0 0) (|hyperram#249| state)) #b1))) ; _tx_hmem_fixedlatency_
 ; yosys-smt2-cover 8 _tx_hmem_fixeddoublelatency_
-(define-fun |hyperram_c 8| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#230| state)) #b1) (= ((_ extract 0 0) (|hyperram#245| state)) #b1))) ; _tx_hmem_fixeddoublelatency_
+(define-fun |hyperram_c 8| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#234| state)) #b1) (= ((_ extract 0 0) (|hyperram#249| state)) #b1))) ; _tx_hmem_fixeddoublelatency_
 ; yosys-smt2-cover 9 _tx_hmem_
-(define-fun |hyperram_c 9| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#234| state)) #b1) (= ((_ extract 0 0) (|hyperram#245| state)) #b1))) ; _tx_hmem_
+(define-fun |hyperram_c 9| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#238| state)) #b1) (= ((_ extract 0 0) (|hyperram#249| state)) #b1))) ; _tx_hmem_
 ; yosys-smt2-assert 1 _trmax_past_
-(define-fun |hyperram_a 1| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#206| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#205| state)) #b1)))) ; _trmax_past_
+(define-fun |hyperram_a 1| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#210| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#209| state)) #b1)))) ; _trmax_past_
 ; yosys-smt2-assert 2 _trmax_load_
-(define-fun |hyperram_a 2| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#208| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#207| state)) #b1)))) ; _trmax_load_
+(define-fun |hyperram_a 2| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#212| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#211| state)) #b1)))) ; _trmax_load_
 ; yosys-smt2-assert 3 _trmax_gte_4_
-(define-fun |hyperram_a 3| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#213| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#215| state)) #b1)))) ; _trmax_gte_4_
+(define-fun |hyperram_a 3| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#217| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#219| state)) #b1)))) ; _trmax_gte_4_
 ; yosys-smt2-assert 4 _tpre_load_
-(define-fun |hyperram_a 4| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#210| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#211| state)) #b1)))) ; _tpre_load_
+(define-fun |hyperram_a 4| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#214| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#215| state)) #b1)))) ; _tpre_load_
 ; yosys-smt2-assert 5 _tpost_load_
-(define-fun |hyperram_a 5| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#209| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#211| state)) #b1)))) ; _tpost_load_
+(define-fun |hyperram_a 5| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#213| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#215| state)) #b1)))) ; _tpost_load_
 ; yosys-smt2-assert 6 _tcsh_load_
-(define-fun |hyperram_a 6| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#212| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#211| state)) #b1)))) ; _tcsh_load_
+(define-fun |hyperram_a 6| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#216| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#215| state)) #b1)))) ; _tcsh_load_
 ; yosys-smt2-assert 7 _tacc_past_
-(define-fun |hyperram_a 7| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#202| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#201| state)) #b1)))) ; _tacc_past_
+(define-fun |hyperram_a 7| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#206| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#205| state)) #b1)))) ; _tacc_past_
 ; yosys-smt2-assert 8 _tacc_load_
-(define-fun |hyperram_a 8| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#204| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#203| state)) #b1)))) ; _tacc_load_
+(define-fun |hyperram_a 8| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#208| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#207| state)) #b1)))) ; _tacc_load_
 ; yosys-smt2-assert 9 _tacc_gte_2_
-(define-fun |hyperram_a 9| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#214| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#215| state)) #b1)))) ; _tacc_gte_2_
+(define-fun |hyperram_a 9| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#218| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#219| state)) #b1)))) ; _tacc_gte_2_
 ; yosys-smt2-assert 10 _store_sel_
-(define-fun |hyperram_a 10| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#251| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#252| state)) #b1)))) ; _store_sel_
+(define-fun |hyperram_a 10| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#255| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#256| state)) #b1)))) ; _store_sel_
 ; yosys-smt2-assert 11 _store_reg_acc_
-(define-fun |hyperram_a 11| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#250| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#252| state)) #b1)))) ; _store_reg_acc_
+(define-fun |hyperram_a 11| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#254| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#256| state)) #b1)))) ; _store_reg_acc_
 ; yosys-smt2-assert 12 _store_rd_wr_
-(define-fun |hyperram_a 12| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#249| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#252| state)) #b1)))) ; _store_rd_wr_
+(define-fun |hyperram_a 12| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#253| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#256| state)) #b1)))) ; _store_rd_wr_
 ; yosys-smt2-assert 13 _store_data_wr_
-(define-fun |hyperram_a 13| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#253| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#252| state)) #b1)))) ; _store_data_wr_
+(define-fun |hyperram_a 13| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#257| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#256| state)) #b1)))) ; _store_data_wr_
 ; yosys-smt2-assert 14 _state_change_
-(define-fun |hyperram_a 14| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#155| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#154| state)) #b1)))) ; _state_change_
+(define-fun |hyperram_a 14| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#159| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#158| state)) #b1)))) ; _state_change_
 ; yosys-smt2-assert 15 _start_hb_op_
-(define-fun |hyperram_a 15| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#151| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#150| state)) #b1)))) ; _start_hb_op_
+(define-fun |hyperram_a 15| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#155| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#154| state)) #b1)))) ; _start_hb_op_
 ; yosys-smt2-cover 10 _rx_hreg_trmax_
-(define-fun |hyperram_c 10| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#217| state)) #b1) (= ((_ extract 0 0) (|hyperram#245| state)) #b1))) ; _rx_hreg_trmax_
+(define-fun |hyperram_c 10| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#221| state)) #b1) (= ((_ extract 0 0) (|hyperram#249| state)) #b1))) ; _rx_hreg_trmax_
 ; yosys-smt2-cover 11 _rx_hreg_tacc4x2_
-(define-fun |hyperram_c 11| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#221| state)) #b1) (= ((_ extract 0 0) (|hyperram#245| state)) #b1))) ; _rx_hreg_tacc4x2_
+(define-fun |hyperram_c 11| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#225| state)) #b1) (= ((_ extract 0 0) (|hyperram#249| state)) #b1))) ; _rx_hreg_tacc4x2_
 ; yosys-smt2-cover 12 _rx_hreg_tacc4_tpre2_tpost5_
-(define-fun |hyperram_c 12| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#220| state)) #b1) (= ((_ extract 0 0) (|hyperram#245| state)) #b1))) ; _rx_hreg_tacc4_tpre2_tpost5_
+(define-fun |hyperram_c 12| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#224| state)) #b1) (= ((_ extract 0 0) (|hyperram#249| state)) #b1))) ; _rx_hreg_tacc4_tpre2_tpost5_
 ; yosys-smt2-cover 13 _rx_hreg_tacc4_
-(define-fun |hyperram_c 13| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#222| state)) #b1) (= ((_ extract 0 0) (|hyperram#245| state)) #b1))) ; _rx_hreg_tacc4_
+(define-fun |hyperram_c 13| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#226| state)) #b1) (= ((_ extract 0 0) (|hyperram#249| state)) #b1))) ; _rx_hreg_tacc4_
 ; yosys-smt2-cover 14 _rx_hreg_fixedlatency_
-(define-fun |hyperram_c 14| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#219| state)) #b1) (= ((_ extract 0 0) (|hyperram#245| state)) #b1))) ; _rx_hreg_fixedlatency_
+(define-fun |hyperram_c 14| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#223| state)) #b1) (= ((_ extract 0 0) (|hyperram#249| state)) #b1))) ; _rx_hreg_fixedlatency_
 ; yosys-smt2-cover 15 _rx_hreg_fixeddoublelatency_
-(define-fun |hyperram_c 15| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#218| state)) #b1) (= ((_ extract 0 0) (|hyperram#245| state)) #b1))) ; _rx_hreg_fixeddoublelatency_
+(define-fun |hyperram_c 15| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#222| state)) #b1) (= ((_ extract 0 0) (|hyperram#249| state)) #b1))) ; _rx_hreg_fixeddoublelatency_
 ; yosys-smt2-cover 16 _rx_hmem_trmax4_
-(define-fun |hyperram_c 16| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#224| state)) #b1) (= ((_ extract 0 0) (|hyperram#245| state)) #b1))) ; _rx_hmem_trmax4_
+(define-fun |hyperram_c 16| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#228| state)) #b1) (= ((_ extract 0 0) (|hyperram#249| state)) #b1))) ; _rx_hmem_trmax4_
 ; yosys-smt2-cover 17 _rx_hmem_trmax20_
-(define-fun |hyperram_c 17| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#223| state)) #b1) (= ((_ extract 0 0) (|hyperram#245| state)) #b1))) ; _rx_hmem_trmax20_
+(define-fun |hyperram_c 17| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#227| state)) #b1) (= ((_ extract 0 0) (|hyperram#249| state)) #b1))) ; _rx_hmem_trmax20_
 ; yosys-smt2-cover 18 _rx_hmem_tacc5x2_tpre2_tpost3_
-(define-fun |hyperram_c 18| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#227| state)) #b1) (= ((_ extract 0 0) (|hyperram#245| state)) #b1))) ; _rx_hmem_tacc5x2_tpre2_tpost3_
+(define-fun |hyperram_c 18| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#231| state)) #b1) (= ((_ extract 0 0) (|hyperram#249| state)) #b1))) ; _rx_hmem_tacc5x2_tpre2_tpost3_
 ; yosys-smt2-cover 19 _rx_hmem_tacc4_
-(define-fun |hyperram_c 19| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#228| state)) #b1) (= ((_ extract 0 0) (|hyperram#245| state)) #b1))) ; _rx_hmem_tacc4_
+(define-fun |hyperram_c 19| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#232| state)) #b1) (= ((_ extract 0 0) (|hyperram#249| state)) #b1))) ; _rx_hmem_tacc4_
 ; yosys-smt2-cover 20 _rx_hmem_fixedlatency_
-(define-fun |hyperram_c 20| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#226| state)) #b1) (= ((_ extract 0 0) (|hyperram#245| state)) #b1))) ; _rx_hmem_fixedlatency_
+(define-fun |hyperram_c 20| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#230| state)) #b1) (= ((_ extract 0 0) (|hyperram#249| state)) #b1))) ; _rx_hmem_fixedlatency_
 ; yosys-smt2-cover 21 _rx_hmem_fixeddoublelatency_
-(define-fun |hyperram_c 21| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#225| state)) #b1) (= ((_ extract 0 0) (|hyperram#245| state)) #b1))) ; _rx_hmem_fixeddoublelatency_
+(define-fun |hyperram_c 21| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#229| state)) #b1) (= ((_ extract 0 0) (|hyperram#249| state)) #b1))) ; _rx_hmem_fixeddoublelatency_
 ; yosys-smt2-cover 22 _rx_hmem_
-(define-fun |hyperram_c 22| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#229| state)) #b1) (= ((_ extract 0 0) (|hyperram#245| state)) #b1))) ; _rx_hmem_
+(define-fun |hyperram_c 22| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#233| state)) #b1) (= ((_ extract 0 0) (|hyperram#249| state)) #b1))) ; _rx_hmem_
 ; yosys-smt2-assert 16 _ready_till_busop_
-(define-fun |hyperram_a 16| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#276| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#275| state)) #b1)))) ; _ready_till_busop_
+(define-fun |hyperram_a 16| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#280| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#279| state)) #b1)))) ; _ready_till_busop_
 ; yosys-smt2-assert 17 _read_timeout_clr_
-(define-fun |hyperram_a 17| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#267| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#266| state)) #b1)))) ; _read_timeout_clr_
+(define-fun |hyperram_a 17| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#271| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#270| state)) #b1)))) ; _read_timeout_clr_
 ; yosys-smt2-assert 18 _read_timeout_1_
-(define-fun |hyperram_a 18| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#271| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#270| state)) #b1)))) ; _read_timeout_1_
+(define-fun |hyperram_a 18| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#275| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#274| state)) #b1)))) ; _read_timeout_1_
 ; yosys-smt2-assert 19 _read_timeout_0_
-(define-fun |hyperram_a 19| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#269| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#268| state)) #b1)))) ; _read_timeout_0_
+(define-fun |hyperram_a 19| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#273| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#272| state)) #b1)))) ; _read_timeout_0_
 ; yosys-smt2-assert 20 _read_then_post_
-(define-fun |hyperram_a 20| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#159| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#158| state)) #b1)))) ; _read_then_post_
+(define-fun |hyperram_a 20| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#163| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#162| state)) #b1)))) ; _read_then_post_
 ; yosys-smt2-assert 21 _read_cnt_changing_
-(define-fun |hyperram_a 21| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#265| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#264| state)) #b1)))) ; _read_cnt_changing_
+(define-fun |hyperram_a 21| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#267| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#266| state)) #b1)))) ; _read_cnt_changing_
 ; yosys-smt2-assert 22 _pre_then_ca_
-(define-fun |hyperram_a 22| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#167| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#166| state)) #b1)))) ; _pre_then_ca_
+(define-fun |hyperram_a 22| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#171| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#170| state)) #b1)))) ; _pre_then_ca_
 ; yosys-smt2-assert 23 _post_then_idle_
-(define-fun |hyperram_a 23| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#157| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#156| state)) #b1)))) ; _post_then_idle_
+(define-fun |hyperram_a 23| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#161| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#160| state)) #b1)))) ; _post_then_idle_
 ; yosys-smt2-assert 24 _not_ready_
-(define-fun |hyperram_a 24| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#274| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#273| state)) #b1)))) ; _not_ready_
+(define-fun |hyperram_a 24| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#278| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#277| state)) #b1)))) ; _not_ready_
 ; yosys-smt2-cover 23 _load_trmax_
-(define-fun |hyperram_c 23| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#240| state)) #b1) (= ((_ extract 0 0) (|hyperram#245| state)) #b1))) ; _load_trmax_
+(define-fun |hyperram_c 23| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#244| state)) #b1) (= ((_ extract 0 0) (|hyperram#249| state)) #b1))) ; _load_trmax_
 ; yosys-smt2-cover 24 _load_tpre_
-(define-fun |hyperram_c 24| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#242| state)) #b1) (= ((_ extract 0 0) (|hyperram#245| state)) #b1))) ; _load_tpre_
+(define-fun |hyperram_c 24| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#246| state)) #b1) (= ((_ extract 0 0) (|hyperram#249| state)) #b1))) ; _load_tpre_
 ; yosys-smt2-cover 25 _load_tcsh_
-(define-fun |hyperram_c 25| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#243| state)) #b1) (= ((_ extract 0 0) (|hyperram#245| state)) #b1))) ; _load_tcsh_
+(define-fun |hyperram_c 25| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#247| state)) #b1) (= ((_ extract 0 0) (|hyperram#249| state)) #b1))) ; _load_tcsh_
 ; yosys-smt2-cover 26 _load_tacc_
-(define-fun |hyperram_c 26| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#244| state)) #b1) (= ((_ extract 0 0) (|hyperram#245| state)) #b1))) ; _load_tacc_
+(define-fun |hyperram_c 26| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#248| state)) #b1) (= ((_ extract 0 0) (|hyperram#249| state)) #b1))) ; _load_tacc_
 ; yosys-smt2-assert 25 _load_rd_cnt_read_reg_
-(define-fun |hyperram_a 25| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#291| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#290| state)) #b1)))) ; _load_rd_cnt_read_reg_
+(define-fun |hyperram_a 25| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#295| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#294| state)) #b1)))) ; _load_rd_cnt_read_reg_
 ; yosys-smt2-assert 26 _load_rd_cnt_read_mem_
-(define-fun |hyperram_a 26| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#289| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#288| state)) #b1)))) ; _load_rd_cnt_read_mem_
+(define-fun |hyperram_a 26| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#293| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#292| state)) #b1)))) ; _load_rd_cnt_read_mem_
 ; yosys-smt2-cover 27 _load_post_
-(define-fun |hyperram_c 27| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#241| state)) #b1) (= ((_ extract 0 0) (|hyperram#245| state)) #b1))) ; _load_post_
+(define-fun |hyperram_c 27| ((state |hyperram_s|)) Bool (and (= ((_ extract 0 0) (|hyperram#245| state)) #b1) (= ((_ extract 0 0) (|hyperram#249| state)) #b1))) ; _load_post_
 ; yosys-smt2-assert 27 _load_cnt_write_reg_
-(define-fun |hyperram_a 27| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#299| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#298| state)) #b1)))) ; _load_cnt_write_reg_
+(define-fun |hyperram_a 27| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#303| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#302| state)) #b1)))) ; _load_cnt_write_reg_
 ; yosys-smt2-assert 28 _load_cnt_write_mem_
-(define-fun |hyperram_a 28| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#287| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#286| state)) #b1)))) ; _load_cnt_write_mem_
+(define-fun |hyperram_a 28| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#291| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#290| state)) #b1)))) ; _load_cnt_write_mem_
 ; yosys-smt2-assert 29 _load_cnt_rwds_latency_
-(define-fun |hyperram_a 29| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#295| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#294| state)) #b1)))) ; _load_cnt_rwds_latency_
+(define-fun |hyperram_a 29| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#299| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#298| state)) #b1)))) ; _load_cnt_rwds_latency_
 ; yosys-smt2-assert 30 _load_cnt_read_tout_
-(define-fun |hyperram_a 30| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#293| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#292| state)) #b1)))) ; _load_cnt_read_tout_
+(define-fun |hyperram_a 30| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#297| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#296| state)) #b1)))) ; _load_cnt_read_tout_
 ; yosys-smt2-assert 31 _load_cnt_pre_
-(define-fun |hyperram_a 31| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#147| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#146| state)) #b1)))) ; _load_cnt_pre_
+(define-fun |hyperram_a 31| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#151| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#150| state)) #b1)))) ; _load_cnt_pre_
 ; yosys-smt2-assert 32 _load_cnt_post_
-(define-fun |hyperram_a 32| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#285| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#284| state)) #b1)))) ; _load_cnt_post_
+(define-fun |hyperram_a 32| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#289| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#288| state)) #b1)))) ; _load_cnt_post_
 ; yosys-smt2-assert 33 _load_cnt_idle_
-(define-fun |hyperram_a 33| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#283| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#282| state)) #b1)))) ; _load_cnt_idle_
+(define-fun |hyperram_a 33| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#287| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#286| state)) #b1)))) ; _load_cnt_idle_
 ; yosys-smt2-assert 34 _load_cnt_fixed_latency_
-(define-fun |hyperram_a 34| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#297| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#296| state)) #b1)))) ; _load_cnt_fixed_latency_
+(define-fun |hyperram_a 34| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#301| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#300| state)) #b1)))) ; _load_cnt_fixed_latency_
 ; yosys-smt2-assert 35 _load_cnt_ca_
-(define-fun |hyperram_a 35| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#145| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#144| state)) #b1)))) ; _load_cnt_ca_
+(define-fun |hyperram_a 35| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#149| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#148| state)) #b1)))) ; _load_cnt_ca_
 ; yosys-smt2-assert 36 _latency_then_write_read_
-(define-fun |hyperram_a 36| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#161| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#160| state)) #b1)))) ; _latency_then_write_read_
+(define-fun |hyperram_a 36| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#165| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#164| state)) #b1)))) ; _latency_then_write_read_
 ; yosys-smt2-assert 37 _idle_then_pre_
-(define-fun |hyperram_a 37| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#169| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#168| state)) #b1)))) ; _idle_then_pre_
+(define-fun |hyperram_a 37| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#173| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#172| state)) #b1)))) ; _idle_then_pre_
 ; yosys-smt2-assert 38 _idle_after_rst_
-(define-fun |hyperram_a 38| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#171| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#170| state)) #b1)))) ; _idle_after_rst_
+(define-fun |hyperram_a 38| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#175| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#174| state)) #b1)))) ; _idle_after_rst_
 ; yosys-smt2-assert 39 _hb_rwds_oen_
-(define-fun |hyperram_a 39| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#190| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#189| state)) #b1)))) ; _hb_rwds_oen_
+(define-fun |hyperram_a 39| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#194| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#193| state)) #b1)))) ; _hb_rwds_oen_
 ; yosys-smt2-assert 40 _hb_rwds_o_sel_
-(define-fun |hyperram_a 40| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#186| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#185| state)) #b1)))) ; _hb_rwds_o_sel_
+(define-fun |hyperram_a 40| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#190| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#189| state)) #b1)))) ; _hb_rwds_o_sel_
 ; yosys-smt2-assert 41 _hb_rwds_o_low_
-(define-fun |hyperram_a 41| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#184| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#183| state)) #b1)))) ; _hb_rwds_o_low_
+(define-fun |hyperram_a 41| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#188| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#187| state)) #b1)))) ; _hb_rwds_o_low_
 ; yosys-smt2-assert 42 _hb_rwds_noen_
-(define-fun |hyperram_a 42| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#188| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#187| state)) #b1)))) ; _hb_rwds_noen_
+(define-fun |hyperram_a 42| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#192| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#191| state)) #b1)))) ; _hb_rwds_noen_
 ; yosys-smt2-assert 43 _hb_rstn_nactive_
-(define-fun |hyperram_a 43| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#180| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#179| state)) #b1)))) ; _hb_rstn_nactive_
+(define-fun |hyperram_a 43| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#184| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#183| state)) #b1)))) ; _hb_rstn_nactive_
 ; yosys-smt2-assert 44 _hb_rstn_active_
-(define-fun |hyperram_a 44| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#182| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#181| state)) #b1)))) ; _hb_rstn_active_
+(define-fun |hyperram_a 44| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#186| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#185| state)) #b1)))) ; _hb_rstn_active_
 ; yosys-smt2-assert 45 _hb_dq_oen_
-(define-fun |hyperram_a 45| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#198| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#197| state)) #b1)))) ; _hb_dq_oen_
+(define-fun |hyperram_a 45| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#202| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#201| state)) #b1)))) ; _hb_dq_oen_
 ; yosys-smt2-assert 46 _hb_dq_noen_
-(define-fun |hyperram_a 46| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#196| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#195| state)) #b1)))) ; _hb_dq_noen_
+(define-fun |hyperram_a 46| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#200| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#199| state)) #b1)))) ; _hb_dq_noen_
 ; yosys-smt2-assert 47 _hb_csn_
-(define-fun |hyperram_a 47| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#178| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#177| state)) #b1)))) ; _hb_csn_
+(define-fun |hyperram_a 47| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#182| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#181| state)) #b1)))) ; _hb_csn_
 ; yosys-smt2-assert 48 _hb_clkn_low_
-(define-fun |hyperram_a 48| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#175| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#177| state)) #b1)))) ; _hb_clkn_low_
+(define-fun |hyperram_a 48| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#179| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#181| state)) #b1)))) ; _hb_clkn_low_
 ; yosys-smt2-assert 49 _hb_clk_low_
-(define-fun |hyperram_a 49| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#176| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#177| state)) #b1)))) ; _hb_clk_low_
+(define-fun |hyperram_a 49| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#180| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#181| state)) #b1)))) ; _hb_clk_low_
 ; yosys-smt2-assert 50 _hb_clk_clkn_
-(define-fun |hyperram_a 50| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#174| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#177| state)) #b1)))) ; _hb_clk_clkn_
+(define-fun |hyperram_a 50| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#178| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#181| state)) #b1)))) ; _hb_clk_clkn_
 ; yosys-smt2-assert 51 _hb_clk_active_
-(define-fun |hyperram_a 51| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#173| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#172| state)) #b1)))) ; _hb_clk_active_
+(define-fun |hyperram_a 51| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#177| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#176| state)) #b1)))) ; _hb_clk_active_
 ; yosys-smt2-assert 52 _exiting_busy_
-(define-fun |hyperram_a 52| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#278| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#277| state)) #b1)))) ; _exiting_busy_
+(define-fun |hyperram_a 52| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#282| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#281| state)) #b1)))) ; _exiting_busy_
 ; yosys-smt2-assert 53 _exit_read_
-(define-fun |hyperram_a 53| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#153| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#152| state)) #b1)))) ; _exit_read_
+(define-fun |hyperram_a 53| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#157| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#156| state)) #b1)))) ; _exit_read_
 ; yosys-smt2-assert 54 _entering_busy_
-(define-fun |hyperram_a 54| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#280| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#279| state)) #b1)))) ; _entering_busy_
-; yosys-smt2-assert 55 _data_o_
-(define-fun |hyperram_a 55| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#272| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#215| state)) #b1)))) ; _data_o_
-; yosys-smt2-assert 56 _data_hb_read_
-(define-fun |hyperram_a 56| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#263| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#262| state)) #b1)))) ; _data_hb_read_
+(define-fun |hyperram_a 54| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#284| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#283| state)) #b1)))) ; _entering_busy_
+; yosys-smt2-assert 55 _datar_r_clear_
+(define-fun |hyperram_a 55| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#269| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#268| state)) #b1)))) ; _datar_r_clear_
+; yosys-smt2-assert 56 _data_o_
+(define-fun |hyperram_a 56| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#276| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#219| state)) #b1)))) ; _data_o_
 ; yosys-smt2-assert 57 _cycle_cnt_
-(define-fun |hyperram_a 57| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#149| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#148| state)) #b1)))) ; _cycle_cnt_
+(define-fun |hyperram_a 57| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#153| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#152| state)) #b1)))) ; _cycle_cnt_
 ; yosys-smt2-assert 58 _ca_then_write_latency_
-(define-fun |hyperram_a 58| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#165| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#164| state)) #b1)))) ; _ca_then_write_latency_
+(define-fun |hyperram_a 58| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#169| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#168| state)) #b1)))) ; _ca_then_write_latency_
 ; yosys-smt2-assert 59 _busy_
-(define-fun |hyperram_a 59| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#281| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#215| state)) #b1)))) ; _busy_
+(define-fun |hyperram_a 59| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#285| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#219| state)) #b1)))) ; _busy_
 ; yosys-smt2-assume 0 hyperram.v:405.28-406.38
-(define-fun |hyperram_u 0| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#246| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#245| state)) #b1)))) ; $assume$hyperram.v:405$1669
+(define-fun |hyperram_u 0| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#250| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#249| state)) #b1)))) ; $assume$hyperram.v:405$1666
 ; yosys-smt2-assume 1 hyperram.v:402.39-403.30
-(define-fun |hyperram_u 1| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#248| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#247| state)) #b1)))) ; $assume$hyperram.v:402$1668
-(define-fun |hyperram#302| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#4| state)) #b1) false))) ; $0$formal$hyperram.v:393$203_CHECK[0:0]$1684
-(define-fun |hyperram#303| ((state |hyperram_s|)) Bool (|hyperram_is| state)) ; $0$formal$hyperram.v:392$201_EN[0:0]$1682
+(define-fun |hyperram_u 1| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#252| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#251| state)) #b1)))) ; $assume$hyperram.v:402$1665
+(define-fun |hyperram#306| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#4| state)) #b1) false))) ; $0$formal$hyperram.v:393$202_CHECK[0:0]$1681
+(define-fun |hyperram#307| ((state |hyperram_s|)) Bool (|hyperram_is| state)) ; $0$formal$hyperram.v:392$200_EN[0:0]$1679
 ; yosys-smt2-assume 2 hyperram.v:393.8-393.23
-(define-fun |hyperram_u 2| ((state |hyperram_s|)) Bool (or (|hyperram#302| state) (not (|hyperram#303| state)))) ; $assume$hyperram.v:393$1667
+(define-fun |hyperram_u 2| ((state |hyperram_s|)) Bool (or (|hyperram#306| state) (not (|hyperram#307| state)))) ; $assume$hyperram.v:393$1664
 ; yosys-smt2-assume 3 hyperram.v:392.8-392.22
-(define-fun |hyperram_u 3| ((state |hyperram_s|)) Bool (or (|hyperram#42| state) (not (|hyperram#303| state)))) ; $assume$hyperram.v:392$1666
+(define-fun |hyperram_u 3| ((state |hyperram_s|)) Bool (or (|hyperram#42| state) (not (|hyperram#307| state)))) ; $assume$hyperram.v:392$1663
 ; yosys-smt2-assert 60 hyperram.v:907.36-908.63
-(define-fun |hyperram_a 60| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#192| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#191| state)) #b1)))) ; $assert$hyperram.v:907$1674
+(define-fun |hyperram_a 60| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#196| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#195| state)) #b1)))) ; $assert$hyperram.v:907$1671
 ; yosys-smt2-assert 61 hyperram.v:893.33-894.60
-(define-fun |hyperram_a 61| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#194| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#193| state)) #b1)))) ; $assert$hyperram.v:893$1673
+(define-fun |hyperram_a 61| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#198| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#197| state)) #b1)))) ; $assert$hyperram.v:893$1670
 ; yosys-smt2-assert 62 hyperram.v:881.56-882.57
-(define-fun |hyperram_a 62| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#199| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#211| state)) #b1)))) ; $assert$hyperram.v:881$1672
+(define-fun |hyperram_a 62| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#203| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#215| state)) #b1)))) ; $assert$hyperram.v:881$1669
 ; yosys-smt2-assert 63 hyperram.v:879.47-881.55
-(define-fun |hyperram_a 63| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#200| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#211| state)) #b1)))) ; $assert$hyperram.v:879$1671
+(define-fun |hyperram_a 63| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#204| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#215| state)) #b1)))) ; $assert$hyperram.v:879$1668
 ; yosys-smt2-assert 64 hyperram.v:854.35-855.35
-(define-fun |hyperram_a 64| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#216| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#215| state)) #b1)))) ; $assert$hyperram.v:854$1670
-; yosys-smt2-assert 65 hyperram.v:1076.7-1076.43
-(define-fun |hyperram_a 65| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#255| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#254| state)) #b1)))) ; $assert$hyperram.v:1076$1678
-; yosys-smt2-assert 66 hyperram.v:1075.7-1075.43
-(define-fun |hyperram_a 66| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#257| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#256| state)) #b1)))) ; $assert$hyperram.v:1075$1677
-; yosys-smt2-assert 67 hyperram.v:1074.7-1074.43
-(define-fun |hyperram_a 67| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#259| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#258| state)) #b1)))) ; $assert$hyperram.v:1074$1676
-; yosys-smt2-assert 68 hyperram.v:1073.7-1073.43
-(define-fun |hyperram_a 68| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#261| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#260| state)) #b1)))) ; $assert$hyperram.v:1073$1675
-; yosys-smt2-anyseq hyperram#304 1 $auto$setundef.cc:501:execute$3940
-(declare-fun |hyperram#304| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3941
-; yosys-smt2-anyseq hyperram#305 1 $auto$setundef.cc:501:execute$3938
-(declare-fun |hyperram#305| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3939
-(define-fun |hyperram#306| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#301| state)) #b1) false false false false false false false false false false false false false false false false false false false false false false false false false false false false false false false))) ; $logic_not$hyperram.v:0$1449_Y
-(define-fun |hyperram#307| ((state |hyperram_s|)) Bool (and (or  (|hyperram#306| state) false) (or  (= ((_ extract 0 0) (|hyperram#4| state)) #b1) false false false false false false false false false false false false false false false false false false false false false false false false false false false false false false false))) ; $logic_and$hyperram.v:1000$1509_Y
-(define-fun |hyperram#308| ((state |hyperram_s|)) Bool (= (|hyperram#74| state) #b010)) ; $eq$hyperram.v:1000$1510_Y
-(define-fun |hyperram#309| ((state |hyperram_s|)) Bool (and (or  (|hyperram#307| state) false) (or  (|hyperram#308| state) false))) ; $logic_and$hyperram.v:1000$1511_Y
-(define-fun |hyperram#310| ((state |hyperram_s|)) Bool (and (or  (|hyperram#309| state) false) (or  (|hyperram#77| state) false))) ; $logic_and$hyperram.v:1000$1513_Y
-(define-fun |hyperram#311| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#310| state) (ite (|hyperram#94| state) #b1 #b0) (|hyperram#305| state))) ; $procmux$2371_Y
-(define-fun |hyperram#312| ((state |hyperram_s|)) Bool (not (or  (|hyperram#42| state) false))) ; $logic_not$hyperram.v:1029$1579_Y
-(define-fun |hyperram#313| ((state |hyperram_s|)) Bool (and (or  (= ((_ extract 0 0) (|hyperram#110| state)) #b1) false) (or  (|hyperram#312| state) false))) ; $logic_and$hyperram.v:1029$1580_Y
-(define-fun |hyperram#314| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#311| state) (|hyperram#304| state))) ; $0$formal$hyperram.v:1001$276_CHECK[0:0]$744
-(define-fun |hyperram#315| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#310| state) #b1 #b0)) ; $procmux$2367_Y
-(define-fun |hyperram#316| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#315| state) #b0)) ; $0$formal$hyperram.v:1001$276_EN[0:0]$745
-; yosys-smt2-anyseq hyperram#317 1 $auto$setundef.cc:501:execute$3946
-(declare-fun |hyperram#317| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3947
-; yosys-smt2-anyseq hyperram#318 1 $auto$setundef.cc:501:execute$3944
-(declare-fun |hyperram#318| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3945
-; yosys-smt2-anyseq hyperram#319 1 $auto$setundef.cc:501:execute$3942
-(declare-fun |hyperram#319| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3943
-(define-fun |hyperram#320| ((state |hyperram_s|)) (_ BitVec 2) (bvadd (concat #b0 (|hyperram#66| state)) #b01)) ; $add$hyperram.v:1005$1523_Y
-(define-fun |hyperram#321| ((state |hyperram_s|)) (_ BitVec 4) (bvmul #b0010 (concat #b00 (|hyperram#320| state)))) ; $auto$wreduce.cc:454:run$3496 [3:0]
-(define-fun |hyperram#322| ((state |hyperram_s|)) (_ BitVec 8) (bvmul (concat #b0000 (|hyperram#321| state)) (concat #b0000 (|hyperram#28| state)))) ; $auto$wreduce.cc:454:run$3497 [7:0]
-(define-fun |hyperram#323| ((state |hyperram_s|)) (_ BitVec 9) (bvsub (concat #b0 (|hyperram#322| state)) #b000000010)) ; { $auto$wreduce.cc:454:run$3504 [31] $auto$wreduce.cc:454:run$3504 [7:0] }
-(define-fun |hyperram#324| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 47 47) (|hyperram#46| state)) #b1) false))) ; $auto$wreduce.cc:454:run$3495 [0]
-(define-fun |hyperram#325| ((state |hyperram_s|)) (_ BitVec 32) (bvsub (concat ((_ extract 8 8) (|hyperram#323| state)) (concat ((_ extract 8 8) (|hyperram#323| state)) (concat ((_ extract 8 8) (|hyperram#323| state)) (concat ((_ extract 8 8) (|hyperram#323| state)) (concat ((_ extract 8 8) (|hyperram#323| state)) (concat ((_ extract 8 8) (|hyperram#323| state)) (concat ((_ extract 8 8) (|hyperram#323| state)) (concat ((_ extract 8 8) (|hyperram#323| state)) (concat ((_ extract 8 8) (|hyperram#323| state)) (concat ((_ extract 8 8) (|hyperram#323| state)) (concat ((_ extract 8 8) (|hyperram#323| state)) (concat ((_ extract 8 8) (|hyperram#323| state)) (concat ((_ extract 8 8) (|hyperram#323| state)) (concat ((_ extract 8 8) (|hyperram#323| state)) (concat ((_ extract 8 8) (|hyperram#323| state)) (concat ((_ extract 8 8) (|hyperram#323| state)) (concat ((_ extract 8 8) (|hyperram#323| state)) (concat ((_ extract 8 8) (|hyperram#323| state)) (concat ((_ extract 8 8) (|hyperram#323| state)) (concat ((_ extract 8 8) (|hyperram#323| state)) (concat ((_ extract 8 8) (|hyperram#323| state)) (concat ((_ extract 8 8) (|hyperram#323| state)) (concat ((_ extract 8 8) (|hyperram#323| state)) (|hyperram#323| state)))))))))))))))))))))))) (concat #b0000000000000000000000000000000 (ite (|hyperram#324| state) #b1 #b0)))) ; $sub$hyperram.v:1005$1528_Y
-(define-fun |hyperram#326| ((state |hyperram_s|)) Bool (= (concat #b00000000000000000000000000 (|hyperram#82| state)) (|hyperram#325| state))) ; $eq$hyperram.v:1005$1529_Y
-(define-fun |hyperram#327| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#72| state)) #b1) (ite (|hyperram#326| state) #b1 #b0) (|hyperram#319| state))) ; $procmux$2383_Y
-(define-fun |hyperram#328| ((state |hyperram_s|)) Bool (= (|hyperram#76| state) #b011)) ; $eq$hyperram.v:1003$1521_Y
-(define-fun |hyperram#329| ((state |hyperram_s|)) Bool (and (or  (|hyperram#309| state) false) (or  (|hyperram#328| state) false))) ; $logic_and$hyperram.v:1003$1522_Y
-(define-fun |hyperram#330| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#329| state) (|hyperram#327| state) (|hyperram#318| state))) ; $procmux$2385_Y
-(define-fun |hyperram#331| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#330| state) (|hyperram#317| state))) ; $0$formal$hyperram.v:1005$277_CHECK[0:0]$746
-(define-fun |hyperram#332| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#72| state)) #b1) #b1 #b0)) ; $procmux$2376_Y
-(define-fun |hyperram#333| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#329| state) (|hyperram#332| state) #b0)) ; $procmux$2378_Y
-(define-fun |hyperram#334| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#333| state) #b0)) ; $0$formal$hyperram.v:1005$277_EN[0:0]$747
-; yosys-smt2-anyseq hyperram#335 1 $auto$setundef.cc:501:execute$3952
-(declare-fun |hyperram#335| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3953
-; yosys-smt2-anyseq hyperram#336 1 $auto$setundef.cc:501:execute$3950
-(declare-fun |hyperram#336| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3951
-(define-fun |hyperram#337| ((state |hyperram_s|)) (_ BitVec 2) (bvadd (concat #b0 (|hyperram#41| state)) #b01)) ; $add$hyperram.v:1007$1530_Y
-(define-fun |hyperram#338| ((state |hyperram_s|)) (_ BitVec 4) (bvmul #b0010 (concat #b00 (|hyperram#337| state)))) ; $auto$wreduce.cc:454:run$3498 [3:0]
-(define-fun |hyperram#339| ((state |hyperram_s|)) (_ BitVec 8) (bvmul (concat #b0000 (|hyperram#338| state)) (concat #b0000 (|hyperram#28| state)))) ; $auto$wreduce.cc:454:run$3499 [7:0]
-(define-fun |hyperram#340| ((state |hyperram_s|)) (_ BitVec 9) (bvsub (concat #b0 (|hyperram#339| state)) #b000000010)) ; { $sub$hyperram.v:1007$1533_Y [31] $sub$hyperram.v:1007$1533_Y [7:0] }
-(define-fun |hyperram#341| ((state |hyperram_s|)) (_ BitVec 32) (bvsub (concat ((_ extract 8 8) (|hyperram#340| state)) (concat ((_ extract 8 8) (|hyperram#340| state)) (concat ((_ extract 8 8) (|hyperram#340| state)) (concat ((_ extract 8 8) (|hyperram#340| state)) (concat ((_ extract 8 8) (|hyperram#340| state)) (concat ((_ extract 8 8) (|hyperram#340| state)) (concat ((_ extract 8 8) (|hyperram#340| state)) (concat ((_ extract 8 8) (|hyperram#340| state)) (concat ((_ extract 8 8) (|hyperram#340| state)) (concat ((_ extract 8 8) (|hyperram#340| state)) (concat ((_ extract 8 8) (|hyperram#340| state)) (concat ((_ extract 8 8) (|hyperram#340| state)) (concat ((_ extract 8 8) (|hyperram#340| state)) (concat ((_ extract 8 8) (|hyperram#340| state)) (concat ((_ extract 8 8) (|hyperram#340| state)) (concat ((_ extract 8 8) (|hyperram#340| state)) (concat ((_ extract 8 8) (|hyperram#340| state)) (concat ((_ extract 8 8) (|hyperram#340| state)) (concat ((_ extract 8 8) (|hyperram#340| state)) (concat ((_ extract 8 8) (|hyperram#340| state)) (concat ((_ extract 8 8) (|hyperram#340| state)) (concat ((_ extract 8 8) (|hyperram#340| state)) (concat ((_ extract 8 8) (|hyperram#340| state)) (|hyperram#340| state)))))))))))))))))))))))) (concat #b0000000000000000000000000000000 (ite (|hyperram#324| state) #b1 #b0)))) ; $sub$hyperram.v:1007$1535_Y
-(define-fun |hyperram#342| ((state |hyperram_s|)) Bool (= (concat #b00000000000000000000000000 (|hyperram#82| state)) (|hyperram#341| state))) ; $eq$hyperram.v:1007$1536_Y
-; yosys-smt2-anyseq hyperram#343 1 $auto$setundef.cc:501:execute$3948
-(declare-fun |hyperram#343| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3949
-(define-fun |hyperram#344| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#72| state)) #b1) (|hyperram#343| state) (ite (|hyperram#342| state) #b1 #b0))) ; $procmux$2397_Y
-(define-fun |hyperram#345| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#329| state) (|hyperram#344| state) (|hyperram#336| state))) ; $procmux$2399_Y
-(define-fun |hyperram#346| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#345| state) (|hyperram#335| state))) ; $0$formal$hyperram.v:1007$278_CHECK[0:0]$748
-(define-fun |hyperram#347| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#72| state)) #b1) #b0 #b1)) ; $procmux$2390_Y
-(define-fun |hyperram#348| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#329| state) (|hyperram#347| state) #b0)) ; $procmux$2392_Y
-(define-fun |hyperram#349| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#348| state) #b0)) ; $0$formal$hyperram.v:1007$278_EN[0:0]$749
-; yosys-smt2-anyseq hyperram#350 1 $auto$setundef.cc:501:execute$3956
-(declare-fun |hyperram#350| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3957
-; yosys-smt2-anyseq hyperram#351 1 $auto$setundef.cc:501:execute$3954
-(declare-fun |hyperram#351| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3955
-(define-fun |hyperram#352| ((state |hyperram_s|)) (_ BitVec 7) (bvmul #b0000010 (concat #b00 (|hyperram#12| state)))) ; $auto$wreduce.cc:454:run$3500 [6:0]
-(define-fun |hyperram#353| ((state |hyperram_s|)) (_ BitVec 8) (bvsub (concat #b0 (|hyperram#352| state)) #b00000010)) ; { $sub$hyperram.v:1011$1546_Y [31] $sub$hyperram.v:1011$1546_Y [6:0] }
-(define-fun |hyperram#354| ((state |hyperram_s|)) Bool (= (concat #b00000000000000000000000000 (|hyperram#82| state)) (concat ((_ extract 7 7) (|hyperram#353| state)) (concat ((_ extract 7 7) (|hyperram#353| state)) (concat ((_ extract 7 7) (|hyperram#353| state)) (concat ((_ extract 7 7) (|hyperram#353| state)) (concat ((_ extract 7 7) (|hyperram#353| state)) (concat ((_ extract 7 7) (|hyperram#353| state)) (concat ((_ extract 7 7) (|hyperram#353| state)) (concat ((_ extract 7 7) (|hyperram#353| state)) (concat ((_ extract 7 7) (|hyperram#353| state)) (concat ((_ extract 7 7) (|hyperram#353| state)) (concat ((_ extract 7 7) (|hyperram#353| state)) (concat ((_ extract 7 7) (|hyperram#353| state)) (concat ((_ extract 7 7) (|hyperram#353| state)) (concat ((_ extract 7 7) (|hyperram#353| state)) (concat ((_ extract 7 7) (|hyperram#353| state)) (concat ((_ extract 7 7) (|hyperram#353| state)) (concat ((_ extract 7 7) (|hyperram#353| state)) (concat ((_ extract 7 7) (|hyperram#353| state)) (concat ((_ extract 7 7) (|hyperram#353| state)) (concat ((_ extract 7 7) (|hyperram#353| state)) (concat ((_ extract 7 7) (|hyperram#353| state)) (concat ((_ extract 7 7) (|hyperram#353| state)) (concat ((_ extract 7 7) (|hyperram#353| state)) (concat ((_ extract 7 7) (|hyperram#353| state)) (|hyperram#353| state))))))))))))))))))))))))))) ; $eq$hyperram.v:1011$1547_Y
-(define-fun |hyperram#355| ((state |hyperram_s|)) Bool (= (|hyperram#74| state) #b011)) ; $eq$hyperram.v:1010$1541_Y
-(define-fun |hyperram#356| ((state |hyperram_s|)) Bool (and (or  (|hyperram#307| state) false) (or  (|hyperram#355| state) false))) ; $logic_and$hyperram.v:1010$1542_Y
-(define-fun |hyperram#357| ((state |hyperram_s|)) Bool (and (or  (|hyperram#356| state) false) (or  (|hyperram#121| state) false))) ; $logic_and$hyperram.v:1010$1544_Y
-(define-fun |hyperram#358| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#357| state) (ite (|hyperram#354| state) #b1 #b0) (|hyperram#351| state))) ; $procmux$2407_Y
-(define-fun |hyperram#359| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#358| state) (|hyperram#350| state))) ; $0$formal$hyperram.v:1011$279_CHECK[0:0]$750
-(define-fun |hyperram#360| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#357| state) #b1 #b0)) ; $procmux$2403_Y
-(define-fun |hyperram#361| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#360| state) #b0)) ; $0$formal$hyperram.v:1011$279_EN[0:0]$751
-; yosys-smt2-anyseq hyperram#362 1 $auto$setundef.cc:501:execute$3962
-(declare-fun |hyperram#362| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3963
-; yosys-smt2-anyseq hyperram#363 1 $auto$setundef.cc:501:execute$3960
-(declare-fun |hyperram#363| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3961
-; yosys-smt2-anyseq hyperram#364 1 $auto$setundef.cc:501:execute$3958
-(declare-fun |hyperram#364| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3959
-(define-fun |hyperram#365| ((state |hyperram_s|)) Bool (= (|hyperram#56| state) #b010)) ; $eq$hyperram.v:1013$1548_Y
-(define-fun |hyperram#366| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 46 46) (|hyperram#46| state)) #b1) (ite (|hyperram#365| state) #b1 #b0) (|hyperram#364| state))) ; $procmux$2419_Y
-(define-fun |hyperram#367| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#357| state) (|hyperram#366| state) (|hyperram#363| state))) ; $procmux$2421_Y
-(define-fun |hyperram#368| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#367| state) (|hyperram#362| state))) ; $0$formal$hyperram.v:1013$280_CHECK[0:0]$752
-(define-fun |hyperram#369| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 46 46) (|hyperram#46| state)) #b1) #b1 #b0)) ; $procmux$2190_Y
-(define-fun |hyperram#370| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#357| state) (|hyperram#369| state) #b0)) ; $procmux$2414_Y
-(define-fun |hyperram#371| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#370| state) #b0)) ; $0$formal$hyperram.v:1013$280_EN[0:0]$753
-; yosys-smt2-anyseq hyperram#372 1 $auto$setundef.cc:501:execute$3968
-(declare-fun |hyperram#372| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3969
-; yosys-smt2-anyseq hyperram#373 1 $auto$setundef.cc:501:execute$3966
-(declare-fun |hyperram#373| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3967
-(define-fun |hyperram#374| ((state |hyperram_s|)) Bool (= (|hyperram#56| state) #b100)) ; $eq$hyperram.v:1015$1549_Y
-; yosys-smt2-anyseq hyperram#375 1 $auto$setundef.cc:501:execute$3964
-(declare-fun |hyperram#375| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3965
-(define-fun |hyperram#376| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 46 46) (|hyperram#46| state)) #b1) (|hyperram#375| state) (ite (|hyperram#374| state) #b1 #b0))) ; $procmux$2433_Y
-(define-fun |hyperram#377| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#357| state) (|hyperram#376| state) (|hyperram#373| state))) ; $procmux$2435_Y
-(define-fun |hyperram#378| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#377| state) (|hyperram#372| state))) ; $0$formal$hyperram.v:1015$281_CHECK[0:0]$754
-(define-fun |hyperram#379| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 46 46) (|hyperram#46| state)) #b1) #b0 #b1)) ; $procmux$2176_Y
-(define-fun |hyperram#380| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#357| state) (|hyperram#379| state) #b0)) ; $procmux$2428_Y
-(define-fun |hyperram#381| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#380| state) #b0)) ; $0$formal$hyperram.v:1015$281_EN[0:0]$755
-; yosys-smt2-anyseq hyperram#382 1 $auto$setundef.cc:501:execute$3972
-(declare-fun |hyperram#382| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3973
-; yosys-smt2-anyseq hyperram#383 1 $auto$setundef.cc:501:execute$3970
-(declare-fun |hyperram#383| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3971
-(define-fun |hyperram#384| ((state |hyperram_s|)) Bool (and (or  (|hyperram#356| state) false) (or  (|hyperram#77| state) false))) ; $logic_and$hyperram.v:1018$1557_Y
-(define-fun |hyperram#385| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#384| state) (ite (|hyperram#96| state) #b1 #b0) (|hyperram#383| state))) ; $procmux$2443_Y
-(define-fun |hyperram#386| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#385| state) (|hyperram#382| state))) ; $0$formal$hyperram.v:1019$282_CHECK[0:0]$756
-(define-fun |hyperram#387| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#384| state) #b1 #b0)) ; $procmux$2439_Y
-(define-fun |hyperram#388| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#387| state) #b0)) ; $0$formal$hyperram.v:1019$282_EN[0:0]$757
-; yosys-smt2-anyseq hyperram#389 1 $auto$setundef.cc:501:execute$3976
-(declare-fun |hyperram#389| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3977
-; yosys-smt2-anyseq hyperram#390 1 $auto$setundef.cc:501:execute$3974
-(declare-fun |hyperram#390| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3975
-(define-fun |hyperram#391| ((state |hyperram_s|)) Bool (= (|hyperram#82| state) (concat #b00 (|hyperram#20| state)))) ; $eq$hyperram.v:1022$1569_Y
-(define-fun |hyperram#392| ((state |hyperram_s|)) Bool (= (|hyperram#74| state) #b100)) ; $eq$hyperram.v:1021$1563_Y
-(define-fun |hyperram#393| ((state |hyperram_s|)) Bool (= (|hyperram#74| state) #b101)) ; $eq$hyperram.v:1021$1564_Y
-(define-fun |hyperram#394| ((state |hyperram_s|)) Bool (or  (|hyperram#392| state) false  (|hyperram#393| state) false)) ; $logic_or$hyperram.v:1021$1565_Y
-(define-fun |hyperram#395| ((state |hyperram_s|)) Bool (and (or  (|hyperram#307| state) false) (or  (|hyperram#394| state) false))) ; $logic_and$hyperram.v:1021$1566_Y
-(define-fun |hyperram#396| ((state |hyperram_s|)) Bool (= (|hyperram#76| state) #b110)) ; $eq$hyperram.v:1021$1567_Y
-(define-fun |hyperram#397| ((state |hyperram_s|)) Bool (and (or  (|hyperram#395| state) false) (or  (|hyperram#396| state) false))) ; $logic_and$hyperram.v:1021$1568_Y
-(define-fun |hyperram#398| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#397| state) (ite (|hyperram#391| state) #b1 #b0) (|hyperram#390| state))) ; $procmux$2451_Y
-(define-fun |hyperram#399| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#398| state) (|hyperram#389| state))) ; $0$formal$hyperram.v:1022$283_CHECK[0:0]$758
-(define-fun |hyperram#400| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#397| state) #b1 #b0)) ; $procmux$2447_Y
-(define-fun |hyperram#401| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#400| state) #b0)) ; $0$formal$hyperram.v:1022$283_EN[0:0]$759
-; yosys-smt2-anyseq hyperram#402 1 $auto$setundef.cc:501:execute$3980
-(declare-fun |hyperram#402| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3981
-; yosys-smt2-anyseq hyperram#403 1 $auto$setundef.cc:501:execute$3978
-(declare-fun |hyperram#403| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3979
-(define-fun |hyperram#404| ((state |hyperram_s|)) Bool (= (|hyperram#82| state) (concat #b00 (|hyperram#24| state)))) ; $eq$hyperram.v:1025$1578_Y
-(define-fun |hyperram#405| ((state |hyperram_s|)) Bool (= (|hyperram#74| state) #b110)) ; $eq$hyperram.v:1024$1574_Y
-(define-fun |hyperram#406| ((state |hyperram_s|)) Bool (and (or  (|hyperram#307| state) false) (or  (|hyperram#405| state) false))) ; $logic_and$hyperram.v:1024$1575_Y
-(define-fun |hyperram#407| ((state |hyperram_s|)) Bool (and (or  (|hyperram#406| state) false) (or  (|hyperram#103| state) false))) ; $logic_and$hyperram.v:1024$1577_Y
-(define-fun |hyperram#408| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#407| state) (ite (|hyperram#404| state) #b1 #b0) (|hyperram#403| state))) ; $procmux$2459_Y
-(define-fun |hyperram#409| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#408| state) (|hyperram#402| state))) ; $0$formal$hyperram.v:1025$284_CHECK[0:0]$760
-(define-fun |hyperram#410| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#407| state) #b1 #b0)) ; $procmux$2455_Y
-(define-fun |hyperram#411| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#410| state) #b0)) ; $0$formal$hyperram.v:1025$284_EN[0:0]$761
-; yosys-smt2-anyseq hyperram#412 1 $auto$setundef.cc:501:execute$3982
-(declare-fun |hyperram#412| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3983
-(define-fun |hyperram#413| ((state |hyperram_s|)) Bool (distinct (|hyperram#50| state) (|hyperram#49| state))) ; $ne$hyperram.v:1030$1581_Y
-(define-fun |hyperram#414| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (ite (|hyperram#413| state) #b1 #b0) (|hyperram#412| state))) ; $0$formal$hyperram.v:1030$285_CHECK[0:0]$762
-; yosys-smt2-anyseq hyperram#415 1 $auto$setundef.cc:501:execute$3986
-(declare-fun |hyperram#415| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3987
-; yosys-smt2-anyseq hyperram#416 1 $auto$setundef.cc:501:execute$3984
-(declare-fun |hyperram#416| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3985
-(define-fun |hyperram#417| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#74| state)) #b1) (= ((_ extract 1 1) (|hyperram#74| state)) #b1) (= ((_ extract 2 2) (|hyperram#74| state)) #b1)))) ; $eq$hyperram.v:1032$1586_Y
-(define-fun |hyperram#418| ((state |hyperram_s|)) Bool (and (or  (|hyperram#307| state) false) (or  (|hyperram#417| state) false))) ; $logic_and$hyperram.v:1032$1587_Y
-(define-fun |hyperram#419| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#142| state)) #b1) false))) ; $logic_not$hyperram.v:1032$1588_Y
-(define-fun |hyperram#420| ((state |hyperram_s|)) Bool (or  (= ((_ extract 0 0) (|hyperram#143| state)) #b1) false  (|hyperram#419| state) false)) ; $logic_or$hyperram.v:1032$1589_Y
-(define-fun |hyperram#421| ((state |hyperram_s|)) Bool (and (or  (|hyperram#418| state) false) (or  (|hyperram#420| state) false))) ; $logic_and$hyperram.v:1032$1590_Y
-(define-fun |hyperram#422| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#421| state) (|hyperram#49| state) (|hyperram#416| state))) ; $procmux$2471_Y
-(define-fun |hyperram#423| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#422| state) (|hyperram#415| state))) ; $0$formal$hyperram.v:1033$286_CHECK[0:0]$764
-(define-fun |hyperram#424| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#421| state) #b1 #b0)) ; $procmux$2467_Y
-(define-fun |hyperram#425| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#424| state) #b0)) ; $0$formal$hyperram.v:1033$286_EN[0:0]$765
-; yosys-smt2-anyseq hyperram#426 1 $auto$setundef.cc:501:execute$3990
-(declare-fun |hyperram#426| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3991
-; yosys-smt2-anyseq hyperram#427 1 $auto$setundef.cc:501:execute$3988
-(declare-fun |hyperram#427| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3989
-(define-fun |hyperram#428| ((state |hyperram_s|)) Bool (and (or  (|hyperram#103| state) false) (or  (|hyperram#405| state) false))) ; $logic_and$hyperram.v:1035$1594_Y
-(define-fun |hyperram#429| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#428| state) (|hyperram#50| state) (|hyperram#427| state))) ; $procmux$2479_Y
-(define-fun |hyperram#430| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#429| state) (|hyperram#426| state))) ; $0$formal$hyperram.v:1036$287_CHECK[0:0]$766
-(define-fun |hyperram#431| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#428| state) #b1 #b0)) ; $procmux$2475_Y
-(define-fun |hyperram#432| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#431| state) #b0)) ; $0$formal$hyperram.v:1036$287_EN[0:0]$767
-; yosys-smt2-anyseq hyperram#433 1 $auto$setundef.cc:501:execute$3994
-(declare-fun |hyperram#433| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3995
-; yosys-smt2-anyseq hyperram#434 1 $auto$setundef.cc:501:execute$3992
-(declare-fun |hyperram#434| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3993
-(define-fun |hyperram#435| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#300| state)) #b1) false))) ; $logic_not$hyperram.v:1038$1595_Y
-(define-fun |hyperram#436| ((state |hyperram_s|)) Bool (and (or  (|hyperram#435| state) false) (or  (|hyperram#103| state) false))) ; $logic_and$hyperram.v:1038$1597_Y
-(define-fun |hyperram#437| ((state |hyperram_s|)) Bool (and (or  (|hyperram#436| state) false) (or  (|hyperram#417| state) false))) ; $logic_and$hyperram.v:1038$1599_Y
-(define-fun |hyperram#438| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#143| state)) #b1) false))) ; $logic_not$hyperram.v:1038$1600_Y
-(define-fun |hyperram#439| ((state |hyperram_s|)) Bool (and (or  (|hyperram#437| state) false) (or  (|hyperram#438| state) false))) ; $logic_and$hyperram.v:1038$1601_Y
-(define-fun |hyperram#440| ((state |hyperram_s|)) Bool (and (or  (|hyperram#439| state) false) (or  (= ((_ extract 0 0) (|hyperram#142| state)) #b1) false))) ; $logic_and$hyperram.v:1038$1602_Y
-(define-fun |hyperram#441| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#440| state) (|hyperram#50| state) (|hyperram#434| state))) ; $procmux$2487_Y
-(define-fun |hyperram#442| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#441| state) (|hyperram#433| state))) ; $0$formal$hyperram.v:1039$288_CHECK[0:0]$768
-(define-fun |hyperram#443| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#440| state) #b1 #b0)) ; $procmux$2483_Y
-(define-fun |hyperram#444| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#443| state) #b0)) ; $0$formal$hyperram.v:1039$288_EN[0:0]$769
-; yosys-smt2-anyseq hyperram#445 1 $auto$setundef.cc:501:execute$3998
-(declare-fun |hyperram#445| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3999
-; yosys-smt2-anyseq hyperram#446 1 $auto$setundef.cc:501:execute$3996
-(declare-fun |hyperram#446| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3997
-(define-fun |hyperram#447| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#116| state) (|hyperram#49| state) (|hyperram#446| state))) ; $procmux$2495_Y
-(define-fun |hyperram#448| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#447| state) (|hyperram#445| state))) ; $0$formal$hyperram.v:1042$289_CHECK[0:0]$770
-(define-fun |hyperram#449| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#116| state) #b1 #b0)) ; $procmux$2491_Y
-(define-fun |hyperram#450| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#449| state) #b0)) ; $0$formal$hyperram.v:1042$289_EN[0:0]$771
-; yosys-smt2-anyseq hyperram#451 1 $auto$setundef.cc:501:execute$4000
-(declare-fun |hyperram#451| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4001
-(define-fun |hyperram#452| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) #b1 (|hyperram#451| state))) ; $0$formal$hyperram.v:1047$290_CHECK[0:0]$772
-; yosys-smt2-anyseq hyperram#453 1 $auto$setundef.cc:501:execute$4006
-(declare-fun |hyperram#453| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4007
-; yosys-smt2-anyseq hyperram#454 1 $auto$setundef.cc:501:execute$4004
-(declare-fun |hyperram#454| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4005
-; yosys-smt2-anyseq hyperram#455 1 $auto$setundef.cc:501:execute$4002
-(declare-fun |hyperram#455| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4003
-(define-fun |hyperram#456| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#80| state)) #b1) (= ((_ extract 1 1) (|hyperram#80| state)) #b1) (= ((_ extract 2 2) (|hyperram#80| state)) #b1) (= ((_ extract 3 3) (|hyperram#80| state)) #b1) (= ((_ extract 4 4) (|hyperram#80| state)) #b1) (= ((_ extract 5 5) (|hyperram#80| state)) #b1)))) ; $eq$hyperram.v:1050$1611_Y
-(define-fun |hyperram#457| ((state |hyperram_s|)) Bool (distinct (|hyperram#54| state) #b000)) ; $ne$hyperram.v:1050$1612_Y
-(define-fun |hyperram#458| ((state |hyperram_s|)) Bool (and (or  (|hyperram#456| state) false) (or  (|hyperram#457| state) false))) ; $logic_and$hyperram.v:1050$1613_Y
-(define-fun |hyperram#459| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#458| state) (|hyperram#53| state) (|hyperram#455| state))) ; $procmux$2511_Y
-(define-fun |hyperram#460| ((state |hyperram_s|)) Bool (and (or  (|hyperram#393| state) false) (or  (|hyperram#396| state) false))) ; $logic_and$hyperram.v:1049$1610_Y
-(define-fun |hyperram#461| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#460| state) (|hyperram#459| state) (|hyperram#454| state))) ; $procmux$2513_Y
-(define-fun |hyperram#462| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#461| state) (|hyperram#453| state))) ; $0$formal$hyperram.v:1051$291_CHECK[0:0]$774
-(define-fun |hyperram#463| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#458| state) #b1 #b0)) ; $procmux$2504_Y
-(define-fun |hyperram#464| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#460| state) (|hyperram#463| state) #b0)) ; $procmux$2506_Y
-(define-fun |hyperram#465| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#464| state) #b0)) ; $0$formal$hyperram.v:1051$291_EN[0:0]$775
-; yosys-smt2-anyseq hyperram#466 1 $auto$setundef.cc:501:execute$4012
-(declare-fun |hyperram#466| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4013
-; yosys-smt2-anyseq hyperram#467 1 $auto$setundef.cc:501:execute$4010
-(declare-fun |hyperram#467| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4011
-(define-fun |hyperram#468| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#53| state)) #b1) false))) ; $logic_not$hyperram.v:1053$1614_Y
-; yosys-smt2-anyseq hyperram#469 1 $auto$setundef.cc:501:execute$4008
-(declare-fun |hyperram#469| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4009
-(define-fun |hyperram#470| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#458| state) (|hyperram#469| state) (ite (|hyperram#468| state) #b1 #b0))) ; $procmux$2525_Y
-(define-fun |hyperram#471| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#460| state) (|hyperram#470| state) (|hyperram#467| state))) ; $procmux$2527_Y
-(define-fun |hyperram#472| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#471| state) (|hyperram#466| state))) ; $0$formal$hyperram.v:1053$292_CHECK[0:0]$776
-(define-fun |hyperram#473| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#458| state) #b0 #b1)) ; $procmux$2518_Y
-(define-fun |hyperram#474| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#460| state) (|hyperram#473| state) #b0)) ; $procmux$2520_Y
-(define-fun |hyperram#475| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#474| state) #b0)) ; $0$formal$hyperram.v:1053$292_EN[0:0]$777
-; yosys-smt2-anyseq hyperram#476 1 $auto$setundef.cc:501:execute$4016
-(declare-fun |hyperram#476| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4017
-; yosys-smt2-anyseq hyperram#477 1 $auto$setundef.cc:501:execute$4014
-(declare-fun |hyperram#477| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4015
-(define-fun |hyperram#478| ((state |hyperram_s|)) Bool (or  (|hyperram#88| state) false  (|hyperram#328| state) false)) ; $logic_or$hyperram.v:1056$1617_Y
-(define-fun |hyperram#479| ((state |hyperram_s|)) Bool (or  (|hyperram#478| state) false  (|hyperram#77| state) false)) ; $logic_or$hyperram.v:1056$1619_Y
-(define-fun |hyperram#480| ((state |hyperram_s|)) Bool (and (or  (|hyperram#121| state) false) (or  (= ((_ extract 0 0) (|hyperram#80| state)) #b1) (= ((_ extract 1 1) (|hyperram#80| state)) #b1) (= ((_ extract 2 2) (|hyperram#80| state)) #b1) (= ((_ extract 3 3) (|hyperram#80| state)) #b1) (= ((_ extract 4 4) (|hyperram#80| state)) #b1) (= ((_ extract 5 5) (|hyperram#80| state)) #b1)))) ; $logic_and$hyperram.v:1056$1621_Y
-(define-fun |hyperram#481| ((state |hyperram_s|)) Bool (or  (|hyperram#479| state) false  (|hyperram#480| state) false)) ; $logic_or$hyperram.v:1056$1622_Y
-(define-fun |hyperram#482| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#481| state) (ite (|hyperram#468| state) #b1 #b0) (|hyperram#477| state))) ; $procmux$2535_Y
-(define-fun |hyperram#483| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#482| state) (|hyperram#476| state))) ; $0$formal$hyperram.v:1057$293_CHECK[0:0]$778
-(define-fun |hyperram#484| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#481| state) #b1 #b0)) ; $procmux$2531_Y
-(define-fun |hyperram#485| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#484| state) #b0)) ; $0$formal$hyperram.v:1057$293_EN[0:0]$779
-; yosys-smt2-anyseq hyperram#486 1 $auto$setundef.cc:501:execute$4020
-(declare-fun |hyperram#486| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4021
-; yosys-smt2-anyseq hyperram#487 1 $auto$setundef.cc:501:execute$4018
-(declare-fun |hyperram#487| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4019
-(define-fun |hyperram#488| ((state |hyperram_s|)) (_ BitVec 4) (bvadd (concat #b0 (|hyperram#56| state)) #b0001)) ; $add$hyperram.v:1065$1633_Y
-(define-fun |hyperram#489| ((state |hyperram_s|)) Bool (= (|hyperram#488| state) (concat #b0 (|hyperram#54| state)))) ; $eq$hyperram.v:1065$1634_Y
-(define-fun |hyperram#490| ((state |hyperram_s|)) Bool (distinct (|hyperram#107| state) (|hyperram#105| state))) ; $ne$hyperram.v:1064$1627_Y
-(define-fun |hyperram#491| ((state |hyperram_s|)) Bool (and (or  (|hyperram#490| state) false) (or  (|hyperram#121| state) false))) ; $logic_and$hyperram.v:1064$1629_Y
-(define-fun |hyperram#492| ((state |hyperram_s|)) Bool (and (or  (|hyperram#491| state) false) (or  (= ((_ extract 0 0) (|hyperram#141| state)) #b1) false))) ; $logic_and$hyperram.v:1064$1630_Y
-(define-fun |hyperram#493| ((state |hyperram_s|)) Bool (or  (= ((_ extract 0 0) (|hyperram#140| state)) #b1) false  (= ((_ extract 0 0) (|hyperram#38| state)) #b1) false)) ; $logic_or$hyperram.v:1064$1631_Y
-(define-fun |hyperram#494| ((state |hyperram_s|)) Bool (and (or  (|hyperram#492| state) false) (or  (|hyperram#493| state) false))) ; $logic_and$hyperram.v:1064$1632_Y
-(define-fun |hyperram#495| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#494| state) (ite (|hyperram#489| state) #b1 #b0) (|hyperram#487| state))) ; $procmux$2547_Y
-(define-fun |hyperram#496| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#495| state) (|hyperram#486| state))) ; $0$formal$hyperram.v:1065$295_CHECK[0:0]$782
-(define-fun |hyperram#497| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#494| state) #b1 #b0)) ; $procmux$2543_Y
-(define-fun |hyperram#498| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#497| state) #b0)) ; $0$formal$hyperram.v:1065$295_EN[0:0]$783
-; yosys-smt2-anyseq hyperram#499 1 $auto$setundef.cc:501:execute$4026
-(declare-fun |hyperram#499| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4027
-; yosys-smt2-anyseq hyperram#500 1 $auto$setundef.cc:501:execute$4024
-(declare-fun |hyperram#500| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4025
-; yosys-smt2-anyseq hyperram#501 1 $auto$setundef.cc:501:execute$4022
-(declare-fun |hyperram#501| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4023
-(define-fun |hyperram#502| ((state |hyperram_s|)) Bool (distinct (|hyperram#112| state) (|hyperram#114| state))) ; $ne$hyperram.v:1070$1641_Y
-(define-fun |hyperram#503| ((state |hyperram_s|)) Bool (distinct (|hyperram#139| state) #b00000000)) ; $procmux$2552_CMP
-(define-fun |hyperram#504| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#503| state) (ite (|hyperram#502| state) #b1 #b0) (|hyperram#501| state))) ; $procmux$2557_Y
-(define-fun |hyperram#505| ((state |hyperram_s|)) Bool (and (or  (|hyperram#121| state) false) (or  (|hyperram#493| state) false))) ; $logic_and$hyperram.v:1068$1637_Y
-(define-fun |hyperram#506| ((state |hyperram_s|)) Bool (distinct (|hyperram#56| state) (|hyperram#54| state))) ; $ne$hyperram.v:1068$1638_Y
-(define-fun |hyperram#507| ((state |hyperram_s|)) Bool (and (or  (|hyperram#505| state) false) (or  (|hyperram#506| state) false))) ; $logic_and$hyperram.v:1068$1639_Y
-(define-fun |hyperram#508| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#507| state) (|hyperram#504| state) (|hyperram#500| state))) ; $procmux$2559_Y
-(define-fun |hyperram#509| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#508| state) (|hyperram#499| state))) ; $0$formal$hyperram.v:1070$296_CHECK[0:0]$784
-(define-fun |hyperram#510| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#503| state) #b1 #b0)) ; $procmux$2551_Y
-(define-fun |hyperram#511| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#507| state) (|hyperram#510| state) #b0)) ; $procmux$2553_Y
-(define-fun |hyperram#512| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#511| state) #b0)) ; $0$formal$hyperram.v:1070$296_EN[0:0]$785
-; yosys-smt2-anyseq hyperram#513 1 $auto$setundef.cc:501:execute$4032
-(declare-fun |hyperram#513| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4033
-; yosys-smt2-anyseq hyperram#514 1 $auto$setundef.cc:501:execute$4030
-(declare-fun |hyperram#514| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4031
-; yosys-smt2-anyseq hyperram#515 1 $auto$setundef.cc:501:execute$4028
-(declare-fun |hyperram#515| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4029
-(define-fun |hyperram#516| ((state |hyperram_s|)) Bool (= ((_ extract 31 24) (|hyperram#114| state)) (|hyperram#139| state))) ; $eq$hyperram.v:1073$1642_Y
-(define-fun |hyperram#517| ((state |hyperram_s|)) Bool (= (|hyperram#56| state) #b011)) ; $procmux$2567_CMP
-(define-fun |hyperram#518| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#517| state) (ite (|hyperram#516| state) #b1 #b0) (|hyperram#515| state))) ; $procmux$2575_Y
-(define-fun |hyperram#519| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#507| state) (|hyperram#518| state) (|hyperram#514| state))) ; $procmux$2577_Y
-(define-fun |hyperram#520| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#519| state) (|hyperram#513| state))) ; $0$formal$hyperram.v:1073$297_CHECK[0:0]$786
-(define-fun |hyperram#521| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#517| state) #b1 #b0)) ; $procmux$2566_Y
-(define-fun |hyperram#522| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#507| state) (|hyperram#521| state) #b0)) ; $procmux$2568_Y
-(define-fun |hyperram#523| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#522| state) #b0)) ; $0$formal$hyperram.v:1073$297_EN[0:0]$787
-; yosys-smt2-anyseq hyperram#524 1 $auto$setundef.cc:501:execute$4038
-(declare-fun |hyperram#524| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4039
-; yosys-smt2-anyseq hyperram#525 1 $auto$setundef.cc:501:execute$4036
-(declare-fun |hyperram#525| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4037
-; yosys-smt2-anyseq hyperram#526 1 $auto$setundef.cc:501:execute$4034
-(declare-fun |hyperram#526| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4035
-(define-fun |hyperram#527| ((state |hyperram_s|)) Bool (= ((_ extract 23 16) (|hyperram#114| state)) (|hyperram#139| state))) ; $eq$hyperram.v:1074$1643_Y
-(define-fun |hyperram#528| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#365| state) (ite (|hyperram#527| state) #b1 #b0) (|hyperram#526| state))) ; $procmux$2591_Y
-(define-fun |hyperram#529| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#507| state) (|hyperram#528| state) (|hyperram#525| state))) ; $procmux$2593_Y
-(define-fun |hyperram#530| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#529| state) (|hyperram#524| state))) ; $0$formal$hyperram.v:1074$298_CHECK[0:0]$788
-(define-fun |hyperram#531| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#365| state) #b1 #b0)) ; $procmux$2583_Y
-(define-fun |hyperram#532| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#507| state) (|hyperram#531| state) #b0)) ; $procmux$2585_Y
-(define-fun |hyperram#533| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#532| state) #b0)) ; $0$formal$hyperram.v:1074$298_EN[0:0]$789
-; yosys-smt2-anyseq hyperram#534 1 $auto$setundef.cc:501:execute$4044
-(declare-fun |hyperram#534| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4045
-; yosys-smt2-anyseq hyperram#535 1 $auto$setundef.cc:501:execute$4042
-(declare-fun |hyperram#535| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4043
-; yosys-smt2-anyseq hyperram#536 1 $auto$setundef.cc:501:execute$4040
-(declare-fun |hyperram#536| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4041
-(define-fun |hyperram#537| ((state |hyperram_s|)) Bool (= ((_ extract 15 8) (|hyperram#114| state)) (|hyperram#139| state))) ; $eq$hyperram.v:1075$1644_Y
-(define-fun |hyperram#538| ((state |hyperram_s|)) Bool (= (|hyperram#56| state) #b001)) ; $procmux$2599_CMP
-(define-fun |hyperram#539| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#538| state) (ite (|hyperram#537| state) #b1 #b0) (|hyperram#536| state))) ; $procmux$2605_Y
-(define-fun |hyperram#540| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#507| state) (|hyperram#539| state) (|hyperram#535| state))) ; $procmux$2607_Y
-(define-fun |hyperram#541| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#540| state) (|hyperram#534| state))) ; $0$formal$hyperram.v:1075$299_CHECK[0:0]$790
-(define-fun |hyperram#542| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#538| state) #b1 #b0)) ; $procmux$2598_Y
-(define-fun |hyperram#543| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#507| state) (|hyperram#542| state) #b0)) ; $procmux$2600_Y
-(define-fun |hyperram#544| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#543| state) #b0)) ; $0$formal$hyperram.v:1075$299_EN[0:0]$791
-; yosys-smt2-anyseq hyperram#545 1 $auto$setundef.cc:501:execute$4050
-(declare-fun |hyperram#545| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4051
-; yosys-smt2-anyseq hyperram#546 1 $auto$setundef.cc:501:execute$4048
-(declare-fun |hyperram#546| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4049
-; yosys-smt2-anyseq hyperram#547 1 $auto$setundef.cc:501:execute$4046
-(declare-fun |hyperram#547| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4047
-(define-fun |hyperram#548| ((state |hyperram_s|)) Bool (= ((_ extract 7 0) (|hyperram#114| state)) (|hyperram#139| state))) ; $eq$hyperram.v:1076$1645_Y
-(define-fun |hyperram#549| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#56| state)) #b1) (= ((_ extract 1 1) (|hyperram#56| state)) #b1) (= ((_ extract 2 2) (|hyperram#56| state)) #b1)))) ; $eq$hyperram.v:240$352_Y
-(define-fun |hyperram#550| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#549| state) (ite (|hyperram#548| state) #b1 #b0) (|hyperram#547| state))) ; $procmux$2617_Y
-(define-fun |hyperram#551| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#507| state) (|hyperram#550| state) (|hyperram#546| state))) ; $procmux$2619_Y
-(define-fun |hyperram#552| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#551| state) (|hyperram#545| state))) ; $0$formal$hyperram.v:1076$300_CHECK[0:0]$792
-(define-fun |hyperram#553| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#549| state) #b1 #b0)) ; $procmux$2611_Y
-(define-fun |hyperram#554| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#507| state) (|hyperram#553| state) #b0)) ; $procmux$2613_Y
-(define-fun |hyperram#555| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#554| state) #b0)) ; $0$formal$hyperram.v:1076$300_EN[0:0]$793
-; yosys-smt2-anyseq hyperram#556 1 $auto$setundef.cc:501:execute$4054
-(declare-fun |hyperram#556| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4055
-; yosys-smt2-anyseq hyperram#557 1 $auto$setundef.cc:501:execute$4052
-(declare-fun |hyperram#557| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4053
-(define-fun |hyperram#558| ((state |hyperram_s|)) Bool (= (|hyperram#92| state) (|hyperram#138| state))) ; $eq$hyperram.v:1084$1659_Y
-(define-fun |hyperram#559| ((state |hyperram_s|)) Bool (and (or  (|hyperram#418| state) false) (or  (= ((_ extract 0 0) (|hyperram#143| state)) #b1) false))) ; $logic_and$hyperram.v:1083$1656_Y
-(define-fun |hyperram#560| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#49| state)) #b1) false))) ; $logic_not$hyperram.v:1083$1657_Y
-(define-fun |hyperram#561| ((state |hyperram_s|)) Bool (and (or  (|hyperram#559| state) false) (or  (|hyperram#560| state) false))) ; $logic_and$hyperram.v:1083$1658_Y
-(define-fun |hyperram#562| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#561| state) (ite (|hyperram#558| state) #b1 #b0) (|hyperram#557| state))) ; $procmux$2627_Y
-(define-fun |hyperram#563| ((state |hyperram_s|)) Bool (and (or  (= ((_ extract 0 0) (|hyperram#110| state)) #b1) false) (or  (|hyperram#435| state) false))) ; $logic_and$hyperram.v:1082$1647_Y
-(define-fun |hyperram#564| ((state |hyperram_s|)) Bool (and (or  (|hyperram#563| state) false) (or  (|hyperram#312| state) false))) ; $logic_and$hyperram.v:1082$1649_Y
-(define-fun |hyperram#565| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#564| state) (|hyperram#562| state) (|hyperram#556| state))) ; $0$formal$hyperram.v:1084$301_CHECK[0:0]$794
-(define-fun |hyperram#566| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#561| state) #b1 #b0)) ; $procmux$2623_Y
-(define-fun |hyperram#567| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#564| state) (|hyperram#566| state) #b0)) ; $0$formal$hyperram.v:1084$301_EN[0:0]$795
-; yosys-smt2-anyseq hyperram#568 1 $auto$setundef.cc:501:execute$4058
-(declare-fun |hyperram#568| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4059
-; yosys-smt2-anyseq hyperram#569 1 $auto$setundef.cc:501:execute$4056
-(declare-fun |hyperram#569| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4057
-(define-fun |hyperram#570| ((state |hyperram_s|)) Bool (= (|hyperram#32| state) (|hyperram#137| state))) ; $eq$hyperram.v:1085$1660_Y
-(define-fun |hyperram#571| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#561| state) (ite (|hyperram#570| state) #b1 #b0) (|hyperram#569| state))) ; $procmux$2635_Y
-(define-fun |hyperram#572| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#564| state) (|hyperram#571| state) (|hyperram#568| state))) ; $0$formal$hyperram.v:1085$302_CHECK[0:0]$796
-; yosys-smt2-anyseq hyperram#573 1 $auto$setundef.cc:501:execute$4062
-(declare-fun |hyperram#573| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4063
-; yosys-smt2-anyseq hyperram#574 1 $auto$setundef.cc:501:execute$4060
-(declare-fun |hyperram#574| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4061
-(define-fun |hyperram#575| ((state |hyperram_s|)) Bool (= ((_ extract 46 46) (|hyperram#46| state)) (|hyperram#136| state))) ; $eq$hyperram.v:1086$1661_Y
-(define-fun |hyperram#576| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#561| state) (ite (|hyperram#575| state) #b1 #b0) (|hyperram#574| state))) ; $procmux$2643_Y
-(define-fun |hyperram#577| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#564| state) (|hyperram#576| state) (|hyperram#573| state))) ; $0$formal$hyperram.v:1086$303_CHECK[0:0]$798
-; yosys-smt2-anyseq hyperram#578 1 $auto$setundef.cc:501:execute$4066
-(declare-fun |hyperram#578| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4067
-; yosys-smt2-anyseq hyperram#579 1 $auto$setundef.cc:501:execute$4064
-(declare-fun |hyperram#579| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4065
-(define-fun |hyperram#580| ((state |hyperram_s|)) (_ BitVec 1) (bvnot (|hyperram#135| state))) ; $not$hyperram.v:1087$1662_Y
-(define-fun |hyperram#581| ((state |hyperram_s|)) Bool (= ((_ extract 47 47) (|hyperram#46| state)) (|hyperram#580| state))) ; $eq$hyperram.v:1087$1663_Y
-(define-fun |hyperram#582| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#561| state) (ite (|hyperram#581| state) #b1 #b0) (|hyperram#579| state))) ; $procmux$2651_Y
-(define-fun |hyperram#583| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#564| state) (|hyperram#582| state) (|hyperram#578| state))) ; $0$formal$hyperram.v:1087$304_CHECK[0:0]$800
-; yosys-smt2-anyseq hyperram#584 1 $auto$setundef.cc:501:execute$3712
-(declare-fun |hyperram#584| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3713
-; yosys-smt2-anyseq hyperram#585 1 $auto$setundef.cc:501:execute$3710
-(declare-fun |hyperram#585| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3711
-(define-fun |hyperram#586| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#4| state)) #b1) false false false false false false false false false false false false false false false false false false false false false false false false false false false false false false false))) ; $logic_not$hyperram.v:0$813_Y
-(define-fun |hyperram#587| ((state |hyperram_s|)) Bool (and (or  (= ((_ extract 0 0) (|hyperram#301| state)) #b1) false false false false false false false false false false false false false false false false false false false false false false false false false false false false false false false) (or  (|hyperram#586| state) false))) ; $logic_and$hyperram.v:403$814_Y
-(define-fun |hyperram#588| ((state |hyperram_s|)) Bool (not (or  (|hyperram#42| state) false false false false false false false false false false false false false false false false false false false false false false false false false false false false false false false))) ; $logic_not$hyperram.v:0$804_Y
-(define-fun |hyperram#589| ((state |hyperram_s|)) Bool (and (or  (= ((_ extract 0 0) (|hyperram#300| state)) #b1) false false false false false false false false false false false false false false false false false false false false false false false false false false false false false false false) (or  (|hyperram#588| state) false))) ; $logic_and$hyperram.v:402$805_Y
-(define-fun |hyperram#590| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#300| state)) #b1) false false false false false false false false false false false false false false false false false false false false false false false false false false false false false false false))) ; $logic_not$hyperram.v:0$807_Y
-(define-fun |hyperram#591| ((state |hyperram_s|)) Bool (and (or  (|hyperram#590| state) false) (or  (|hyperram#42| state) false false false false false false false false false false false false false false false false false false false false false false false false false false false false false false false))) ; $logic_and$hyperram.v:402$809_Y
-(define-fun |hyperram#592| ((state |hyperram_s|)) Bool (or  (|hyperram#589| state) false  (|hyperram#591| state) false)) ; $logic_or$hyperram.v:402$810_Y
-(define-fun |hyperram#593| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#592| state) (ite (|hyperram#587| state) #b1 #b0) (|hyperram#585| state))) ; $procmux$1891_Y
-(define-fun |hyperram#594| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#110| state)) #b1) (|hyperram#593| state) (|hyperram#584| state))) ; $0$formal$hyperram.v:402$205_CHECK[0:0]$602
-(define-fun |hyperram#595| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#592| state) #b1 #b0)) ; $procmux$1887_Y
-(define-fun |hyperram#596| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#110| state)) #b1) (|hyperram#595| state) #b0)) ; $0$formal$hyperram.v:402$205_EN[0:0]$603
-; yosys-smt2-anyseq hyperram#597 1 $auto$setundef.cc:501:execute$3714
-(declare-fun |hyperram#597| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3715
-(define-fun |hyperram#598| ((state |hyperram_s|)) Bool (distinct (|hyperram#4| state) (|hyperram#301| state))) ; $ne$hyperram.v:406$815_Y
-(define-fun |hyperram#599| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#110| state)) #b1) (ite (|hyperram#598| state) #b1 #b0) (|hyperram#597| state))) ; $0$formal$hyperram.v:405$206_CHECK[0:0]$604
-(define-fun |hyperram#600| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#110| state)) #b1) #b1 #b0)) ; $0$formal$hyperram.v:405$206_EN[0:0]$605
-; yosys-smt2-anyseq hyperram#601 1 $auto$setundef.cc:501:execute$3716
-(declare-fun |hyperram#601| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3717
-(define-fun |hyperram#602| ((state |hyperram_s|)) Bool (bvugt (|hyperram#28| state) #b0111)) ; $gt$hyperram.v:412$817_Y
-(define-fun |hyperram#603| ((state |hyperram_s|)) Bool (and (or  (|hyperram#312| state) false) (or  (|hyperram#602| state) false))) ; $logic_and$hyperram.v:412$818_Y
-(define-fun |hyperram#604| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#110| state)) #b1) (ite (|hyperram#603| state) #b1 #b0) (|hyperram#601| state))) ; $0$formal$hyperram.v:412$207_CHECK[0:0]$606
-; yosys-smt2-anyseq hyperram#605 1 $auto$setundef.cc:501:execute$3718
-(declare-fun |hyperram#605| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3719
-(define-fun |hyperram#606| ((state |hyperram_s|)) Bool (bvugt (|hyperram#24| state) #b0111)) ; $gt$hyperram.v:415$820_Y
-(define-fun |hyperram#607| ((state |hyperram_s|)) Bool (and (or  (|hyperram#312| state) false) (or  (|hyperram#606| state) false))) ; $logic_and$hyperram.v:415$821_Y
-(define-fun |hyperram#608| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#110| state)) #b1) (ite (|hyperram#607| state) #b1 #b0) (|hyperram#605| state))) ; $0$formal$hyperram.v:415$208_CHECK[0:0]$608
-; yosys-smt2-anyseq hyperram#609 1 $auto$setundef.cc:501:execute$3720
-(declare-fun |hyperram#609| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3721
-(define-fun |hyperram#610| ((state |hyperram_s|)) Bool (bvugt (|hyperram#16| state) #b0111)) ; $gt$hyperram.v:418$823_Y
-(define-fun |hyperram#611| ((state |hyperram_s|)) Bool (and (or  (|hyperram#312| state) false) (or  (|hyperram#610| state) false))) ; $logic_and$hyperram.v:418$824_Y
-(define-fun |hyperram#612| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#110| state)) #b1) (ite (|hyperram#611| state) #b1 #b0) (|hyperram#609| state))) ; $0$formal$hyperram.v:418$209_CHECK[0:0]$610
-; yosys-smt2-anyseq hyperram#613 1 $auto$setundef.cc:501:execute$3722
-(declare-fun |hyperram#613| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3723
-(define-fun |hyperram#614| ((state |hyperram_s|)) Bool (bvugt (|hyperram#20| state) #b0111)) ; $gt$hyperram.v:421$826_Y
-(define-fun |hyperram#615| ((state |hyperram_s|)) Bool (and (or  (|hyperram#312| state) false) (or  (|hyperram#614| state) false))) ; $logic_and$hyperram.v:421$827_Y
-(define-fun |hyperram#616| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#110| state)) #b1) (ite (|hyperram#615| state) #b1 #b0) (|hyperram#613| state))) ; $0$formal$hyperram.v:421$210_CHECK[0:0]$612
-; yosys-smt2-anyseq hyperram#617 1 $auto$setundef.cc:501:execute$3724
-(declare-fun |hyperram#617| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3725
-(define-fun |hyperram#618| ((state |hyperram_s|)) Bool (bvugt (|hyperram#12| state) #b00111)) ; $gt$hyperram.v:424$829_Y
-(define-fun |hyperram#619| ((state |hyperram_s|)) Bool (and (or  (|hyperram#312| state) false) (or  (|hyperram#618| state) false))) ; $logic_and$hyperram.v:424$830_Y
-(define-fun |hyperram#620| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#110| state)) #b1) (ite (|hyperram#619| state) #b1 #b0) (|hyperram#617| state))) ; $0$formal$hyperram.v:424$211_CHECK[0:0]$614
-; yosys-smt2-anyseq hyperram#621 1 $auto$setundef.cc:501:execute$3726
-(declare-fun |hyperram#621| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3727
-(define-fun |hyperram#622| ((state |hyperram_s|)) Bool (and (or  (|hyperram#435| state) false) (or  (|hyperram#312| state) false))) ; $logic_and$hyperram.v:430$833_Y
-(define-fun |hyperram#623| ((state |hyperram_s|)) Bool (= (|hyperram#76| state) #b001)) ; $eq$hyperram.v:432$834_Y
-(define-fun |hyperram#624| ((state |hyperram_s|)) Bool (and (or  (|hyperram#622| state) false) (or  (|hyperram#623| state) false))) ; $logic_and$hyperram.v:430$835_Y
-(define-fun |hyperram#625| ((state |hyperram_s|)) Bool (and (or  (|hyperram#624| state) false) (or  (= ((_ extract 0 0) (|hyperram#49| state)) #b1) false))) ; $logic_and$hyperram.v:430$837_Y
-(define-fun |hyperram#626| ((state |hyperram_s|)) Bool (and (or  (|hyperram#625| state) false) (or  (|hyperram#324| state) false))) ; $logic_and$hyperram.v:430$839_Y
-(define-fun |hyperram#627| ((state |hyperram_s|)) Bool (and (or  (|hyperram#626| state) false) (or  (= ((_ extract 46 46) (|hyperram#46| state)) #b1) false))) ; $logic_and$hyperram.v:430$840_Y
-(define-fun |hyperram#628| ((state |hyperram_s|)) Bool (and (or  (|hyperram#627| state) false) (or  (= ((_ extract 0 0) (|hyperram#134| state)) #b1) false))) ; $logic_and$hyperram.v:430$841_Y
-(define-fun |hyperram#629| ((state |hyperram_s|)) Bool (= (|hyperram#24| state) #b0101)) ; $eq$hyperram.v:437$842_Y
-(define-fun |hyperram#630| ((state |hyperram_s|)) Bool (and (or  (|hyperram#628| state) false) (or  (|hyperram#629| state) false))) ; $logic_and$hyperram.v:430$843_Y
-(define-fun |hyperram#631| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#110| state)) #b1) (ite (|hyperram#630| state) #b1 #b0) (|hyperram#621| state))) ; $0$formal$hyperram.v:430$212_CHECK[0:0]$616
-; yosys-smt2-anyseq hyperram#632 1 $auto$setundef.cc:501:execute$3728
-(declare-fun |hyperram#632| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3729
-(define-fun |hyperram#633| ((state |hyperram_s|)) Bool (and (or  (|hyperram#622| state) false) (or  (|hyperram#419| state) false))) ; $logic_and$hyperram.v:445$848_Y
-(define-fun |hyperram#634| ((state |hyperram_s|)) Bool (and (or  (|hyperram#633| state) false) (or  (= ((_ extract 0 0) (|hyperram#50| state)) #b1) false))) ; $logic_and$hyperram.v:445$849_Y
-(define-fun |hyperram#635| ((state |hyperram_s|)) Bool (and (or  (|hyperram#634| state) false) (or  (|hyperram#324| state) false))) ; $logic_and$hyperram.v:445$851_Y
-(define-fun |hyperram#636| ((state |hyperram_s|)) Bool (and (or  (|hyperram#635| state) false) (or  (= ((_ extract 46 46) (|hyperram#46| state)) #b1) false))) ; $logic_and$hyperram.v:445$852_Y
-(define-fun |hyperram#637| ((state |hyperram_s|)) Bool (and (or  (|hyperram#636| state) false) (or  (= ((_ extract 0 0) (|hyperram#70| state)) #b1) false))) ; $logic_and$hyperram.v:445$853_Y
-(define-fun |hyperram#638| ((state |hyperram_s|)) Bool (and (or  (|hyperram#637| state) false) (or  (= ((_ extract 0 0) (|hyperram#64| state)) #b1) false))) ; $logic_and$hyperram.v:445$854_Y
-(define-fun |hyperram#639| ((state |hyperram_s|)) Bool (and (or  (|hyperram#638| state) false) (or  (= ((_ extract 0 0) (|hyperram#39| state)) #b1) false))) ; $logic_and$hyperram.v:445$855_Y
-(define-fun |hyperram#640| ((state |hyperram_s|)) Bool (= (|hyperram#28| state) #b0100)) ; $eq$hyperram.v:454$856_Y
-(define-fun |hyperram#641| ((state |hyperram_s|)) Bool (and (or  (|hyperram#639| state) false) (or  (|hyperram#640| state) false))) ; $logic_and$hyperram.v:445$857_Y
-(define-fun |hyperram#642| ((state |hyperram_s|)) Bool (= (|hyperram#92| state) #b01111000000100100011010001010110)) ; $eq$hyperram.v:455$858_Y
-(define-fun |hyperram#643| ((state |hyperram_s|)) Bool (and (or  (|hyperram#641| state) false) (or  (|hyperram#642| state) false))) ; $logic_and$hyperram.v:445$859_Y
-(define-fun |hyperram#644| ((state |hyperram_s|)) Bool (= (|hyperram#32| state) #b1010)) ; $eq$hyperram.v:456$860_Y
-(define-fun |hyperram#645| ((state |hyperram_s|)) Bool (and (or  (|hyperram#643| state) false) (or  (|hyperram#644| state) false))) ; $logic_and$hyperram.v:445$861_Y
-(define-fun |hyperram#646| ((state |hyperram_s|)) Bool (and (or  (|hyperram#645| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:445$862_Y
-(define-fun |hyperram#647| ((state |hyperram_s|)) Bool (and (or  (|hyperram#646| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:445$863_Y
-(define-fun |hyperram#648| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#110| state)) #b1) (ite (|hyperram#647| state) #b1 #b0) (|hyperram#632| state))) ; $0$formal$hyperram.v:445$213_CHECK[0:0]$618
-; yosys-smt2-anyseq hyperram#649 1 $auto$setundef.cc:501:execute$3730
-(declare-fun |hyperram#649| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3731
-(define-fun |hyperram#650| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#16| state)) #b1) (= ((_ extract 1 1) (|hyperram#16| state)) #b1) (= ((_ extract 2 2) (|hyperram#16| state)) #b1) (= ((_ extract 3 3) (|hyperram#16| state)) #b1)))) ; $eq$hyperram.v:473$878_Y
-(define-fun |hyperram#651| ((state |hyperram_s|)) Bool (and (or  (|hyperram#641| state) false) (or  (|hyperram#650| state) false))) ; $logic_and$hyperram.v:463$879_Y
-(define-fun |hyperram#652| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#20| state)) #b1) (= ((_ extract 1 1) (|hyperram#20| state)) #b1) (= ((_ extract 2 2) (|hyperram#20| state)) #b1) (= ((_ extract 3 3) (|hyperram#20| state)) #b1)))) ; $eq$hyperram.v:474$880_Y
-(define-fun |hyperram#653| ((state |hyperram_s|)) Bool (and (or  (|hyperram#651| state) false) (or  (|hyperram#652| state) false))) ; $logic_and$hyperram.v:463$881_Y
-(define-fun |hyperram#654| ((state |hyperram_s|)) Bool (and (or  (|hyperram#653| state) false) (or  (|hyperram#642| state) false))) ; $logic_and$hyperram.v:463$883_Y
-(define-fun |hyperram#655| ((state |hyperram_s|)) Bool (and (or  (|hyperram#654| state) false) (or  (|hyperram#644| state) false))) ; $logic_and$hyperram.v:463$885_Y
-(define-fun |hyperram#656| ((state |hyperram_s|)) Bool (and (or  (|hyperram#655| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:463$886_Y
-(define-fun |hyperram#657| ((state |hyperram_s|)) Bool (and (or  (|hyperram#656| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:463$887_Y
-(define-fun |hyperram#658| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#110| state)) #b1) (ite (|hyperram#657| state) #b1 #b0) (|hyperram#649| state))) ; $0$formal$hyperram.v:462$214_CHECK[0:0]$620
-; yosys-smt2-anyseq hyperram#659 1 $auto$setundef.cc:501:execute$3732
-(declare-fun |hyperram#659| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3733
-(define-fun |hyperram#660| ((state |hyperram_s|)) Bool (= (|hyperram#16| state) #b0011)) ; $eq$hyperram.v:493$902_Y
-(define-fun |hyperram#661| ((state |hyperram_s|)) Bool (and (or  (|hyperram#641| state) false) (or  (|hyperram#660| state) false))) ; $logic_and$hyperram.v:483$903_Y
-(define-fun |hyperram#662| ((state |hyperram_s|)) Bool (= (|hyperram#20| state) #b0101)) ; $eq$hyperram.v:494$904_Y
-(define-fun |hyperram#663| ((state |hyperram_s|)) Bool (and (or  (|hyperram#661| state) false) (or  (|hyperram#662| state) false))) ; $logic_and$hyperram.v:483$905_Y
-(define-fun |hyperram#664| ((state |hyperram_s|)) Bool (and (or  (|hyperram#663| state) false) (or  (|hyperram#642| state) false))) ; $logic_and$hyperram.v:483$907_Y
-(define-fun |hyperram#665| ((state |hyperram_s|)) Bool (and (or  (|hyperram#664| state) false) (or  (|hyperram#644| state) false))) ; $logic_and$hyperram.v:483$909_Y
-(define-fun |hyperram#666| ((state |hyperram_s|)) Bool (and (or  (|hyperram#665| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:483$910_Y
-(define-fun |hyperram#667| ((state |hyperram_s|)) Bool (and (or  (|hyperram#666| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:483$911_Y
-(define-fun |hyperram#668| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#110| state)) #b1) (ite (|hyperram#667| state) #b1 #b0) (|hyperram#659| state))) ; $0$formal$hyperram.v:482$215_CHECK[0:0]$622
-; yosys-smt2-anyseq hyperram#669 1 $auto$setundef.cc:501:execute$3734
-(declare-fun |hyperram#669| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3735
-(define-fun |hyperram#670| ((state |hyperram_s|)) Bool (= (|hyperram#16| state) #b1111)) ; $eq$hyperram.v:513$926_Y
-(define-fun |hyperram#671| ((state |hyperram_s|)) Bool (and (or  (|hyperram#641| state) false) (or  (|hyperram#670| state) false))) ; $logic_and$hyperram.v:503$927_Y
-(define-fun |hyperram#672| ((state |hyperram_s|)) Bool (= (|hyperram#20| state) #b1111)) ; $eq$hyperram.v:514$928_Y
-(define-fun |hyperram#673| ((state |hyperram_s|)) Bool (and (or  (|hyperram#671| state) false) (or  (|hyperram#672| state) false))) ; $logic_and$hyperram.v:503$929_Y
-(define-fun |hyperram#674| ((state |hyperram_s|)) Bool (and (or  (|hyperram#673| state) false) (or  (|hyperram#642| state) false))) ; $logic_and$hyperram.v:503$931_Y
-(define-fun |hyperram#675| ((state |hyperram_s|)) Bool (and (or  (|hyperram#674| state) false) (or  (|hyperram#644| state) false))) ; $logic_and$hyperram.v:503$933_Y
-(define-fun |hyperram#676| ((state |hyperram_s|)) Bool (and (or  (|hyperram#675| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:503$934_Y
-(define-fun |hyperram#677| ((state |hyperram_s|)) Bool (and (or  (|hyperram#676| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:503$935_Y
-(define-fun |hyperram#678| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#110| state)) #b1) (ite (|hyperram#677| state) #b1 #b0) (|hyperram#669| state))) ; $0$formal$hyperram.v:502$216_CHECK[0:0]$624
-; yosys-smt2-anyseq hyperram#679 1 $auto$setundef.cc:501:execute$3736
-(declare-fun |hyperram#679| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3737
-(define-fun |hyperram#680| ((state |hyperram_s|)) Bool (and (or  (|hyperram#635| state) false) (or  (|hyperram#78| state) false))) ; $logic_and$hyperram.v:524$945_Y
-(define-fun |hyperram#681| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#70| state)) #b1) false))) ; $logic_not$hyperram.v:530$946_Y
-(define-fun |hyperram#682| ((state |hyperram_s|)) Bool (and (or  (|hyperram#680| state) false) (or  (|hyperram#681| state) false))) ; $logic_and$hyperram.v:524$947_Y
-(define-fun |hyperram#683| ((state |hyperram_s|)) Bool (and (or  (|hyperram#682| state) false) (or  (= ((_ extract 0 0) (|hyperram#64| state)) #b1) false))) ; $logic_and$hyperram.v:524$948_Y
-(define-fun |hyperram#684| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#39| state)) #b1) false))) ; $logic_not$hyperram.v:532$949_Y
-(define-fun |hyperram#685| ((state |hyperram_s|)) Bool (and (or  (|hyperram#683| state) false) (or  (|hyperram#684| state) false))) ; $logic_and$hyperram.v:524$950_Y
-(define-fun |hyperram#686| ((state |hyperram_s|)) Bool (and (or  (|hyperram#685| state) false) (or  (|hyperram#644| state) false))) ; $logic_and$hyperram.v:524$952_Y
-(define-fun |hyperram#687| ((state |hyperram_s|)) Bool (and (or  (|hyperram#686| state) false) (or  (|hyperram#642| state) false))) ; $logic_and$hyperram.v:524$954_Y
-(define-fun |hyperram#688| ((state |hyperram_s|)) Bool (and (or  (|hyperram#687| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:524$955_Y
-(define-fun |hyperram#689| ((state |hyperram_s|)) Bool (and (or  (|hyperram#688| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:524$956_Y
-(define-fun |hyperram#690| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#110| state)) #b1) (ite (|hyperram#689| state) #b1 #b0) (|hyperram#679| state))) ; $0$formal$hyperram.v:524$217_CHECK[0:0]$626
-; yosys-smt2-anyseq hyperram#691 1 $auto$setundef.cc:501:execute$3738
-(declare-fun |hyperram#691| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3739
-(define-fun |hyperram#692| ((state |hyperram_s|)) Bool (and (or  (|hyperram#686| state) false) (or  (|hyperram#640| state) false))) ; $logic_and$hyperram.v:541$975_Y
-(define-fun |hyperram#693| ((state |hyperram_s|)) Bool (= (|hyperram#16| state) #b0010)) ; $eq$hyperram.v:551$976_Y
-(define-fun |hyperram#694| ((state |hyperram_s|)) Bool (and (or  (|hyperram#692| state) false) (or  (|hyperram#693| state) false))) ; $logic_and$hyperram.v:541$977_Y
-(define-fun |hyperram#695| ((state |hyperram_s|)) Bool (= (|hyperram#20| state) #b0011)) ; $eq$hyperram.v:552$978_Y
-(define-fun |hyperram#696| ((state |hyperram_s|)) Bool (and (or  (|hyperram#694| state) false) (or  (|hyperram#695| state) false))) ; $logic_and$hyperram.v:541$979_Y
-(define-fun |hyperram#697| ((state |hyperram_s|)) Bool (and (or  (|hyperram#696| state) false) (or  (|hyperram#642| state) false))) ; $logic_and$hyperram.v:541$981_Y
-(define-fun |hyperram#698| ((state |hyperram_s|)) Bool (and (or  (|hyperram#697| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:541$982_Y
-(define-fun |hyperram#699| ((state |hyperram_s|)) Bool (and (or  (|hyperram#698| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:541$983_Y
-(define-fun |hyperram#700| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#110| state)) #b1) (ite (|hyperram#699| state) #b1 #b0) (|hyperram#691| state))) ; $0$formal$hyperram.v:540$218_CHECK[0:0]$628
-; yosys-smt2-anyseq hyperram#701 1 $auto$setundef.cc:501:execute$3740
-(declare-fun |hyperram#701| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3741
-(define-fun |hyperram#702| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#64| state)) #b1) false))) ; $logic_not$hyperram.v:567$996_Y
-(define-fun |hyperram#703| ((state |hyperram_s|)) Bool (and (or  (|hyperram#682| state) false) (or  (|hyperram#702| state) false))) ; $logic_and$hyperram.v:560$997_Y
-(define-fun |hyperram#704| ((state |hyperram_s|)) Bool (and (or  (|hyperram#703| state) false) (or  (= ((_ extract 0 0) (|hyperram#39| state)) #b1) false))) ; $logic_and$hyperram.v:560$998_Y
-(define-fun |hyperram#705| ((state |hyperram_s|)) Bool (and (or  (|hyperram#704| state) false) (or  (|hyperram#644| state) false))) ; $logic_and$hyperram.v:560$1000_Y
-(define-fun |hyperram#706| ((state |hyperram_s|)) Bool (and (or  (|hyperram#705| state) false) (or  (|hyperram#640| state) false))) ; $logic_and$hyperram.v:560$1002_Y
-(define-fun |hyperram#707| ((state |hyperram_s|)) Bool (and (or  (|hyperram#706| state) false) (or  (|hyperram#670| state) false))) ; $logic_and$hyperram.v:560$1004_Y
-(define-fun |hyperram#708| ((state |hyperram_s|)) Bool (and (or  (|hyperram#707| state) false) (or  (|hyperram#672| state) false))) ; $logic_and$hyperram.v:560$1006_Y
-(define-fun |hyperram#709| ((state |hyperram_s|)) Bool (and (or  (|hyperram#708| state) false) (or  (|hyperram#642| state) false))) ; $logic_and$hyperram.v:560$1008_Y
-(define-fun |hyperram#710| ((state |hyperram_s|)) Bool (and (or  (|hyperram#709| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:560$1009_Y
-(define-fun |hyperram#711| ((state |hyperram_s|)) Bool (and (or  (|hyperram#710| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:560$1010_Y
-(define-fun |hyperram#712| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#110| state)) #b1) (ite (|hyperram#711| state) #b1 #b0) (|hyperram#701| state))) ; $0$formal$hyperram.v:559$219_CHECK[0:0]$630
-; yosys-smt2-anyseq hyperram#713 1 $auto$setundef.cc:501:execute$3742
-(declare-fun |hyperram#713| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3743
-(define-fun |hyperram#714| ((state |hyperram_s|)) Bool (and (or  (|hyperram#680| state) false) (or  (= ((_ extract 0 0) (|hyperram#70| state)) #b1) false))) ; $logic_and$hyperram.v:581$1021_Y
-(define-fun |hyperram#715| ((state |hyperram_s|)) Bool (and (or  (|hyperram#714| state) false) (or  (|hyperram#702| state) false))) ; $logic_and$hyperram.v:581$1023_Y
-(define-fun |hyperram#716| ((state |hyperram_s|)) Bool (and (or  (|hyperram#715| state) false) (or  (= ((_ extract 0 0) (|hyperram#39| state)) #b1) false))) ; $logic_and$hyperram.v:581$1024_Y
-(define-fun |hyperram#717| ((state |hyperram_s|)) Bool (and (or  (|hyperram#716| state) false) (or  (|hyperram#644| state) false))) ; $logic_and$hyperram.v:581$1026_Y
-(define-fun |hyperram#718| ((state |hyperram_s|)) Bool (= (|hyperram#28| state) #b0110)) ; $eq$hyperram.v:591$1027_Y
-(define-fun |hyperram#719| ((state |hyperram_s|)) Bool (and (or  (|hyperram#717| state) false) (or  (|hyperram#718| state) false))) ; $logic_and$hyperram.v:581$1028_Y
-(define-fun |hyperram#720| ((state |hyperram_s|)) Bool (= (|hyperram#16| state) #b0001)) ; $eq$hyperram.v:592$1029_Y
-(define-fun |hyperram#721| ((state |hyperram_s|)) Bool (and (or  (|hyperram#719| state) false) (or  (|hyperram#720| state) false))) ; $logic_and$hyperram.v:581$1030_Y
-(define-fun |hyperram#722| ((state |hyperram_s|)) Bool (= (|hyperram#20| state) #b0010)) ; $eq$hyperram.v:593$1031_Y
-(define-fun |hyperram#723| ((state |hyperram_s|)) Bool (and (or  (|hyperram#721| state) false) (or  (|hyperram#722| state) false))) ; $logic_and$hyperram.v:581$1032_Y
-(define-fun |hyperram#724| ((state |hyperram_s|)) Bool (and (or  (|hyperram#723| state) false) (or  (|hyperram#642| state) false))) ; $logic_and$hyperram.v:581$1034_Y
-(define-fun |hyperram#725| ((state |hyperram_s|)) Bool (and (or  (|hyperram#724| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:581$1035_Y
-(define-fun |hyperram#726| ((state |hyperram_s|)) Bool (and (or  (|hyperram#725| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:581$1036_Y
-(define-fun |hyperram#727| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#110| state)) #b1) (ite (|hyperram#726| state) #b1 #b0) (|hyperram#713| state))) ; $0$formal$hyperram.v:580$220_CHECK[0:0]$632
-; yosys-smt2-anyseq hyperram#728 1 $auto$setundef.cc:501:execute$3744
-(declare-fun |hyperram#728| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3745
-(define-fun |hyperram#729| ((state |hyperram_s|)) Bool (and (or  (|hyperram#714| state) false) (or  (= ((_ extract 0 0) (|hyperram#64| state)) #b1) false))) ; $logic_and$hyperram.v:601$1048_Y
-(define-fun |hyperram#730| ((state |hyperram_s|)) Bool (and (or  (|hyperram#729| state) false) (or  (|hyperram#684| state) false))) ; $logic_and$hyperram.v:601$1050_Y
-(define-fun |hyperram#731| ((state |hyperram_s|)) Bool (and (or  (|hyperram#730| state) false) (or  (|hyperram#644| state) false))) ; $logic_and$hyperram.v:601$1052_Y
-(define-fun |hyperram#732| ((state |hyperram_s|)) Bool (= (|hyperram#28| state) #b1111)) ; $eq$hyperram.v:611$1053_Y
-(define-fun |hyperram#733| ((state |hyperram_s|)) Bool (and (or  (|hyperram#731| state) false) (or  (|hyperram#732| state) false))) ; $logic_and$hyperram.v:601$1054_Y
-(define-fun |hyperram#734| ((state |hyperram_s|)) Bool (and (or  (|hyperram#733| state) false) (or  (|hyperram#693| state) false))) ; $logic_and$hyperram.v:601$1056_Y
-(define-fun |hyperram#735| ((state |hyperram_s|)) Bool (and (or  (|hyperram#734| state) false) (or  (|hyperram#662| state) false))) ; $logic_and$hyperram.v:601$1058_Y
-(define-fun |hyperram#736| ((state |hyperram_s|)) Bool (and (or  (|hyperram#735| state) false) (or  (|hyperram#642| state) false))) ; $logic_and$hyperram.v:601$1060_Y
-(define-fun |hyperram#737| ((state |hyperram_s|)) Bool (and (or  (|hyperram#736| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:601$1061_Y
-(define-fun |hyperram#738| ((state |hyperram_s|)) Bool (and (or  (|hyperram#737| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:601$1062_Y
-(define-fun |hyperram#739| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#110| state)) #b1) (ite (|hyperram#738| state) #b1 #b0) (|hyperram#728| state))) ; $0$formal$hyperram.v:600$221_CHECK[0:0]$634
-; yosys-smt2-anyseq hyperram#740 1 $auto$setundef.cc:501:execute$3746
-(declare-fun |hyperram#740| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3747
-(define-fun |hyperram#741| ((state |hyperram_s|)) Bool (and (or  (|hyperram#634| state) false) (or  (= ((_ extract 47 47) (|hyperram#46| state)) #b1) false))) ; $logic_and$hyperram.v:622$1069_Y
-(define-fun |hyperram#742| ((state |hyperram_s|)) Bool (and (or  (|hyperram#741| state) false) (or  (|hyperram#78| state) false))) ; $logic_and$hyperram.v:622$1071_Y
-(define-fun |hyperram#743| ((state |hyperram_s|)) Bool (and (or  (|hyperram#742| state) false) (or  (|hyperram#681| state) false))) ; $logic_and$hyperram.v:622$1073_Y
-(define-fun |hyperram#744| ((state |hyperram_s|)) Bool (and (or  (|hyperram#743| state) false) (or  (= ((_ extract 0 0) (|hyperram#64| state)) #b1) false))) ; $logic_and$hyperram.v:622$1074_Y
-(define-fun |hyperram#745| ((state |hyperram_s|)) Bool (and (or  (|hyperram#744| state) false) (or  (|hyperram#684| state) false))) ; $logic_and$hyperram.v:622$1076_Y
-(define-fun |hyperram#746| ((state |hyperram_s|)) Bool (and (or  (|hyperram#745| state) false) (or  (|hyperram#468| state) false))) ; $logic_and$hyperram.v:622$1078_Y
-(define-fun |hyperram#747| ((state |hyperram_s|)) Bool (= (|hyperram#114| state) #b11111010101111000011010001010110)) ; $eq$hyperram.v:632$1079_Y
-(define-fun |hyperram#748| ((state |hyperram_s|)) Bool (and (or  (|hyperram#746| state) false) (or  (|hyperram#747| state) false))) ; $logic_and$hyperram.v:622$1080_Y
-(define-fun |hyperram#749| ((state |hyperram_s|)) Bool (and (or  (|hyperram#748| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:622$1081_Y
-(define-fun |hyperram#750| ((state |hyperram_s|)) Bool (and (or  (|hyperram#749| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:622$1082_Y
-(define-fun |hyperram#751| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#110| state)) #b1) (ite (|hyperram#750| state) #b1 #b0) (|hyperram#740| state))) ; $0$formal$hyperram.v:622$222_CHECK[0:0]$636
-; yosys-smt2-anyseq hyperram#752 1 $auto$setundef.cc:501:execute$3748
-(declare-fun |hyperram#752| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3749
-(define-fun |hyperram#753| ((state |hyperram_s|)) Bool (and (or  (|hyperram#745| state) false) (or  (|hyperram#640| state) false))) ; $logic_and$hyperram.v:638$1098_Y
-(define-fun |hyperram#754| ((state |hyperram_s|)) Bool (and (or  (|hyperram#753| state) false) (or  (|hyperram#468| state) false))) ; $logic_and$hyperram.v:638$1100_Y
-(define-fun |hyperram#755| ((state |hyperram_s|)) Bool (and (or  (|hyperram#754| state) false) (or  (|hyperram#747| state) false))) ; $logic_and$hyperram.v:638$1102_Y
-(define-fun |hyperram#756| ((state |hyperram_s|)) Bool (and (or  (|hyperram#755| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:638$1103_Y
-(define-fun |hyperram#757| ((state |hyperram_s|)) Bool (and (or  (|hyperram#756| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:638$1104_Y
-(define-fun |hyperram#758| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#110| state)) #b1) (ite (|hyperram#757| state) #b1 #b0) (|hyperram#752| state))) ; $0$formal$hyperram.v:638$223_CHECK[0:0]$638
-; yosys-smt2-anyseq hyperram#759 1 $auto$setundef.cc:501:execute$3750
-(declare-fun |hyperram#759| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3751
-(define-fun |hyperram#760| ((state |hyperram_s|)) Bool (and (or  (|hyperram#743| state) false) (or  (|hyperram#702| state) false))) ; $logic_and$hyperram.v:656$1117_Y
-(define-fun |hyperram#761| ((state |hyperram_s|)) Bool (and (or  (|hyperram#760| state) false) (or  (= ((_ extract 0 0) (|hyperram#39| state)) #b1) false))) ; $logic_and$hyperram.v:656$1118_Y
-(define-fun |hyperram#762| ((state |hyperram_s|)) Bool (= (|hyperram#28| state) #b0101)) ; $eq$hyperram.v:665$1119_Y
-(define-fun |hyperram#763| ((state |hyperram_s|)) Bool (and (or  (|hyperram#761| state) false) (or  (|hyperram#762| state) false))) ; $logic_and$hyperram.v:656$1120_Y
-(define-fun |hyperram#764| ((state |hyperram_s|)) Bool (and (or  (|hyperram#763| state) false) (or  (|hyperram#693| state) false))) ; $logic_and$hyperram.v:656$1122_Y
-(define-fun |hyperram#765| ((state |hyperram_s|)) Bool (and (or  (|hyperram#764| state) false) (or  (|hyperram#695| state) false))) ; $logic_and$hyperram.v:656$1124_Y
-(define-fun |hyperram#766| ((state |hyperram_s|)) Bool (and (or  (|hyperram#765| state) false) (or  (|hyperram#468| state) false))) ; $logic_and$hyperram.v:656$1126_Y
-(define-fun |hyperram#767| ((state |hyperram_s|)) Bool (and (or  (|hyperram#766| state) false) (or  (|hyperram#747| state) false))) ; $logic_and$hyperram.v:656$1128_Y
-(define-fun |hyperram#768| ((state |hyperram_s|)) Bool (and (or  (|hyperram#767| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:656$1129_Y
-(define-fun |hyperram#769| ((state |hyperram_s|)) Bool (and (or  (|hyperram#768| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:656$1130_Y
-(define-fun |hyperram#770| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#110| state)) #b1) (ite (|hyperram#769| state) #b1 #b0) (|hyperram#759| state))) ; $0$formal$hyperram.v:655$224_CHECK[0:0]$640
-; yosys-smt2-anyseq hyperram#771 1 $auto$setundef.cc:501:execute$3752
-(declare-fun |hyperram#771| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3753
-(define-fun |hyperram#772| ((state |hyperram_s|)) Bool (and (or  (|hyperram#742| state) false) (or  (= ((_ extract 0 0) (|hyperram#70| state)) #b1) false))) ; $logic_and$hyperram.v:676$1140_Y
-(define-fun |hyperram#773| ((state |hyperram_s|)) Bool (and (or  (|hyperram#772| state) false) (or  (|hyperram#702| state) false))) ; $logic_and$hyperram.v:676$1142_Y
-(define-fun |hyperram#774| ((state |hyperram_s|)) Bool (and (or  (|hyperram#773| state) false) (or  (= ((_ extract 0 0) (|hyperram#39| state)) #b1) false))) ; $logic_and$hyperram.v:676$1143_Y
-(define-fun |hyperram#775| ((state |hyperram_s|)) Bool (and (or  (|hyperram#774| state) false) (or  (|hyperram#718| state) false))) ; $logic_and$hyperram.v:676$1145_Y
-(define-fun |hyperram#776| ((state |hyperram_s|)) Bool (and (or  (|hyperram#775| state) false) (or  (|hyperram#660| state) false))) ; $logic_and$hyperram.v:676$1147_Y
-(define-fun |hyperram#777| ((state |hyperram_s|)) Bool (and (or  (|hyperram#776| state) false) (or  (|hyperram#722| state) false))) ; $logic_and$hyperram.v:676$1149_Y
-(define-fun |hyperram#778| ((state |hyperram_s|)) Bool (and (or  (|hyperram#777| state) false) (or  (|hyperram#468| state) false))) ; $logic_and$hyperram.v:676$1151_Y
-(define-fun |hyperram#779| ((state |hyperram_s|)) Bool (and (or  (|hyperram#778| state) false) (or  (|hyperram#747| state) false))) ; $logic_and$hyperram.v:676$1153_Y
-(define-fun |hyperram#780| ((state |hyperram_s|)) Bool (and (or  (|hyperram#779| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:676$1154_Y
-(define-fun |hyperram#781| ((state |hyperram_s|)) Bool (and (or  (|hyperram#780| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:676$1155_Y
-(define-fun |hyperram#782| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#110| state)) #b1) (ite (|hyperram#781| state) #b1 #b0) (|hyperram#771| state))) ; $0$formal$hyperram.v:675$225_CHECK[0:0]$642
-; yosys-smt2-anyseq hyperram#783 1 $auto$setundef.cc:501:execute$3754
-(declare-fun |hyperram#783| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3755
-(define-fun |hyperram#784| ((state |hyperram_s|)) Bool (and (or  (|hyperram#772| state) false) (or  (= ((_ extract 0 0) (|hyperram#64| state)) #b1) false))) ; $logic_and$hyperram.v:696$1166_Y
-(define-fun |hyperram#785| ((state |hyperram_s|)) Bool (and (or  (|hyperram#784| state) false) (or  (|hyperram#684| state) false))) ; $logic_and$hyperram.v:696$1168_Y
-(define-fun |hyperram#786| ((state |hyperram_s|)) Bool (and (or  (|hyperram#785| state) false) (or  (|hyperram#640| state) false))) ; $logic_and$hyperram.v:696$1170_Y
-(define-fun |hyperram#787| ((state |hyperram_s|)) Bool (and (or  (|hyperram#786| state) false) (or  (|hyperram#693| state) false))) ; $logic_and$hyperram.v:696$1172_Y
-(define-fun |hyperram#788| ((state |hyperram_s|)) Bool (and (or  (|hyperram#787| state) false) (or  (|hyperram#695| state) false))) ; $logic_and$hyperram.v:696$1174_Y
-(define-fun |hyperram#789| ((state |hyperram_s|)) Bool (and (or  (|hyperram#788| state) false) (or  (|hyperram#468| state) false))) ; $logic_and$hyperram.v:696$1176_Y
-(define-fun |hyperram#790| ((state |hyperram_s|)) Bool (and (or  (|hyperram#789| state) false) (or  (|hyperram#747| state) false))) ; $logic_and$hyperram.v:696$1178_Y
-(define-fun |hyperram#791| ((state |hyperram_s|)) Bool (and (or  (|hyperram#790| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:696$1179_Y
-(define-fun |hyperram#792| ((state |hyperram_s|)) Bool (and (or  (|hyperram#791| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:696$1180_Y
-(define-fun |hyperram#793| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#110| state)) #b1) (ite (|hyperram#792| state) #b1 #b0) (|hyperram#783| state))) ; $0$formal$hyperram.v:695$226_CHECK[0:0]$644
-; yosys-smt2-anyseq hyperram#794 1 $auto$setundef.cc:501:execute$3756
-(declare-fun |hyperram#794| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3757
-(define-fun |hyperram#795| ((state |hyperram_s|)) Bool (= (|hyperram#12| state) #b00100)) ; $eq$hyperram.v:726$1197_Y
-(define-fun |hyperram#796| ((state |hyperram_s|)) Bool (and (or  (|hyperram#753| state) false) (or  (|hyperram#795| state) false))) ; $logic_and$hyperram.v:716$1198_Y
-(define-fun |hyperram#797| ((state |hyperram_s|)) Bool (and (or  (|hyperram#796| state) false) (or  (= ((_ extract 0 0) (|hyperram#53| state)) #b1) false))) ; $logic_and$hyperram.v:716$1199_Y
-(define-fun |hyperram#798| ((state |hyperram_s|)) Bool (and (or  (|hyperram#797| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:716$1200_Y
-(define-fun |hyperram#799| ((state |hyperram_s|)) Bool (and (or  (|hyperram#798| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:716$1201_Y
-(define-fun |hyperram#800| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#110| state)) #b1) (ite (|hyperram#799| state) #b1 #b0) (|hyperram#794| state))) ; $0$formal$hyperram.v:716$227_CHECK[0:0]$646
-; yosys-smt2-anyseq hyperram#801 1 $auto$setundef.cc:501:execute$3758
-(declare-fun |hyperram#801| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3759
-(define-fun |hyperram#802| ((state |hyperram_s|)) Bool (= (|hyperram#12| state) #b10100)) ; $eq$hyperram.v:743$1218_Y
-(define-fun |hyperram#803| ((state |hyperram_s|)) Bool (and (or  (|hyperram#753| state) false) (or  (|hyperram#802| state) false))) ; $logic_and$hyperram.v:733$1219_Y
-(define-fun |hyperram#804| ((state |hyperram_s|)) Bool (and (or  (|hyperram#803| state) false) (or  (= ((_ extract 0 0) (|hyperram#53| state)) #b1) false))) ; $logic_and$hyperram.v:733$1220_Y
-(define-fun |hyperram#805| ((state |hyperram_s|)) Bool (and (or  (|hyperram#804| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:733$1221_Y
-(define-fun |hyperram#806| ((state |hyperram_s|)) Bool (and (or  (|hyperram#805| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:733$1222_Y
-(define-fun |hyperram#807| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#110| state)) #b1) (ite (|hyperram#806| state) #b1 #b0) (|hyperram#801| state))) ; $0$formal$hyperram.v:733$228_CHECK[0:0]$648
-; yosys-smt2-anyseq hyperram#808 1 $auto$setundef.cc:501:execute$3760
-(declare-fun |hyperram#808| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3761
-(define-fun |hyperram#809| ((state |hyperram_s|)) Bool (and (or  (|hyperram#741| state) false) (or  (= ((_ extract 46 46) (|hyperram#46| state)) #b1) false))) ; $logic_and$hyperram.v:752$1230_Y
-(define-fun |hyperram#810| ((state |hyperram_s|)) Bool (and (or  (|hyperram#809| state) false) (or  (|hyperram#681| state) false))) ; $logic_and$hyperram.v:752$1232_Y
-(define-fun |hyperram#811| ((state |hyperram_s|)) Bool (and (or  (|hyperram#810| state) false) (or  (= ((_ extract 0 0) (|hyperram#64| state)) #b1) false))) ; $logic_and$hyperram.v:752$1233_Y
-(define-fun |hyperram#812| ((state |hyperram_s|)) Bool (and (or  (|hyperram#811| state) false) (or  (|hyperram#684| state) false))) ; $logic_and$hyperram.v:752$1235_Y
-(define-fun |hyperram#813| ((state |hyperram_s|)) Bool (and (or  (|hyperram#812| state) false) (or  (|hyperram#640| state) false))) ; $logic_and$hyperram.v:752$1237_Y
-(define-fun |hyperram#814| ((state |hyperram_s|)) Bool (and (or  (|hyperram#813| state) false) (or  (|hyperram#468| state) false))) ; $logic_and$hyperram.v:752$1239_Y
-(define-fun |hyperram#815| ((state |hyperram_s|)) Bool (= (|hyperram#114| state) #b00000000000000001111100101111100)) ; $eq$hyperram.v:762$1240_Y
-(define-fun |hyperram#816| ((state |hyperram_s|)) Bool (and (or  (|hyperram#814| state) false) (or  (|hyperram#815| state) false))) ; $logic_and$hyperram.v:752$1241_Y
-(define-fun |hyperram#817| ((state |hyperram_s|)) Bool (and (or  (|hyperram#816| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:752$1242_Y
-(define-fun |hyperram#818| ((state |hyperram_s|)) Bool (and (or  (|hyperram#817| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:752$1243_Y
-(define-fun |hyperram#819| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#110| state)) #b1) (ite (|hyperram#818| state) #b1 #b0) (|hyperram#808| state))) ; $0$formal$hyperram.v:752$229_CHECK[0:0]$650
-; yosys-smt2-anyseq hyperram#820 1 $auto$setundef.cc:501:execute$3762
-(declare-fun |hyperram#820| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3763
-(define-fun |hyperram#821| ((state |hyperram_s|)) Bool (and (or  (|hyperram#810| state) false) (or  (|hyperram#702| state) false))) ; $logic_and$hyperram.v:768$1255_Y
-(define-fun |hyperram#822| ((state |hyperram_s|)) Bool (and (or  (|hyperram#821| state) false) (or  (= ((_ extract 0 0) (|hyperram#39| state)) #b1) false))) ; $logic_and$hyperram.v:768$1256_Y
-(define-fun |hyperram#823| ((state |hyperram_s|)) Bool (and (or  (|hyperram#822| state) false) (or  (|hyperram#640| state) false))) ; $logic_and$hyperram.v:768$1258_Y
-(define-fun |hyperram#824| ((state |hyperram_s|)) Bool (and (or  (|hyperram#823| state) false) (or  (|hyperram#468| state) false))) ; $logic_and$hyperram.v:768$1260_Y
-(define-fun |hyperram#825| ((state |hyperram_s|)) Bool (and (or  (|hyperram#824| state) false) (or  (|hyperram#815| state) false))) ; $logic_and$hyperram.v:768$1262_Y
-(define-fun |hyperram#826| ((state |hyperram_s|)) Bool (and (or  (|hyperram#825| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:768$1263_Y
-(define-fun |hyperram#827| ((state |hyperram_s|)) Bool (and (or  (|hyperram#826| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:768$1264_Y
-(define-fun |hyperram#828| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#110| state)) #b1) (ite (|hyperram#827| state) #b1 #b0) (|hyperram#820| state))) ; $0$formal$hyperram.v:768$230_CHECK[0:0]$652
-; yosys-smt2-anyseq hyperram#829 1 $auto$setundef.cc:501:execute$3764
-(declare-fun |hyperram#829| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3765
-(define-fun |hyperram#830| ((state |hyperram_s|)) Bool (and (or  (|hyperram#813| state) false) (or  (|hyperram#693| state) false))) ; $logic_and$hyperram.v:785$1281_Y
-(define-fun |hyperram#831| ((state |hyperram_s|)) Bool (and (or  (|hyperram#830| state) false) (or  (|hyperram#662| state) false))) ; $logic_and$hyperram.v:785$1283_Y
-(define-fun |hyperram#832| ((state |hyperram_s|)) Bool (and (or  (|hyperram#831| state) false) (or  (|hyperram#468| state) false))) ; $logic_and$hyperram.v:785$1285_Y
-(define-fun |hyperram#833| ((state |hyperram_s|)) Bool (and (or  (|hyperram#832| state) false) (or  (|hyperram#815| state) false))) ; $logic_and$hyperram.v:785$1287_Y
-(define-fun |hyperram#834| ((state |hyperram_s|)) Bool (and (or  (|hyperram#833| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:785$1288_Y
-(define-fun |hyperram#835| ((state |hyperram_s|)) Bool (and (or  (|hyperram#834| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:785$1289_Y
-(define-fun |hyperram#836| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#110| state)) #b1) (ite (|hyperram#835| state) #b1 #b0) (|hyperram#829| state))) ; $0$formal$hyperram.v:784$231_CHECK[0:0]$654
-; yosys-smt2-anyseq hyperram#837 1 $auto$setundef.cc:501:execute$3766
-(declare-fun |hyperram#837| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3767
-(define-fun |hyperram#838| ((state |hyperram_s|)) Bool (and (or  (|hyperram#809| state) false) (or  (= ((_ extract 0 0) (|hyperram#70| state)) #b1) false))) ; $logic_and$hyperram.v:804$1298_Y
-(define-fun |hyperram#839| ((state |hyperram_s|)) Bool (and (or  (|hyperram#838| state) false) (or  (|hyperram#702| state) false))) ; $logic_and$hyperram.v:804$1300_Y
-(define-fun |hyperram#840| ((state |hyperram_s|)) Bool (and (or  (|hyperram#839| state) false) (or  (= ((_ extract 0 0) (|hyperram#39| state)) #b1) false))) ; $logic_and$hyperram.v:804$1301_Y
-(define-fun |hyperram#841| ((state |hyperram_s|)) Bool (and (or  (|hyperram#840| state) false) (or  (|hyperram#640| state) false))) ; $logic_and$hyperram.v:804$1303_Y
-(define-fun |hyperram#842| ((state |hyperram_s|)) Bool (and (or  (|hyperram#841| state) false) (or  (|hyperram#468| state) false))) ; $logic_and$hyperram.v:804$1305_Y
-(define-fun |hyperram#843| ((state |hyperram_s|)) Bool (and (or  (|hyperram#842| state) false) (or  (|hyperram#815| state) false))) ; $logic_and$hyperram.v:804$1307_Y
-(define-fun |hyperram#844| ((state |hyperram_s|)) Bool (and (or  (|hyperram#843| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:804$1308_Y
-(define-fun |hyperram#845| ((state |hyperram_s|)) Bool (and (or  (|hyperram#844| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:804$1309_Y
-(define-fun |hyperram#846| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#110| state)) #b1) (ite (|hyperram#845| state) #b1 #b0) (|hyperram#837| state))) ; $0$formal$hyperram.v:803$232_CHECK[0:0]$656
-; yosys-smt2-anyseq hyperram#847 1 $auto$setundef.cc:501:execute$3768
-(declare-fun |hyperram#847| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3769
-(define-fun |hyperram#848| ((state |hyperram_s|)) Bool (and (or  (|hyperram#838| state) false) (or  (= ((_ extract 0 0) (|hyperram#64| state)) #b1) false))) ; $logic_and$hyperram.v:821$1319_Y
-(define-fun |hyperram#849| ((state |hyperram_s|)) Bool (and (or  (|hyperram#848| state) false) (or  (|hyperram#684| state) false))) ; $logic_and$hyperram.v:821$1321_Y
-(define-fun |hyperram#850| ((state |hyperram_s|)) Bool (and (or  (|hyperram#849| state) false) (or  (|hyperram#640| state) false))) ; $logic_and$hyperram.v:821$1323_Y
-(define-fun |hyperram#851| ((state |hyperram_s|)) Bool (and (or  (|hyperram#850| state) false) (or  (|hyperram#468| state) false))) ; $logic_and$hyperram.v:821$1325_Y
-(define-fun |hyperram#852| ((state |hyperram_s|)) Bool (and (or  (|hyperram#851| state) false) (or  (|hyperram#815| state) false))) ; $logic_and$hyperram.v:821$1327_Y
-(define-fun |hyperram#853| ((state |hyperram_s|)) Bool (and (or  (|hyperram#852| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:821$1328_Y
-(define-fun |hyperram#854| ((state |hyperram_s|)) Bool (and (or  (|hyperram#853| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:821$1329_Y
-(define-fun |hyperram#855| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#110| state)) #b1) (ite (|hyperram#854| state) #b1 #b0) (|hyperram#847| state))) ; $0$formal$hyperram.v:820$233_CHECK[0:0]$658
-; yosys-smt2-anyseq hyperram#856 1 $auto$setundef.cc:501:execute$3770
-(declare-fun |hyperram#856| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3771
-(define-fun |hyperram#857| ((state |hyperram_s|)) Bool (= (|hyperram#12| state) #b11111)) ; $eq$hyperram.v:848$1344_Y
-(define-fun |hyperram#858| ((state |hyperram_s|)) Bool (and (or  (|hyperram#850| state) false) (or  (|hyperram#857| state) false))) ; $logic_and$hyperram.v:839$1345_Y
-(define-fun |hyperram#859| ((state |hyperram_s|)) Bool (and (or  (|hyperram#858| state) false) (or  (= ((_ extract 0 0) (|hyperram#53| state)) #b1) false))) ; $logic_and$hyperram.v:839$1346_Y
-(define-fun |hyperram#860| ((state |hyperram_s|)) Bool (and (or  (|hyperram#859| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:839$1347_Y
-(define-fun |hyperram#861| ((state |hyperram_s|)) Bool (and (or  (|hyperram#860| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:839$1348_Y
-(define-fun |hyperram#862| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#110| state)) #b1) (ite (|hyperram#861| state) #b1 #b0) (|hyperram#856| state))) ; $0$formal$hyperram.v:838$234_CHECK[0:0]$660
-; yosys-smt2-anyseq hyperram#863 1 $auto$setundef.cc:501:execute$3772
-(declare-fun |hyperram#863| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3773
-(define-fun |hyperram#864| ((state |hyperram_s|)) (_ BitVec 1) (bvnot (|hyperram#301| state))) ; $not$hyperram.v:855$1351_Y
-(define-fun |hyperram#865| ((state |hyperram_s|)) Bool (= (|hyperram#4| state) (|hyperram#864| state))) ; $eq$hyperram.v:855$1352_Y
-(define-fun |hyperram#866| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (ite (|hyperram#865| state) #b1 #b0) (|hyperram#863| state))) ; $0$formal$hyperram.v:854$235_CHECK[0:0]$662
-(define-fun |hyperram#867| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) #b1 #b0)) ; $0$formal$hyperram.v:1030$285_EN[0:0]$763
-; yosys-smt2-anyseq hyperram#868 1 $auto$setundef.cc:501:execute$3774
-(declare-fun |hyperram#868| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3775
-(define-fun |hyperram#869| ((state |hyperram_s|)) Bool (bvuge (|hyperram#28| state) #b0010)) ; $ge$hyperram.v:860$1355_Y
-(define-fun |hyperram#870| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (ite (|hyperram#869| state) #b1 #b0) (|hyperram#868| state))) ; $0$formal$hyperram.v:860$236_CHECK[0:0]$664
-; yosys-smt2-anyseq hyperram#871 1 $auto$setundef.cc:501:execute$3776
-(declare-fun |hyperram#871| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3777
-(define-fun |hyperram#872| ((state |hyperram_s|)) Bool (bvuge (|hyperram#12| state) #b00100)) ; $ge$hyperram.v:861$1356_Y
-(define-fun |hyperram#873| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (ite (|hyperram#872| state) #b1 #b0) (|hyperram#871| state))) ; $0$formal$hyperram.v:861$237_CHECK[0:0]$666
-; yosys-smt2-anyseq hyperram#874 1 $auto$setundef.cc:501:execute$3780
-(declare-fun |hyperram#874| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3781
-; yosys-smt2-anyseq hyperram#875 1 $auto$setundef.cc:501:execute$3778
-(declare-fun |hyperram#875| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3779
-(define-fun |hyperram#876| ((state |hyperram_s|)) Bool (= (|hyperram#24| state) (|hyperram#133| state))) ; $eq$hyperram.v:867$1362_Y
-(define-fun |hyperram#877| ((state |hyperram_s|)) Bool (and (or  (|hyperram#417| state) false) (or  (|hyperram#623| state) false))) ; $logic_and$hyperram.v:866$1361_Y
-(define-fun |hyperram#878| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#877| state) (ite (|hyperram#876| state) #b1 #b0) (|hyperram#875| state))) ; $procmux$2027_Y
-(define-fun |hyperram#879| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#878| state) (|hyperram#874| state))) ; $0$formal$hyperram.v:867$238_CHECK[0:0]$668
-(define-fun |hyperram#880| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#877| state) #b1 #b0)) ; $procmux$2023_Y
-(define-fun |hyperram#881| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#880| state) #b0)) ; $0$formal$hyperram.v:867$238_EN[0:0]$669
-; yosys-smt2-anyseq hyperram#882 1 $auto$setundef.cc:501:execute$3784
-(declare-fun |hyperram#882| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3785
-; yosys-smt2-anyseq hyperram#883 1 $auto$setundef.cc:501:execute$3782
-(declare-fun |hyperram#883| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3783
-(define-fun |hyperram#884| ((state |hyperram_s|)) Bool (= (|hyperram#16| state) (|hyperram#132| state))) ; $eq$hyperram.v:868$1363_Y
-(define-fun |hyperram#885| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#877| state) (ite (|hyperram#884| state) #b1 #b0) (|hyperram#883| state))) ; $procmux$2035_Y
-(define-fun |hyperram#886| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#885| state) (|hyperram#882| state))) ; $0$formal$hyperram.v:868$239_CHECK[0:0]$670
-; yosys-smt2-anyseq hyperram#887 1 $auto$setundef.cc:501:execute$3788
-(declare-fun |hyperram#887| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3789
-; yosys-smt2-anyseq hyperram#888 1 $auto$setundef.cc:501:execute$3786
-(declare-fun |hyperram#888| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3787
-(define-fun |hyperram#889| ((state |hyperram_s|)) Bool (= (|hyperram#20| state) (|hyperram#131| state))) ; $eq$hyperram.v:869$1364_Y
-(define-fun |hyperram#890| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#877| state) (ite (|hyperram#889| state) #b1 #b0) (|hyperram#888| state))) ; $procmux$2043_Y
-(define-fun |hyperram#891| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#890| state) (|hyperram#887| state))) ; $0$formal$hyperram.v:869$240_CHECK[0:0]$672
-; yosys-smt2-anyseq hyperram#892 1 $auto$setundef.cc:501:execute$3794
-(declare-fun |hyperram#892| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3795
-; yosys-smt2-anyseq hyperram#893 1 $auto$setundef.cc:501:execute$3792
-(declare-fun |hyperram#893| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3793
-; yosys-smt2-anyseq hyperram#894 1 $auto$setundef.cc:501:execute$3790
-(declare-fun |hyperram#894| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3791
-(define-fun |hyperram#895| ((state |hyperram_s|)) Bool (= (|hyperram#12| state) (|hyperram#130| state))) ; $eq$hyperram.v:872$1366_Y
-(define-fun |hyperram#896| ((state |hyperram_s|)) Bool (bvuge (|hyperram#130| state) #b00100)) ; $ge$hyperram.v:871$1365_Y
-(define-fun |hyperram#897| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#896| state) (ite (|hyperram#895| state) #b1 #b0) (|hyperram#894| state))) ; $procmux$2055_Y
-(define-fun |hyperram#898| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#877| state) (|hyperram#897| state) (|hyperram#893| state))) ; $procmux$2057_Y
-(define-fun |hyperram#899| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#898| state) (|hyperram#892| state))) ; $0$formal$hyperram.v:872$241_CHECK[0:0]$674
-(define-fun |hyperram#900| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#896| state) #b1 #b0)) ; $procmux$2048_Y
-(define-fun |hyperram#901| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#877| state) (|hyperram#900| state) #b0)) ; $procmux$2050_Y
-(define-fun |hyperram#902| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#901| state) #b0)) ; $0$formal$hyperram.v:872$241_EN[0:0]$675
-; yosys-smt2-anyseq hyperram#903 1 $auto$setundef.cc:501:execute$3800
-(declare-fun |hyperram#903| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3801
-; yosys-smt2-anyseq hyperram#904 1 $auto$setundef.cc:501:execute$3798
-(declare-fun |hyperram#904| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3799
-; yosys-smt2-anyseq hyperram#905 1 $auto$setundef.cc:501:execute$3796
-(declare-fun |hyperram#905| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3797
-(define-fun |hyperram#906| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#896| state) (|hyperram#905| state) (ite (|hyperram#795| state) #b1 #b0))) ; $procmux$2069_Y
-(define-fun |hyperram#907| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#877| state) (|hyperram#906| state) (|hyperram#904| state))) ; $procmux$2071_Y
-(define-fun |hyperram#908| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#907| state) (|hyperram#903| state))) ; $0$formal$hyperram.v:874$242_CHECK[0:0]$676
-(define-fun |hyperram#909| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#896| state) #b0 #b1)) ; $procmux$2062_Y
-(define-fun |hyperram#910| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#877| state) (|hyperram#909| state) #b0)) ; $procmux$2064_Y
-(define-fun |hyperram#911| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#910| state) #b0)) ; $0$formal$hyperram.v:874$242_EN[0:0]$677
-; yosys-smt2-anyseq hyperram#912 1 $auto$setundef.cc:501:execute$3806
-(declare-fun |hyperram#912| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3807
-; yosys-smt2-anyseq hyperram#913 1 $auto$setundef.cc:501:execute$3804
-(declare-fun |hyperram#913| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3805
-; yosys-smt2-anyseq hyperram#914 1 $auto$setundef.cc:501:execute$3802
-(declare-fun |hyperram#914| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3803
-(define-fun |hyperram#915| ((state |hyperram_s|)) Bool (= (|hyperram#28| state) (|hyperram#129| state))) ; $eq$hyperram.v:877$1369_Y
-(define-fun |hyperram#916| ((state |hyperram_s|)) Bool (bvuge (|hyperram#129| state) #b0010)) ; $ge$hyperram.v:876$1368_Y
-(define-fun |hyperram#917| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#916| state) (ite (|hyperram#915| state) #b1 #b0) (|hyperram#914| state))) ; $procmux$2083_Y
-(define-fun |hyperram#918| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#877| state) (|hyperram#917| state) (|hyperram#913| state))) ; $procmux$2085_Y
-(define-fun |hyperram#919| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#918| state) (|hyperram#912| state))) ; $0$formal$hyperram.v:877$243_CHECK[0:0]$678
-(define-fun |hyperram#920| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#916| state) #b1 #b0)) ; $procmux$2076_Y
-(define-fun |hyperram#921| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#877| state) (|hyperram#920| state) #b0)) ; $procmux$2078_Y
-(define-fun |hyperram#922| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#921| state) #b0)) ; $0$formal$hyperram.v:877$243_EN[0:0]$679
-; yosys-smt2-anyseq hyperram#923 1 $auto$setundef.cc:501:execute$3812
-(declare-fun |hyperram#923| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3813
-; yosys-smt2-anyseq hyperram#924 1 $auto$setundef.cc:501:execute$3810
-(declare-fun |hyperram#924| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3811
-(define-fun |hyperram#925| ((state |hyperram_s|)) Bool (= (|hyperram#28| state) #b0010)) ; $eq$hyperram.v:879$1370_Y
-; yosys-smt2-anyseq hyperram#926 1 $auto$setundef.cc:501:execute$3808
-(declare-fun |hyperram#926| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3809
-(define-fun |hyperram#927| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#916| state) (|hyperram#926| state) (ite (|hyperram#925| state) #b1 #b0))) ; $procmux$2097_Y
-(define-fun |hyperram#928| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#877| state) (|hyperram#927| state) (|hyperram#924| state))) ; $procmux$2099_Y
-(define-fun |hyperram#929| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#928| state) (|hyperram#923| state))) ; $0$formal$hyperram.v:879$244_CHECK[0:0]$680
-(define-fun |hyperram#930| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#916| state) #b0 #b1)) ; $procmux$2090_Y
-(define-fun |hyperram#931| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#877| state) (|hyperram#930| state) #b0)) ; $procmux$2092_Y
-(define-fun |hyperram#932| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#931| state) #b0)) ; $0$formal$hyperram.v:879$244_EN[0:0]$681
-; yosys-smt2-anyseq hyperram#933 1 $auto$setundef.cc:501:execute$3816
-(declare-fun |hyperram#933| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3817
-; yosys-smt2-anyseq hyperram#934 1 $auto$setundef.cc:501:execute$3814
-(declare-fun |hyperram#934| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3815
-(define-fun |hyperram#935| ((state |hyperram_s|)) Bool (= (|hyperram#72| state) (|hyperram#128| state))) ; $eq$hyperram.v:881$1371_Y
-(define-fun |hyperram#936| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#877| state) (ite (|hyperram#935| state) #b1 #b0) (|hyperram#934| state))) ; $procmux$2107_Y
-(define-fun |hyperram#937| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#936| state) (|hyperram#933| state))) ; $0$formal$hyperram.v:879$245_CHECK[0:0]$682
-; yosys-smt2-anyseq hyperram#938 1 $auto$setundef.cc:501:execute$3820
-(declare-fun |hyperram#938| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3821
-; yosys-smt2-anyseq hyperram#939 1 $auto$setundef.cc:501:execute$3818
-(declare-fun |hyperram#939| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3819
-(define-fun |hyperram#940| ((state |hyperram_s|)) Bool (= (|hyperram#66| state) (|hyperram#127| state))) ; $eq$hyperram.v:882$1372_Y
-(define-fun |hyperram#941| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#877| state) (ite (|hyperram#940| state) #b1 #b0) (|hyperram#939| state))) ; $procmux$2115_Y
-(define-fun |hyperram#942| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#941| state) (|hyperram#938| state))) ; $0$formal$hyperram.v:881$246_CHECK[0:0]$684
-; yosys-smt2-anyseq hyperram#943 1 $auto$setundef.cc:501:execute$3824
-(declare-fun |hyperram#943| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3825
-; yosys-smt2-anyseq hyperram#944 1 $auto$setundef.cc:501:execute$3822
-(declare-fun |hyperram#944| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3823
-(define-fun |hyperram#945| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#89| state) #b1 (|hyperram#944| state))) ; $procmux$2125_Y
-(define-fun |hyperram#946| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#945| state) (|hyperram#943| state))) ; $0$formal$hyperram.v:889$247_CHECK[0:0]$686
-(define-fun |hyperram#947| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#89| state) #b1 #b0)) ; $procmux$2120_Y
-(define-fun |hyperram#948| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#947| state) #b0)) ; $0$formal$hyperram.v:889$247_EN[0:0]$687
-; yosys-smt2-anyseq hyperram#949 1 $auto$setundef.cc:501:execute$3828
-(declare-fun |hyperram#949| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3829
-(define-fun |hyperram#950| ((state |hyperram_s|)) Bool (not (or  (|hyperram#89| state) false))) ; $logic_not$hyperram.v:891$1378_Y
-; yosys-smt2-anyseq hyperram#951 1 $auto$setundef.cc:501:execute$3826
-(declare-fun |hyperram#951| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3827
-(define-fun |hyperram#952| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#89| state) (|hyperram#951| state) (ite (|hyperram#950| state) #b1 #b0))) ; $procmux$2135_Y
-(define-fun |hyperram#953| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#952| state) (|hyperram#949| state))) ; $0$formal$hyperram.v:891$248_CHECK[0:0]$688
-(define-fun |hyperram#954| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#89| state) #b0 #b1)) ; $procmux$2130_Y
-(define-fun |hyperram#955| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#954| state) #b0)) ; $0$formal$hyperram.v:891$248_EN[0:0]$689
-; yosys-smt2-anyseq hyperram#956 1 $auto$setundef.cc:501:execute$3832
-(declare-fun |hyperram#956| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3833
-; yosys-smt2-anyseq hyperram#957 1 $auto$setundef.cc:501:execute$3830
-(declare-fun |hyperram#957| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3831
-(define-fun |hyperram#958| ((state |hyperram_s|)) (_ BitVec 10) (bvmul #b0000001000 (concat #b0000 (|hyperram#82| state)))) ; $auto$wreduce.cc:454:run$3501 [9:0]
-(define-fun |hyperram#959| ((state |hyperram_s|)) (_ BitVec 8) ((_ extract 7 0) (ite (bvsge (concat #b0 (|hyperram#958| state)) #b00000000000) (bvlshr (|hyperram#46| state) (concat #b00000000000000000000000000000000000000 (|hyperram#958| state))) (bvlshr (|hyperram#46| state) (bvneg (concat #b00000000000000000000000000000000000000 (|hyperram#958| state))))))) ; $shiftx$hyperram.v:0$1381_Y
-(define-fun |hyperram#960| ((state |hyperram_s|)) Bool (= (|hyperram#101| state) (|hyperram#959| state))) ; $eq$hyperram.v:894$1382_Y
-(define-fun |hyperram#961| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#88| state) (ite (|hyperram#960| state) #b1 #b0) (|hyperram#957| state))) ; $procmux$2143_Y
-(define-fun |hyperram#962| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#961| state) (|hyperram#956| state))) ; $0$formal$hyperram.v:893$249_CHECK[0:0]$690
-(define-fun |hyperram#963| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#88| state) #b1 #b0)) ; $procmux$2139_Y
-(define-fun |hyperram#964| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#963| state) #b0)) ; $0$formal$hyperram.v:893$249_EN[0:0]$691
-; yosys-smt2-anyseq hyperram#965 1 $auto$setundef.cc:501:execute$3836
-(declare-fun |hyperram#965| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3837
-; yosys-smt2-anyseq hyperram#966 1 $auto$setundef.cc:501:execute$3834
-(declare-fun |hyperram#966| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3835
-(define-fun |hyperram#967| ((state |hyperram_s|)) (_ BitVec 8) ((_ extract 7 0) (ite (bvsge (concat #b0 (|hyperram#958| state)) #b00000000000) (bvlshr (|hyperram#92| state) (concat #b0000000000000000000000 (|hyperram#958| state))) (bvlshr (|hyperram#92| state) (bvneg (concat #b0000000000000000000000 (|hyperram#958| state))))))) ; $shiftx$hyperram.v:0$1385_Y
-(define-fun |hyperram#968| ((state |hyperram_s|)) Bool (= (|hyperram#101| state) (|hyperram#967| state))) ; $eq$hyperram.v:908$1386_Y
-(define-fun |hyperram#969| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#77| state) (ite (|hyperram#968| state) #b1 #b0) (|hyperram#966| state))) ; $procmux$2151_Y
-(define-fun |hyperram#970| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#969| state) (|hyperram#965| state))) ; $0$formal$hyperram.v:907$250_CHECK[0:0]$692
-(define-fun |hyperram#971| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#77| state) #b1 #b0)) ; $procmux$2147_Y
-(define-fun |hyperram#972| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#971| state) #b0)) ; $0$formal$hyperram.v:907$250_EN[0:0]$693
-; yosys-smt2-anyseq hyperram#973 1 $auto$setundef.cc:501:execute$3840
-(declare-fun |hyperram#973| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3841
-; yosys-smt2-anyseq hyperram#974 1 $auto$setundef.cc:501:execute$3838
-(declare-fun |hyperram#974| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3839
-(define-fun |hyperram#975| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#79| state) #b1 (|hyperram#974| state))) ; $procmux$2161_Y
-(define-fun |hyperram#976| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#975| state) (|hyperram#973| state))) ; $0$formal$hyperram.v:923$251_CHECK[0:0]$694
-(define-fun |hyperram#977| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#79| state) #b1 #b0)) ; $procmux$2156_Y
-(define-fun |hyperram#978| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#977| state) #b0)) ; $0$formal$hyperram.v:923$251_EN[0:0]$695
-; yosys-smt2-anyseq hyperram#979 1 $auto$setundef.cc:501:execute$3844
-(declare-fun |hyperram#979| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3845
-(define-fun |hyperram#980| ((state |hyperram_s|)) Bool (not (or  (|hyperram#79| state) false))) ; $logic_not$hyperram.v:925$1392_Y
-; yosys-smt2-anyseq hyperram#981 1 $auto$setundef.cc:501:execute$3842
-(declare-fun |hyperram#981| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3843
-(define-fun |hyperram#982| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#79| state) (|hyperram#981| state) (ite (|hyperram#980| state) #b1 #b0))) ; $procmux$2171_Y
-(define-fun |hyperram#983| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#982| state) (|hyperram#979| state))) ; $0$formal$hyperram.v:925$252_CHECK[0:0]$696
-(define-fun |hyperram#984| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#79| state) #b0 #b1)) ; $procmux$2166_Y
-(define-fun |hyperram#985| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#984| state) #b0)) ; $0$formal$hyperram.v:925$252_EN[0:0]$697
-; yosys-smt2-anyseq hyperram#986 1 $auto$setundef.cc:501:execute$3850
-(declare-fun |hyperram#986| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3851
-; yosys-smt2-anyseq hyperram#987 1 $auto$setundef.cc:501:execute$3848
-(declare-fun |hyperram#987| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3849
-(define-fun |hyperram#988| ((state |hyperram_s|)) Bool (= (|hyperram#85| state) (|hyperram#84| state))) ; $eq$hyperram.v:929$1397_Y
-; yosys-smt2-anyseq hyperram#989 1 $auto$setundef.cc:501:execute$3846
-(declare-fun |hyperram#989| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3847
-(define-fun |hyperram#990| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 46 46) (|hyperram#46| state)) #b1) (|hyperram#989| state) (ite (|hyperram#988| state) #b1 #b0))) ; $procmux$2183_Y
-(define-fun |hyperram#991| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#77| state) (|hyperram#990| state) (|hyperram#987| state))) ; $procmux$2185_Y
-(define-fun |hyperram#992| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#991| state) (|hyperram#986| state))) ; $0$formal$hyperram.v:929$253_CHECK[0:0]$698
-(define-fun |hyperram#993| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#77| state) (|hyperram#379| state) #b0)) ; $procmux$2178_Y
-(define-fun |hyperram#994| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#993| state) #b0)) ; $0$formal$hyperram.v:929$253_EN[0:0]$699
-; yosys-smt2-anyseq hyperram#995 1 $auto$setundef.cc:501:execute$3856
-(declare-fun |hyperram#995| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3857
-; yosys-smt2-anyseq hyperram#996 1 $auto$setundef.cc:501:execute$3854
-(declare-fun |hyperram#996| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3855
-; yosys-smt2-anyseq hyperram#997 1 $auto$setundef.cc:501:execute$3852
-(declare-fun |hyperram#997| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3853
-(define-fun |hyperram#998| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#85| state)) #b1) false))) ; $logic_not$hyperram.v:931$1398_Y
-(define-fun |hyperram#999| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 46 46) (|hyperram#46| state)) #b1) (ite (|hyperram#998| state) #b1 #b0) (|hyperram#997| state))) ; $procmux$2197_Y
-(define-fun |hyperram#1000| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#77| state) (|hyperram#999| state) (|hyperram#996| state))) ; $procmux$2199_Y
-(define-fun |hyperram#1001| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1000| state) (|hyperram#995| state))) ; $0$formal$hyperram.v:931$254_CHECK[0:0]$700
-(define-fun |hyperram#1002| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#77| state) (|hyperram#369| state) #b0)) ; $procmux$2192_Y
-(define-fun |hyperram#1003| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1002| state) #b0)) ; $0$formal$hyperram.v:931$254_EN[0:0]$701
-; yosys-smt2-anyseq hyperram#1004 1 $auto$setundef.cc:501:execute$3858
-(declare-fun |hyperram#1004| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3859
-(define-fun |hyperram#1005| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#42| state) #b1 (|hyperram#1004| state))) ; $0$formal$hyperram.v:937$255_CHECK[0:0]$702
-(define-fun |hyperram#1006| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#42| state) #b1 #b0)) ; $0$formal$hyperram.v:937$255_EN[0:0]$703
-; yosys-smt2-anyseq hyperram#1007 1 $auto$setundef.cc:501:execute$3860
-(declare-fun |hyperram#1007| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3861
-(define-fun |hyperram#1008| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#42| state) (|hyperram#1007| state) (|hyperram#87| state))) ; $0$formal$hyperram.v:939$256_CHECK[0:0]$704
-(define-fun |hyperram#1009| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#42| state) #b0 #b1)) ; $0$formal$hyperram.v:939$256_EN[0:0]$705
-; yosys-smt2-anyseq hyperram#1010 1 $auto$setundef.cc:501:execute$3864
-(declare-fun |hyperram#1010| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3865
-; yosys-smt2-anyseq hyperram#1011 1 $auto$setundef.cc:501:execute$3862
-(declare-fun |hyperram#1011| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3863
-(define-fun |hyperram#1012| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#103| state) (ite (|hyperram#104| state) #b1 #b0) (|hyperram#1011| state))) ; $procmux$2219_Y
-(define-fun |hyperram#1013| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1012| state) (|hyperram#1010| state))) ; $0$formal$hyperram.v:944$257_CHECK[0:0]$706
-(define-fun |hyperram#1014| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#103| state) #b1 #b0)) ; $procmux$2215_Y
-(define-fun |hyperram#1015| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1014| state) #b0)) ; $0$formal$hyperram.v:944$257_EN[0:0]$707
-; yosys-smt2-anyseq hyperram#1016 1 $auto$setundef.cc:501:execute$3868
-(declare-fun |hyperram#1016| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3869
-; yosys-smt2-anyseq hyperram#1017 1 $auto$setundef.cc:501:execute$3866
-(declare-fun |hyperram#1017| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3867
-(define-fun |hyperram#1018| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#107| state)) #b1) false))) ; $logic_not$hyperram.v:945$1403_Y
-(define-fun |hyperram#1019| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#103| state) (ite (|hyperram#1018| state) #b1 #b0) (|hyperram#1017| state))) ; $procmux$2227_Y
-(define-fun |hyperram#1020| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1019| state) (|hyperram#1016| state))) ; $0$formal$hyperram.v:945$258_CHECK[0:0]$708
-; yosys-smt2-anyseq hyperram#1021 1 $auto$setundef.cc:501:execute$3872
-(declare-fun |hyperram#1021| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3873
-; yosys-smt2-anyseq hyperram#1022 1 $auto$setundef.cc:501:execute$3870
-(declare-fun |hyperram#1022| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3871
-(define-fun |hyperram#1023| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#103| state) (|hyperram#108| state) (|hyperram#1022| state))) ; $procmux$2235_Y
-(define-fun |hyperram#1024| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1023| state) (|hyperram#1021| state))) ; $0$formal$hyperram.v:946$259_CHECK[0:0]$710
-; yosys-smt2-anyseq hyperram#1025 1 $auto$setundef.cc:501:execute$3876
-(declare-fun |hyperram#1025| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3877
-; yosys-smt2-anyseq hyperram#1026 1 $auto$setundef.cc:501:execute$3874
-(declare-fun |hyperram#1026| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3875
-(define-fun |hyperram#1027| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#103| state) #b1 (|hyperram#1026| state))) ; $procmux$2243_Y
-(define-fun |hyperram#1028| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1027| state) (|hyperram#1025| state))) ; $0$formal$hyperram.v:947$260_CHECK[0:0]$712
-; yosys-smt2-anyseq hyperram#1029 1 $auto$setundef.cc:501:execute$3882
-(declare-fun |hyperram#1029| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3883
-; yosys-smt2-anyseq hyperram#1030 1 $auto$setundef.cc:501:execute$3880
-(declare-fun |hyperram#1030| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3881
-; yosys-smt2-anyseq hyperram#1031 1 $auto$setundef.cc:501:execute$3878
-(declare-fun |hyperram#1031| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3879
-(define-fun |hyperram#1032| ((state |hyperram_s|)) (_ BitVec 1) (bvnot (|hyperram#105| state))) ; $not$hyperram.v:949$1406_Y
-(define-fun |hyperram#1033| ((state |hyperram_s|)) Bool (= (|hyperram#107| state) (|hyperram#1032| state))) ; $eq$hyperram.v:949$1407_Y
-(define-fun |hyperram#1034| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#125| state) (ite (|hyperram#1033| state) #b1 #b0) (|hyperram#1031| state))) ; $procmux$2253_Y
-(define-fun |hyperram#1035| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#103| state) (|hyperram#1034| state) (|hyperram#1030| state))) ; $procmux$2255_Y
-(define-fun |hyperram#1036| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1035| state) (|hyperram#1029| state))) ; $0$formal$hyperram.v:949$261_CHECK[0:0]$714
-(define-fun |hyperram#1037| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#125| state) #b1 #b0)) ; $procmux$2247_Y
-(define-fun |hyperram#1038| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#103| state) (|hyperram#1037| state) #b0)) ; $procmux$2249_Y
-(define-fun |hyperram#1039| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1038| state) #b0)) ; $0$formal$hyperram.v:949$261_EN[0:0]$715
-; yosys-smt2-anyseq hyperram#1040 1 $auto$setundef.cc:501:execute$3884
-(declare-fun |hyperram#1040| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3885
-(define-fun |hyperram#1041| ((state |hyperram_s|)) Bool (and (or  (= ((_ extract 0 0) (|hyperram#110| state)) #b1) false) (or  (= ((_ extract 0 0) (|hyperram#300| state)) #b1) false))) ; $logic_and$hyperram.v:954$1408_Y
-(define-fun |hyperram#1042| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1041| state) (ite (|hyperram#103| state) #b1 #b0) (|hyperram#1040| state))) ; $0$formal$hyperram.v:955$262_CHECK[0:0]$716
-(define-fun |hyperram#1043| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1041| state) #b1 #b0)) ; $0$formal$hyperram.v:955$262_EN[0:0]$717
-; yosys-smt2-anyseq hyperram#1044 1 $auto$setundef.cc:501:execute$3888
-(declare-fun |hyperram#1044| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3889
-; yosys-smt2-anyseq hyperram#1045 1 $auto$setundef.cc:501:execute$3886
-(declare-fun |hyperram#1045| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3887
-(define-fun |hyperram#1046| ((state |hyperram_s|)) Bool (or  (|hyperram#103| state) false  (|hyperram#623| state) false)) ; $logic_or$hyperram.v:959$1415_Y
-(define-fun |hyperram#1047| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#417| state) (ite (|hyperram#1046| state) #b1 #b0) (|hyperram#1045| state))) ; $procmux$2267_Y
-(define-fun |hyperram#1048| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1047| state) (|hyperram#1044| state))) ; $0$formal$hyperram.v:959$263_CHECK[0:0]$718
-(define-fun |hyperram#1049| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#417| state) #b1 #b0)) ; $procmux$2263_Y
-(define-fun |hyperram#1050| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1049| state) #b0)) ; $0$formal$hyperram.v:959$263_EN[0:0]$719
-; yosys-smt2-anyseq hyperram#1051 1 $auto$setundef.cc:501:execute$3892
-(declare-fun |hyperram#1051| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3893
-; yosys-smt2-anyseq hyperram#1052 1 $auto$setundef.cc:501:execute$3890
-(declare-fun |hyperram#1052| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3891
-(define-fun |hyperram#1053| ((state |hyperram_s|)) Bool (or  (|hyperram#623| state) false  (|hyperram#88| state) false)) ; $logic_or$hyperram.v:962$1419_Y
-(define-fun |hyperram#1054| ((state |hyperram_s|)) Bool (= (|hyperram#74| state) #b001)) ; $eq$hyperram.v:961$1416_Y
-(define-fun |hyperram#1055| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1054| state) (ite (|hyperram#1053| state) #b1 #b0) (|hyperram#1052| state))) ; $procmux$2275_Y
-(define-fun |hyperram#1056| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1055| state) (|hyperram#1051| state))) ; $0$formal$hyperram.v:962$264_CHECK[0:0]$720
-(define-fun |hyperram#1057| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1054| state) #b1 #b0)) ; $procmux$2271_Y
-(define-fun |hyperram#1058| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1057| state) #b0)) ; $0$formal$hyperram.v:962$264_EN[0:0]$721
-; yosys-smt2-anyseq hyperram#1059 1 $auto$setundef.cc:501:execute$3896
-(declare-fun |hyperram#1059| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3897
-; yosys-smt2-anyseq hyperram#1060 1 $auto$setundef.cc:501:execute$3894
-(declare-fun |hyperram#1060| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3895
-(define-fun |hyperram#1061| ((state |hyperram_s|)) Bool (and (or  (|hyperram#77| state) false) (or  (= ((_ extract 46 46) (|hyperram#46| state)) #b1) false))) ; $logic_and$hyperram.v:965$1423_Y
-(define-fun |hyperram#1062| ((state |hyperram_s|)) Bool (or  (|hyperram#88| state) false  (|hyperram#1061| state) false)) ; $logic_or$hyperram.v:965$1424_Y
-(define-fun |hyperram#1063| ((state |hyperram_s|)) Bool (or  (|hyperram#1062| state) false  (|hyperram#328| state) false)) ; $logic_or$hyperram.v:965$1426_Y
-(define-fun |hyperram#1064| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#308| state) (ite (|hyperram#1063| state) #b1 #b0) (|hyperram#1060| state))) ; $procmux$2283_Y
-(define-fun |hyperram#1065| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1064| state) (|hyperram#1059| state))) ; $0$formal$hyperram.v:965$265_CHECK[0:0]$722
-(define-fun |hyperram#1066| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#308| state) #b1 #b0)) ; $procmux$2279_Y
-(define-fun |hyperram#1067| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1066| state) #b0)) ; $0$formal$hyperram.v:965$265_EN[0:0]$723
-; yosys-smt2-anyseq hyperram#1068 1 $auto$setundef.cc:501:execute$3900
-(declare-fun |hyperram#1068| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3901
-; yosys-smt2-anyseq hyperram#1069 1 $auto$setundef.cc:501:execute$3898
-(declare-fun |hyperram#1069| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3899
-(define-fun |hyperram#1070| ((state |hyperram_s|)) Bool (or  (|hyperram#77| state) false  (|hyperram#396| state) false)) ; $logic_or$hyperram.v:968$1430_Y
-(define-fun |hyperram#1071| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#392| state) (ite (|hyperram#1070| state) #b1 #b0) (|hyperram#1069| state))) ; $procmux$2291_Y
-(define-fun |hyperram#1072| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1071| state) (|hyperram#1068| state))) ; $0$formal$hyperram.v:968$266_CHECK[0:0]$724
-(define-fun |hyperram#1073| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#392| state) #b1 #b0)) ; $procmux$2287_Y
-(define-fun |hyperram#1074| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1073| state) #b0)) ; $0$formal$hyperram.v:968$266_EN[0:0]$725
-; yosys-smt2-anyseq hyperram#1075 1 $auto$setundef.cc:501:execute$3904
-(declare-fun |hyperram#1075| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3905
-; yosys-smt2-anyseq hyperram#1076 1 $auto$setundef.cc:501:execute$3902
-(declare-fun |hyperram#1076| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3903
-(define-fun |hyperram#1077| ((state |hyperram_s|)) Bool (or  (|hyperram#328| state) false  (|hyperram#79| state) false)) ; $logic_or$hyperram.v:971$1436_Y
-(define-fun |hyperram#1078| ((state |hyperram_s|)) Bool (and (or  (|hyperram#121| state) false) (or  (= ((_ extract 47 47) (|hyperram#46| state)) #b1) false))) ; $logic_and$hyperram.v:971$1438_Y
-(define-fun |hyperram#1079| ((state |hyperram_s|)) Bool (or  (|hyperram#1077| state) false  (|hyperram#1078| state) false)) ; $logic_or$hyperram.v:971$1439_Y
-(define-fun |hyperram#1080| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#355| state) (ite (|hyperram#1079| state) #b1 #b0) (|hyperram#1076| state))) ; $procmux$2299_Y
-(define-fun |hyperram#1081| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1080| state) (|hyperram#1075| state))) ; $0$formal$hyperram.v:971$267_CHECK[0:0]$726
-(define-fun |hyperram#1082| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#355| state) #b1 #b0)) ; $procmux$2295_Y
-(define-fun |hyperram#1083| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1082| state) #b0)) ; $0$formal$hyperram.v:971$267_EN[0:0]$727
-; yosys-smt2-anyseq hyperram#1084 1 $auto$setundef.cc:501:execute$3908
-(declare-fun |hyperram#1084| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3909
-; yosys-smt2-anyseq hyperram#1085 1 $auto$setundef.cc:501:execute$3906
-(declare-fun |hyperram#1085| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3907
-(define-fun |hyperram#1086| ((state |hyperram_s|)) Bool (or  (|hyperram#121| state) false  (|hyperram#396| state) false)) ; $logic_or$hyperram.v:974$1443_Y
-(define-fun |hyperram#1087| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#393| state) (ite (|hyperram#1086| state) #b1 #b0) (|hyperram#1085| state))) ; $procmux$2307_Y
-(define-fun |hyperram#1088| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1087| state) (|hyperram#1084| state))) ; $0$formal$hyperram.v:974$268_CHECK[0:0]$728
-(define-fun |hyperram#1089| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#393| state) #b1 #b0)) ; $procmux$2303_Y
-(define-fun |hyperram#1090| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1089| state) #b0)) ; $0$formal$hyperram.v:974$268_EN[0:0]$729
-; yosys-smt2-anyseq hyperram#1091 1 $auto$setundef.cc:501:execute$3912
-(declare-fun |hyperram#1091| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3913
-; yosys-smt2-anyseq hyperram#1092 1 $auto$setundef.cc:501:execute$3910
-(declare-fun |hyperram#1092| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3911
-(define-fun |hyperram#1093| ((state |hyperram_s|)) Bool (or  (|hyperram#396| state) false  (|hyperram#103| state) false)) ; $logic_or$hyperram.v:977$1447_Y
-(define-fun |hyperram#1094| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#405| state) (ite (|hyperram#1093| state) #b1 #b0) (|hyperram#1092| state))) ; $procmux$2315_Y
-(define-fun |hyperram#1095| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1094| state) (|hyperram#1091| state))) ; $0$formal$hyperram.v:977$269_CHECK[0:0]$730
-(define-fun |hyperram#1096| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#405| state) #b1 #b0)) ; $procmux$2311_Y
-(define-fun |hyperram#1097| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1096| state) #b0)) ; $0$formal$hyperram.v:977$269_EN[0:0]$731
-; yosys-smt2-anyseq hyperram#1098 1 $auto$setundef.cc:501:execute$3916
-(declare-fun |hyperram#1098| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3917
-; yosys-smt2-anyseq hyperram#1099 1 $auto$setundef.cc:501:execute$3914
-(declare-fun |hyperram#1099| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3915
-(define-fun |hyperram#1100| ((state |hyperram_s|)) Bool (distinct (|hyperram#76| state) (|hyperram#74| state))) ; $ne$hyperram.v:980$1456_Y
-(define-fun |hyperram#1101| ((state |hyperram_s|)) Bool (and (or  (|hyperram#307| state) false) (or  (|hyperram#456| state) false))) ; $logic_and$hyperram.v:979$1453_Y
-(define-fun |hyperram#1102| ((state |hyperram_s|)) Bool (distinct (|hyperram#74| state) #b000)) ; $ne$hyperram.v:979$1454_Y
-(define-fun |hyperram#1103| ((state |hyperram_s|)) Bool (and (or  (|hyperram#1101| state) false) (or  (|hyperram#1102| state) false))) ; $logic_and$hyperram.v:979$1455_Y
-(define-fun |hyperram#1104| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1103| state) (ite (|hyperram#1100| state) #b1 #b0) (|hyperram#1099| state))) ; $procmux$2323_Y
-(define-fun |hyperram#1105| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1104| state) (|hyperram#1098| state))) ; $0$formal$hyperram.v:980$270_CHECK[0:0]$732
-(define-fun |hyperram#1106| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1103| state) #b1 #b0)) ; $procmux$2319_Y
-(define-fun |hyperram#1107| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1106| state) #b0)) ; $0$formal$hyperram.v:980$270_EN[0:0]$733
-; yosys-smt2-anyseq hyperram#1108 1 $auto$setundef.cc:501:execute$3920
-(declare-fun |hyperram#1108| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3921
-; yosys-smt2-anyseq hyperram#1109 1 $auto$setundef.cc:501:execute$3918
-(declare-fun |hyperram#1109| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3919
-(define-fun |hyperram#1110| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#54| state)) #b1) (= ((_ extract 1 1) (|hyperram#54| state)) #b1) (= ((_ extract 2 2) (|hyperram#54| state)) #b1)))) ; $eq$hyperram.v:982$1461_Y
-(define-fun |hyperram#1111| ((state |hyperram_s|)) Bool (and (or  (|hyperram#307| state) false) (or  (|hyperram#1110| state) false))) ; $logic_and$hyperram.v:982$1462_Y
-(define-fun |hyperram#1112| ((state |hyperram_s|)) Bool (and (or  (|hyperram#1111| state) false) (or  (|hyperram#393| state) false))) ; $logic_and$hyperram.v:982$1464_Y
-(define-fun |hyperram#1113| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1112| state) (ite (|hyperram#396| state) #b1 #b0) (|hyperram#1109| state))) ; $procmux$2331_Y
-(define-fun |hyperram#1114| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1113| state) (|hyperram#1108| state))) ; $0$formal$hyperram.v:983$271_CHECK[0:0]$734
-(define-fun |hyperram#1115| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1112| state) #b1 #b0)) ; $procmux$2327_Y
-(define-fun |hyperram#1116| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1115| state) #b0)) ; $0$formal$hyperram.v:983$271_EN[0:0]$735
-; yosys-smt2-anyseq hyperram#1117 1 $auto$setundef.cc:501:execute$3924
-(declare-fun |hyperram#1117| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3925
-; yosys-smt2-anyseq hyperram#1118 1 $auto$setundef.cc:501:execute$3922
-(declare-fun |hyperram#1118| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3923
-(define-fun |hyperram#1119| ((state |hyperram_s|)) Bool (and (or  (|hyperram#418| state) false) (or  (|hyperram#456| state) false))) ; $logic_and$hyperram.v:985$1473_Y
-(define-fun |hyperram#1120| ((state |hyperram_s|)) Bool (and (or  (|hyperram#1119| state) false) (or  (= ((_ extract 0 0) (|hyperram#47| state)) #b1) false))) ; $logic_and$hyperram.v:985$1474_Y
-(define-fun |hyperram#1121| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1120| state) (ite (|hyperram#623| state) #b1 #b0) (|hyperram#1118| state))) ; $procmux$2339_Y
-(define-fun |hyperram#1122| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1121| state) (|hyperram#1117| state))) ; $0$formal$hyperram.v:986$272_CHECK[0:0]$736
-(define-fun |hyperram#1123| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1120| state) #b1 #b0)) ; $procmux$2335_Y
-(define-fun |hyperram#1124| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1123| state) #b0)) ; $0$formal$hyperram.v:986$272_EN[0:0]$737
-; yosys-smt2-anyseq hyperram#1125 1 $auto$setundef.cc:501:execute$3928
-(declare-fun |hyperram#1125| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3929
-; yosys-smt2-anyseq hyperram#1126 1 $auto$setundef.cc:501:execute$3926
-(declare-fun |hyperram#1126| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3927
-(define-fun |hyperram#1127| ((state |hyperram_s|)) (_ BitVec 7) (bvadd (concat #b0 (|hyperram#82| state)) #b0000001)) ; $add$hyperram.v:992$1486_Y
-(define-fun |hyperram#1128| ((state |hyperram_s|)) Bool (= (concat #b0 (|hyperram#80| state)) (|hyperram#1127| state))) ; $eq$hyperram.v:992$1487_Y
-(define-fun |hyperram#1129| ((state |hyperram_s|)) Bool (= (|hyperram#74| state) (|hyperram#76| state))) ; $eq$hyperram.v:991$1482_Y
-(define-fun |hyperram#1130| ((state |hyperram_s|)) Bool (and (or  (|hyperram#307| state) false) (or  (|hyperram#1129| state) false))) ; $logic_and$hyperram.v:991$1483_Y
-(define-fun |hyperram#1131| ((state |hyperram_s|)) Bool (and (or  (|hyperram#1130| state) false) (or  (|hyperram#116| state) false))) ; $logic_and$hyperram.v:991$1485_Y
-(define-fun |hyperram#1132| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1131| state) (ite (|hyperram#1128| state) #b1 #b0) (|hyperram#1126| state))) ; $procmux$2347_Y
-(define-fun |hyperram#1133| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1132| state) (|hyperram#1125| state))) ; $0$formal$hyperram.v:992$273_CHECK[0:0]$738
-(define-fun |hyperram#1134| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1131| state) #b1 #b0)) ; $procmux$2343_Y
-(define-fun |hyperram#1135| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1134| state) #b0)) ; $0$formal$hyperram.v:992$273_EN[0:0]$739
-; yosys-smt2-anyseq hyperram#1136 1 $auto$setundef.cc:501:execute$3932
-(declare-fun |hyperram#1136| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3933
-; yosys-smt2-anyseq hyperram#1137 1 $auto$setundef.cc:501:execute$3930
-(declare-fun |hyperram#1137| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3931
-(define-fun |hyperram#1138| ((state |hyperram_s|)) Bool (= (|hyperram#82| state) (concat #b00 (|hyperram#16| state)))) ; $eq$hyperram.v:995$1496_Y
-(define-fun |hyperram#1139| ((state |hyperram_s|)) Bool (and (or  (|hyperram#418| state) false) (or  (|hyperram#623| state) false))) ; $logic_and$hyperram.v:994$1495_Y
-(define-fun |hyperram#1140| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1139| state) (ite (|hyperram#1138| state) #b1 #b0) (|hyperram#1137| state))) ; $procmux$2355_Y
-(define-fun |hyperram#1141| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1140| state) (|hyperram#1136| state))) ; $0$formal$hyperram.v:995$274_CHECK[0:0]$740
-(define-fun |hyperram#1142| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1139| state) #b1 #b0)) ; $procmux$2351_Y
-(define-fun |hyperram#1143| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1142| state) #b0)) ; $0$formal$hyperram.v:995$274_EN[0:0]$741
-; yosys-smt2-anyseq hyperram#1144 1 $auto$setundef.cc:501:execute$3936
-(declare-fun |hyperram#1144| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3937
-; yosys-smt2-anyseq hyperram#1145 1 $auto$setundef.cc:501:execute$3934
-(declare-fun |hyperram#1145| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3935
-(define-fun |hyperram#1146| ((state |hyperram_s|)) Bool (and (or  (|hyperram#307| state) false) (or  (|hyperram#1054| state) false))) ; $logic_and$hyperram.v:997$1502_Y
-(define-fun |hyperram#1147| ((state |hyperram_s|)) Bool (and (or  (|hyperram#1146| state) false) (or  (|hyperram#88| state) false))) ; $logic_and$hyperram.v:997$1504_Y
-(define-fun |hyperram#1148| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1147| state) (ite (|hyperram#99| state) #b1 #b0) (|hyperram#1145| state))) ; $procmux$2363_Y
-(define-fun |hyperram#1149| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1148| state) (|hyperram#1144| state))) ; $0$formal$hyperram.v:998$275_CHECK[0:0]$742
-(define-fun |hyperram#1150| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1147| state) #b1 #b0)) ; $procmux$2359_Y
-(define-fun |hyperram#1151| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#313| state) (|hyperram#1150| state) #b0)) ; $0$formal$hyperram.v:998$275_EN[0:0]$743
-(define-fun |hyperram#1152| ((state |hyperram_s|)) Bool (distinct (|hyperram#76| state) #b011)) ; $0$past$hyperram.v:1064$182$0[0:0]$583
-(define-fun |hyperram#1153| ((state |hyperram_s|)) Bool (= (|hyperram#24| state) #b0111)) ; $0$past$hyperram.v:436$6$0[0:0]$407
-(define-fun |hyperram#1154| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#538| state) (|hyperram#102| state) ((_ extract 7 0) (|hyperram#114| state)))) ; $procmux$2684_Y
-(define-fun |hyperram#1155| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#56| state)) #b1) false))) ; $logic_not$hyperram.v:309$376_Y
-(define-fun |hyperram#1156| ((state |hyperram_s|)) Bool (and (or  (|hyperram#86| state) false) (or  (|hyperram#1155| state) false))) ; $logic_and$hyperram.v:309$377_Y
-(define-fun |hyperram#1157| ((state |hyperram_s|)) Bool (and (or  (= ((_ extract 0 0) (|hyperram#38| state)) #b1) false) (or  (= ((_ extract 0 0) (|hyperram#56| state)) #b1) false))) ; $logic_and$hyperram.v:309$378_Y
-(define-fun |hyperram#1158| ((state |hyperram_s|)) Bool (or  (|hyperram#1156| state) false  (|hyperram#1157| state) false)) ; $logic_or$hyperram.v:309$379_Y
-(define-fun |hyperram#1159| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#1158| state) (|hyperram#1154| state) ((_ extract 7 0) (|hyperram#114| state)))) ; $procmux$2686_Y
-(define-fun |hyperram#1160| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#623| state) #b00000000 (ite (|hyperram#121| state) (|hyperram#1159| state) ((_ extract 7 0) (|hyperram#114| state))))) ; $procmux$2688_Y
-(define-fun |hyperram#1161| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#42| state) #b00000000 (|hyperram#1160| state))) ; $0\datar_r[31:0] [7:0]
-(define-fun |hyperram#1162| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#365| state) (|hyperram#102| state) ((_ extract 15 8) (|hyperram#114| state)))) ; $procmux$2674_Y
-(define-fun |hyperram#1163| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#1158| state) (|hyperram#1162| state) ((_ extract 15 8) (|hyperram#114| state)))) ; $procmux$2676_Y
-(define-fun |hyperram#1164| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#623| state) #b00000000 (ite (|hyperram#121| state) (|hyperram#1163| state) ((_ extract 15 8) (|hyperram#114| state))))) ; $procmux$2678_Y
-(define-fun |hyperram#1165| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#42| state) #b00000000 (|hyperram#1164| state))) ; $0\datar_r[31:0] [15:8]
-(define-fun |hyperram#1166| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#517| state) (|hyperram#102| state) ((_ extract 23 16) (|hyperram#114| state)))) ; $procmux$2696_Y
-(define-fun |hyperram#1167| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#1158| state) (|hyperram#1166| state) ((_ extract 23 16) (|hyperram#114| state)))) ; $procmux$2698_Y
-(define-fun |hyperram#1168| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#623| state) #b00000000 (ite (|hyperram#121| state) (|hyperram#1167| state) ((_ extract 23 16) (|hyperram#114| state))))) ; $procmux$2700_Y
-(define-fun |hyperram#1169| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#42| state) #b00000000 (|hyperram#1168| state))) ; $0\datar_r[31:0] [23:16]
-(define-fun |hyperram#1170| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#374| state) (|hyperram#102| state) ((_ extract 31 24) (|hyperram#114| state)))) ; $procmux$2709_Y
-(define-fun |hyperram#1171| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#1158| state) (|hyperram#1170| state) ((_ extract 31 24) (|hyperram#114| state)))) ; $procmux$2711_Y
-(define-fun |hyperram#1172| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#623| state) #b00000000 (ite (|hyperram#121| state) (|hyperram#1171| state) ((_ extract 31 24) (|hyperram#114| state))))) ; $procmux$2713_Y
-(define-fun |hyperram#1173| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#42| state) #b00000000 (|hyperram#1172| state))) ; $0\datar_r[31:0] [31:24]
-(define-fun |hyperram#1174| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#125| state) (|hyperram#108| state) #b0)) ; $ternary$hyperram.v:287$374_Y [0]
-(define-fun |hyperram#1175| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#42| state) #b0 (|hyperram#1174| state))) ; $0\bus_clk_r[0:0]
-(define-fun |hyperram#1176| ((state |hyperram_s|)) Bool (and (or  (= ((_ extract 0 0) (|hyperram#9| state)) #b1) false) (or  (|hyperram#560| state) false))) ; $logic_and$hyperram.v:145$328_Y
-(define-fun |hyperram#1177| ((state |hyperram_s|)) (_ BitVec 32) (ite (|hyperram#1176| state) (|hyperram#115| state) (|hyperram#92| state))) ; $procmux$2958_Y
-(define-fun |hyperram#1178| ((state |hyperram_s|)) (_ BitVec 32) (ite (|hyperram#103| state) (|hyperram#1177| state) (|hyperram#92| state))) ; $procmux$2960_Y
-(define-fun |hyperram#1179| ((state |hyperram_s|)) (_ BitVec 32) (ite (|hyperram#42| state) #b00000000000000000000000000000000 (|hyperram#1178| state))) ; $0\dataw_r[31:0]
-(define-fun |hyperram#1180| ((state |hyperram_s|)) (_ BitVec 6) (bvsub (|hyperram#82| state) #b000001)) ; $auto$wreduce.cc:454:run$3505 [5:0]
-(define-fun |hyperram#1181| ((state |hyperram_s|)) Bool (distinct (|hyperram#82| state) #b000000)) ; $procmux$2831_CMP
-(define-fun |hyperram#1182| ((state |hyperram_s|)) (_ BitVec 6) (ite (|hyperram#1181| state) (|hyperram#1180| state) (concat #b00 (|hyperram#24| state)))) ; $procmux$2830_Y
-(define-fun |hyperram#1183| ((state |hyperram_s|)) (_ BitVec 6) (ite (|hyperram#1181| state) (|hyperram#1180| state) (|hyperram#82| state))) ; $procmux$2834_Y
-(define-fun |hyperram#1184| ((state |hyperram_s|)) Bool (or  (|hyperram#93| state) false  (|hyperram#549| state) false)) ; $logic_or$hyperram.v:240$353_Y
-(define-fun |hyperram#1185| ((state |hyperram_s|)) (_ BitVec 6) (ite (|hyperram#1184| state) (concat #b00 (|hyperram#20| state)) (|hyperram#1183| state))) ; $procmux$2837_Y
-(define-fun |hyperram#1186| ((state |hyperram_s|)) (_ BitVec 6) (ite (|hyperram#1181| state) (|hyperram#1180| state) (concat #b00 (|hyperram#20| state)))) ; $procmux$2841_Y
-(define-fun |hyperram#1187| ((state |hyperram_s|)) (_ BitVec 6) (bvsub (concat (|hyperram#12| state) #b0) #b000010)) ; $sub$hyperram.v:221$348_Y [5:0]
-(define-fun |hyperram#1188| ((state |hyperram_s|)) (_ BitVec 6) (ite (= ((_ extract 47 47) (|hyperram#46| state)) #b1) (|hyperram#1187| state) #b000011)) ; $procmux$2845_Y
-(define-fun |hyperram#1189| ((state |hyperram_s|)) (_ BitVec 6) (ite (|hyperram#1181| state) (|hyperram#1180| state) (|hyperram#1188| state))) ; $procmux$2848_Y
-(define-fun |hyperram#1190| ((state |hyperram_s|)) (_ BitVec 6) (ite (= ((_ extract 46 46) (|hyperram#46| state)) #b1) #b000001 (|hyperram#73| state))) ; $procmux$2852_Y
-(define-fun |hyperram#1191| ((state |hyperram_s|)) (_ BitVec 6) (ite (= ((_ extract 47 47) (|hyperram#46| state)) #b1) (|hyperram#73| state) (|hyperram#1190| state))) ; $procmux$2855_Y
-(define-fun |hyperram#1192| ((state |hyperram_s|)) (_ BitVec 6) (ite (|hyperram#1181| state) (|hyperram#1180| state) (|hyperram#1191| state))) ; $procmux$2858_Y
-(define-fun |hyperram#1193| ((state |hyperram_s|)) (_ BitVec 6) (ite (|hyperram#1181| state) (|hyperram#1180| state) #b000101)) ; $procmux$2862_Y
-(define-fun |hyperram#1194| ((state |hyperram_s|)) Bool (distinct (|hyperram#82| state) #b000000)) ; $reduce_or$hyperram.v:164$330_Y
-(define-fun |hyperram#1195| ((state |hyperram_s|)) Bool (not (or  (|hyperram#1194| state) false))) ; $logic_not$hyperram.v:164$331_Y
-(define-fun |hyperram#1196| ((state |hyperram_s|)) Bool (or  (= ((_ extract 0 0) (|hyperram#49| state)) #b1) false  (|hyperram#1176| state) false)) ; $logic_or$hyperram.v:164$334_Y
-(define-fun |hyperram#1197| ((state |hyperram_s|)) Bool (and (or  (|hyperram#1195| state) false) (or  (|hyperram#1196| state) false))) ; $logic_and$hyperram.v:164$335_Y
-(define-fun |hyperram#1198| ((state |hyperram_s|)) (_ BitVec 6) (ite (|hyperram#1197| state) (concat #b00 (|hyperram#17| state)) (|hyperram#1183| state))) ; $procmux$2867_Y
-(define-fun |hyperram#1199| ((state |hyperram_s|)) (_ BitVec 6) (ite (|hyperram#103| state) (|hyperram#1198| state) (ite (|hyperram#623| state) (|hyperram#1193| state) (ite (|hyperram#88| state) (|hyperram#1192| state) (ite (|hyperram#328| state) (|hyperram#1189| state) (ite (|hyperram#77| state) (|hyperram#1186| state) (ite (|hyperram#121| state) (|hyperram#1185| state) (ite (|hyperram#396| state) (|hyperram#1182| state) (|hyperram#82| state))))))))) ; $procmux$2832_Y
-(define-fun |hyperram#1200| ((state |hyperram_s|)) (_ BitVec 6) (ite (|hyperram#42| state) #b000100 (|hyperram#1199| state))) ; $0\cycle_cnt_r[5:0]
-(define-fun |hyperram#1201| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#1181| state) (|hyperram#76| state) #b000)) ; $procmux$2874_Y
-(define-fun |hyperram#1202| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#1184| state) #b110 (|hyperram#76| state))) ; $procmux$2879_Y
-(define-fun |hyperram#1203| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#1181| state) (|hyperram#76| state) #b110)) ; $procmux$2883_Y
-(define-fun |hyperram#1204| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 47 47) (|hyperram#46| state)) #b1) #b1 #b0)) ; $auto$wreduce.cc:454:run$3503 [0]
-(define-fun |hyperram#1205| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#1181| state) (|hyperram#76| state) (concat #b10 (|hyperram#1204| state)))) ; $procmux$2890_Y
-(define-fun |hyperram#1206| ((state |hyperram_s|)) (_ BitVec 3) (ite (= ((_ extract 46 46) (|hyperram#46| state)) #b1) #b100 #b011)) ; $procmux$2894_Y
-(define-fun |hyperram#1207| ((state |hyperram_s|)) (_ BitVec 3) (ite (= ((_ extract 47 47) (|hyperram#46| state)) #b1) #b011 (|hyperram#1206| state))) ; $procmux$2897_Y
-(define-fun |hyperram#1208| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#1181| state) (|hyperram#76| state) (|hyperram#1207| state))) ; $procmux$2900_Y
-(define-fun |hyperram#1209| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#1181| state) (|hyperram#76| state) #b010)) ; $procmux$2904_Y
-(define-fun |hyperram#1210| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#1197| state) #b001 (|hyperram#76| state))) ; $procmux$2907_Y
-(define-fun |hyperram#1211| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#103| state) (|hyperram#1210| state) (ite (|hyperram#623| state) (|hyperram#1209| state) (ite (|hyperram#88| state) (|hyperram#1208| state) (ite (|hyperram#328| state) (|hyperram#1205| state) (ite (|hyperram#77| state) (|hyperram#1203| state) (ite (|hyperram#121| state) (|hyperram#1202| state) (ite (|hyperram#396| state) (|hyperram#1201| state) (|hyperram#76| state))))))))) ; $procmux$2876_Y
-(define-fun |hyperram#1212| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#42| state) #b000 (|hyperram#1211| state))) ; $0\bus_state_r[2:0]
-(define-fun |hyperram#1213| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1197| state) (ite (|hyperram#109| state) #b1 #b0) (|hyperram#72| state))) ; $procmux$2984_Y
-(define-fun |hyperram#1214| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#103| state) (|hyperram#1213| state) (|hyperram#72| state))) ; $procmux$2986_Y
-(define-fun |hyperram#1215| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#42| state) #b1 (|hyperram#1214| state))) ; $0\fixed_latency_r[0:0]
-(define-fun |hyperram#1216| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1197| state) (ite (|hyperram#111| state) #b1 #b0) (|hyperram#66| state))) ; $procmux$2971_Y
-(define-fun |hyperram#1217| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#103| state) (|hyperram#1216| state) (|hyperram#66| state))) ; $procmux$2973_Y
-(define-fun |hyperram#1218| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#42| state) #b1 (|hyperram#1217| state))) ; $0\double_latency_r[0:0]
-(define-fun |hyperram#1219| ((state |hyperram_s|)) (_ BitVec 3) (bvsub (|hyperram#56| state) #b001)) ; $sub$hyperram.v:312$381_Y [2:0]
-(define-fun |hyperram#1220| ((state |hyperram_s|)) Bool (distinct (|hyperram#56| state) #b000)) ; $ne$hyperram.v:245$355_Y
-(define-fun |hyperram#1221| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#1220| state) (|hyperram#1219| state) (|hyperram#56| state))) ; $procmux$2722_Y
-(define-fun |hyperram#1222| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#1158| state) (|hyperram#1221| state) (|hyperram#56| state))) ; $procmux$2724_Y
-(define-fun |hyperram#1223| ((state |hyperram_s|)) (_ BitVec 3) (ite (= ((_ extract 46 46) (|hyperram#46| state)) #b1) #b010 #b100)) ; $procmux$2729_Y
-(define-fun |hyperram#1224| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#95| state) (|hyperram#1223| state) (|hyperram#56| state))) ; $procmux$2731_Y
-(define-fun |hyperram#1225| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#88| state) (|hyperram#1224| state) (ite (|hyperram#121| state) (|hyperram#1222| state) (|hyperram#56| state)))) ; $procmux$2726_Y
-(define-fun |hyperram#1226| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#42| state) #b000 (|hyperram#1225| state))) ; $0\read_cnt_r[2:0]
-(define-fun |hyperram#1227| ((state |hyperram_s|)) Bool (and (or  (|hyperram#93| state) false) (or  (|hyperram#1220| state) false))) ; $logic_and$hyperram.v:245$356_Y
-(define-fun |hyperram#1228| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1184| state) (ite (|hyperram#1227| state) #b1 #b0) (|hyperram#53| state))) ; $procmux$2915_Y
-(define-fun |hyperram#1229| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1176| state) #b0 (|hyperram#53| state))) ; $procmux$2919_Y
-(define-fun |hyperram#1230| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#103| state) (|hyperram#1229| state) (ite (|hyperram#121| state) (|hyperram#1228| state) (|hyperram#53| state)))) ; $procmux$2917_Y
-(define-fun |hyperram#1231| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#42| state) #b0 (|hyperram#1230| state))) ; $0\read_timeout_r[0:0]
-(define-fun |hyperram#1232| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1181| state) (|hyperram#49| state) #b0)) ; $procmux$2926_Y
-(define-fun |hyperram#1233| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1176| state) #b1 (|hyperram#49| state))) ; $procmux$2930_Y
-(define-fun |hyperram#1234| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#103| state) (|hyperram#1233| state) (ite (|hyperram#396| state) (|hyperram#1232| state) (|hyperram#49| state)))) ; $procmux$2928_Y
-(define-fun |hyperram#1235| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#42| state) #b0 (|hyperram#1234| state))) ; $0\busy_r[0:0]
-(define-fun |hyperram#1236| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#1176| state) ((_ extract 2 0) (|hyperram#126| state)) ((_ extract 2 0) (|hyperram#46| state)))) ; $procmux$2770_Y
-(define-fun |hyperram#1237| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#103| state) (|hyperram#1236| state) ((_ extract 2 0) (|hyperram#46| state)))) ; $procmux$2772_Y
-(define-fun |hyperram#1238| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#42| state) #b000 (|hyperram#1237| state))) ; $0\CA_r[47:0] [2:0]
-(define-fun |hyperram#1239| ((state |hyperram_s|)) (_ BitVec 13) (ite (|hyperram#1176| state) #b0000000000000 ((_ extract 15 3) (|hyperram#46| state)))) ; $procmux$2757_Y
-(define-fun |hyperram#1240| ((state |hyperram_s|)) (_ BitVec 13) (ite (|hyperram#103| state) (|hyperram#1239| state) ((_ extract 15 3) (|hyperram#46| state)))) ; $procmux$2759_Y
-(define-fun |hyperram#1241| ((state |hyperram_s|)) (_ BitVec 13) (ite (|hyperram#42| state) #b0000000000000 (|hyperram#1240| state))) ; $0\CA_r[47:0] [15:3]
-(define-fun |hyperram#1242| ((state |hyperram_s|)) (_ BitVec 29) (ite (|hyperram#1176| state) ((_ extract 31 3) (|hyperram#126| state)) ((_ extract 44 16) (|hyperram#46| state)))) ; $procmux$2783_Y
-(define-fun |hyperram#1243| ((state |hyperram_s|)) (_ BitVec 29) (ite (|hyperram#103| state) (|hyperram#1242| state) ((_ extract 44 16) (|hyperram#46| state)))) ; $procmux$2785_Y
-(define-fun |hyperram#1244| ((state |hyperram_s|)) (_ BitVec 29) (ite (|hyperram#42| state) #b00000000000000000000000000000 (|hyperram#1243| state))) ; $0\CA_r[47:0] [44:16]
-(define-fun |hyperram#1245| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1176| state) #b1 ((_ extract 45 45) (|hyperram#46| state)))) ; $procmux$2796_Y
-(define-fun |hyperram#1246| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#103| state) (|hyperram#1245| state) ((_ extract 45 45) (|hyperram#46| state)))) ; $procmux$2798_Y
-(define-fun |hyperram#1247| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#42| state) #b0 (|hyperram#1246| state))) ; $0\CA_r[47:0] [45]
-(define-fun |hyperram#1248| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1176| state) (ite (|hyperram#43| state) #b1 #b0) ((_ extract 46 46) (|hyperram#46| state)))) ; $procmux$2809_Y
-(define-fun |hyperram#1249| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#103| state) (|hyperram#1248| state) ((_ extract 46 46) (|hyperram#46| state)))) ; $procmux$2811_Y
-(define-fun |hyperram#1250| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#42| state) #b0 (|hyperram#1249| state))) ; $0\CA_r[47:0] [46]
-(define-fun |hyperram#1251| ((state |hyperram_s|)) (_ BitVec 1) (bvnot (ite (|hyperram#0| state) #b1 #b0))) ; $not$hyperram.v:155$329_Y
-(define-fun |hyperram#1252| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1176| state) (|hyperram#1251| state) ((_ extract 47 47) (|hyperram#46| state)))) ; $procmux$2822_Y
-(define-fun |hyperram#1253| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#103| state) (|hyperram#1252| state) ((_ extract 47 47) (|hyperram#46| state)))) ; $procmux$2824_Y
-(define-fun |hyperram#1254| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#42| state) #b0 (|hyperram#1253| state))) ; $0\CA_r[47:0] [47]
-(define-fun |hyperram#1255| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#95| state) (ite (|hyperram#86| state) #b1 #b0) (|hyperram#41| state))) ; $procmux$2738_Y
-(define-fun |hyperram#1256| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#103| state) #b1 (ite (|hyperram#88| state) (|hyperram#1255| state) (|hyperram#41| state)))) ; $procmux$2740_Y
-(define-fun |hyperram#1257| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#42| state) #b1 (|hyperram#1256| state))) ; $0\rwds_2x_latency_r[0:0]
-(define-fun |hyperram#1258| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#121| state) (ite (|hyperram#86| state) #b1 #b0) (|hyperram#38| state))) ; $procmux$2746_Y
-(define-fun |hyperram#1259| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#42| state) #b0 (|hyperram#1258| state))) ; $0\rwds_r[0:0]
-(define-fun |hyperram#1260| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#1176| state) (|hyperram#33| state) (|hyperram#32| state))) ; $procmux$2942_Y
-(define-fun |hyperram#1261| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#103| state) (|hyperram#1260| state) (|hyperram#32| state))) ; $procmux$2944_Y
-(define-fun |hyperram#1262| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#42| state) #b0000 (|hyperram#1261| state))) ; $0\sel_r[3:0]
-(define-fun |hyperram#1263| ((state |hyperram_s|)) Bool (bvuge (|hyperram#29| state) #b0010)) ; $ge$hyperram.v:172$336_Y
-(define-fun |hyperram#1264| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#1263| state) (|hyperram#29| state) #b0010)) ; $ternary$hyperram.v:172$338_Y [3:0]
-(define-fun |hyperram#1265| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#1197| state) (|hyperram#1264| state) (|hyperram#28| state))) ; $procmux$3023_Y
-(define-fun |hyperram#1266| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#103| state) (|hyperram#1265| state) (|hyperram#28| state))) ; $procmux$3025_Y
-(define-fun |hyperram#1267| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#42| state) #b0110 (|hyperram#1266| state))) ; $0\tacc_r[3:0]
-(define-fun |hyperram#1268| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#1197| state) (|hyperram#25| state) (|hyperram#24| state))) ; $procmux$3049_Y
-(define-fun |hyperram#1269| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#103| state) (|hyperram#1268| state) (|hyperram#24| state))) ; $procmux$3051_Y
-(define-fun |hyperram#1270| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#42| state) #b0100 (|hyperram#1269| state))) ; $0\tcsh_r[3:0]
-(define-fun |hyperram#1271| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#1197| state) (|hyperram#21| state) (|hyperram#20| state))) ; $procmux$3010_Y
-(define-fun |hyperram#1272| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#103| state) (|hyperram#1271| state) (|hyperram#20| state))) ; $procmux$3012_Y
-(define-fun |hyperram#1273| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#42| state) #b0100 (|hyperram#1272| state))) ; $0\tpost_r[3:0]
-(define-fun |hyperram#1274| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#1197| state) (|hyperram#17| state) (|hyperram#16| state))) ; $procmux$3036_Y
-(define-fun |hyperram#1275| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#103| state) (|hyperram#1274| state) (|hyperram#16| state))) ; $procmux$3038_Y
-(define-fun |hyperram#1276| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#42| state) #b0100 (|hyperram#1275| state))) ; $0\tpre_r[3:0]
-(define-fun |hyperram#1277| ((state |hyperram_s|)) Bool (bvuge (|hyperram#13| state) #b00100)) ; $ge$hyperram.v:174$339_Y
-(define-fun |hyperram#1278| ((state |hyperram_s|)) (_ BitVec 5) (ite (|hyperram#1277| state) (|hyperram#13| state) #b00100)) ; $ternary$hyperram.v:174$341_Y [4:0]
-(define-fun |hyperram#1279| ((state |hyperram_s|)) (_ BitVec 5) (ite (|hyperram#1197| state) (|hyperram#1278| state) (|hyperram#12| state))) ; $procmux$2997_Y
-(define-fun |hyperram#1280| ((state |hyperram_s|)) (_ BitVec 5) (ite (|hyperram#103| state) (|hyperram#1279| state) (|hyperram#12| state))) ; $procmux$2999_Y
-(define-fun |hyperram#1281| ((state |hyperram_s|)) (_ BitVec 5) (ite (|hyperram#42| state) #b10100 (|hyperram#1280| state))) ; $0\trmax_r[4:0]
-(define-fun |hyperram#1282| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#42| state) #b0 (|hyperram#8| state))) ; $0\valid_r[0:0]
+(define-fun |hyperram_a 64| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#220| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#219| state)) #b1)))) ; $assert$hyperram.v:854$1667
+; yosys-smt2-assert 65 hyperram.v:1080.7-1080.43
+(define-fun |hyperram_a 65| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#259| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#258| state)) #b1)))) ; $assert$hyperram.v:1080$1675
+; yosys-smt2-assert 66 hyperram.v:1079.7-1079.43
+(define-fun |hyperram_a 66| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#261| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#260| state)) #b1)))) ; $assert$hyperram.v:1079$1674
+; yosys-smt2-assert 67 hyperram.v:1078.7-1078.43
+(define-fun |hyperram_a 67| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#263| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#262| state)) #b1)))) ; $assert$hyperram.v:1078$1673
+; yosys-smt2-assert 68 hyperram.v:1077.7-1077.43
+(define-fun |hyperram_a 68| ((state |hyperram_s|)) Bool (or (= ((_ extract 0 0) (|hyperram#265| state)) #b1) (not (= ((_ extract 0 0) (|hyperram#264| state)) #b1)))) ; $assert$hyperram.v:1077$1672
+; yosys-smt2-anyseq hyperram#308 1 $auto$setundef.cc:501:execute$3934
+(declare-fun |hyperram#308| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3935
+; yosys-smt2-anyseq hyperram#309 1 $auto$setundef.cc:501:execute$3932
+(declare-fun |hyperram#309| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3933
+(define-fun |hyperram#310| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#305| state)) #b1) false false false false false false false false false false false false false false false false false false false false false false false false false false false false false false false))) ; $logic_not$hyperram.v:0$1446_Y
+(define-fun |hyperram#311| ((state |hyperram_s|)) Bool (and (or  (|hyperram#310| state) false) (or  (= ((_ extract 0 0) (|hyperram#4| state)) #b1) false false false false false false false false false false false false false false false false false false false false false false false false false false false false false false false))) ; $logic_and$hyperram.v:1000$1506_Y
+(define-fun |hyperram#312| ((state |hyperram_s|)) Bool (= (|hyperram#74| state) #b010)) ; $eq$hyperram.v:1000$1507_Y
+(define-fun |hyperram#313| ((state |hyperram_s|)) Bool (and (or  (|hyperram#311| state) false) (or  (|hyperram#312| state) false))) ; $logic_and$hyperram.v:1000$1508_Y
+(define-fun |hyperram#314| ((state |hyperram_s|)) Bool (and (or  (|hyperram#313| state) false) (or  (|hyperram#84| state) false))) ; $logic_and$hyperram.v:1000$1510_Y
+(define-fun |hyperram#315| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#314| state) (ite (|hyperram#96| state) #b1 #b0) (|hyperram#309| state))) ; $procmux$2368_Y
+(define-fun |hyperram#316| ((state |hyperram_s|)) Bool (not (or  (|hyperram#42| state) false))) ; $logic_not$hyperram.v:1029$1576_Y
+(define-fun |hyperram#317| ((state |hyperram_s|)) Bool (and (or  (= ((_ extract 0 0) (|hyperram#113| state)) #b1) false) (or  (|hyperram#316| state) false))) ; $logic_and$hyperram.v:1029$1577_Y
+(define-fun |hyperram#318| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#315| state) (|hyperram#308| state))) ; $0$formal$hyperram.v:1001$275_CHECK[0:0]$741
+(define-fun |hyperram#319| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#314| state) #b1 #b0)) ; $procmux$2364_Y
+(define-fun |hyperram#320| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#319| state) #b0)) ; $0$formal$hyperram.v:1001$275_EN[0:0]$742
+; yosys-smt2-anyseq hyperram#321 1 $auto$setundef.cc:501:execute$3940
+(declare-fun |hyperram#321| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3941
+; yosys-smt2-anyseq hyperram#322 1 $auto$setundef.cc:501:execute$3938
+(declare-fun |hyperram#322| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3939
+; yosys-smt2-anyseq hyperram#323 1 $auto$setundef.cc:501:execute$3936
+(declare-fun |hyperram#323| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3937
+(define-fun |hyperram#324| ((state |hyperram_s|)) (_ BitVec 2) (bvadd (concat #b0 (|hyperram#66| state)) #b01)) ; $add$hyperram.v:1005$1520_Y
+(define-fun |hyperram#325| ((state |hyperram_s|)) (_ BitVec 4) (bvmul #b0010 (concat #b00 (|hyperram#324| state)))) ; $auto$wreduce.cc:454:run$3488 [3:0]
+(define-fun |hyperram#326| ((state |hyperram_s|)) (_ BitVec 8) (bvmul (concat #b0000 (|hyperram#325| state)) (concat #b0000 (|hyperram#28| state)))) ; $auto$wreduce.cc:454:run$3489 [7:0]
+(define-fun |hyperram#327| ((state |hyperram_s|)) (_ BitVec 9) (bvsub (concat #b0 (|hyperram#326| state)) #b000000010)) ; { $auto$wreduce.cc:454:run$3496 [31] $auto$wreduce.cc:454:run$3496 [7:0] }
+(define-fun |hyperram#328| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 47 47) (|hyperram#46| state)) #b1) false))) ; $auto$wreduce.cc:454:run$3487 [0]
+(define-fun |hyperram#329| ((state |hyperram_s|)) (_ BitVec 32) (bvsub (concat ((_ extract 8 8) (|hyperram#327| state)) (concat ((_ extract 8 8) (|hyperram#327| state)) (concat ((_ extract 8 8) (|hyperram#327| state)) (concat ((_ extract 8 8) (|hyperram#327| state)) (concat ((_ extract 8 8) (|hyperram#327| state)) (concat ((_ extract 8 8) (|hyperram#327| state)) (concat ((_ extract 8 8) (|hyperram#327| state)) (concat ((_ extract 8 8) (|hyperram#327| state)) (concat ((_ extract 8 8) (|hyperram#327| state)) (concat ((_ extract 8 8) (|hyperram#327| state)) (concat ((_ extract 8 8) (|hyperram#327| state)) (concat ((_ extract 8 8) (|hyperram#327| state)) (concat ((_ extract 8 8) (|hyperram#327| state)) (concat ((_ extract 8 8) (|hyperram#327| state)) (concat ((_ extract 8 8) (|hyperram#327| state)) (concat ((_ extract 8 8) (|hyperram#327| state)) (concat ((_ extract 8 8) (|hyperram#327| state)) (concat ((_ extract 8 8) (|hyperram#327| state)) (concat ((_ extract 8 8) (|hyperram#327| state)) (concat ((_ extract 8 8) (|hyperram#327| state)) (concat ((_ extract 8 8) (|hyperram#327| state)) (concat ((_ extract 8 8) (|hyperram#327| state)) (concat ((_ extract 8 8) (|hyperram#327| state)) (|hyperram#327| state)))))))))))))))))))))))) (concat #b0000000000000000000000000000000 (ite (|hyperram#328| state) #b1 #b0)))) ; $sub$hyperram.v:1005$1525_Y
+(define-fun |hyperram#330| ((state |hyperram_s|)) Bool (= (concat #b00000000000000000000000000 (|hyperram#81| state)) (|hyperram#329| state))) ; $eq$hyperram.v:1005$1526_Y
+(define-fun |hyperram#331| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#72| state)) #b1) (ite (|hyperram#330| state) #b1 #b0) (|hyperram#323| state))) ; $procmux$2380_Y
+(define-fun |hyperram#332| ((state |hyperram_s|)) Bool (= (|hyperram#76| state) #b011)) ; $eq$hyperram.v:1003$1518_Y
+(define-fun |hyperram#333| ((state |hyperram_s|)) Bool (and (or  (|hyperram#313| state) false) (or  (|hyperram#332| state) false))) ; $logic_and$hyperram.v:1003$1519_Y
+(define-fun |hyperram#334| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#333| state) (|hyperram#331| state) (|hyperram#322| state))) ; $procmux$2382_Y
+(define-fun |hyperram#335| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#334| state) (|hyperram#321| state))) ; $0$formal$hyperram.v:1005$276_CHECK[0:0]$743
+(define-fun |hyperram#336| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#72| state)) #b1) #b1 #b0)) ; $procmux$2373_Y
+(define-fun |hyperram#337| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#333| state) (|hyperram#336| state) #b0)) ; $procmux$2375_Y
+(define-fun |hyperram#338| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#337| state) #b0)) ; $0$formal$hyperram.v:1005$276_EN[0:0]$744
+; yosys-smt2-anyseq hyperram#339 1 $auto$setundef.cc:501:execute$3946
+(declare-fun |hyperram#339| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3947
+; yosys-smt2-anyseq hyperram#340 1 $auto$setundef.cc:501:execute$3944
+(declare-fun |hyperram#340| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3945
+(define-fun |hyperram#341| ((state |hyperram_s|)) (_ BitVec 2) (bvadd (concat #b0 (|hyperram#41| state)) #b01)) ; $add$hyperram.v:1007$1527_Y
+(define-fun |hyperram#342| ((state |hyperram_s|)) (_ BitVec 4) (bvmul #b0010 (concat #b00 (|hyperram#341| state)))) ; $auto$wreduce.cc:454:run$3490 [3:0]
+(define-fun |hyperram#343| ((state |hyperram_s|)) (_ BitVec 8) (bvmul (concat #b0000 (|hyperram#342| state)) (concat #b0000 (|hyperram#28| state)))) ; $auto$wreduce.cc:454:run$3491 [7:0]
+(define-fun |hyperram#344| ((state |hyperram_s|)) (_ BitVec 9) (bvsub (concat #b0 (|hyperram#343| state)) #b000000010)) ; { $sub$hyperram.v:1007$1530_Y [31] $sub$hyperram.v:1007$1530_Y [7:0] }
+(define-fun |hyperram#345| ((state |hyperram_s|)) (_ BitVec 32) (bvsub (concat ((_ extract 8 8) (|hyperram#344| state)) (concat ((_ extract 8 8) (|hyperram#344| state)) (concat ((_ extract 8 8) (|hyperram#344| state)) (concat ((_ extract 8 8) (|hyperram#344| state)) (concat ((_ extract 8 8) (|hyperram#344| state)) (concat ((_ extract 8 8) (|hyperram#344| state)) (concat ((_ extract 8 8) (|hyperram#344| state)) (concat ((_ extract 8 8) (|hyperram#344| state)) (concat ((_ extract 8 8) (|hyperram#344| state)) (concat ((_ extract 8 8) (|hyperram#344| state)) (concat ((_ extract 8 8) (|hyperram#344| state)) (concat ((_ extract 8 8) (|hyperram#344| state)) (concat ((_ extract 8 8) (|hyperram#344| state)) (concat ((_ extract 8 8) (|hyperram#344| state)) (concat ((_ extract 8 8) (|hyperram#344| state)) (concat ((_ extract 8 8) (|hyperram#344| state)) (concat ((_ extract 8 8) (|hyperram#344| state)) (concat ((_ extract 8 8) (|hyperram#344| state)) (concat ((_ extract 8 8) (|hyperram#344| state)) (concat ((_ extract 8 8) (|hyperram#344| state)) (concat ((_ extract 8 8) (|hyperram#344| state)) (concat ((_ extract 8 8) (|hyperram#344| state)) (concat ((_ extract 8 8) (|hyperram#344| state)) (|hyperram#344| state)))))))))))))))))))))))) (concat #b0000000000000000000000000000000 (ite (|hyperram#328| state) #b1 #b0)))) ; $sub$hyperram.v:1007$1532_Y
+(define-fun |hyperram#346| ((state |hyperram_s|)) Bool (= (concat #b00000000000000000000000000 (|hyperram#81| state)) (|hyperram#345| state))) ; $eq$hyperram.v:1007$1533_Y
+; yosys-smt2-anyseq hyperram#347 1 $auto$setundef.cc:501:execute$3942
+(declare-fun |hyperram#347| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3943
+(define-fun |hyperram#348| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#72| state)) #b1) (|hyperram#347| state) (ite (|hyperram#346| state) #b1 #b0))) ; $procmux$2394_Y
+(define-fun |hyperram#349| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#333| state) (|hyperram#348| state) (|hyperram#340| state))) ; $procmux$2396_Y
+(define-fun |hyperram#350| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#349| state) (|hyperram#339| state))) ; $0$formal$hyperram.v:1007$277_CHECK[0:0]$745
+(define-fun |hyperram#351| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#72| state)) #b1) #b0 #b1)) ; $procmux$2387_Y
+(define-fun |hyperram#352| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#333| state) (|hyperram#351| state) #b0)) ; $procmux$2389_Y
+(define-fun |hyperram#353| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#352| state) #b0)) ; $0$formal$hyperram.v:1007$277_EN[0:0]$746
+; yosys-smt2-anyseq hyperram#354 1 $auto$setundef.cc:501:execute$3950
+(declare-fun |hyperram#354| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3951
+; yosys-smt2-anyseq hyperram#355 1 $auto$setundef.cc:501:execute$3948
+(declare-fun |hyperram#355| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3949
+(define-fun |hyperram#356| ((state |hyperram_s|)) (_ BitVec 7) (bvmul #b0000010 (concat #b00 (|hyperram#12| state)))) ; $auto$wreduce.cc:454:run$3492 [6:0]
+(define-fun |hyperram#357| ((state |hyperram_s|)) (_ BitVec 8) (bvsub (concat #b0 (|hyperram#356| state)) #b00000010)) ; { $sub$hyperram.v:1011$1543_Y [31] $sub$hyperram.v:1011$1543_Y [6:0] }
+(define-fun |hyperram#358| ((state |hyperram_s|)) Bool (= (concat #b00000000000000000000000000 (|hyperram#81| state)) (concat ((_ extract 7 7) (|hyperram#357| state)) (concat ((_ extract 7 7) (|hyperram#357| state)) (concat ((_ extract 7 7) (|hyperram#357| state)) (concat ((_ extract 7 7) (|hyperram#357| state)) (concat ((_ extract 7 7) (|hyperram#357| state)) (concat ((_ extract 7 7) (|hyperram#357| state)) (concat ((_ extract 7 7) (|hyperram#357| state)) (concat ((_ extract 7 7) (|hyperram#357| state)) (concat ((_ extract 7 7) (|hyperram#357| state)) (concat ((_ extract 7 7) (|hyperram#357| state)) (concat ((_ extract 7 7) (|hyperram#357| state)) (concat ((_ extract 7 7) (|hyperram#357| state)) (concat ((_ extract 7 7) (|hyperram#357| state)) (concat ((_ extract 7 7) (|hyperram#357| state)) (concat ((_ extract 7 7) (|hyperram#357| state)) (concat ((_ extract 7 7) (|hyperram#357| state)) (concat ((_ extract 7 7) (|hyperram#357| state)) (concat ((_ extract 7 7) (|hyperram#357| state)) (concat ((_ extract 7 7) (|hyperram#357| state)) (concat ((_ extract 7 7) (|hyperram#357| state)) (concat ((_ extract 7 7) (|hyperram#357| state)) (concat ((_ extract 7 7) (|hyperram#357| state)) (concat ((_ extract 7 7) (|hyperram#357| state)) (concat ((_ extract 7 7) (|hyperram#357| state)) (|hyperram#357| state))))))))))))))))))))))))))) ; $eq$hyperram.v:1011$1544_Y
+(define-fun |hyperram#359| ((state |hyperram_s|)) Bool (= (|hyperram#74| state) #b011)) ; $eq$hyperram.v:1010$1538_Y
+(define-fun |hyperram#360| ((state |hyperram_s|)) Bool (and (or  (|hyperram#311| state) false) (or  (|hyperram#359| state) false))) ; $logic_and$hyperram.v:1010$1539_Y
+(define-fun |hyperram#361| ((state |hyperram_s|)) Bool (and (or  (|hyperram#360| state) false) (or  (|hyperram#124| state) false))) ; $logic_and$hyperram.v:1010$1541_Y
+(define-fun |hyperram#362| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#361| state) (ite (|hyperram#358| state) #b1 #b0) (|hyperram#355| state))) ; $procmux$2404_Y
+(define-fun |hyperram#363| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#362| state) (|hyperram#354| state))) ; $0$formal$hyperram.v:1011$278_CHECK[0:0]$747
+(define-fun |hyperram#364| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#361| state) #b1 #b0)) ; $procmux$2400_Y
+(define-fun |hyperram#365| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#364| state) #b0)) ; $0$formal$hyperram.v:1011$278_EN[0:0]$748
+; yosys-smt2-anyseq hyperram#366 1 $auto$setundef.cc:501:execute$3956
+(declare-fun |hyperram#366| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3957
+; yosys-smt2-anyseq hyperram#367 1 $auto$setundef.cc:501:execute$3954
+(declare-fun |hyperram#367| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3955
+; yosys-smt2-anyseq hyperram#368 1 $auto$setundef.cc:501:execute$3952
+(declare-fun |hyperram#368| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3953
+(define-fun |hyperram#369| ((state |hyperram_s|)) Bool (= (|hyperram#56| state) #b010)) ; $eq$hyperram.v:1013$1545_Y
+(define-fun |hyperram#370| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 46 46) (|hyperram#46| state)) #b1) (ite (|hyperram#369| state) #b1 #b0) (|hyperram#368| state))) ; $procmux$2416_Y
+(define-fun |hyperram#371| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#361| state) (|hyperram#370| state) (|hyperram#367| state))) ; $procmux$2418_Y
+(define-fun |hyperram#372| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#371| state) (|hyperram#366| state))) ; $0$formal$hyperram.v:1013$279_CHECK[0:0]$749
+(define-fun |hyperram#373| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 46 46) (|hyperram#46| state)) #b1) #b1 #b0)) ; $procmux$2187_Y
+(define-fun |hyperram#374| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#361| state) (|hyperram#373| state) #b0)) ; $procmux$2411_Y
+(define-fun |hyperram#375| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#374| state) #b0)) ; $0$formal$hyperram.v:1013$279_EN[0:0]$750
+; yosys-smt2-anyseq hyperram#376 1 $auto$setundef.cc:501:execute$3962
+(declare-fun |hyperram#376| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3963
+; yosys-smt2-anyseq hyperram#377 1 $auto$setundef.cc:501:execute$3960
+(declare-fun |hyperram#377| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3961
+(define-fun |hyperram#378| ((state |hyperram_s|)) Bool (= (|hyperram#56| state) #b100)) ; $eq$hyperram.v:1015$1546_Y
+; yosys-smt2-anyseq hyperram#379 1 $auto$setundef.cc:501:execute$3958
+(declare-fun |hyperram#379| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3959
+(define-fun |hyperram#380| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 46 46) (|hyperram#46| state)) #b1) (|hyperram#379| state) (ite (|hyperram#378| state) #b1 #b0))) ; $procmux$2430_Y
+(define-fun |hyperram#381| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#361| state) (|hyperram#380| state) (|hyperram#377| state))) ; $procmux$2432_Y
+(define-fun |hyperram#382| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#381| state) (|hyperram#376| state))) ; $0$formal$hyperram.v:1015$280_CHECK[0:0]$751
+(define-fun |hyperram#383| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 46 46) (|hyperram#46| state)) #b1) #b0 #b1)) ; $procmux$2173_Y
+(define-fun |hyperram#384| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#361| state) (|hyperram#383| state) #b0)) ; $procmux$2425_Y
+(define-fun |hyperram#385| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#384| state) #b0)) ; $0$formal$hyperram.v:1015$280_EN[0:0]$752
+; yosys-smt2-anyseq hyperram#386 1 $auto$setundef.cc:501:execute$3966
+(declare-fun |hyperram#386| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3967
+; yosys-smt2-anyseq hyperram#387 1 $auto$setundef.cc:501:execute$3964
+(declare-fun |hyperram#387| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3965
+(define-fun |hyperram#388| ((state |hyperram_s|)) Bool (and (or  (|hyperram#360| state) false) (or  (|hyperram#84| state) false))) ; $logic_and$hyperram.v:1018$1554_Y
+(define-fun |hyperram#389| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#388| state) (ite (|hyperram#98| state) #b1 #b0) (|hyperram#387| state))) ; $procmux$2440_Y
+(define-fun |hyperram#390| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#389| state) (|hyperram#386| state))) ; $0$formal$hyperram.v:1019$281_CHECK[0:0]$753
+(define-fun |hyperram#391| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#388| state) #b1 #b0)) ; $procmux$2436_Y
+(define-fun |hyperram#392| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#391| state) #b0)) ; $0$formal$hyperram.v:1019$281_EN[0:0]$754
+; yosys-smt2-anyseq hyperram#393 1 $auto$setundef.cc:501:execute$3970
+(declare-fun |hyperram#393| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3971
+; yosys-smt2-anyseq hyperram#394 1 $auto$setundef.cc:501:execute$3968
+(declare-fun |hyperram#394| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3969
+(define-fun |hyperram#395| ((state |hyperram_s|)) Bool (= (|hyperram#81| state) (concat #b00 (|hyperram#20| state)))) ; $eq$hyperram.v:1022$1566_Y
+(define-fun |hyperram#396| ((state |hyperram_s|)) Bool (= (|hyperram#74| state) #b100)) ; $eq$hyperram.v:1021$1560_Y
+(define-fun |hyperram#397| ((state |hyperram_s|)) Bool (= (|hyperram#74| state) #b101)) ; $eq$hyperram.v:1021$1561_Y
+(define-fun |hyperram#398| ((state |hyperram_s|)) Bool (or  (|hyperram#396| state) false  (|hyperram#397| state) false)) ; $logic_or$hyperram.v:1021$1562_Y
+(define-fun |hyperram#399| ((state |hyperram_s|)) Bool (and (or  (|hyperram#311| state) false) (or  (|hyperram#398| state) false))) ; $logic_and$hyperram.v:1021$1563_Y
+(define-fun |hyperram#400| ((state |hyperram_s|)) Bool (= (|hyperram#76| state) #b110)) ; $eq$hyperram.v:1021$1564_Y
+(define-fun |hyperram#401| ((state |hyperram_s|)) Bool (and (or  (|hyperram#399| state) false) (or  (|hyperram#400| state) false))) ; $logic_and$hyperram.v:1021$1565_Y
+(define-fun |hyperram#402| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#401| state) (ite (|hyperram#395| state) #b1 #b0) (|hyperram#394| state))) ; $procmux$2448_Y
+(define-fun |hyperram#403| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#402| state) (|hyperram#393| state))) ; $0$formal$hyperram.v:1022$282_CHECK[0:0]$755
+(define-fun |hyperram#404| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#401| state) #b1 #b0)) ; $procmux$2444_Y
+(define-fun |hyperram#405| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#404| state) #b0)) ; $0$formal$hyperram.v:1022$282_EN[0:0]$756
+; yosys-smt2-anyseq hyperram#406 1 $auto$setundef.cc:501:execute$3974
+(declare-fun |hyperram#406| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3975
+; yosys-smt2-anyseq hyperram#407 1 $auto$setundef.cc:501:execute$3972
+(declare-fun |hyperram#407| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3973
+(define-fun |hyperram#408| ((state |hyperram_s|)) Bool (= (|hyperram#81| state) (concat #b00 (|hyperram#24| state)))) ; $eq$hyperram.v:1025$1575_Y
+(define-fun |hyperram#409| ((state |hyperram_s|)) Bool (= (|hyperram#74| state) #b110)) ; $eq$hyperram.v:1024$1571_Y
+(define-fun |hyperram#410| ((state |hyperram_s|)) Bool (and (or  (|hyperram#311| state) false) (or  (|hyperram#409| state) false))) ; $logic_and$hyperram.v:1024$1572_Y
+(define-fun |hyperram#411| ((state |hyperram_s|)) Bool (and (or  (|hyperram#410| state) false) (or  (|hyperram#106| state) false))) ; $logic_and$hyperram.v:1024$1574_Y
+(define-fun |hyperram#412| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#411| state) (ite (|hyperram#408| state) #b1 #b0) (|hyperram#407| state))) ; $procmux$2456_Y
+(define-fun |hyperram#413| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#412| state) (|hyperram#406| state))) ; $0$formal$hyperram.v:1025$283_CHECK[0:0]$757
+(define-fun |hyperram#414| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#411| state) #b1 #b0)) ; $procmux$2452_Y
+(define-fun |hyperram#415| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#414| state) #b0)) ; $0$formal$hyperram.v:1025$283_EN[0:0]$758
+; yosys-smt2-anyseq hyperram#416 1 $auto$setundef.cc:501:execute$3976
+(declare-fun |hyperram#416| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3977
+(define-fun |hyperram#417| ((state |hyperram_s|)) Bool (distinct (|hyperram#50| state) (|hyperram#49| state))) ; $ne$hyperram.v:1030$1578_Y
+(define-fun |hyperram#418| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (ite (|hyperram#417| state) #b1 #b0) (|hyperram#416| state))) ; $0$formal$hyperram.v:1030$284_CHECK[0:0]$759
+; yosys-smt2-anyseq hyperram#419 1 $auto$setundef.cc:501:execute$3980
+(declare-fun |hyperram#419| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3981
+; yosys-smt2-anyseq hyperram#420 1 $auto$setundef.cc:501:execute$3978
+(declare-fun |hyperram#420| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3979
+(define-fun |hyperram#421| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#74| state)) #b1) (= ((_ extract 1 1) (|hyperram#74| state)) #b1) (= ((_ extract 2 2) (|hyperram#74| state)) #b1)))) ; $eq$hyperram.v:1032$1583_Y
+(define-fun |hyperram#422| ((state |hyperram_s|)) Bool (and (or  (|hyperram#311| state) false) (or  (|hyperram#421| state) false))) ; $logic_and$hyperram.v:1032$1584_Y
+(define-fun |hyperram#423| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#146| state)) #b1) false))) ; $logic_not$hyperram.v:1032$1585_Y
+(define-fun |hyperram#424| ((state |hyperram_s|)) Bool (or  (= ((_ extract 0 0) (|hyperram#147| state)) #b1) false  (|hyperram#423| state) false)) ; $logic_or$hyperram.v:1032$1586_Y
+(define-fun |hyperram#425| ((state |hyperram_s|)) Bool (and (or  (|hyperram#422| state) false) (or  (|hyperram#424| state) false))) ; $logic_and$hyperram.v:1032$1587_Y
+(define-fun |hyperram#426| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#425| state) (|hyperram#49| state) (|hyperram#420| state))) ; $procmux$2468_Y
+(define-fun |hyperram#427| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#426| state) (|hyperram#419| state))) ; $0$formal$hyperram.v:1033$285_CHECK[0:0]$761
+(define-fun |hyperram#428| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#425| state) #b1 #b0)) ; $procmux$2464_Y
+(define-fun |hyperram#429| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#428| state) #b0)) ; $0$formal$hyperram.v:1033$285_EN[0:0]$762
+; yosys-smt2-anyseq hyperram#430 1 $auto$setundef.cc:501:execute$3984
+(declare-fun |hyperram#430| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3985
+; yosys-smt2-anyseq hyperram#431 1 $auto$setundef.cc:501:execute$3982
+(declare-fun |hyperram#431| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3983
+(define-fun |hyperram#432| ((state |hyperram_s|)) Bool (and (or  (|hyperram#106| state) false) (or  (|hyperram#409| state) false))) ; $logic_and$hyperram.v:1035$1591_Y
+(define-fun |hyperram#433| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#432| state) (|hyperram#50| state) (|hyperram#431| state))) ; $procmux$2476_Y
+(define-fun |hyperram#434| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#433| state) (|hyperram#430| state))) ; $0$formal$hyperram.v:1036$286_CHECK[0:0]$763
+(define-fun |hyperram#435| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#432| state) #b1 #b0)) ; $procmux$2472_Y
+(define-fun |hyperram#436| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#435| state) #b0)) ; $0$formal$hyperram.v:1036$286_EN[0:0]$764
+; yosys-smt2-anyseq hyperram#437 1 $auto$setundef.cc:501:execute$3988
+(declare-fun |hyperram#437| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3989
+; yosys-smt2-anyseq hyperram#438 1 $auto$setundef.cc:501:execute$3986
+(declare-fun |hyperram#438| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3987
+(define-fun |hyperram#439| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#304| state)) #b1) false))) ; $logic_not$hyperram.v:1038$1592_Y
+(define-fun |hyperram#440| ((state |hyperram_s|)) Bool (and (or  (|hyperram#439| state) false) (or  (|hyperram#106| state) false))) ; $logic_and$hyperram.v:1038$1594_Y
+(define-fun |hyperram#441| ((state |hyperram_s|)) Bool (and (or  (|hyperram#440| state) false) (or  (|hyperram#421| state) false))) ; $logic_and$hyperram.v:1038$1596_Y
+(define-fun |hyperram#442| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#147| state)) #b1) false))) ; $logic_not$hyperram.v:1038$1597_Y
+(define-fun |hyperram#443| ((state |hyperram_s|)) Bool (and (or  (|hyperram#441| state) false) (or  (|hyperram#442| state) false))) ; $logic_and$hyperram.v:1038$1598_Y
+(define-fun |hyperram#444| ((state |hyperram_s|)) Bool (and (or  (|hyperram#443| state) false) (or  (= ((_ extract 0 0) (|hyperram#146| state)) #b1) false))) ; $logic_and$hyperram.v:1038$1599_Y
+(define-fun |hyperram#445| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#444| state) (|hyperram#50| state) (|hyperram#438| state))) ; $procmux$2484_Y
+(define-fun |hyperram#446| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#445| state) (|hyperram#437| state))) ; $0$formal$hyperram.v:1039$287_CHECK[0:0]$765
+(define-fun |hyperram#447| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#444| state) #b1 #b0)) ; $procmux$2480_Y
+(define-fun |hyperram#448| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#447| state) #b0)) ; $0$formal$hyperram.v:1039$287_EN[0:0]$766
+; yosys-smt2-anyseq hyperram#449 1 $auto$setundef.cc:501:execute$3992
+(declare-fun |hyperram#449| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3993
+; yosys-smt2-anyseq hyperram#450 1 $auto$setundef.cc:501:execute$3990
+(declare-fun |hyperram#450| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3991
+(define-fun |hyperram#451| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#119| state) (|hyperram#49| state) (|hyperram#450| state))) ; $procmux$2492_Y
+(define-fun |hyperram#452| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#451| state) (|hyperram#449| state))) ; $0$formal$hyperram.v:1042$288_CHECK[0:0]$767
+(define-fun |hyperram#453| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#119| state) #b1 #b0)) ; $procmux$2488_Y
+(define-fun |hyperram#454| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#453| state) #b0)) ; $0$formal$hyperram.v:1042$288_EN[0:0]$768
+; yosys-smt2-anyseq hyperram#455 1 $auto$setundef.cc:501:execute$3994
+(declare-fun |hyperram#455| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3995
+(define-fun |hyperram#456| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) #b1 (|hyperram#455| state))) ; $0$formal$hyperram.v:1047$289_CHECK[0:0]$769
+; yosys-smt2-anyseq hyperram#457 1 $auto$setundef.cc:501:execute$4000
+(declare-fun |hyperram#457| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4001
+; yosys-smt2-anyseq hyperram#458 1 $auto$setundef.cc:501:execute$3998
+(declare-fun |hyperram#458| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3999
+; yosys-smt2-anyseq hyperram#459 1 $auto$setundef.cc:501:execute$3996
+(declare-fun |hyperram#459| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3997
+(define-fun |hyperram#460| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#79| state)) #b1) (= ((_ extract 1 1) (|hyperram#79| state)) #b1) (= ((_ extract 2 2) (|hyperram#79| state)) #b1) (= ((_ extract 3 3) (|hyperram#79| state)) #b1) (= ((_ extract 4 4) (|hyperram#79| state)) #b1) (= ((_ extract 5 5) (|hyperram#79| state)) #b1)))) ; $eq$hyperram.v:1050$1608_Y
+(define-fun |hyperram#461| ((state |hyperram_s|)) Bool (distinct (|hyperram#54| state) #b000)) ; $ne$hyperram.v:1050$1609_Y
+(define-fun |hyperram#462| ((state |hyperram_s|)) Bool (and (or  (|hyperram#460| state) false) (or  (|hyperram#461| state) false))) ; $logic_and$hyperram.v:1050$1610_Y
+(define-fun |hyperram#463| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#462| state) (|hyperram#53| state) (|hyperram#459| state))) ; $procmux$2508_Y
+(define-fun |hyperram#464| ((state |hyperram_s|)) Bool (and (or  (|hyperram#397| state) false) (or  (|hyperram#400| state) false))) ; $logic_and$hyperram.v:1049$1607_Y
+(define-fun |hyperram#465| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#464| state) (|hyperram#463| state) (|hyperram#458| state))) ; $procmux$2510_Y
+(define-fun |hyperram#466| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#465| state) (|hyperram#457| state))) ; $0$formal$hyperram.v:1051$290_CHECK[0:0]$771
+(define-fun |hyperram#467| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#462| state) #b1 #b0)) ; $procmux$2501_Y
+(define-fun |hyperram#468| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#464| state) (|hyperram#467| state) #b0)) ; $procmux$2503_Y
+(define-fun |hyperram#469| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#468| state) #b0)) ; $0$formal$hyperram.v:1051$290_EN[0:0]$772
+; yosys-smt2-anyseq hyperram#470 1 $auto$setundef.cc:501:execute$4006
+(declare-fun |hyperram#470| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4007
+; yosys-smt2-anyseq hyperram#471 1 $auto$setundef.cc:501:execute$4004
+(declare-fun |hyperram#471| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4005
+(define-fun |hyperram#472| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#53| state)) #b1) false))) ; $logic_not$hyperram.v:1053$1611_Y
+; yosys-smt2-anyseq hyperram#473 1 $auto$setundef.cc:501:execute$4002
+(declare-fun |hyperram#473| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4003
+(define-fun |hyperram#474| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#462| state) (|hyperram#473| state) (ite (|hyperram#472| state) #b1 #b0))) ; $procmux$2522_Y
+(define-fun |hyperram#475| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#464| state) (|hyperram#474| state) (|hyperram#471| state))) ; $procmux$2524_Y
+(define-fun |hyperram#476| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#475| state) (|hyperram#470| state))) ; $0$formal$hyperram.v:1053$291_CHECK[0:0]$773
+(define-fun |hyperram#477| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#462| state) #b0 #b1)) ; $procmux$2515_Y
+(define-fun |hyperram#478| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#464| state) (|hyperram#477| state) #b0)) ; $procmux$2517_Y
+(define-fun |hyperram#479| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#478| state) #b0)) ; $0$formal$hyperram.v:1053$291_EN[0:0]$774
+; yosys-smt2-anyseq hyperram#480 1 $auto$setundef.cc:501:execute$4010
+(declare-fun |hyperram#480| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4011
+; yosys-smt2-anyseq hyperram#481 1 $auto$setundef.cc:501:execute$4008
+(declare-fun |hyperram#481| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4009
+(define-fun |hyperram#482| ((state |hyperram_s|)) Bool (or  (|hyperram#103| state) false  (|hyperram#332| state) false)) ; $logic_or$hyperram.v:1056$1614_Y
+(define-fun |hyperram#483| ((state |hyperram_s|)) Bool (or  (|hyperram#482| state) false  (|hyperram#84| state) false)) ; $logic_or$hyperram.v:1056$1616_Y
+(define-fun |hyperram#484| ((state |hyperram_s|)) Bool (and (or  (|hyperram#124| state) false) (or  (= ((_ extract 0 0) (|hyperram#79| state)) #b1) (= ((_ extract 1 1) (|hyperram#79| state)) #b1) (= ((_ extract 2 2) (|hyperram#79| state)) #b1) (= ((_ extract 3 3) (|hyperram#79| state)) #b1) (= ((_ extract 4 4) (|hyperram#79| state)) #b1) (= ((_ extract 5 5) (|hyperram#79| state)) #b1)))) ; $logic_and$hyperram.v:1056$1618_Y
+(define-fun |hyperram#485| ((state |hyperram_s|)) Bool (or  (|hyperram#483| state) false  (|hyperram#484| state) false)) ; $logic_or$hyperram.v:1056$1619_Y
+(define-fun |hyperram#486| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#485| state) (ite (|hyperram#472| state) #b1 #b0) (|hyperram#481| state))) ; $procmux$2532_Y
+(define-fun |hyperram#487| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#486| state) (|hyperram#480| state))) ; $0$formal$hyperram.v:1057$292_CHECK[0:0]$775
+(define-fun |hyperram#488| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#485| state) #b1 #b0)) ; $procmux$2528_Y
+(define-fun |hyperram#489| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#488| state) #b0)) ; $0$formal$hyperram.v:1057$292_EN[0:0]$776
+; yosys-smt2-anyseq hyperram#490 1 $auto$setundef.cc:501:execute$4014
+(declare-fun |hyperram#490| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4015
+; yosys-smt2-anyseq hyperram#491 1 $auto$setundef.cc:501:execute$4012
+(declare-fun |hyperram#491| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4013
+(define-fun |hyperram#492| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#117| state)) #b1) (= ((_ extract 1 1) (|hyperram#117| state)) #b1) (= ((_ extract 2 2) (|hyperram#117| state)) #b1) (= ((_ extract 3 3) (|hyperram#117| state)) #b1) (= ((_ extract 4 4) (|hyperram#117| state)) #b1) (= ((_ extract 5 5) (|hyperram#117| state)) #b1) (= ((_ extract 6 6) (|hyperram#117| state)) #b1) (= ((_ extract 7 7) (|hyperram#117| state)) #b1) (= ((_ extract 8 8) (|hyperram#117| state)) #b1) (= ((_ extract 9 9) (|hyperram#117| state)) #b1) (= ((_ extract 10 10) (|hyperram#117| state)) #b1) (= ((_ extract 11 11) (|hyperram#117| state)) #b1) (= ((_ extract 12 12) (|hyperram#117| state)) #b1) (= ((_ extract 13 13) (|hyperram#117| state)) #b1) (= ((_ extract 14 14) (|hyperram#117| state)) #b1) (= ((_ extract 15 15) (|hyperram#117| state)) #b1) (= ((_ extract 16 16) (|hyperram#117| state)) #b1) (= ((_ extract 17 17) (|hyperram#117| state)) #b1) (= ((_ extract 18 18) (|hyperram#117| state)) #b1) (= ((_ extract 19 19) (|hyperram#117| state)) #b1) (= ((_ extract 20 20) (|hyperram#117| state)) #b1) (= ((_ extract 21 21) (|hyperram#117| state)) #b1) (= ((_ extract 22 22) (|hyperram#117| state)) #b1) (= ((_ extract 23 23) (|hyperram#117| state)) #b1) (= ((_ extract 24 24) (|hyperram#117| state)) #b1) (= ((_ extract 25 25) (|hyperram#117| state)) #b1) (= ((_ extract 26 26) (|hyperram#117| state)) #b1) (= ((_ extract 27 27) (|hyperram#117| state)) #b1) (= ((_ extract 28 28) (|hyperram#117| state)) #b1) (= ((_ extract 29 29) (|hyperram#117| state)) #b1) (= ((_ extract 30 30) (|hyperram#117| state)) #b1) (= ((_ extract 31 31) (|hyperram#117| state)) #b1)))) ; $eq$hyperram.v:1065$1624_Y
+(define-fun |hyperram#493| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#145| state)) #b1) (ite (|hyperram#492| state) #b1 #b0) (|hyperram#491| state))) ; $procmux$2544_Y
+(define-fun |hyperram#494| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#493| state) (|hyperram#490| state))) ; $0$formal$hyperram.v:1065$294_CHECK[0:0]$779
+(define-fun |hyperram#495| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#145| state)) #b1) #b1 #b0)) ; $procmux$2540_Y
+(define-fun |hyperram#496| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#495| state) #b0)) ; $0$formal$hyperram.v:1065$294_EN[0:0]$780
+; yosys-smt2-anyseq hyperram#497 1 $auto$setundef.cc:501:execute$4018
+(declare-fun |hyperram#497| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4019
+; yosys-smt2-anyseq hyperram#498 1 $auto$setundef.cc:501:execute$4016
+(declare-fun |hyperram#498| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4017
+(define-fun |hyperram#499| ((state |hyperram_s|)) (_ BitVec 4) (bvadd (concat #b0 (|hyperram#56| state)) #b0001)) ; $add$hyperram.v:1068$1631_Y
+(define-fun |hyperram#500| ((state |hyperram_s|)) Bool (= (|hyperram#499| state) (concat #b0 (|hyperram#54| state)))) ; $eq$hyperram.v:1068$1632_Y
+(define-fun |hyperram#501| ((state |hyperram_s|)) Bool (distinct (|hyperram#110| state) (|hyperram#108| state))) ; $ne$hyperram.v:1067$1625_Y
+(define-fun |hyperram#502| ((state |hyperram_s|)) Bool (and (or  (|hyperram#501| state) false) (or  (|hyperram#124| state) false))) ; $logic_and$hyperram.v:1067$1627_Y
+(define-fun |hyperram#503| ((state |hyperram_s|)) Bool (and (or  (|hyperram#502| state) false) (or  (= ((_ extract 0 0) (|hyperram#144| state)) #b1) false))) ; $logic_and$hyperram.v:1067$1628_Y
+(define-fun |hyperram#504| ((state |hyperram_s|)) Bool (or  (= ((_ extract 0 0) (|hyperram#143| state)) #b1) false  (= ((_ extract 0 0) (|hyperram#38| state)) #b1) false)) ; $logic_or$hyperram.v:1067$1629_Y
+(define-fun |hyperram#505| ((state |hyperram_s|)) Bool (and (or  (|hyperram#503| state) false) (or  (|hyperram#504| state) false))) ; $logic_and$hyperram.v:1067$1630_Y
+(define-fun |hyperram#506| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#505| state) (ite (|hyperram#500| state) #b1 #b0) (|hyperram#498| state))) ; $procmux$2552_Y
+(define-fun |hyperram#507| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#506| state) (|hyperram#497| state))) ; $0$formal$hyperram.v:1068$295_CHECK[0:0]$781
+(define-fun |hyperram#508| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#505| state) #b1 #b0)) ; $procmux$2548_Y
+(define-fun |hyperram#509| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#508| state) #b0)) ; $0$formal$hyperram.v:1068$295_EN[0:0]$782
+; yosys-smt2-anyseq hyperram#510 1 $auto$setundef.cc:501:execute$4024
+(declare-fun |hyperram#510| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4025
+; yosys-smt2-anyseq hyperram#511 1 $auto$setundef.cc:501:execute$4022
+(declare-fun |hyperram#511| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4023
+; yosys-smt2-anyseq hyperram#512 1 $auto$setundef.cc:501:execute$4020
+(declare-fun |hyperram#512| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4021
+(define-fun |hyperram#513| ((state |hyperram_s|)) Bool (= ((_ extract 31 24) (|hyperram#117| state)) (|hyperram#142| state))) ; $eq$hyperram.v:1077$1638_Y
+(define-fun |hyperram#514| ((state |hyperram_s|)) Bool (= (|hyperram#56| state) #b011)) ; $procmux$2560_CMP
+(define-fun |hyperram#515| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#514| state) (ite (|hyperram#513| state) #b1 #b0) (|hyperram#512| state))) ; $procmux$2568_Y
+(define-fun |hyperram#516| ((state |hyperram_s|)) Bool (and (or  (|hyperram#124| state) false) (or  (|hyperram#504| state) false))) ; $logic_and$hyperram.v:1071$1635_Y
+(define-fun |hyperram#517| ((state |hyperram_s|)) Bool (distinct (|hyperram#56| state) (|hyperram#54| state))) ; $ne$hyperram.v:1071$1636_Y
+(define-fun |hyperram#518| ((state |hyperram_s|)) Bool (and (or  (|hyperram#516| state) false) (or  (|hyperram#517| state) false))) ; $logic_and$hyperram.v:1071$1637_Y
+(define-fun |hyperram#519| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#518| state) (|hyperram#515| state) (|hyperram#511| state))) ; $procmux$2570_Y
+(define-fun |hyperram#520| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#519| state) (|hyperram#510| state))) ; $0$formal$hyperram.v:1077$296_CHECK[0:0]$783
+(define-fun |hyperram#521| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#514| state) #b1 #b0)) ; $procmux$2559_Y
+(define-fun |hyperram#522| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#518| state) (|hyperram#521| state) #b0)) ; $procmux$2561_Y
+(define-fun |hyperram#523| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#522| state) #b0)) ; $0$formal$hyperram.v:1077$296_EN[0:0]$784
+; yosys-smt2-anyseq hyperram#524 1 $auto$setundef.cc:501:execute$4030
+(declare-fun |hyperram#524| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4031
+; yosys-smt2-anyseq hyperram#525 1 $auto$setundef.cc:501:execute$4028
+(declare-fun |hyperram#525| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4029
+; yosys-smt2-anyseq hyperram#526 1 $auto$setundef.cc:501:execute$4026
+(declare-fun |hyperram#526| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4027
+(define-fun |hyperram#527| ((state |hyperram_s|)) Bool (= ((_ extract 23 16) (|hyperram#117| state)) (|hyperram#142| state))) ; $eq$hyperram.v:1078$1639_Y
+(define-fun |hyperram#528| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#369| state) (ite (|hyperram#527| state) #b1 #b0) (|hyperram#526| state))) ; $procmux$2584_Y
+(define-fun |hyperram#529| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#518| state) (|hyperram#528| state) (|hyperram#525| state))) ; $procmux$2586_Y
+(define-fun |hyperram#530| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#529| state) (|hyperram#524| state))) ; $0$formal$hyperram.v:1078$297_CHECK[0:0]$785
+(define-fun |hyperram#531| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#369| state) #b1 #b0)) ; $procmux$2576_Y
+(define-fun |hyperram#532| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#518| state) (|hyperram#531| state) #b0)) ; $procmux$2578_Y
+(define-fun |hyperram#533| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#532| state) #b0)) ; $0$formal$hyperram.v:1078$297_EN[0:0]$786
+; yosys-smt2-anyseq hyperram#534 1 $auto$setundef.cc:501:execute$4036
+(declare-fun |hyperram#534| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4037
+; yosys-smt2-anyseq hyperram#535 1 $auto$setundef.cc:501:execute$4034
+(declare-fun |hyperram#535| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4035
+; yosys-smt2-anyseq hyperram#536 1 $auto$setundef.cc:501:execute$4032
+(declare-fun |hyperram#536| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4033
+(define-fun |hyperram#537| ((state |hyperram_s|)) Bool (= ((_ extract 15 8) (|hyperram#117| state)) (|hyperram#142| state))) ; $eq$hyperram.v:1079$1640_Y
+(define-fun |hyperram#538| ((state |hyperram_s|)) Bool (= (|hyperram#56| state) #b001)) ; $procmux$2592_CMP
+(define-fun |hyperram#539| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#538| state) (ite (|hyperram#537| state) #b1 #b0) (|hyperram#536| state))) ; $procmux$2598_Y
+(define-fun |hyperram#540| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#518| state) (|hyperram#539| state) (|hyperram#535| state))) ; $procmux$2600_Y
+(define-fun |hyperram#541| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#540| state) (|hyperram#534| state))) ; $0$formal$hyperram.v:1079$298_CHECK[0:0]$787
+(define-fun |hyperram#542| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#538| state) #b1 #b0)) ; $procmux$2591_Y
+(define-fun |hyperram#543| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#518| state) (|hyperram#542| state) #b0)) ; $procmux$2593_Y
+(define-fun |hyperram#544| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#543| state) #b0)) ; $0$formal$hyperram.v:1079$298_EN[0:0]$788
+; yosys-smt2-anyseq hyperram#545 1 $auto$setundef.cc:501:execute$4042
+(declare-fun |hyperram#545| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4043
+; yosys-smt2-anyseq hyperram#546 1 $auto$setundef.cc:501:execute$4040
+(declare-fun |hyperram#546| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4041
+; yosys-smt2-anyseq hyperram#547 1 $auto$setundef.cc:501:execute$4038
+(declare-fun |hyperram#547| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4039
+(define-fun |hyperram#548| ((state |hyperram_s|)) Bool (= ((_ extract 7 0) (|hyperram#117| state)) (|hyperram#142| state))) ; $eq$hyperram.v:1080$1641_Y
+(define-fun |hyperram#549| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#56| state)) #b1) (= ((_ extract 1 1) (|hyperram#56| state)) #b1) (= ((_ extract 2 2) (|hyperram#56| state)) #b1)))) ; $eq$hyperram.v:240$351_Y
+(define-fun |hyperram#550| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#549| state) (ite (|hyperram#548| state) #b1 #b0) (|hyperram#547| state))) ; $procmux$2610_Y
+(define-fun |hyperram#551| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#518| state) (|hyperram#550| state) (|hyperram#546| state))) ; $procmux$2612_Y
+(define-fun |hyperram#552| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#551| state) (|hyperram#545| state))) ; $0$formal$hyperram.v:1080$299_CHECK[0:0]$789
+(define-fun |hyperram#553| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#549| state) #b1 #b0)) ; $procmux$2604_Y
+(define-fun |hyperram#554| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#518| state) (|hyperram#553| state) #b0)) ; $procmux$2606_Y
+(define-fun |hyperram#555| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#554| state) #b0)) ; $0$formal$hyperram.v:1080$299_EN[0:0]$790
+; yosys-smt2-anyseq hyperram#556 1 $auto$setundef.cc:501:execute$4046
+(declare-fun |hyperram#556| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4047
+; yosys-smt2-anyseq hyperram#557 1 $auto$setundef.cc:501:execute$4044
+(declare-fun |hyperram#557| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4045
+(define-fun |hyperram#558| ((state |hyperram_s|)) Bool (= (|hyperram#94| state) (|hyperram#141| state))) ; $eq$hyperram.v:1088$1655_Y
+(define-fun |hyperram#559| ((state |hyperram_s|)) Bool (and (or  (|hyperram#422| state) false) (or  (= ((_ extract 0 0) (|hyperram#147| state)) #b1) false))) ; $logic_and$hyperram.v:1087$1652_Y
+(define-fun |hyperram#560| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#49| state)) #b1) false))) ; $logic_not$hyperram.v:1087$1653_Y
+(define-fun |hyperram#561| ((state |hyperram_s|)) Bool (and (or  (|hyperram#559| state) false) (or  (|hyperram#560| state) false))) ; $logic_and$hyperram.v:1087$1654_Y
+(define-fun |hyperram#562| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#561| state) (ite (|hyperram#558| state) #b1 #b0) (|hyperram#557| state))) ; $procmux$2620_Y
+(define-fun |hyperram#563| ((state |hyperram_s|)) Bool (and (or  (= ((_ extract 0 0) (|hyperram#113| state)) #b1) false) (or  (|hyperram#439| state) false))) ; $logic_and$hyperram.v:1086$1643_Y
+(define-fun |hyperram#564| ((state |hyperram_s|)) Bool (and (or  (|hyperram#563| state) false) (or  (|hyperram#316| state) false))) ; $logic_and$hyperram.v:1086$1645_Y
+(define-fun |hyperram#565| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#564| state) (|hyperram#562| state) (|hyperram#556| state))) ; $0$formal$hyperram.v:1088$300_CHECK[0:0]$791
+(define-fun |hyperram#566| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#561| state) #b1 #b0)) ; $procmux$2616_Y
+(define-fun |hyperram#567| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#564| state) (|hyperram#566| state) #b0)) ; $0$formal$hyperram.v:1088$300_EN[0:0]$792
+; yosys-smt2-anyseq hyperram#568 1 $auto$setundef.cc:501:execute$4050
+(declare-fun |hyperram#568| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4051
+; yosys-smt2-anyseq hyperram#569 1 $auto$setundef.cc:501:execute$4048
+(declare-fun |hyperram#569| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4049
+(define-fun |hyperram#570| ((state |hyperram_s|)) Bool (= (|hyperram#32| state) (|hyperram#140| state))) ; $eq$hyperram.v:1089$1656_Y
+(define-fun |hyperram#571| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#561| state) (ite (|hyperram#570| state) #b1 #b0) (|hyperram#569| state))) ; $procmux$2628_Y
+(define-fun |hyperram#572| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#564| state) (|hyperram#571| state) (|hyperram#568| state))) ; $0$formal$hyperram.v:1089$301_CHECK[0:0]$793
+; yosys-smt2-anyseq hyperram#573 1 $auto$setundef.cc:501:execute$4054
+(declare-fun |hyperram#573| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4055
+; yosys-smt2-anyseq hyperram#574 1 $auto$setundef.cc:501:execute$4052
+(declare-fun |hyperram#574| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4053
+(define-fun |hyperram#575| ((state |hyperram_s|)) Bool (= ((_ extract 46 46) (|hyperram#46| state)) (|hyperram#139| state))) ; $eq$hyperram.v:1090$1657_Y
+(define-fun |hyperram#576| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#561| state) (ite (|hyperram#575| state) #b1 #b0) (|hyperram#574| state))) ; $procmux$2636_Y
+(define-fun |hyperram#577| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#564| state) (|hyperram#576| state) (|hyperram#573| state))) ; $0$formal$hyperram.v:1090$302_CHECK[0:0]$795
+; yosys-smt2-anyseq hyperram#578 1 $auto$setundef.cc:501:execute$4058
+(declare-fun |hyperram#578| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4059
+; yosys-smt2-anyseq hyperram#579 1 $auto$setundef.cc:501:execute$4056
+(declare-fun |hyperram#579| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$4057
+(define-fun |hyperram#580| ((state |hyperram_s|)) (_ BitVec 1) (bvnot (|hyperram#138| state))) ; $not$hyperram.v:1091$1658_Y
+(define-fun |hyperram#581| ((state |hyperram_s|)) Bool (= ((_ extract 47 47) (|hyperram#46| state)) (|hyperram#580| state))) ; $eq$hyperram.v:1091$1659_Y
+(define-fun |hyperram#582| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#561| state) (ite (|hyperram#581| state) #b1 #b0) (|hyperram#579| state))) ; $procmux$2644_Y
+(define-fun |hyperram#583| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#564| state) (|hyperram#582| state) (|hyperram#578| state))) ; $0$formal$hyperram.v:1091$303_CHECK[0:0]$797
+; yosys-smt2-anyseq hyperram#584 1 $auto$setundef.cc:501:execute$3706
+(declare-fun |hyperram#584| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3707
+; yosys-smt2-anyseq hyperram#585 1 $auto$setundef.cc:501:execute$3704
+(declare-fun |hyperram#585| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3705
+(define-fun |hyperram#586| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#4| state)) #b1) false false false false false false false false false false false false false false false false false false false false false false false false false false false false false false false))) ; $logic_not$hyperram.v:0$810_Y
+(define-fun |hyperram#587| ((state |hyperram_s|)) Bool (and (or  (= ((_ extract 0 0) (|hyperram#305| state)) #b1) false false false false false false false false false false false false false false false false false false false false false false false false false false false false false false false) (or  (|hyperram#586| state) false))) ; $logic_and$hyperram.v:403$811_Y
+(define-fun |hyperram#588| ((state |hyperram_s|)) Bool (not (or  (|hyperram#42| state) false false false false false false false false false false false false false false false false false false false false false false false false false false false false false false false))) ; $logic_not$hyperram.v:0$801_Y
+(define-fun |hyperram#589| ((state |hyperram_s|)) Bool (and (or  (= ((_ extract 0 0) (|hyperram#304| state)) #b1) false false false false false false false false false false false false false false false false false false false false false false false false false false false false false false false) (or  (|hyperram#588| state) false))) ; $logic_and$hyperram.v:402$802_Y
+(define-fun |hyperram#590| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#304| state)) #b1) false false false false false false false false false false false false false false false false false false false false false false false false false false false false false false false))) ; $logic_not$hyperram.v:0$804_Y
+(define-fun |hyperram#591| ((state |hyperram_s|)) Bool (and (or  (|hyperram#590| state) false) (or  (|hyperram#42| state) false false false false false false false false false false false false false false false false false false false false false false false false false false false false false false false))) ; $logic_and$hyperram.v:402$806_Y
+(define-fun |hyperram#592| ((state |hyperram_s|)) Bool (or  (|hyperram#589| state) false  (|hyperram#591| state) false)) ; $logic_or$hyperram.v:402$807_Y
+(define-fun |hyperram#593| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#592| state) (ite (|hyperram#587| state) #b1 #b0) (|hyperram#585| state))) ; $procmux$1888_Y
+(define-fun |hyperram#594| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#113| state)) #b1) (|hyperram#593| state) (|hyperram#584| state))) ; $0$formal$hyperram.v:402$204_CHECK[0:0]$599
+(define-fun |hyperram#595| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#592| state) #b1 #b0)) ; $procmux$1884_Y
+(define-fun |hyperram#596| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#113| state)) #b1) (|hyperram#595| state) #b0)) ; $0$formal$hyperram.v:402$204_EN[0:0]$600
+; yosys-smt2-anyseq hyperram#597 1 $auto$setundef.cc:501:execute$3708
+(declare-fun |hyperram#597| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3709
+(define-fun |hyperram#598| ((state |hyperram_s|)) Bool (distinct (|hyperram#4| state) (|hyperram#305| state))) ; $ne$hyperram.v:406$812_Y
+(define-fun |hyperram#599| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#113| state)) #b1) (ite (|hyperram#598| state) #b1 #b0) (|hyperram#597| state))) ; $0$formal$hyperram.v:405$205_CHECK[0:0]$601
+(define-fun |hyperram#600| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#113| state)) #b1) #b1 #b0)) ; $0$formal$hyperram.v:405$205_EN[0:0]$602
+; yosys-smt2-anyseq hyperram#601 1 $auto$setundef.cc:501:execute$3710
+(declare-fun |hyperram#601| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3711
+(define-fun |hyperram#602| ((state |hyperram_s|)) Bool (bvugt (|hyperram#28| state) #b0111)) ; $gt$hyperram.v:412$814_Y
+(define-fun |hyperram#603| ((state |hyperram_s|)) Bool (and (or  (|hyperram#316| state) false) (or  (|hyperram#602| state) false))) ; $logic_and$hyperram.v:412$815_Y
+(define-fun |hyperram#604| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#113| state)) #b1) (ite (|hyperram#603| state) #b1 #b0) (|hyperram#601| state))) ; $0$formal$hyperram.v:412$206_CHECK[0:0]$603
+; yosys-smt2-anyseq hyperram#605 1 $auto$setundef.cc:501:execute$3712
+(declare-fun |hyperram#605| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3713
+(define-fun |hyperram#606| ((state |hyperram_s|)) Bool (bvugt (|hyperram#24| state) #b0111)) ; $gt$hyperram.v:415$817_Y
+(define-fun |hyperram#607| ((state |hyperram_s|)) Bool (and (or  (|hyperram#316| state) false) (or  (|hyperram#606| state) false))) ; $logic_and$hyperram.v:415$818_Y
+(define-fun |hyperram#608| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#113| state)) #b1) (ite (|hyperram#607| state) #b1 #b0) (|hyperram#605| state))) ; $0$formal$hyperram.v:415$207_CHECK[0:0]$605
+; yosys-smt2-anyseq hyperram#609 1 $auto$setundef.cc:501:execute$3714
+(declare-fun |hyperram#609| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3715
+(define-fun |hyperram#610| ((state |hyperram_s|)) Bool (bvugt (|hyperram#16| state) #b0111)) ; $gt$hyperram.v:418$820_Y
+(define-fun |hyperram#611| ((state |hyperram_s|)) Bool (and (or  (|hyperram#316| state) false) (or  (|hyperram#610| state) false))) ; $logic_and$hyperram.v:418$821_Y
+(define-fun |hyperram#612| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#113| state)) #b1) (ite (|hyperram#611| state) #b1 #b0) (|hyperram#609| state))) ; $0$formal$hyperram.v:418$208_CHECK[0:0]$607
+; yosys-smt2-anyseq hyperram#613 1 $auto$setundef.cc:501:execute$3716
+(declare-fun |hyperram#613| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3717
+(define-fun |hyperram#614| ((state |hyperram_s|)) Bool (bvugt (|hyperram#20| state) #b0111)) ; $gt$hyperram.v:421$823_Y
+(define-fun |hyperram#615| ((state |hyperram_s|)) Bool (and (or  (|hyperram#316| state) false) (or  (|hyperram#614| state) false))) ; $logic_and$hyperram.v:421$824_Y
+(define-fun |hyperram#616| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#113| state)) #b1) (ite (|hyperram#615| state) #b1 #b0) (|hyperram#613| state))) ; $0$formal$hyperram.v:421$209_CHECK[0:0]$609
+; yosys-smt2-anyseq hyperram#617 1 $auto$setundef.cc:501:execute$3718
+(declare-fun |hyperram#617| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3719
+(define-fun |hyperram#618| ((state |hyperram_s|)) Bool (bvugt (|hyperram#12| state) #b00111)) ; $gt$hyperram.v:424$826_Y
+(define-fun |hyperram#619| ((state |hyperram_s|)) Bool (and (or  (|hyperram#316| state) false) (or  (|hyperram#618| state) false))) ; $logic_and$hyperram.v:424$827_Y
+(define-fun |hyperram#620| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#113| state)) #b1) (ite (|hyperram#619| state) #b1 #b0) (|hyperram#617| state))) ; $0$formal$hyperram.v:424$210_CHECK[0:0]$611
+; yosys-smt2-anyseq hyperram#621 1 $auto$setundef.cc:501:execute$3720
+(declare-fun |hyperram#621| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3721
+(define-fun |hyperram#622| ((state |hyperram_s|)) Bool (and (or  (|hyperram#439| state) false) (or  (|hyperram#316| state) false))) ; $logic_and$hyperram.v:430$830_Y
+(define-fun |hyperram#623| ((state |hyperram_s|)) Bool (= (|hyperram#76| state) #b001)) ; $0$past$hyperram.v:1064$181$0[0:0]$580
+(define-fun |hyperram#624| ((state |hyperram_s|)) Bool (and (or  (|hyperram#622| state) false) (or  (|hyperram#623| state) false))) ; $logic_and$hyperram.v:430$832_Y
+(define-fun |hyperram#625| ((state |hyperram_s|)) Bool (and (or  (|hyperram#624| state) false) (or  (= ((_ extract 0 0) (|hyperram#49| state)) #b1) false))) ; $logic_and$hyperram.v:430$834_Y
+(define-fun |hyperram#626| ((state |hyperram_s|)) Bool (and (or  (|hyperram#625| state) false) (or  (|hyperram#328| state) false))) ; $logic_and$hyperram.v:430$836_Y
+(define-fun |hyperram#627| ((state |hyperram_s|)) Bool (and (or  (|hyperram#626| state) false) (or  (= ((_ extract 46 46) (|hyperram#46| state)) #b1) false))) ; $logic_and$hyperram.v:430$837_Y
+(define-fun |hyperram#628| ((state |hyperram_s|)) Bool (and (or  (|hyperram#627| state) false) (or  (= ((_ extract 0 0) (|hyperram#137| state)) #b1) false))) ; $logic_and$hyperram.v:430$838_Y
+(define-fun |hyperram#629| ((state |hyperram_s|)) Bool (= (|hyperram#24| state) #b0101)) ; $eq$hyperram.v:437$839_Y
+(define-fun |hyperram#630| ((state |hyperram_s|)) Bool (and (or  (|hyperram#628| state) false) (or  (|hyperram#629| state) false))) ; $logic_and$hyperram.v:430$840_Y
+(define-fun |hyperram#631| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#113| state)) #b1) (ite (|hyperram#630| state) #b1 #b0) (|hyperram#621| state))) ; $0$formal$hyperram.v:430$211_CHECK[0:0]$613
+; yosys-smt2-anyseq hyperram#632 1 $auto$setundef.cc:501:execute$3722
+(declare-fun |hyperram#632| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3723
+(define-fun |hyperram#633| ((state |hyperram_s|)) Bool (and (or  (|hyperram#622| state) false) (or  (|hyperram#423| state) false))) ; $logic_and$hyperram.v:445$845_Y
+(define-fun |hyperram#634| ((state |hyperram_s|)) Bool (and (or  (|hyperram#633| state) false) (or  (= ((_ extract 0 0) (|hyperram#50| state)) #b1) false))) ; $logic_and$hyperram.v:445$846_Y
+(define-fun |hyperram#635| ((state |hyperram_s|)) Bool (and (or  (|hyperram#634| state) false) (or  (|hyperram#328| state) false))) ; $logic_and$hyperram.v:445$848_Y
+(define-fun |hyperram#636| ((state |hyperram_s|)) Bool (and (or  (|hyperram#635| state) false) (or  (= ((_ extract 46 46) (|hyperram#46| state)) #b1) false))) ; $logic_and$hyperram.v:445$849_Y
+(define-fun |hyperram#637| ((state |hyperram_s|)) Bool (and (or  (|hyperram#636| state) false) (or  (= ((_ extract 0 0) (|hyperram#70| state)) #b1) false))) ; $logic_and$hyperram.v:445$850_Y
+(define-fun |hyperram#638| ((state |hyperram_s|)) Bool (and (or  (|hyperram#637| state) false) (or  (= ((_ extract 0 0) (|hyperram#64| state)) #b1) false))) ; $logic_and$hyperram.v:445$851_Y
+(define-fun |hyperram#639| ((state |hyperram_s|)) Bool (and (or  (|hyperram#638| state) false) (or  (= ((_ extract 0 0) (|hyperram#39| state)) #b1) false))) ; $logic_and$hyperram.v:445$852_Y
+(define-fun |hyperram#640| ((state |hyperram_s|)) Bool (= (|hyperram#28| state) #b0100)) ; $eq$hyperram.v:454$853_Y
+(define-fun |hyperram#641| ((state |hyperram_s|)) Bool (and (or  (|hyperram#639| state) false) (or  (|hyperram#640| state) false))) ; $logic_and$hyperram.v:445$854_Y
+(define-fun |hyperram#642| ((state |hyperram_s|)) Bool (= (|hyperram#94| state) #b01111000000100100011010001010110)) ; $eq$hyperram.v:455$855_Y
+(define-fun |hyperram#643| ((state |hyperram_s|)) Bool (and (or  (|hyperram#641| state) false) (or  (|hyperram#642| state) false))) ; $logic_and$hyperram.v:445$856_Y
+(define-fun |hyperram#644| ((state |hyperram_s|)) Bool (= (|hyperram#32| state) #b1010)) ; $eq$hyperram.v:456$857_Y
+(define-fun |hyperram#645| ((state |hyperram_s|)) Bool (and (or  (|hyperram#643| state) false) (or  (|hyperram#644| state) false))) ; $logic_and$hyperram.v:445$858_Y
+(define-fun |hyperram#646| ((state |hyperram_s|)) Bool (and (or  (|hyperram#645| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:445$859_Y
+(define-fun |hyperram#647| ((state |hyperram_s|)) Bool (and (or  (|hyperram#646| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:445$860_Y
+(define-fun |hyperram#648| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#113| state)) #b1) (ite (|hyperram#647| state) #b1 #b0) (|hyperram#632| state))) ; $0$formal$hyperram.v:445$212_CHECK[0:0]$615
+; yosys-smt2-anyseq hyperram#649 1 $auto$setundef.cc:501:execute$3724
+(declare-fun |hyperram#649| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3725
+(define-fun |hyperram#650| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#16| state)) #b1) (= ((_ extract 1 1) (|hyperram#16| state)) #b1) (= ((_ extract 2 2) (|hyperram#16| state)) #b1) (= ((_ extract 3 3) (|hyperram#16| state)) #b1)))) ; $eq$hyperram.v:473$875_Y
+(define-fun |hyperram#651| ((state |hyperram_s|)) Bool (and (or  (|hyperram#641| state) false) (or  (|hyperram#650| state) false))) ; $logic_and$hyperram.v:463$876_Y
+(define-fun |hyperram#652| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#20| state)) #b1) (= ((_ extract 1 1) (|hyperram#20| state)) #b1) (= ((_ extract 2 2) (|hyperram#20| state)) #b1) (= ((_ extract 3 3) (|hyperram#20| state)) #b1)))) ; $eq$hyperram.v:474$877_Y
+(define-fun |hyperram#653| ((state |hyperram_s|)) Bool (and (or  (|hyperram#651| state) false) (or  (|hyperram#652| state) false))) ; $logic_and$hyperram.v:463$878_Y
+(define-fun |hyperram#654| ((state |hyperram_s|)) Bool (and (or  (|hyperram#653| state) false) (or  (|hyperram#642| state) false))) ; $logic_and$hyperram.v:463$880_Y
+(define-fun |hyperram#655| ((state |hyperram_s|)) Bool (and (or  (|hyperram#654| state) false) (or  (|hyperram#644| state) false))) ; $logic_and$hyperram.v:463$882_Y
+(define-fun |hyperram#656| ((state |hyperram_s|)) Bool (and (or  (|hyperram#655| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:463$883_Y
+(define-fun |hyperram#657| ((state |hyperram_s|)) Bool (and (or  (|hyperram#656| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:463$884_Y
+(define-fun |hyperram#658| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#113| state)) #b1) (ite (|hyperram#657| state) #b1 #b0) (|hyperram#649| state))) ; $0$formal$hyperram.v:462$213_CHECK[0:0]$617
+; yosys-smt2-anyseq hyperram#659 1 $auto$setundef.cc:501:execute$3726
+(declare-fun |hyperram#659| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3727
+(define-fun |hyperram#660| ((state |hyperram_s|)) Bool (= (|hyperram#16| state) #b0011)) ; $eq$hyperram.v:493$899_Y
+(define-fun |hyperram#661| ((state |hyperram_s|)) Bool (and (or  (|hyperram#641| state) false) (or  (|hyperram#660| state) false))) ; $logic_and$hyperram.v:483$900_Y
+(define-fun |hyperram#662| ((state |hyperram_s|)) Bool (= (|hyperram#20| state) #b0101)) ; $eq$hyperram.v:494$901_Y
+(define-fun |hyperram#663| ((state |hyperram_s|)) Bool (and (or  (|hyperram#661| state) false) (or  (|hyperram#662| state) false))) ; $logic_and$hyperram.v:483$902_Y
+(define-fun |hyperram#664| ((state |hyperram_s|)) Bool (and (or  (|hyperram#663| state) false) (or  (|hyperram#642| state) false))) ; $logic_and$hyperram.v:483$904_Y
+(define-fun |hyperram#665| ((state |hyperram_s|)) Bool (and (or  (|hyperram#664| state) false) (or  (|hyperram#644| state) false))) ; $logic_and$hyperram.v:483$906_Y
+(define-fun |hyperram#666| ((state |hyperram_s|)) Bool (and (or  (|hyperram#665| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:483$907_Y
+(define-fun |hyperram#667| ((state |hyperram_s|)) Bool (and (or  (|hyperram#666| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:483$908_Y
+(define-fun |hyperram#668| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#113| state)) #b1) (ite (|hyperram#667| state) #b1 #b0) (|hyperram#659| state))) ; $0$formal$hyperram.v:482$214_CHECK[0:0]$619
+; yosys-smt2-anyseq hyperram#669 1 $auto$setundef.cc:501:execute$3728
+(declare-fun |hyperram#669| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3729
+(define-fun |hyperram#670| ((state |hyperram_s|)) Bool (= (|hyperram#16| state) #b1111)) ; $eq$hyperram.v:513$923_Y
+(define-fun |hyperram#671| ((state |hyperram_s|)) Bool (and (or  (|hyperram#641| state) false) (or  (|hyperram#670| state) false))) ; $logic_and$hyperram.v:503$924_Y
+(define-fun |hyperram#672| ((state |hyperram_s|)) Bool (= (|hyperram#20| state) #b1111)) ; $eq$hyperram.v:514$925_Y
+(define-fun |hyperram#673| ((state |hyperram_s|)) Bool (and (or  (|hyperram#671| state) false) (or  (|hyperram#672| state) false))) ; $logic_and$hyperram.v:503$926_Y
+(define-fun |hyperram#674| ((state |hyperram_s|)) Bool (and (or  (|hyperram#673| state) false) (or  (|hyperram#642| state) false))) ; $logic_and$hyperram.v:503$928_Y
+(define-fun |hyperram#675| ((state |hyperram_s|)) Bool (and (or  (|hyperram#674| state) false) (or  (|hyperram#644| state) false))) ; $logic_and$hyperram.v:503$930_Y
+(define-fun |hyperram#676| ((state |hyperram_s|)) Bool (and (or  (|hyperram#675| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:503$931_Y
+(define-fun |hyperram#677| ((state |hyperram_s|)) Bool (and (or  (|hyperram#676| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:503$932_Y
+(define-fun |hyperram#678| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#113| state)) #b1) (ite (|hyperram#677| state) #b1 #b0) (|hyperram#669| state))) ; $0$formal$hyperram.v:502$215_CHECK[0:0]$621
+; yosys-smt2-anyseq hyperram#679 1 $auto$setundef.cc:501:execute$3730
+(declare-fun |hyperram#679| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3731
+(define-fun |hyperram#680| ((state |hyperram_s|)) Bool (and (or  (|hyperram#635| state) false) (or  (|hyperram#85| state) false))) ; $logic_and$hyperram.v:524$942_Y
+(define-fun |hyperram#681| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#70| state)) #b1) false))) ; $logic_not$hyperram.v:530$943_Y
+(define-fun |hyperram#682| ((state |hyperram_s|)) Bool (and (or  (|hyperram#680| state) false) (or  (|hyperram#681| state) false))) ; $logic_and$hyperram.v:524$944_Y
+(define-fun |hyperram#683| ((state |hyperram_s|)) Bool (and (or  (|hyperram#682| state) false) (or  (= ((_ extract 0 0) (|hyperram#64| state)) #b1) false))) ; $logic_and$hyperram.v:524$945_Y
+(define-fun |hyperram#684| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#39| state)) #b1) false))) ; $logic_not$hyperram.v:532$946_Y
+(define-fun |hyperram#685| ((state |hyperram_s|)) Bool (and (or  (|hyperram#683| state) false) (or  (|hyperram#684| state) false))) ; $logic_and$hyperram.v:524$947_Y
+(define-fun |hyperram#686| ((state |hyperram_s|)) Bool (and (or  (|hyperram#685| state) false) (or  (|hyperram#644| state) false))) ; $logic_and$hyperram.v:524$949_Y
+(define-fun |hyperram#687| ((state |hyperram_s|)) Bool (and (or  (|hyperram#686| state) false) (or  (|hyperram#642| state) false))) ; $logic_and$hyperram.v:524$951_Y
+(define-fun |hyperram#688| ((state |hyperram_s|)) Bool (and (or  (|hyperram#687| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:524$952_Y
+(define-fun |hyperram#689| ((state |hyperram_s|)) Bool (and (or  (|hyperram#688| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:524$953_Y
+(define-fun |hyperram#690| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#113| state)) #b1) (ite (|hyperram#689| state) #b1 #b0) (|hyperram#679| state))) ; $0$formal$hyperram.v:524$216_CHECK[0:0]$623
+; yosys-smt2-anyseq hyperram#691 1 $auto$setundef.cc:501:execute$3732
+(declare-fun |hyperram#691| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3733
+(define-fun |hyperram#692| ((state |hyperram_s|)) Bool (and (or  (|hyperram#686| state) false) (or  (|hyperram#640| state) false))) ; $logic_and$hyperram.v:541$972_Y
+(define-fun |hyperram#693| ((state |hyperram_s|)) Bool (= (|hyperram#16| state) #b0010)) ; $eq$hyperram.v:551$973_Y
+(define-fun |hyperram#694| ((state |hyperram_s|)) Bool (and (or  (|hyperram#692| state) false) (or  (|hyperram#693| state) false))) ; $logic_and$hyperram.v:541$974_Y
+(define-fun |hyperram#695| ((state |hyperram_s|)) Bool (= (|hyperram#20| state) #b0011)) ; $eq$hyperram.v:552$975_Y
+(define-fun |hyperram#696| ((state |hyperram_s|)) Bool (and (or  (|hyperram#694| state) false) (or  (|hyperram#695| state) false))) ; $logic_and$hyperram.v:541$976_Y
+(define-fun |hyperram#697| ((state |hyperram_s|)) Bool (and (or  (|hyperram#696| state) false) (or  (|hyperram#642| state) false))) ; $logic_and$hyperram.v:541$978_Y
+(define-fun |hyperram#698| ((state |hyperram_s|)) Bool (and (or  (|hyperram#697| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:541$979_Y
+(define-fun |hyperram#699| ((state |hyperram_s|)) Bool (and (or  (|hyperram#698| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:541$980_Y
+(define-fun |hyperram#700| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#113| state)) #b1) (ite (|hyperram#699| state) #b1 #b0) (|hyperram#691| state))) ; $0$formal$hyperram.v:540$217_CHECK[0:0]$625
+; yosys-smt2-anyseq hyperram#701 1 $auto$setundef.cc:501:execute$3734
+(declare-fun |hyperram#701| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3735
+(define-fun |hyperram#702| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#64| state)) #b1) false))) ; $logic_not$hyperram.v:567$993_Y
+(define-fun |hyperram#703| ((state |hyperram_s|)) Bool (and (or  (|hyperram#682| state) false) (or  (|hyperram#702| state) false))) ; $logic_and$hyperram.v:560$994_Y
+(define-fun |hyperram#704| ((state |hyperram_s|)) Bool (and (or  (|hyperram#703| state) false) (or  (= ((_ extract 0 0) (|hyperram#39| state)) #b1) false))) ; $logic_and$hyperram.v:560$995_Y
+(define-fun |hyperram#705| ((state |hyperram_s|)) Bool (and (or  (|hyperram#704| state) false) (or  (|hyperram#644| state) false))) ; $logic_and$hyperram.v:560$997_Y
+(define-fun |hyperram#706| ((state |hyperram_s|)) Bool (and (or  (|hyperram#705| state) false) (or  (|hyperram#640| state) false))) ; $logic_and$hyperram.v:560$999_Y
+(define-fun |hyperram#707| ((state |hyperram_s|)) Bool (and (or  (|hyperram#706| state) false) (or  (|hyperram#670| state) false))) ; $logic_and$hyperram.v:560$1001_Y
+(define-fun |hyperram#708| ((state |hyperram_s|)) Bool (and (or  (|hyperram#707| state) false) (or  (|hyperram#672| state) false))) ; $logic_and$hyperram.v:560$1003_Y
+(define-fun |hyperram#709| ((state |hyperram_s|)) Bool (and (or  (|hyperram#708| state) false) (or  (|hyperram#642| state) false))) ; $logic_and$hyperram.v:560$1005_Y
+(define-fun |hyperram#710| ((state |hyperram_s|)) Bool (and (or  (|hyperram#709| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:560$1006_Y
+(define-fun |hyperram#711| ((state |hyperram_s|)) Bool (and (or  (|hyperram#710| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:560$1007_Y
+(define-fun |hyperram#712| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#113| state)) #b1) (ite (|hyperram#711| state) #b1 #b0) (|hyperram#701| state))) ; $0$formal$hyperram.v:559$218_CHECK[0:0]$627
+; yosys-smt2-anyseq hyperram#713 1 $auto$setundef.cc:501:execute$3736
+(declare-fun |hyperram#713| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3737
+(define-fun |hyperram#714| ((state |hyperram_s|)) Bool (and (or  (|hyperram#680| state) false) (or  (= ((_ extract 0 0) (|hyperram#70| state)) #b1) false))) ; $logic_and$hyperram.v:581$1018_Y
+(define-fun |hyperram#715| ((state |hyperram_s|)) Bool (and (or  (|hyperram#714| state) false) (or  (|hyperram#702| state) false))) ; $logic_and$hyperram.v:581$1020_Y
+(define-fun |hyperram#716| ((state |hyperram_s|)) Bool (and (or  (|hyperram#715| state) false) (or  (= ((_ extract 0 0) (|hyperram#39| state)) #b1) false))) ; $logic_and$hyperram.v:581$1021_Y
+(define-fun |hyperram#717| ((state |hyperram_s|)) Bool (and (or  (|hyperram#716| state) false) (or  (|hyperram#644| state) false))) ; $logic_and$hyperram.v:581$1023_Y
+(define-fun |hyperram#718| ((state |hyperram_s|)) Bool (= (|hyperram#28| state) #b0110)) ; $eq$hyperram.v:591$1024_Y
+(define-fun |hyperram#719| ((state |hyperram_s|)) Bool (and (or  (|hyperram#717| state) false) (or  (|hyperram#718| state) false))) ; $logic_and$hyperram.v:581$1025_Y
+(define-fun |hyperram#720| ((state |hyperram_s|)) Bool (= (|hyperram#16| state) #b0001)) ; $eq$hyperram.v:592$1026_Y
+(define-fun |hyperram#721| ((state |hyperram_s|)) Bool (and (or  (|hyperram#719| state) false) (or  (|hyperram#720| state) false))) ; $logic_and$hyperram.v:581$1027_Y
+(define-fun |hyperram#722| ((state |hyperram_s|)) Bool (= (|hyperram#20| state) #b0010)) ; $eq$hyperram.v:593$1028_Y
+(define-fun |hyperram#723| ((state |hyperram_s|)) Bool (and (or  (|hyperram#721| state) false) (or  (|hyperram#722| state) false))) ; $logic_and$hyperram.v:581$1029_Y
+(define-fun |hyperram#724| ((state |hyperram_s|)) Bool (and (or  (|hyperram#723| state) false) (or  (|hyperram#642| state) false))) ; $logic_and$hyperram.v:581$1031_Y
+(define-fun |hyperram#725| ((state |hyperram_s|)) Bool (and (or  (|hyperram#724| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:581$1032_Y
+(define-fun |hyperram#726| ((state |hyperram_s|)) Bool (and (or  (|hyperram#725| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:581$1033_Y
+(define-fun |hyperram#727| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#113| state)) #b1) (ite (|hyperram#726| state) #b1 #b0) (|hyperram#713| state))) ; $0$formal$hyperram.v:580$219_CHECK[0:0]$629
+; yosys-smt2-anyseq hyperram#728 1 $auto$setundef.cc:501:execute$3738
+(declare-fun |hyperram#728| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3739
+(define-fun |hyperram#729| ((state |hyperram_s|)) Bool (and (or  (|hyperram#714| state) false) (or  (= ((_ extract 0 0) (|hyperram#64| state)) #b1) false))) ; $logic_and$hyperram.v:601$1045_Y
+(define-fun |hyperram#730| ((state |hyperram_s|)) Bool (and (or  (|hyperram#729| state) false) (or  (|hyperram#684| state) false))) ; $logic_and$hyperram.v:601$1047_Y
+(define-fun |hyperram#731| ((state |hyperram_s|)) Bool (and (or  (|hyperram#730| state) false) (or  (|hyperram#644| state) false))) ; $logic_and$hyperram.v:601$1049_Y
+(define-fun |hyperram#732| ((state |hyperram_s|)) Bool (= (|hyperram#28| state) #b1111)) ; $eq$hyperram.v:611$1050_Y
+(define-fun |hyperram#733| ((state |hyperram_s|)) Bool (and (or  (|hyperram#731| state) false) (or  (|hyperram#732| state) false))) ; $logic_and$hyperram.v:601$1051_Y
+(define-fun |hyperram#734| ((state |hyperram_s|)) Bool (and (or  (|hyperram#733| state) false) (or  (|hyperram#693| state) false))) ; $logic_and$hyperram.v:601$1053_Y
+(define-fun |hyperram#735| ((state |hyperram_s|)) Bool (and (or  (|hyperram#734| state) false) (or  (|hyperram#662| state) false))) ; $logic_and$hyperram.v:601$1055_Y
+(define-fun |hyperram#736| ((state |hyperram_s|)) Bool (and (or  (|hyperram#735| state) false) (or  (|hyperram#642| state) false))) ; $logic_and$hyperram.v:601$1057_Y
+(define-fun |hyperram#737| ((state |hyperram_s|)) Bool (and (or  (|hyperram#736| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:601$1058_Y
+(define-fun |hyperram#738| ((state |hyperram_s|)) Bool (and (or  (|hyperram#737| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:601$1059_Y
+(define-fun |hyperram#739| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#113| state)) #b1) (ite (|hyperram#738| state) #b1 #b0) (|hyperram#728| state))) ; $0$formal$hyperram.v:600$220_CHECK[0:0]$631
+; yosys-smt2-anyseq hyperram#740 1 $auto$setundef.cc:501:execute$3740
+(declare-fun |hyperram#740| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3741
+(define-fun |hyperram#741| ((state |hyperram_s|)) Bool (and (or  (|hyperram#634| state) false) (or  (= ((_ extract 47 47) (|hyperram#46| state)) #b1) false))) ; $logic_and$hyperram.v:622$1066_Y
+(define-fun |hyperram#742| ((state |hyperram_s|)) Bool (and (or  (|hyperram#741| state) false) (or  (|hyperram#85| state) false))) ; $logic_and$hyperram.v:622$1068_Y
+(define-fun |hyperram#743| ((state |hyperram_s|)) Bool (and (or  (|hyperram#742| state) false) (or  (|hyperram#681| state) false))) ; $logic_and$hyperram.v:622$1070_Y
+(define-fun |hyperram#744| ((state |hyperram_s|)) Bool (and (or  (|hyperram#743| state) false) (or  (= ((_ extract 0 0) (|hyperram#64| state)) #b1) false))) ; $logic_and$hyperram.v:622$1071_Y
+(define-fun |hyperram#745| ((state |hyperram_s|)) Bool (and (or  (|hyperram#744| state) false) (or  (|hyperram#684| state) false))) ; $logic_and$hyperram.v:622$1073_Y
+(define-fun |hyperram#746| ((state |hyperram_s|)) Bool (and (or  (|hyperram#745| state) false) (or  (|hyperram#472| state) false))) ; $logic_and$hyperram.v:622$1075_Y
+(define-fun |hyperram#747| ((state |hyperram_s|)) Bool (= (|hyperram#117| state) #b11111010101111000011010001010110)) ; $eq$hyperram.v:632$1076_Y
+(define-fun |hyperram#748| ((state |hyperram_s|)) Bool (and (or  (|hyperram#746| state) false) (or  (|hyperram#747| state) false))) ; $logic_and$hyperram.v:622$1077_Y
+(define-fun |hyperram#749| ((state |hyperram_s|)) Bool (and (or  (|hyperram#748| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:622$1078_Y
+(define-fun |hyperram#750| ((state |hyperram_s|)) Bool (and (or  (|hyperram#749| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:622$1079_Y
+(define-fun |hyperram#751| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#113| state)) #b1) (ite (|hyperram#750| state) #b1 #b0) (|hyperram#740| state))) ; $0$formal$hyperram.v:622$221_CHECK[0:0]$633
+; yosys-smt2-anyseq hyperram#752 1 $auto$setundef.cc:501:execute$3742
+(declare-fun |hyperram#752| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3743
+(define-fun |hyperram#753| ((state |hyperram_s|)) Bool (and (or  (|hyperram#745| state) false) (or  (|hyperram#640| state) false))) ; $logic_and$hyperram.v:638$1095_Y
+(define-fun |hyperram#754| ((state |hyperram_s|)) Bool (and (or  (|hyperram#753| state) false) (or  (|hyperram#472| state) false))) ; $logic_and$hyperram.v:638$1097_Y
+(define-fun |hyperram#755| ((state |hyperram_s|)) Bool (and (or  (|hyperram#754| state) false) (or  (|hyperram#747| state) false))) ; $logic_and$hyperram.v:638$1099_Y
+(define-fun |hyperram#756| ((state |hyperram_s|)) Bool (and (or  (|hyperram#755| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:638$1100_Y
+(define-fun |hyperram#757| ((state |hyperram_s|)) Bool (and (or  (|hyperram#756| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:638$1101_Y
+(define-fun |hyperram#758| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#113| state)) #b1) (ite (|hyperram#757| state) #b1 #b0) (|hyperram#752| state))) ; $0$formal$hyperram.v:638$222_CHECK[0:0]$635
+; yosys-smt2-anyseq hyperram#759 1 $auto$setundef.cc:501:execute$3744
+(declare-fun |hyperram#759| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3745
+(define-fun |hyperram#760| ((state |hyperram_s|)) Bool (and (or  (|hyperram#743| state) false) (or  (|hyperram#702| state) false))) ; $logic_and$hyperram.v:656$1114_Y
+(define-fun |hyperram#761| ((state |hyperram_s|)) Bool (and (or  (|hyperram#760| state) false) (or  (= ((_ extract 0 0) (|hyperram#39| state)) #b1) false))) ; $logic_and$hyperram.v:656$1115_Y
+(define-fun |hyperram#762| ((state |hyperram_s|)) Bool (= (|hyperram#28| state) #b0101)) ; $eq$hyperram.v:665$1116_Y
+(define-fun |hyperram#763| ((state |hyperram_s|)) Bool (and (or  (|hyperram#761| state) false) (or  (|hyperram#762| state) false))) ; $logic_and$hyperram.v:656$1117_Y
+(define-fun |hyperram#764| ((state |hyperram_s|)) Bool (and (or  (|hyperram#763| state) false) (or  (|hyperram#693| state) false))) ; $logic_and$hyperram.v:656$1119_Y
+(define-fun |hyperram#765| ((state |hyperram_s|)) Bool (and (or  (|hyperram#764| state) false) (or  (|hyperram#695| state) false))) ; $logic_and$hyperram.v:656$1121_Y
+(define-fun |hyperram#766| ((state |hyperram_s|)) Bool (and (or  (|hyperram#765| state) false) (or  (|hyperram#472| state) false))) ; $logic_and$hyperram.v:656$1123_Y
+(define-fun |hyperram#767| ((state |hyperram_s|)) Bool (and (or  (|hyperram#766| state) false) (or  (|hyperram#747| state) false))) ; $logic_and$hyperram.v:656$1125_Y
+(define-fun |hyperram#768| ((state |hyperram_s|)) Bool (and (or  (|hyperram#767| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:656$1126_Y
+(define-fun |hyperram#769| ((state |hyperram_s|)) Bool (and (or  (|hyperram#768| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:656$1127_Y
+(define-fun |hyperram#770| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#113| state)) #b1) (ite (|hyperram#769| state) #b1 #b0) (|hyperram#759| state))) ; $0$formal$hyperram.v:655$223_CHECK[0:0]$637
+; yosys-smt2-anyseq hyperram#771 1 $auto$setundef.cc:501:execute$3746
+(declare-fun |hyperram#771| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3747
+(define-fun |hyperram#772| ((state |hyperram_s|)) Bool (and (or  (|hyperram#742| state) false) (or  (= ((_ extract 0 0) (|hyperram#70| state)) #b1) false))) ; $logic_and$hyperram.v:676$1137_Y
+(define-fun |hyperram#773| ((state |hyperram_s|)) Bool (and (or  (|hyperram#772| state) false) (or  (|hyperram#702| state) false))) ; $logic_and$hyperram.v:676$1139_Y
+(define-fun |hyperram#774| ((state |hyperram_s|)) Bool (and (or  (|hyperram#773| state) false) (or  (= ((_ extract 0 0) (|hyperram#39| state)) #b1) false))) ; $logic_and$hyperram.v:676$1140_Y
+(define-fun |hyperram#775| ((state |hyperram_s|)) Bool (and (or  (|hyperram#774| state) false) (or  (|hyperram#718| state) false))) ; $logic_and$hyperram.v:676$1142_Y
+(define-fun |hyperram#776| ((state |hyperram_s|)) Bool (and (or  (|hyperram#775| state) false) (or  (|hyperram#660| state) false))) ; $logic_and$hyperram.v:676$1144_Y
+(define-fun |hyperram#777| ((state |hyperram_s|)) Bool (and (or  (|hyperram#776| state) false) (or  (|hyperram#722| state) false))) ; $logic_and$hyperram.v:676$1146_Y
+(define-fun |hyperram#778| ((state |hyperram_s|)) Bool (and (or  (|hyperram#777| state) false) (or  (|hyperram#472| state) false))) ; $logic_and$hyperram.v:676$1148_Y
+(define-fun |hyperram#779| ((state |hyperram_s|)) Bool (and (or  (|hyperram#778| state) false) (or  (|hyperram#747| state) false))) ; $logic_and$hyperram.v:676$1150_Y
+(define-fun |hyperram#780| ((state |hyperram_s|)) Bool (and (or  (|hyperram#779| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:676$1151_Y
+(define-fun |hyperram#781| ((state |hyperram_s|)) Bool (and (or  (|hyperram#780| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:676$1152_Y
+(define-fun |hyperram#782| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#113| state)) #b1) (ite (|hyperram#781| state) #b1 #b0) (|hyperram#771| state))) ; $0$formal$hyperram.v:675$224_CHECK[0:0]$639
+; yosys-smt2-anyseq hyperram#783 1 $auto$setundef.cc:501:execute$3748
+(declare-fun |hyperram#783| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3749
+(define-fun |hyperram#784| ((state |hyperram_s|)) Bool (and (or  (|hyperram#772| state) false) (or  (= ((_ extract 0 0) (|hyperram#64| state)) #b1) false))) ; $logic_and$hyperram.v:696$1163_Y
+(define-fun |hyperram#785| ((state |hyperram_s|)) Bool (and (or  (|hyperram#784| state) false) (or  (|hyperram#684| state) false))) ; $logic_and$hyperram.v:696$1165_Y
+(define-fun |hyperram#786| ((state |hyperram_s|)) Bool (and (or  (|hyperram#785| state) false) (or  (|hyperram#640| state) false))) ; $logic_and$hyperram.v:696$1167_Y
+(define-fun |hyperram#787| ((state |hyperram_s|)) Bool (and (or  (|hyperram#786| state) false) (or  (|hyperram#693| state) false))) ; $logic_and$hyperram.v:696$1169_Y
+(define-fun |hyperram#788| ((state |hyperram_s|)) Bool (and (or  (|hyperram#787| state) false) (or  (|hyperram#695| state) false))) ; $logic_and$hyperram.v:696$1171_Y
+(define-fun |hyperram#789| ((state |hyperram_s|)) Bool (and (or  (|hyperram#788| state) false) (or  (|hyperram#472| state) false))) ; $logic_and$hyperram.v:696$1173_Y
+(define-fun |hyperram#790| ((state |hyperram_s|)) Bool (and (or  (|hyperram#789| state) false) (or  (|hyperram#747| state) false))) ; $logic_and$hyperram.v:696$1175_Y
+(define-fun |hyperram#791| ((state |hyperram_s|)) Bool (and (or  (|hyperram#790| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:696$1176_Y
+(define-fun |hyperram#792| ((state |hyperram_s|)) Bool (and (or  (|hyperram#791| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:696$1177_Y
+(define-fun |hyperram#793| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#113| state)) #b1) (ite (|hyperram#792| state) #b1 #b0) (|hyperram#783| state))) ; $0$formal$hyperram.v:695$225_CHECK[0:0]$641
+; yosys-smt2-anyseq hyperram#794 1 $auto$setundef.cc:501:execute$3750
+(declare-fun |hyperram#794| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3751
+(define-fun |hyperram#795| ((state |hyperram_s|)) Bool (= (|hyperram#12| state) #b00100)) ; $eq$hyperram.v:726$1194_Y
+(define-fun |hyperram#796| ((state |hyperram_s|)) Bool (and (or  (|hyperram#753| state) false) (or  (|hyperram#795| state) false))) ; $logic_and$hyperram.v:716$1195_Y
+(define-fun |hyperram#797| ((state |hyperram_s|)) Bool (and (or  (|hyperram#796| state) false) (or  (= ((_ extract 0 0) (|hyperram#53| state)) #b1) false))) ; $logic_and$hyperram.v:716$1196_Y
+(define-fun |hyperram#798| ((state |hyperram_s|)) Bool (and (or  (|hyperram#797| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:716$1197_Y
+(define-fun |hyperram#799| ((state |hyperram_s|)) Bool (and (or  (|hyperram#798| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:716$1198_Y
+(define-fun |hyperram#800| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#113| state)) #b1) (ite (|hyperram#799| state) #b1 #b0) (|hyperram#794| state))) ; $0$formal$hyperram.v:716$226_CHECK[0:0]$643
+; yosys-smt2-anyseq hyperram#801 1 $auto$setundef.cc:501:execute$3752
+(declare-fun |hyperram#801| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3753
+(define-fun |hyperram#802| ((state |hyperram_s|)) Bool (= (|hyperram#12| state) #b10100)) ; $eq$hyperram.v:743$1215_Y
+(define-fun |hyperram#803| ((state |hyperram_s|)) Bool (and (or  (|hyperram#753| state) false) (or  (|hyperram#802| state) false))) ; $logic_and$hyperram.v:733$1216_Y
+(define-fun |hyperram#804| ((state |hyperram_s|)) Bool (and (or  (|hyperram#803| state) false) (or  (= ((_ extract 0 0) (|hyperram#53| state)) #b1) false))) ; $logic_and$hyperram.v:733$1217_Y
+(define-fun |hyperram#805| ((state |hyperram_s|)) Bool (and (or  (|hyperram#804| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:733$1218_Y
+(define-fun |hyperram#806| ((state |hyperram_s|)) Bool (and (or  (|hyperram#805| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:733$1219_Y
+(define-fun |hyperram#807| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#113| state)) #b1) (ite (|hyperram#806| state) #b1 #b0) (|hyperram#801| state))) ; $0$formal$hyperram.v:733$227_CHECK[0:0]$645
+; yosys-smt2-anyseq hyperram#808 1 $auto$setundef.cc:501:execute$3754
+(declare-fun |hyperram#808| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3755
+(define-fun |hyperram#809| ((state |hyperram_s|)) Bool (and (or  (|hyperram#741| state) false) (or  (= ((_ extract 46 46) (|hyperram#46| state)) #b1) false))) ; $logic_and$hyperram.v:752$1227_Y
+(define-fun |hyperram#810| ((state |hyperram_s|)) Bool (and (or  (|hyperram#809| state) false) (or  (|hyperram#681| state) false))) ; $logic_and$hyperram.v:752$1229_Y
+(define-fun |hyperram#811| ((state |hyperram_s|)) Bool (and (or  (|hyperram#810| state) false) (or  (= ((_ extract 0 0) (|hyperram#64| state)) #b1) false))) ; $logic_and$hyperram.v:752$1230_Y
+(define-fun |hyperram#812| ((state |hyperram_s|)) Bool (and (or  (|hyperram#811| state) false) (or  (|hyperram#684| state) false))) ; $logic_and$hyperram.v:752$1232_Y
+(define-fun |hyperram#813| ((state |hyperram_s|)) Bool (and (or  (|hyperram#812| state) false) (or  (|hyperram#640| state) false))) ; $logic_and$hyperram.v:752$1234_Y
+(define-fun |hyperram#814| ((state |hyperram_s|)) Bool (and (or  (|hyperram#813| state) false) (or  (|hyperram#472| state) false))) ; $logic_and$hyperram.v:752$1236_Y
+(define-fun |hyperram#815| ((state |hyperram_s|)) Bool (= (|hyperram#117| state) #b00000000000000001111100101111100)) ; $eq$hyperram.v:762$1237_Y
+(define-fun |hyperram#816| ((state |hyperram_s|)) Bool (and (or  (|hyperram#814| state) false) (or  (|hyperram#815| state) false))) ; $logic_and$hyperram.v:752$1238_Y
+(define-fun |hyperram#817| ((state |hyperram_s|)) Bool (and (or  (|hyperram#816| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:752$1239_Y
+(define-fun |hyperram#818| ((state |hyperram_s|)) Bool (and (or  (|hyperram#817| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:752$1240_Y
+(define-fun |hyperram#819| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#113| state)) #b1) (ite (|hyperram#818| state) #b1 #b0) (|hyperram#808| state))) ; $0$formal$hyperram.v:752$228_CHECK[0:0]$647
+; yosys-smt2-anyseq hyperram#820 1 $auto$setundef.cc:501:execute$3756
+(declare-fun |hyperram#820| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3757
+(define-fun |hyperram#821| ((state |hyperram_s|)) Bool (and (or  (|hyperram#810| state) false) (or  (|hyperram#702| state) false))) ; $logic_and$hyperram.v:768$1252_Y
+(define-fun |hyperram#822| ((state |hyperram_s|)) Bool (and (or  (|hyperram#821| state) false) (or  (= ((_ extract 0 0) (|hyperram#39| state)) #b1) false))) ; $logic_and$hyperram.v:768$1253_Y
+(define-fun |hyperram#823| ((state |hyperram_s|)) Bool (and (or  (|hyperram#822| state) false) (or  (|hyperram#640| state) false))) ; $logic_and$hyperram.v:768$1255_Y
+(define-fun |hyperram#824| ((state |hyperram_s|)) Bool (and (or  (|hyperram#823| state) false) (or  (|hyperram#472| state) false))) ; $logic_and$hyperram.v:768$1257_Y
+(define-fun |hyperram#825| ((state |hyperram_s|)) Bool (and (or  (|hyperram#824| state) false) (or  (|hyperram#815| state) false))) ; $logic_and$hyperram.v:768$1259_Y
+(define-fun |hyperram#826| ((state |hyperram_s|)) Bool (and (or  (|hyperram#825| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:768$1260_Y
+(define-fun |hyperram#827| ((state |hyperram_s|)) Bool (and (or  (|hyperram#826| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:768$1261_Y
+(define-fun |hyperram#828| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#113| state)) #b1) (ite (|hyperram#827| state) #b1 #b0) (|hyperram#820| state))) ; $0$formal$hyperram.v:768$229_CHECK[0:0]$649
+; yosys-smt2-anyseq hyperram#829 1 $auto$setundef.cc:501:execute$3758
+(declare-fun |hyperram#829| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3759
+(define-fun |hyperram#830| ((state |hyperram_s|)) Bool (and (or  (|hyperram#813| state) false) (or  (|hyperram#693| state) false))) ; $logic_and$hyperram.v:785$1278_Y
+(define-fun |hyperram#831| ((state |hyperram_s|)) Bool (and (or  (|hyperram#830| state) false) (or  (|hyperram#662| state) false))) ; $logic_and$hyperram.v:785$1280_Y
+(define-fun |hyperram#832| ((state |hyperram_s|)) Bool (and (or  (|hyperram#831| state) false) (or  (|hyperram#472| state) false))) ; $logic_and$hyperram.v:785$1282_Y
+(define-fun |hyperram#833| ((state |hyperram_s|)) Bool (and (or  (|hyperram#832| state) false) (or  (|hyperram#815| state) false))) ; $logic_and$hyperram.v:785$1284_Y
+(define-fun |hyperram#834| ((state |hyperram_s|)) Bool (and (or  (|hyperram#833| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:785$1285_Y
+(define-fun |hyperram#835| ((state |hyperram_s|)) Bool (and (or  (|hyperram#834| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:785$1286_Y
+(define-fun |hyperram#836| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#113| state)) #b1) (ite (|hyperram#835| state) #b1 #b0) (|hyperram#829| state))) ; $0$formal$hyperram.v:784$230_CHECK[0:0]$651
+; yosys-smt2-anyseq hyperram#837 1 $auto$setundef.cc:501:execute$3760
+(declare-fun |hyperram#837| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3761
+(define-fun |hyperram#838| ((state |hyperram_s|)) Bool (and (or  (|hyperram#809| state) false) (or  (= ((_ extract 0 0) (|hyperram#70| state)) #b1) false))) ; $logic_and$hyperram.v:804$1295_Y
+(define-fun |hyperram#839| ((state |hyperram_s|)) Bool (and (or  (|hyperram#838| state) false) (or  (|hyperram#702| state) false))) ; $logic_and$hyperram.v:804$1297_Y
+(define-fun |hyperram#840| ((state |hyperram_s|)) Bool (and (or  (|hyperram#839| state) false) (or  (= ((_ extract 0 0) (|hyperram#39| state)) #b1) false))) ; $logic_and$hyperram.v:804$1298_Y
+(define-fun |hyperram#841| ((state |hyperram_s|)) Bool (and (or  (|hyperram#840| state) false) (or  (|hyperram#640| state) false))) ; $logic_and$hyperram.v:804$1300_Y
+(define-fun |hyperram#842| ((state |hyperram_s|)) Bool (and (or  (|hyperram#841| state) false) (or  (|hyperram#472| state) false))) ; $logic_and$hyperram.v:804$1302_Y
+(define-fun |hyperram#843| ((state |hyperram_s|)) Bool (and (or  (|hyperram#842| state) false) (or  (|hyperram#815| state) false))) ; $logic_and$hyperram.v:804$1304_Y
+(define-fun |hyperram#844| ((state |hyperram_s|)) Bool (and (or  (|hyperram#843| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:804$1305_Y
+(define-fun |hyperram#845| ((state |hyperram_s|)) Bool (and (or  (|hyperram#844| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:804$1306_Y
+(define-fun |hyperram#846| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#113| state)) #b1) (ite (|hyperram#845| state) #b1 #b0) (|hyperram#837| state))) ; $0$formal$hyperram.v:803$231_CHECK[0:0]$653
+; yosys-smt2-anyseq hyperram#847 1 $auto$setundef.cc:501:execute$3762
+(declare-fun |hyperram#847| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3763
+(define-fun |hyperram#848| ((state |hyperram_s|)) Bool (and (or  (|hyperram#838| state) false) (or  (= ((_ extract 0 0) (|hyperram#64| state)) #b1) false))) ; $logic_and$hyperram.v:821$1316_Y
+(define-fun |hyperram#849| ((state |hyperram_s|)) Bool (and (or  (|hyperram#848| state) false) (or  (|hyperram#684| state) false))) ; $logic_and$hyperram.v:821$1318_Y
+(define-fun |hyperram#850| ((state |hyperram_s|)) Bool (and (or  (|hyperram#849| state) false) (or  (|hyperram#640| state) false))) ; $logic_and$hyperram.v:821$1320_Y
+(define-fun |hyperram#851| ((state |hyperram_s|)) Bool (and (or  (|hyperram#850| state) false) (or  (|hyperram#472| state) false))) ; $logic_and$hyperram.v:821$1322_Y
+(define-fun |hyperram#852| ((state |hyperram_s|)) Bool (and (or  (|hyperram#851| state) false) (or  (|hyperram#815| state) false))) ; $logic_and$hyperram.v:821$1324_Y
+(define-fun |hyperram#853| ((state |hyperram_s|)) Bool (and (or  (|hyperram#852| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:821$1325_Y
+(define-fun |hyperram#854| ((state |hyperram_s|)) Bool (and (or  (|hyperram#853| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:821$1326_Y
+(define-fun |hyperram#855| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#113| state)) #b1) (ite (|hyperram#854| state) #b1 #b0) (|hyperram#847| state))) ; $0$formal$hyperram.v:820$232_CHECK[0:0]$655
+; yosys-smt2-anyseq hyperram#856 1 $auto$setundef.cc:501:execute$3764
+(declare-fun |hyperram#856| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3765
+(define-fun |hyperram#857| ((state |hyperram_s|)) Bool (= (|hyperram#12| state) #b11111)) ; $eq$hyperram.v:848$1341_Y
+(define-fun |hyperram#858| ((state |hyperram_s|)) Bool (and (or  (|hyperram#850| state) false) (or  (|hyperram#857| state) false))) ; $logic_and$hyperram.v:839$1342_Y
+(define-fun |hyperram#859| ((state |hyperram_s|)) Bool (and (or  (|hyperram#858| state) false) (or  (= ((_ extract 0 0) (|hyperram#53| state)) #b1) false))) ; $logic_and$hyperram.v:839$1343_Y
+(define-fun |hyperram#860| ((state |hyperram_s|)) Bool (and (or  (|hyperram#859| state) false) (or  (= ((_ extract 0 0) (|hyperram#46| state)) #b1) (= ((_ extract 1 1) (|hyperram#46| state)) #b1) (= ((_ extract 2 2) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:839$1344_Y
+(define-fun |hyperram#861| ((state |hyperram_s|)) Bool (and (or  (|hyperram#860| state) false) (or  (= ((_ extract 16 16) (|hyperram#46| state)) #b1) (= ((_ extract 17 17) (|hyperram#46| state)) #b1) (= ((_ extract 18 18) (|hyperram#46| state)) #b1) (= ((_ extract 19 19) (|hyperram#46| state)) #b1) (= ((_ extract 20 20) (|hyperram#46| state)) #b1) (= ((_ extract 21 21) (|hyperram#46| state)) #b1) (= ((_ extract 22 22) (|hyperram#46| state)) #b1) (= ((_ extract 23 23) (|hyperram#46| state)) #b1) (= ((_ extract 24 24) (|hyperram#46| state)) #b1) (= ((_ extract 25 25) (|hyperram#46| state)) #b1) (= ((_ extract 26 26) (|hyperram#46| state)) #b1) (= ((_ extract 27 27) (|hyperram#46| state)) #b1) (= ((_ extract 28 28) (|hyperram#46| state)) #b1) (= ((_ extract 29 29) (|hyperram#46| state)) #b1) (= ((_ extract 30 30) (|hyperram#46| state)) #b1) (= ((_ extract 31 31) (|hyperram#46| state)) #b1) (= ((_ extract 32 32) (|hyperram#46| state)) #b1) (= ((_ extract 33 33) (|hyperram#46| state)) #b1) (= ((_ extract 34 34) (|hyperram#46| state)) #b1) (= ((_ extract 35 35) (|hyperram#46| state)) #b1) (= ((_ extract 36 36) (|hyperram#46| state)) #b1) (= ((_ extract 37 37) (|hyperram#46| state)) #b1) (= ((_ extract 38 38) (|hyperram#46| state)) #b1) (= ((_ extract 39 39) (|hyperram#46| state)) #b1) (= ((_ extract 40 40) (|hyperram#46| state)) #b1) (= ((_ extract 41 41) (|hyperram#46| state)) #b1) (= ((_ extract 42 42) (|hyperram#46| state)) #b1) (= ((_ extract 43 43) (|hyperram#46| state)) #b1) (= ((_ extract 44 44) (|hyperram#46| state)) #b1)))) ; $logic_and$hyperram.v:839$1345_Y
+(define-fun |hyperram#862| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|hyperram#113| state)) #b1) (ite (|hyperram#861| state) #b1 #b0) (|hyperram#856| state))) ; $0$formal$hyperram.v:838$233_CHECK[0:0]$657
+; yosys-smt2-anyseq hyperram#863 1 $auto$setundef.cc:501:execute$3766
+(declare-fun |hyperram#863| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3767
+(define-fun |hyperram#864| ((state |hyperram_s|)) (_ BitVec 1) (bvnot (|hyperram#305| state))) ; $not$hyperram.v:855$1348_Y
+(define-fun |hyperram#865| ((state |hyperram_s|)) Bool (= (|hyperram#4| state) (|hyperram#864| state))) ; $eq$hyperram.v:855$1349_Y
+(define-fun |hyperram#866| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (ite (|hyperram#865| state) #b1 #b0) (|hyperram#863| state))) ; $0$formal$hyperram.v:854$234_CHECK[0:0]$659
+(define-fun |hyperram#867| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) #b1 #b0)) ; $0$formal$hyperram.v:1030$284_EN[0:0]$760
+; yosys-smt2-anyseq hyperram#868 1 $auto$setundef.cc:501:execute$3768
+(declare-fun |hyperram#868| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3769
+(define-fun |hyperram#869| ((state |hyperram_s|)) Bool (bvuge (|hyperram#28| state) #b0010)) ; $ge$hyperram.v:860$1352_Y
+(define-fun |hyperram#870| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (ite (|hyperram#869| state) #b1 #b0) (|hyperram#868| state))) ; $0$formal$hyperram.v:860$235_CHECK[0:0]$661
+; yosys-smt2-anyseq hyperram#871 1 $auto$setundef.cc:501:execute$3770
+(declare-fun |hyperram#871| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3771
+(define-fun |hyperram#872| ((state |hyperram_s|)) Bool (bvuge (|hyperram#12| state) #b00100)) ; $ge$hyperram.v:861$1353_Y
+(define-fun |hyperram#873| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (ite (|hyperram#872| state) #b1 #b0) (|hyperram#871| state))) ; $0$formal$hyperram.v:861$236_CHECK[0:0]$663
+; yosys-smt2-anyseq hyperram#874 1 $auto$setundef.cc:501:execute$3774
+(declare-fun |hyperram#874| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3775
+; yosys-smt2-anyseq hyperram#875 1 $auto$setundef.cc:501:execute$3772
+(declare-fun |hyperram#875| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3773
+(define-fun |hyperram#876| ((state |hyperram_s|)) Bool (= (|hyperram#24| state) (|hyperram#136| state))) ; $eq$hyperram.v:867$1359_Y
+(define-fun |hyperram#877| ((state |hyperram_s|)) Bool (and (or  (|hyperram#421| state) false) (or  (|hyperram#623| state) false))) ; $logic_and$hyperram.v:866$1358_Y
+(define-fun |hyperram#878| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#877| state) (ite (|hyperram#876| state) #b1 #b0) (|hyperram#875| state))) ; $procmux$2024_Y
+(define-fun |hyperram#879| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#878| state) (|hyperram#874| state))) ; $0$formal$hyperram.v:867$237_CHECK[0:0]$665
+(define-fun |hyperram#880| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#877| state) #b1 #b0)) ; $procmux$2020_Y
+(define-fun |hyperram#881| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#880| state) #b0)) ; $0$formal$hyperram.v:867$237_EN[0:0]$666
+; yosys-smt2-anyseq hyperram#882 1 $auto$setundef.cc:501:execute$3778
+(declare-fun |hyperram#882| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3779
+; yosys-smt2-anyseq hyperram#883 1 $auto$setundef.cc:501:execute$3776
+(declare-fun |hyperram#883| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3777
+(define-fun |hyperram#884| ((state |hyperram_s|)) Bool (= (|hyperram#16| state) (|hyperram#135| state))) ; $eq$hyperram.v:868$1360_Y
+(define-fun |hyperram#885| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#877| state) (ite (|hyperram#884| state) #b1 #b0) (|hyperram#883| state))) ; $procmux$2032_Y
+(define-fun |hyperram#886| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#885| state) (|hyperram#882| state))) ; $0$formal$hyperram.v:868$238_CHECK[0:0]$667
+; yosys-smt2-anyseq hyperram#887 1 $auto$setundef.cc:501:execute$3782
+(declare-fun |hyperram#887| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3783
+; yosys-smt2-anyseq hyperram#888 1 $auto$setundef.cc:501:execute$3780
+(declare-fun |hyperram#888| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3781
+(define-fun |hyperram#889| ((state |hyperram_s|)) Bool (= (|hyperram#20| state) (|hyperram#134| state))) ; $eq$hyperram.v:869$1361_Y
+(define-fun |hyperram#890| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#877| state) (ite (|hyperram#889| state) #b1 #b0) (|hyperram#888| state))) ; $procmux$2040_Y
+(define-fun |hyperram#891| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#890| state) (|hyperram#887| state))) ; $0$formal$hyperram.v:869$239_CHECK[0:0]$669
+; yosys-smt2-anyseq hyperram#892 1 $auto$setundef.cc:501:execute$3788
+(declare-fun |hyperram#892| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3789
+; yosys-smt2-anyseq hyperram#893 1 $auto$setundef.cc:501:execute$3786
+(declare-fun |hyperram#893| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3787
+; yosys-smt2-anyseq hyperram#894 1 $auto$setundef.cc:501:execute$3784
+(declare-fun |hyperram#894| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3785
+(define-fun |hyperram#895| ((state |hyperram_s|)) Bool (= (|hyperram#12| state) (|hyperram#133| state))) ; $eq$hyperram.v:872$1363_Y
+(define-fun |hyperram#896| ((state |hyperram_s|)) Bool (bvuge (|hyperram#133| state) #b00100)) ; $ge$hyperram.v:871$1362_Y
+(define-fun |hyperram#897| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#896| state) (ite (|hyperram#895| state) #b1 #b0) (|hyperram#894| state))) ; $procmux$2052_Y
+(define-fun |hyperram#898| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#877| state) (|hyperram#897| state) (|hyperram#893| state))) ; $procmux$2054_Y
+(define-fun |hyperram#899| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#898| state) (|hyperram#892| state))) ; $0$formal$hyperram.v:872$240_CHECK[0:0]$671
+(define-fun |hyperram#900| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#896| state) #b1 #b0)) ; $procmux$2045_Y
+(define-fun |hyperram#901| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#877| state) (|hyperram#900| state) #b0)) ; $procmux$2047_Y
+(define-fun |hyperram#902| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#901| state) #b0)) ; $0$formal$hyperram.v:872$240_EN[0:0]$672
+; yosys-smt2-anyseq hyperram#903 1 $auto$setundef.cc:501:execute$3794
+(declare-fun |hyperram#903| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3795
+; yosys-smt2-anyseq hyperram#904 1 $auto$setundef.cc:501:execute$3792
+(declare-fun |hyperram#904| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3793
+; yosys-smt2-anyseq hyperram#905 1 $auto$setundef.cc:501:execute$3790
+(declare-fun |hyperram#905| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3791
+(define-fun |hyperram#906| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#896| state) (|hyperram#905| state) (ite (|hyperram#795| state) #b1 #b0))) ; $procmux$2066_Y
+(define-fun |hyperram#907| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#877| state) (|hyperram#906| state) (|hyperram#904| state))) ; $procmux$2068_Y
+(define-fun |hyperram#908| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#907| state) (|hyperram#903| state))) ; $0$formal$hyperram.v:874$241_CHECK[0:0]$673
+(define-fun |hyperram#909| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#896| state) #b0 #b1)) ; $procmux$2059_Y
+(define-fun |hyperram#910| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#877| state) (|hyperram#909| state) #b0)) ; $procmux$2061_Y
+(define-fun |hyperram#911| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#910| state) #b0)) ; $0$formal$hyperram.v:874$241_EN[0:0]$674
+; yosys-smt2-anyseq hyperram#912 1 $auto$setundef.cc:501:execute$3800
+(declare-fun |hyperram#912| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3801
+; yosys-smt2-anyseq hyperram#913 1 $auto$setundef.cc:501:execute$3798
+(declare-fun |hyperram#913| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3799
+; yosys-smt2-anyseq hyperram#914 1 $auto$setundef.cc:501:execute$3796
+(declare-fun |hyperram#914| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3797
+(define-fun |hyperram#915| ((state |hyperram_s|)) Bool (= (|hyperram#28| state) (|hyperram#132| state))) ; $eq$hyperram.v:877$1366_Y
+(define-fun |hyperram#916| ((state |hyperram_s|)) Bool (bvuge (|hyperram#132| state) #b0010)) ; $ge$hyperram.v:876$1365_Y
+(define-fun |hyperram#917| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#916| state) (ite (|hyperram#915| state) #b1 #b0) (|hyperram#914| state))) ; $procmux$2080_Y
+(define-fun |hyperram#918| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#877| state) (|hyperram#917| state) (|hyperram#913| state))) ; $procmux$2082_Y
+(define-fun |hyperram#919| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#918| state) (|hyperram#912| state))) ; $0$formal$hyperram.v:877$242_CHECK[0:0]$675
+(define-fun |hyperram#920| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#916| state) #b1 #b0)) ; $procmux$2073_Y
+(define-fun |hyperram#921| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#877| state) (|hyperram#920| state) #b0)) ; $procmux$2075_Y
+(define-fun |hyperram#922| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#921| state) #b0)) ; $0$formal$hyperram.v:877$242_EN[0:0]$676
+; yosys-smt2-anyseq hyperram#923 1 $auto$setundef.cc:501:execute$3806
+(declare-fun |hyperram#923| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3807
+; yosys-smt2-anyseq hyperram#924 1 $auto$setundef.cc:501:execute$3804
+(declare-fun |hyperram#924| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3805
+(define-fun |hyperram#925| ((state |hyperram_s|)) Bool (= (|hyperram#28| state) #b0010)) ; $eq$hyperram.v:879$1367_Y
+; yosys-smt2-anyseq hyperram#926 1 $auto$setundef.cc:501:execute$3802
+(declare-fun |hyperram#926| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3803
+(define-fun |hyperram#927| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#916| state) (|hyperram#926| state) (ite (|hyperram#925| state) #b1 #b0))) ; $procmux$2094_Y
+(define-fun |hyperram#928| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#877| state) (|hyperram#927| state) (|hyperram#924| state))) ; $procmux$2096_Y
+(define-fun |hyperram#929| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#928| state) (|hyperram#923| state))) ; $0$formal$hyperram.v:879$243_CHECK[0:0]$677
+(define-fun |hyperram#930| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#916| state) #b0 #b1)) ; $procmux$2087_Y
+(define-fun |hyperram#931| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#877| state) (|hyperram#930| state) #b0)) ; $procmux$2089_Y
+(define-fun |hyperram#932| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#931| state) #b0)) ; $0$formal$hyperram.v:879$243_EN[0:0]$678
+; yosys-smt2-anyseq hyperram#933 1 $auto$setundef.cc:501:execute$3810
+(declare-fun |hyperram#933| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3811
+; yosys-smt2-anyseq hyperram#934 1 $auto$setundef.cc:501:execute$3808
+(declare-fun |hyperram#934| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3809
+(define-fun |hyperram#935| ((state |hyperram_s|)) Bool (= (|hyperram#72| state) (|hyperram#131| state))) ; $eq$hyperram.v:881$1368_Y
+(define-fun |hyperram#936| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#877| state) (ite (|hyperram#935| state) #b1 #b0) (|hyperram#934| state))) ; $procmux$2104_Y
+(define-fun |hyperram#937| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#936| state) (|hyperram#933| state))) ; $0$formal$hyperram.v:879$244_CHECK[0:0]$679
+; yosys-smt2-anyseq hyperram#938 1 $auto$setundef.cc:501:execute$3814
+(declare-fun |hyperram#938| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3815
+; yosys-smt2-anyseq hyperram#939 1 $auto$setundef.cc:501:execute$3812
+(declare-fun |hyperram#939| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3813
+(define-fun |hyperram#940| ((state |hyperram_s|)) Bool (= (|hyperram#66| state) (|hyperram#130| state))) ; $eq$hyperram.v:882$1369_Y
+(define-fun |hyperram#941| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#877| state) (ite (|hyperram#940| state) #b1 #b0) (|hyperram#939| state))) ; $procmux$2112_Y
+(define-fun |hyperram#942| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#941| state) (|hyperram#938| state))) ; $0$formal$hyperram.v:881$245_CHECK[0:0]$681
+; yosys-smt2-anyseq hyperram#943 1 $auto$setundef.cc:501:execute$3818
+(declare-fun |hyperram#943| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3819
+; yosys-smt2-anyseq hyperram#944 1 $auto$setundef.cc:501:execute$3816
+(declare-fun |hyperram#944| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3817
+(define-fun |hyperram#945| ((state |hyperram_s|)) Bool (not (or  (|hyperram#91| state) false))) ; $logic_not$hyperram.v:889$1375_Y
+(define-fun |hyperram#946| ((state |hyperram_s|)) Bool (or  (|hyperram#103| state) false  (|hyperram#84| state) false)) ; $logic_or$hyperram.v:888$1374_Y
+(define-fun |hyperram#947| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#946| state) (ite (|hyperram#945| state) #b1 #b0) (|hyperram#944| state))) ; $procmux$2122_Y
+(define-fun |hyperram#948| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#947| state) (|hyperram#943| state))) ; $0$formal$hyperram.v:889$246_CHECK[0:0]$683
+(define-fun |hyperram#949| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#946| state) #b1 #b0)) ; $procmux$2117_Y
+(define-fun |hyperram#950| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#949| state) #b0)) ; $0$formal$hyperram.v:889$246_EN[0:0]$684
+; yosys-smt2-anyseq hyperram#951 1 $auto$setundef.cc:501:execute$3822
+(declare-fun |hyperram#951| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3823
+; yosys-smt2-anyseq hyperram#952 1 $auto$setundef.cc:501:execute$3820
+(declare-fun |hyperram#952| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3821
+(define-fun |hyperram#953| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#946| state) (|hyperram#952| state) (ite (|hyperram#91| state) #b1 #b0))) ; $procmux$2132_Y
+(define-fun |hyperram#954| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#953| state) (|hyperram#951| state))) ; $0$formal$hyperram.v:891$247_CHECK[0:0]$685
+(define-fun |hyperram#955| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#946| state) #b0 #b1)) ; $procmux$2127_Y
+(define-fun |hyperram#956| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#955| state) #b0)) ; $0$formal$hyperram.v:891$247_EN[0:0]$686
+; yosys-smt2-anyseq hyperram#957 1 $auto$setundef.cc:501:execute$3826
+(declare-fun |hyperram#957| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3827
+; yosys-smt2-anyseq hyperram#958 1 $auto$setundef.cc:501:execute$3824
+(declare-fun |hyperram#958| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3825
+(define-fun |hyperram#959| ((state |hyperram_s|)) (_ BitVec 10) (bvmul #b0000001000 (concat #b0000 (|hyperram#81| state)))) ; $auto$wreduce.cc:454:run$3493 [9:0]
+(define-fun |hyperram#960| ((state |hyperram_s|)) (_ BitVec 8) ((_ extract 7 0) (ite (bvsge (concat #b0 (|hyperram#959| state)) #b00000000000) (bvlshr (|hyperram#46| state) (concat #b00000000000000000000000000000000000000 (|hyperram#959| state))) (bvlshr (|hyperram#46| state) (bvneg (concat #b00000000000000000000000000000000000000 (|hyperram#959| state))))))) ; $shiftx$hyperram.v:0$1378_Y
+(define-fun |hyperram#961| ((state |hyperram_s|)) Bool (= (|hyperram#104| state) (|hyperram#960| state))) ; $eq$hyperram.v:894$1379_Y
+(define-fun |hyperram#962| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#103| state) (ite (|hyperram#961| state) #b1 #b0) (|hyperram#958| state))) ; $procmux$2140_Y
+(define-fun |hyperram#963| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#962| state) (|hyperram#957| state))) ; $0$formal$hyperram.v:893$248_CHECK[0:0]$687
+(define-fun |hyperram#964| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#103| state) #b1 #b0)) ; $procmux$2136_Y
+(define-fun |hyperram#965| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#964| state) #b0)) ; $0$formal$hyperram.v:893$248_EN[0:0]$688
+; yosys-smt2-anyseq hyperram#966 1 $auto$setundef.cc:501:execute$3830
+(declare-fun |hyperram#966| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3831
+; yosys-smt2-anyseq hyperram#967 1 $auto$setundef.cc:501:execute$3828
+(declare-fun |hyperram#967| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3829
+(define-fun |hyperram#968| ((state |hyperram_s|)) (_ BitVec 8) ((_ extract 7 0) (ite (bvsge (concat #b0 (|hyperram#959| state)) #b00000000000) (bvlshr (|hyperram#94| state) (concat #b0000000000000000000000 (|hyperram#959| state))) (bvlshr (|hyperram#94| state) (bvneg (concat #b0000000000000000000000 (|hyperram#959| state))))))) ; $shiftx$hyperram.v:0$1382_Y
+(define-fun |hyperram#969| ((state |hyperram_s|)) Bool (= (|hyperram#104| state) (|hyperram#968| state))) ; $eq$hyperram.v:908$1383_Y
+(define-fun |hyperram#970| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#84| state) (ite (|hyperram#969| state) #b1 #b0) (|hyperram#967| state))) ; $procmux$2148_Y
+(define-fun |hyperram#971| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#970| state) (|hyperram#966| state))) ; $0$formal$hyperram.v:907$249_CHECK[0:0]$689
+(define-fun |hyperram#972| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#84| state) #b1 #b0)) ; $procmux$2144_Y
+(define-fun |hyperram#973| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#972| state) #b0)) ; $0$formal$hyperram.v:907$249_EN[0:0]$690
+; yosys-smt2-anyseq hyperram#974 1 $auto$setundef.cc:501:execute$3834
+(declare-fun |hyperram#974| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3835
+; yosys-smt2-anyseq hyperram#975 1 $auto$setundef.cc:501:execute$3832
+(declare-fun |hyperram#975| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3833
+(define-fun |hyperram#976| ((state |hyperram_s|)) Bool (not (or  (|hyperram#78| state) false))) ; $logic_not$hyperram.v:923$1389_Y
+(define-fun |hyperram#977| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#86| state) (ite (|hyperram#976| state) #b1 #b0) (|hyperram#975| state))) ; $procmux$2158_Y
+(define-fun |hyperram#978| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#977| state) (|hyperram#974| state))) ; $0$formal$hyperram.v:923$250_CHECK[0:0]$691
+(define-fun |hyperram#979| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#86| state) #b1 #b0)) ; $procmux$2153_Y
+(define-fun |hyperram#980| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#979| state) #b0)) ; $0$formal$hyperram.v:923$250_EN[0:0]$692
+; yosys-smt2-anyseq hyperram#981 1 $auto$setundef.cc:501:execute$3838
+(declare-fun |hyperram#981| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3839
+; yosys-smt2-anyseq hyperram#982 1 $auto$setundef.cc:501:execute$3836
+(declare-fun |hyperram#982| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3837
+(define-fun |hyperram#983| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#86| state) (|hyperram#982| state) (ite (|hyperram#78| state) #b1 #b0))) ; $procmux$2168_Y
+(define-fun |hyperram#984| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#983| state) (|hyperram#981| state))) ; $0$formal$hyperram.v:925$251_CHECK[0:0]$693
+(define-fun |hyperram#985| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#86| state) #b0 #b1)) ; $procmux$2163_Y
+(define-fun |hyperram#986| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#985| state) #b0)) ; $0$formal$hyperram.v:925$251_EN[0:0]$694
+; yosys-smt2-anyseq hyperram#987 1 $auto$setundef.cc:501:execute$3844
+(declare-fun |hyperram#987| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3845
+; yosys-smt2-anyseq hyperram#988 1 $auto$setundef.cc:501:execute$3842
+(declare-fun |hyperram#988| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3843
+(define-fun |hyperram#989| ((state |hyperram_s|)) Bool (= (|hyperram#87| state) (|hyperram#83| state))) ; $eq$hyperram.v:929$1394_Y
+; yosys-smt2-anyseq hyperram#990 1 $auto$setundef.cc:501:execute$3840
+(declare-fun |hyperram#990| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3841
+(define-fun |hyperram#991| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 46 46) (|hyperram#46| state)) #b1) (|hyperram#990| state) (ite (|hyperram#989| state) #b1 #b0))) ; $procmux$2180_Y
+(define-fun |hyperram#992| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#84| state) (|hyperram#991| state) (|hyperram#988| state))) ; $procmux$2182_Y
+(define-fun |hyperram#993| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#992| state) (|hyperram#987| state))) ; $0$formal$hyperram.v:929$252_CHECK[0:0]$695
+(define-fun |hyperram#994| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#84| state) (|hyperram#383| state) #b0)) ; $procmux$2175_Y
+(define-fun |hyperram#995| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#994| state) #b0)) ; $0$formal$hyperram.v:929$252_EN[0:0]$696
+; yosys-smt2-anyseq hyperram#996 1 $auto$setundef.cc:501:execute$3850
+(declare-fun |hyperram#996| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3851
+; yosys-smt2-anyseq hyperram#997 1 $auto$setundef.cc:501:execute$3848
+(declare-fun |hyperram#997| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3849
+; yosys-smt2-anyseq hyperram#998 1 $auto$setundef.cc:501:execute$3846
+(declare-fun |hyperram#998| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3847
+(define-fun |hyperram#999| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#87| state)) #b1) false))) ; $logic_not$hyperram.v:931$1395_Y
+(define-fun |hyperram#1000| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 46 46) (|hyperram#46| state)) #b1) (ite (|hyperram#999| state) #b1 #b0) (|hyperram#998| state))) ; $procmux$2194_Y
+(define-fun |hyperram#1001| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#84| state) (|hyperram#1000| state) (|hyperram#997| state))) ; $procmux$2196_Y
+(define-fun |hyperram#1002| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1001| state) (|hyperram#996| state))) ; $0$formal$hyperram.v:931$253_CHECK[0:0]$697
+(define-fun |hyperram#1003| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#84| state) (|hyperram#373| state) #b0)) ; $procmux$2189_Y
+(define-fun |hyperram#1004| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1003| state) #b0)) ; $0$formal$hyperram.v:931$253_EN[0:0]$698
+; yosys-smt2-anyseq hyperram#1005 1 $auto$setundef.cc:501:execute$3852
+(declare-fun |hyperram#1005| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3853
+(define-fun |hyperram#1006| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#42| state) #b1 (|hyperram#1005| state))) ; $0$formal$hyperram.v:937$254_CHECK[0:0]$699
+(define-fun |hyperram#1007| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#42| state) #b1 #b0)) ; $0$formal$hyperram.v:937$254_EN[0:0]$700
+; yosys-smt2-anyseq hyperram#1008 1 $auto$setundef.cc:501:execute$3854
+(declare-fun |hyperram#1008| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3855
+(define-fun |hyperram#1009| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#42| state) (|hyperram#1008| state) (|hyperram#89| state))) ; $0$formal$hyperram.v:939$255_CHECK[0:0]$701
+(define-fun |hyperram#1010| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#42| state) #b0 #b1)) ; $0$formal$hyperram.v:939$255_EN[0:0]$702
+; yosys-smt2-anyseq hyperram#1011 1 $auto$setundef.cc:501:execute$3858
+(declare-fun |hyperram#1011| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3859
+; yosys-smt2-anyseq hyperram#1012 1 $auto$setundef.cc:501:execute$3856
+(declare-fun |hyperram#1012| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3857
+(define-fun |hyperram#1013| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#106| state) (ite (|hyperram#107| state) #b1 #b0) (|hyperram#1012| state))) ; $procmux$2216_Y
+(define-fun |hyperram#1014| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1013| state) (|hyperram#1011| state))) ; $0$formal$hyperram.v:944$256_CHECK[0:0]$703
+(define-fun |hyperram#1015| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#106| state) #b1 #b0)) ; $procmux$2212_Y
+(define-fun |hyperram#1016| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1015| state) #b0)) ; $0$formal$hyperram.v:944$256_EN[0:0]$704
+; yosys-smt2-anyseq hyperram#1017 1 $auto$setundef.cc:501:execute$3862
+(declare-fun |hyperram#1017| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3863
+; yosys-smt2-anyseq hyperram#1018 1 $auto$setundef.cc:501:execute$3860
+(declare-fun |hyperram#1018| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3861
+(define-fun |hyperram#1019| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#110| state)) #b1) false))) ; $logic_not$hyperram.v:945$1400_Y
+(define-fun |hyperram#1020| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#106| state) (ite (|hyperram#1019| state) #b1 #b0) (|hyperram#1018| state))) ; $procmux$2224_Y
+(define-fun |hyperram#1021| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1020| state) (|hyperram#1017| state))) ; $0$formal$hyperram.v:945$257_CHECK[0:0]$705
+; yosys-smt2-anyseq hyperram#1022 1 $auto$setundef.cc:501:execute$3866
+(declare-fun |hyperram#1022| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3867
+; yosys-smt2-anyseq hyperram#1023 1 $auto$setundef.cc:501:execute$3864
+(declare-fun |hyperram#1023| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3865
+(define-fun |hyperram#1024| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#106| state) (|hyperram#111| state) (|hyperram#1023| state))) ; $procmux$2232_Y
+(define-fun |hyperram#1025| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1024| state) (|hyperram#1022| state))) ; $0$formal$hyperram.v:946$258_CHECK[0:0]$707
+; yosys-smt2-anyseq hyperram#1026 1 $auto$setundef.cc:501:execute$3870
+(declare-fun |hyperram#1026| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3871
+; yosys-smt2-anyseq hyperram#1027 1 $auto$setundef.cc:501:execute$3868
+(declare-fun |hyperram#1027| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3869
+(define-fun |hyperram#1028| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#106| state) #b1 (|hyperram#1027| state))) ; $procmux$2240_Y
+(define-fun |hyperram#1029| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1028| state) (|hyperram#1026| state))) ; $0$formal$hyperram.v:947$259_CHECK[0:0]$709
+; yosys-smt2-anyseq hyperram#1030 1 $auto$setundef.cc:501:execute$3876
+(declare-fun |hyperram#1030| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3877
+; yosys-smt2-anyseq hyperram#1031 1 $auto$setundef.cc:501:execute$3874
+(declare-fun |hyperram#1031| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3875
+; yosys-smt2-anyseq hyperram#1032 1 $auto$setundef.cc:501:execute$3872
+(declare-fun |hyperram#1032| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3873
+(define-fun |hyperram#1033| ((state |hyperram_s|)) (_ BitVec 1) (bvnot (|hyperram#108| state))) ; $not$hyperram.v:949$1403_Y
+(define-fun |hyperram#1034| ((state |hyperram_s|)) Bool (= (|hyperram#110| state) (|hyperram#1033| state))) ; $eq$hyperram.v:949$1404_Y
+(define-fun |hyperram#1035| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#128| state) (ite (|hyperram#1034| state) #b1 #b0) (|hyperram#1032| state))) ; $procmux$2250_Y
+(define-fun |hyperram#1036| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#106| state) (|hyperram#1035| state) (|hyperram#1031| state))) ; $procmux$2252_Y
+(define-fun |hyperram#1037| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1036| state) (|hyperram#1030| state))) ; $0$formal$hyperram.v:949$260_CHECK[0:0]$711
+(define-fun |hyperram#1038| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#128| state) #b1 #b0)) ; $procmux$2244_Y
+(define-fun |hyperram#1039| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#106| state) (|hyperram#1038| state) #b0)) ; $procmux$2246_Y
+(define-fun |hyperram#1040| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1039| state) #b0)) ; $0$formal$hyperram.v:949$260_EN[0:0]$712
+; yosys-smt2-anyseq hyperram#1041 1 $auto$setundef.cc:501:execute$3878
+(declare-fun |hyperram#1041| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3879
+(define-fun |hyperram#1042| ((state |hyperram_s|)) Bool (and (or  (= ((_ extract 0 0) (|hyperram#113| state)) #b1) false) (or  (= ((_ extract 0 0) (|hyperram#304| state)) #b1) false))) ; $logic_and$hyperram.v:954$1405_Y
+(define-fun |hyperram#1043| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1042| state) (ite (|hyperram#106| state) #b1 #b0) (|hyperram#1041| state))) ; $0$formal$hyperram.v:955$261_CHECK[0:0]$713
+(define-fun |hyperram#1044| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1042| state) #b1 #b0)) ; $0$formal$hyperram.v:955$261_EN[0:0]$714
+; yosys-smt2-anyseq hyperram#1045 1 $auto$setundef.cc:501:execute$3882
+(declare-fun |hyperram#1045| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3883
+; yosys-smt2-anyseq hyperram#1046 1 $auto$setundef.cc:501:execute$3880
+(declare-fun |hyperram#1046| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3881
+(define-fun |hyperram#1047| ((state |hyperram_s|)) Bool (or  (|hyperram#106| state) false  (|hyperram#623| state) false)) ; $logic_or$hyperram.v:959$1412_Y
+(define-fun |hyperram#1048| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#421| state) (ite (|hyperram#1047| state) #b1 #b0) (|hyperram#1046| state))) ; $procmux$2264_Y
+(define-fun |hyperram#1049| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1048| state) (|hyperram#1045| state))) ; $0$formal$hyperram.v:959$262_CHECK[0:0]$715
+(define-fun |hyperram#1050| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#421| state) #b1 #b0)) ; $procmux$2260_Y
+(define-fun |hyperram#1051| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1050| state) #b0)) ; $0$formal$hyperram.v:959$262_EN[0:0]$716
+; yosys-smt2-anyseq hyperram#1052 1 $auto$setundef.cc:501:execute$3886
+(declare-fun |hyperram#1052| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3887
+; yosys-smt2-anyseq hyperram#1053 1 $auto$setundef.cc:501:execute$3884
+(declare-fun |hyperram#1053| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3885
+(define-fun |hyperram#1054| ((state |hyperram_s|)) Bool (or  (|hyperram#623| state) false  (|hyperram#103| state) false)) ; $logic_or$hyperram.v:962$1416_Y
+(define-fun |hyperram#1055| ((state |hyperram_s|)) Bool (= (|hyperram#74| state) #b001)) ; $eq$hyperram.v:961$1413_Y
+(define-fun |hyperram#1056| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1055| state) (ite (|hyperram#1054| state) #b1 #b0) (|hyperram#1053| state))) ; $procmux$2272_Y
+(define-fun |hyperram#1057| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1056| state) (|hyperram#1052| state))) ; $0$formal$hyperram.v:962$263_CHECK[0:0]$717
+(define-fun |hyperram#1058| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1055| state) #b1 #b0)) ; $procmux$2268_Y
+(define-fun |hyperram#1059| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1058| state) #b0)) ; $0$formal$hyperram.v:962$263_EN[0:0]$718
+; yosys-smt2-anyseq hyperram#1060 1 $auto$setundef.cc:501:execute$3890
+(declare-fun |hyperram#1060| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3891
+; yosys-smt2-anyseq hyperram#1061 1 $auto$setundef.cc:501:execute$3888
+(declare-fun |hyperram#1061| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3889
+(define-fun |hyperram#1062| ((state |hyperram_s|)) Bool (and (or  (|hyperram#84| state) false) (or  (= ((_ extract 46 46) (|hyperram#46| state)) #b1) false))) ; $logic_and$hyperram.v:965$1420_Y
+(define-fun |hyperram#1063| ((state |hyperram_s|)) Bool (or  (|hyperram#103| state) false  (|hyperram#1062| state) false)) ; $logic_or$hyperram.v:965$1421_Y
+(define-fun |hyperram#1064| ((state |hyperram_s|)) Bool (or  (|hyperram#1063| state) false  (|hyperram#332| state) false)) ; $logic_or$hyperram.v:965$1423_Y
+(define-fun |hyperram#1065| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#312| state) (ite (|hyperram#1064| state) #b1 #b0) (|hyperram#1061| state))) ; $procmux$2280_Y
+(define-fun |hyperram#1066| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1065| state) (|hyperram#1060| state))) ; $0$formal$hyperram.v:965$264_CHECK[0:0]$719
+(define-fun |hyperram#1067| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#312| state) #b1 #b0)) ; $procmux$2276_Y
+(define-fun |hyperram#1068| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1067| state) #b0)) ; $0$formal$hyperram.v:965$264_EN[0:0]$720
+; yosys-smt2-anyseq hyperram#1069 1 $auto$setundef.cc:501:execute$3894
+(declare-fun |hyperram#1069| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3895
+; yosys-smt2-anyseq hyperram#1070 1 $auto$setundef.cc:501:execute$3892
+(declare-fun |hyperram#1070| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3893
+(define-fun |hyperram#1071| ((state |hyperram_s|)) Bool (or  (|hyperram#84| state) false  (|hyperram#400| state) false)) ; $logic_or$hyperram.v:968$1427_Y
+(define-fun |hyperram#1072| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#396| state) (ite (|hyperram#1071| state) #b1 #b0) (|hyperram#1070| state))) ; $procmux$2288_Y
+(define-fun |hyperram#1073| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1072| state) (|hyperram#1069| state))) ; $0$formal$hyperram.v:968$265_CHECK[0:0]$721
+(define-fun |hyperram#1074| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#396| state) #b1 #b0)) ; $procmux$2284_Y
+(define-fun |hyperram#1075| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1074| state) #b0)) ; $0$formal$hyperram.v:968$265_EN[0:0]$722
+; yosys-smt2-anyseq hyperram#1076 1 $auto$setundef.cc:501:execute$3898
+(declare-fun |hyperram#1076| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3899
+; yosys-smt2-anyseq hyperram#1077 1 $auto$setundef.cc:501:execute$3896
+(declare-fun |hyperram#1077| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3897
+(define-fun |hyperram#1078| ((state |hyperram_s|)) Bool (or  (|hyperram#332| state) false  (|hyperram#86| state) false)) ; $logic_or$hyperram.v:971$1433_Y
+(define-fun |hyperram#1079| ((state |hyperram_s|)) Bool (and (or  (|hyperram#124| state) false) (or  (= ((_ extract 47 47) (|hyperram#46| state)) #b1) false))) ; $logic_and$hyperram.v:971$1435_Y
+(define-fun |hyperram#1080| ((state |hyperram_s|)) Bool (or  (|hyperram#1078| state) false  (|hyperram#1079| state) false)) ; $logic_or$hyperram.v:971$1436_Y
+(define-fun |hyperram#1081| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#359| state) (ite (|hyperram#1080| state) #b1 #b0) (|hyperram#1077| state))) ; $procmux$2296_Y
+(define-fun |hyperram#1082| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1081| state) (|hyperram#1076| state))) ; $0$formal$hyperram.v:971$266_CHECK[0:0]$723
+(define-fun |hyperram#1083| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#359| state) #b1 #b0)) ; $procmux$2292_Y
+(define-fun |hyperram#1084| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1083| state) #b0)) ; $0$formal$hyperram.v:971$266_EN[0:0]$724
+; yosys-smt2-anyseq hyperram#1085 1 $auto$setundef.cc:501:execute$3902
+(declare-fun |hyperram#1085| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3903
+; yosys-smt2-anyseq hyperram#1086 1 $auto$setundef.cc:501:execute$3900
+(declare-fun |hyperram#1086| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3901
+(define-fun |hyperram#1087| ((state |hyperram_s|)) Bool (or  (|hyperram#124| state) false  (|hyperram#400| state) false)) ; $logic_or$hyperram.v:974$1440_Y
+(define-fun |hyperram#1088| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#397| state) (ite (|hyperram#1087| state) #b1 #b0) (|hyperram#1086| state))) ; $procmux$2304_Y
+(define-fun |hyperram#1089| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1088| state) (|hyperram#1085| state))) ; $0$formal$hyperram.v:974$267_CHECK[0:0]$725
+(define-fun |hyperram#1090| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#397| state) #b1 #b0)) ; $procmux$2300_Y
+(define-fun |hyperram#1091| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1090| state) #b0)) ; $0$formal$hyperram.v:974$267_EN[0:0]$726
+; yosys-smt2-anyseq hyperram#1092 1 $auto$setundef.cc:501:execute$3906
+(declare-fun |hyperram#1092| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3907
+; yosys-smt2-anyseq hyperram#1093 1 $auto$setundef.cc:501:execute$3904
+(declare-fun |hyperram#1093| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3905
+(define-fun |hyperram#1094| ((state |hyperram_s|)) Bool (or  (|hyperram#400| state) false  (|hyperram#106| state) false)) ; $logic_or$hyperram.v:977$1444_Y
+(define-fun |hyperram#1095| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#409| state) (ite (|hyperram#1094| state) #b1 #b0) (|hyperram#1093| state))) ; $procmux$2312_Y
+(define-fun |hyperram#1096| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1095| state) (|hyperram#1092| state))) ; $0$formal$hyperram.v:977$268_CHECK[0:0]$727
+(define-fun |hyperram#1097| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#409| state) #b1 #b0)) ; $procmux$2308_Y
+(define-fun |hyperram#1098| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1097| state) #b0)) ; $0$formal$hyperram.v:977$268_EN[0:0]$728
+; yosys-smt2-anyseq hyperram#1099 1 $auto$setundef.cc:501:execute$3910
+(declare-fun |hyperram#1099| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3911
+; yosys-smt2-anyseq hyperram#1100 1 $auto$setundef.cc:501:execute$3908
+(declare-fun |hyperram#1100| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3909
+(define-fun |hyperram#1101| ((state |hyperram_s|)) Bool (distinct (|hyperram#76| state) (|hyperram#74| state))) ; $ne$hyperram.v:980$1453_Y
+(define-fun |hyperram#1102| ((state |hyperram_s|)) Bool (and (or  (|hyperram#311| state) false) (or  (|hyperram#460| state) false))) ; $logic_and$hyperram.v:979$1450_Y
+(define-fun |hyperram#1103| ((state |hyperram_s|)) Bool (distinct (|hyperram#74| state) #b000)) ; $ne$hyperram.v:979$1451_Y
+(define-fun |hyperram#1104| ((state |hyperram_s|)) Bool (and (or  (|hyperram#1102| state) false) (or  (|hyperram#1103| state) false))) ; $logic_and$hyperram.v:979$1452_Y
+(define-fun |hyperram#1105| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1104| state) (ite (|hyperram#1101| state) #b1 #b0) (|hyperram#1100| state))) ; $procmux$2320_Y
+(define-fun |hyperram#1106| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1105| state) (|hyperram#1099| state))) ; $0$formal$hyperram.v:980$269_CHECK[0:0]$729
+(define-fun |hyperram#1107| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1104| state) #b1 #b0)) ; $procmux$2316_Y
+(define-fun |hyperram#1108| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1107| state) #b0)) ; $0$formal$hyperram.v:980$269_EN[0:0]$730
+; yosys-smt2-anyseq hyperram#1109 1 $auto$setundef.cc:501:execute$3914
+(declare-fun |hyperram#1109| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3915
+; yosys-smt2-anyseq hyperram#1110 1 $auto$setundef.cc:501:execute$3912
+(declare-fun |hyperram#1110| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3913
+(define-fun |hyperram#1111| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#54| state)) #b1) (= ((_ extract 1 1) (|hyperram#54| state)) #b1) (= ((_ extract 2 2) (|hyperram#54| state)) #b1)))) ; $eq$hyperram.v:982$1458_Y
+(define-fun |hyperram#1112| ((state |hyperram_s|)) Bool (and (or  (|hyperram#311| state) false) (or  (|hyperram#1111| state) false))) ; $logic_and$hyperram.v:982$1459_Y
+(define-fun |hyperram#1113| ((state |hyperram_s|)) Bool (and (or  (|hyperram#1112| state) false) (or  (|hyperram#397| state) false))) ; $logic_and$hyperram.v:982$1461_Y
+(define-fun |hyperram#1114| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1113| state) (ite (|hyperram#400| state) #b1 #b0) (|hyperram#1110| state))) ; $procmux$2328_Y
+(define-fun |hyperram#1115| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1114| state) (|hyperram#1109| state))) ; $0$formal$hyperram.v:983$270_CHECK[0:0]$731
+(define-fun |hyperram#1116| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1113| state) #b1 #b0)) ; $procmux$2324_Y
+(define-fun |hyperram#1117| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1116| state) #b0)) ; $0$formal$hyperram.v:983$270_EN[0:0]$732
+; yosys-smt2-anyseq hyperram#1118 1 $auto$setundef.cc:501:execute$3918
+(declare-fun |hyperram#1118| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3919
+; yosys-smt2-anyseq hyperram#1119 1 $auto$setundef.cc:501:execute$3916
+(declare-fun |hyperram#1119| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3917
+(define-fun |hyperram#1120| ((state |hyperram_s|)) Bool (and (or  (|hyperram#422| state) false) (or  (|hyperram#460| state) false))) ; $logic_and$hyperram.v:985$1470_Y
+(define-fun |hyperram#1121| ((state |hyperram_s|)) Bool (and (or  (|hyperram#1120| state) false) (or  (= ((_ extract 0 0) (|hyperram#47| state)) #b1) false))) ; $logic_and$hyperram.v:985$1471_Y
+(define-fun |hyperram#1122| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1121| state) (ite (|hyperram#623| state) #b1 #b0) (|hyperram#1119| state))) ; $procmux$2336_Y
+(define-fun |hyperram#1123| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1122| state) (|hyperram#1118| state))) ; $0$formal$hyperram.v:986$271_CHECK[0:0]$733
+(define-fun |hyperram#1124| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1121| state) #b1 #b0)) ; $procmux$2332_Y
+(define-fun |hyperram#1125| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1124| state) #b0)) ; $0$formal$hyperram.v:986$271_EN[0:0]$734
+; yosys-smt2-anyseq hyperram#1126 1 $auto$setundef.cc:501:execute$3922
+(declare-fun |hyperram#1126| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3923
+; yosys-smt2-anyseq hyperram#1127 1 $auto$setundef.cc:501:execute$3920
+(declare-fun |hyperram#1127| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3921
+(define-fun |hyperram#1128| ((state |hyperram_s|)) (_ BitVec 7) (bvadd (concat #b0 (|hyperram#81| state)) #b0000001)) ; $add$hyperram.v:992$1483_Y
+(define-fun |hyperram#1129| ((state |hyperram_s|)) Bool (= (concat #b0 (|hyperram#79| state)) (|hyperram#1128| state))) ; $eq$hyperram.v:992$1484_Y
+(define-fun |hyperram#1130| ((state |hyperram_s|)) Bool (= (|hyperram#74| state) (|hyperram#76| state))) ; $eq$hyperram.v:991$1479_Y
+(define-fun |hyperram#1131| ((state |hyperram_s|)) Bool (and (or  (|hyperram#311| state) false) (or  (|hyperram#1130| state) false))) ; $logic_and$hyperram.v:991$1480_Y
+(define-fun |hyperram#1132| ((state |hyperram_s|)) Bool (and (or  (|hyperram#1131| state) false) (or  (|hyperram#119| state) false))) ; $logic_and$hyperram.v:991$1482_Y
+(define-fun |hyperram#1133| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1132| state) (ite (|hyperram#1129| state) #b1 #b0) (|hyperram#1127| state))) ; $procmux$2344_Y
+(define-fun |hyperram#1134| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1133| state) (|hyperram#1126| state))) ; $0$formal$hyperram.v:992$272_CHECK[0:0]$735
+(define-fun |hyperram#1135| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1132| state) #b1 #b0)) ; $procmux$2340_Y
+(define-fun |hyperram#1136| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1135| state) #b0)) ; $0$formal$hyperram.v:992$272_EN[0:0]$736
+; yosys-smt2-anyseq hyperram#1137 1 $auto$setundef.cc:501:execute$3926
+(declare-fun |hyperram#1137| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3927
+; yosys-smt2-anyseq hyperram#1138 1 $auto$setundef.cc:501:execute$3924
+(declare-fun |hyperram#1138| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3925
+(define-fun |hyperram#1139| ((state |hyperram_s|)) Bool (= (|hyperram#81| state) (concat #b00 (|hyperram#16| state)))) ; $eq$hyperram.v:995$1493_Y
+(define-fun |hyperram#1140| ((state |hyperram_s|)) Bool (and (or  (|hyperram#422| state) false) (or  (|hyperram#623| state) false))) ; $logic_and$hyperram.v:994$1492_Y
+(define-fun |hyperram#1141| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1140| state) (ite (|hyperram#1139| state) #b1 #b0) (|hyperram#1138| state))) ; $procmux$2352_Y
+(define-fun |hyperram#1142| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1141| state) (|hyperram#1137| state))) ; $0$formal$hyperram.v:995$273_CHECK[0:0]$737
+(define-fun |hyperram#1143| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1140| state) #b1 #b0)) ; $procmux$2348_Y
+(define-fun |hyperram#1144| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1143| state) #b0)) ; $0$formal$hyperram.v:995$273_EN[0:0]$738
+; yosys-smt2-anyseq hyperram#1145 1 $auto$setundef.cc:501:execute$3930
+(declare-fun |hyperram#1145| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3931
+; yosys-smt2-anyseq hyperram#1146 1 $auto$setundef.cc:501:execute$3928
+(declare-fun |hyperram#1146| (|hyperram_s|) (_ BitVec 1)) ; $auto$rtlil.cc:2817:Anyseq$3929
+(define-fun |hyperram#1147| ((state |hyperram_s|)) Bool (and (or  (|hyperram#311| state) false) (or  (|hyperram#1055| state) false))) ; $logic_and$hyperram.v:997$1499_Y
+(define-fun |hyperram#1148| ((state |hyperram_s|)) Bool (and (or  (|hyperram#1147| state) false) (or  (|hyperram#103| state) false))) ; $logic_and$hyperram.v:997$1501_Y
+(define-fun |hyperram#1149| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1148| state) (ite (|hyperram#101| state) #b1 #b0) (|hyperram#1146| state))) ; $procmux$2360_Y
+(define-fun |hyperram#1150| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1149| state) (|hyperram#1145| state))) ; $0$formal$hyperram.v:998$274_CHECK[0:0]$739
+(define-fun |hyperram#1151| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1148| state) #b1 #b0)) ; $procmux$2356_Y
+(define-fun |hyperram#1152| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#317| state) (|hyperram#1151| state) #b0)) ; $0$formal$hyperram.v:998$274_EN[0:0]$740
+(define-fun |hyperram#1153| ((state |hyperram_s|)) Bool (distinct (|hyperram#76| state) #b011)) ; $0$past$hyperram.v:1067$183$0[0:0]$582
+(define-fun |hyperram#1154| ((state |hyperram_s|)) Bool (= (|hyperram#24| state) #b0111)) ; $0$past$hyperram.v:436$6$0[0:0]$405
+(define-fun |hyperram#1155| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#538| state) (|hyperram#105| state) ((_ extract 7 0) (|hyperram#117| state)))) ; $procmux$2677_Y
+(define-fun |hyperram#1156| ((state |hyperram_s|)) Bool (not (or  (= ((_ extract 0 0) (|hyperram#56| state)) #b1) false))) ; $logic_not$hyperram.v:309$375_Y
+(define-fun |hyperram#1157| ((state |hyperram_s|)) Bool (and (or  (|hyperram#88| state) false) (or  (|hyperram#1156| state) false))) ; $logic_and$hyperram.v:309$376_Y
+(define-fun |hyperram#1158| ((state |hyperram_s|)) Bool (and (or  (= ((_ extract 0 0) (|hyperram#38| state)) #b1) false) (or  (= ((_ extract 0 0) (|hyperram#56| state)) #b1) false))) ; $logic_and$hyperram.v:309$377_Y
+(define-fun |hyperram#1159| ((state |hyperram_s|)) Bool (or  (|hyperram#1157| state) false  (|hyperram#1158| state) false)) ; $logic_or$hyperram.v:309$378_Y
+(define-fun |hyperram#1160| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#1159| state) (|hyperram#1155| state) ((_ extract 7 0) (|hyperram#117| state)))) ; $procmux$2679_Y
+(define-fun |hyperram#1161| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#623| state) #b00000000 (ite (|hyperram#124| state) (|hyperram#1160| state) ((_ extract 7 0) (|hyperram#117| state))))) ; $procmux$2681_Y
+(define-fun |hyperram#1162| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#42| state) #b00000000 (|hyperram#1161| state))) ; $0\datar_r[31:0] [7:0]
+(define-fun |hyperram#1163| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#369| state) (|hyperram#105| state) ((_ extract 15 8) (|hyperram#117| state)))) ; $procmux$2667_Y
+(define-fun |hyperram#1164| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#1159| state) (|hyperram#1163| state) ((_ extract 15 8) (|hyperram#117| state)))) ; $procmux$2669_Y
+(define-fun |hyperram#1165| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#623| state) #b00000000 (ite (|hyperram#124| state) (|hyperram#1164| state) ((_ extract 15 8) (|hyperram#117| state))))) ; $procmux$2671_Y
+(define-fun |hyperram#1166| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#42| state) #b00000000 (|hyperram#1165| state))) ; $0\datar_r[31:0] [15:8]
+(define-fun |hyperram#1167| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#514| state) (|hyperram#105| state) ((_ extract 23 16) (|hyperram#117| state)))) ; $procmux$2689_Y
+(define-fun |hyperram#1168| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#1159| state) (|hyperram#1167| state) ((_ extract 23 16) (|hyperram#117| state)))) ; $procmux$2691_Y
+(define-fun |hyperram#1169| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#623| state) #b00000000 (ite (|hyperram#124| state) (|hyperram#1168| state) ((_ extract 23 16) (|hyperram#117| state))))) ; $procmux$2693_Y
+(define-fun |hyperram#1170| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#42| state) #b00000000 (|hyperram#1169| state))) ; $0\datar_r[31:0] [23:16]
+(define-fun |hyperram#1171| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#378| state) (|hyperram#105| state) ((_ extract 31 24) (|hyperram#117| state)))) ; $procmux$2702_Y
+(define-fun |hyperram#1172| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#1159| state) (|hyperram#1171| state) ((_ extract 31 24) (|hyperram#117| state)))) ; $procmux$2704_Y
+(define-fun |hyperram#1173| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#623| state) #b00000000 (ite (|hyperram#124| state) (|hyperram#1172| state) ((_ extract 31 24) (|hyperram#117| state))))) ; $procmux$2706_Y
+(define-fun |hyperram#1174| ((state |hyperram_s|)) (_ BitVec 8) (ite (|hyperram#42| state) #b00000000 (|hyperram#1173| state))) ; $0\datar_r[31:0] [31:24]
+(define-fun |hyperram#1175| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#128| state) (|hyperram#111| state) #b0)) ; $ternary$hyperram.v:287$373_Y [0]
+(define-fun |hyperram#1176| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#42| state) #b0 (|hyperram#1175| state))) ; $0\bus_clk_r[0:0]
+(define-fun |hyperram#1177| ((state |hyperram_s|)) Bool (and (or  (= ((_ extract 0 0) (|hyperram#9| state)) #b1) false) (or  (|hyperram#560| state) false))) ; $logic_and$hyperram.v:145$327_Y
+(define-fun |hyperram#1178| ((state |hyperram_s|)) (_ BitVec 32) (ite (|hyperram#1177| state) (|hyperram#118| state) (|hyperram#94| state))) ; $procmux$2951_Y
+(define-fun |hyperram#1179| ((state |hyperram_s|)) (_ BitVec 32) (ite (|hyperram#106| state) (|hyperram#1178| state) (|hyperram#94| state))) ; $procmux$2953_Y
+(define-fun |hyperram#1180| ((state |hyperram_s|)) (_ BitVec 32) (ite (|hyperram#42| state) #b00000000000000000000000000000000 (|hyperram#1179| state))) ; $0\dataw_r[31:0]
+(define-fun |hyperram#1181| ((state |hyperram_s|)) (_ BitVec 6) (bvsub (|hyperram#81| state) #b000001)) ; $auto$wreduce.cc:454:run$3497 [5:0]
+(define-fun |hyperram#1182| ((state |hyperram_s|)) Bool (distinct (|hyperram#81| state) #b000000)) ; $procmux$2824_CMP
+(define-fun |hyperram#1183| ((state |hyperram_s|)) (_ BitVec 6) (ite (|hyperram#1182| state) (|hyperram#1181| state) (concat #b00 (|hyperram#24| state)))) ; $procmux$2823_Y
+(define-fun |hyperram#1184| ((state |hyperram_s|)) (_ BitVec 6) (ite (|hyperram#1182| state) (|hyperram#1181| state) (|hyperram#81| state))) ; $procmux$2827_Y
+(define-fun |hyperram#1185| ((state |hyperram_s|)) Bool (or  (|hyperram#95| state) false  (|hyperram#549| state) false)) ; $logic_or$hyperram.v:240$352_Y
+(define-fun |hyperram#1186| ((state |hyperram_s|)) (_ BitVec 6) (ite (|hyperram#1185| state) (concat #b00 (|hyperram#20| state)) (|hyperram#1184| state))) ; $procmux$2830_Y
+(define-fun |hyperram#1187| ((state |hyperram_s|)) (_ BitVec 6) (ite (|hyperram#1182| state) (|hyperram#1181| state) (concat #b00 (|hyperram#20| state)))) ; $procmux$2834_Y
+(define-fun |hyperram#1188| ((state |hyperram_s|)) (_ BitVec 6) (bvsub (concat (|hyperram#12| state) #b0) #b000010)) ; $auto$wreduce.cc:454:run$3498 [5:0]
+(define-fun |hyperram#1189| ((state |hyperram_s|)) (_ BitVec 6) (ite (= ((_ extract 47 47) (|hyperram#46| state)) #b1) (|hyperram#1188| state) #b000011)) ; $procmux$2838_Y
+(define-fun |hyperram#1190| ((state |hyperram_s|)) (_ BitVec 6) (ite (|hyperram#1182| state) (|hyperram#1181| state) (|hyperram#1189| state))) ; $procmux$2841_Y
+(define-fun |hyperram#1191| ((state |hyperram_s|)) (_ BitVec 6) (ite (= ((_ extract 46 46) (|hyperram#46| state)) #b1) #b000001 (|hyperram#73| state))) ; $procmux$2845_Y
+(define-fun |hyperram#1192| ((state |hyperram_s|)) (_ BitVec 6) (ite (= ((_ extract 47 47) (|hyperram#46| state)) #b1) (|hyperram#73| state) (|hyperram#1191| state))) ; $procmux$2848_Y
+(define-fun |hyperram#1193| ((state |hyperram_s|)) (_ BitVec 6) (ite (|hyperram#1182| state) (|hyperram#1181| state) (|hyperram#1192| state))) ; $procmux$2851_Y
+(define-fun |hyperram#1194| ((state |hyperram_s|)) (_ BitVec 6) (ite (|hyperram#1182| state) (|hyperram#1181| state) #b000101)) ; $procmux$2855_Y
+(define-fun |hyperram#1195| ((state |hyperram_s|)) Bool (distinct (|hyperram#81| state) #b000000)) ; $reduce_or$hyperram.v:164$329_Y
+(define-fun |hyperram#1196| ((state |hyperram_s|)) Bool (not (or  (|hyperram#1195| state) false))) ; $logic_not$hyperram.v:164$330_Y
+(define-fun |hyperram#1197| ((state |hyperram_s|)) Bool (or  (= ((_ extract 0 0) (|hyperram#49| state)) #b1) false  (|hyperram#1177| state) false)) ; $logic_or$hyperram.v:164$333_Y
+(define-fun |hyperram#1198| ((state |hyperram_s|)) Bool (and (or  (|hyperram#1196| state) false) (or  (|hyperram#1197| state) false))) ; $logic_and$hyperram.v:164$334_Y
+(define-fun |hyperram#1199| ((state |hyperram_s|)) (_ BitVec 6) (ite (|hyperram#1198| state) (concat #b00 (|hyperram#17| state)) (|hyperram#1184| state))) ; $procmux$2860_Y
+(define-fun |hyperram#1200| ((state |hyperram_s|)) (_ BitVec 6) (ite (|hyperram#106| state) (|hyperram#1199| state) (ite (|hyperram#623| state) (|hyperram#1194| state) (ite (|hyperram#103| state) (|hyperram#1193| state) (ite (|hyperram#332| state) (|hyperram#1190| state) (ite (|hyperram#84| state) (|hyperram#1187| state) (ite (|hyperram#124| state) (|hyperram#1186| state) (ite (|hyperram#400| state) (|hyperram#1183| state) (|hyperram#81| state))))))))) ; $procmux$2825_Y
+(define-fun |hyperram#1201| ((state |hyperram_s|)) (_ BitVec 6) (ite (|hyperram#42| state) #b000100 (|hyperram#1200| state))) ; $0\cycle_cnt_r[5:0]
+(define-fun |hyperram#1202| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#1182| state) (|hyperram#76| state) #b000)) ; $procmux$2867_Y
+(define-fun |hyperram#1203| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#1185| state) #b110 (|hyperram#76| state))) ; $procmux$2872_Y
+(define-fun |hyperram#1204| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#1182| state) (|hyperram#76| state) #b110)) ; $procmux$2876_Y
+(define-fun |hyperram#1205| ((state |hyperram_s|)) (_ BitVec 1) (ite (= ((_ extract 47 47) (|hyperram#46| state)) #b1) #b1 #b0)) ; $auto$wreduce.cc:454:run$3495 [0]
+(define-fun |hyperram#1206| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#1182| state) (|hyperram#76| state) (concat #b10 (|hyperram#1205| state)))) ; $procmux$2883_Y
+(define-fun |hyperram#1207| ((state |hyperram_s|)) (_ BitVec 3) (ite (= ((_ extract 46 46) (|hyperram#46| state)) #b1) #b100 #b011)) ; $procmux$2887_Y
+(define-fun |hyperram#1208| ((state |hyperram_s|)) (_ BitVec 3) (ite (= ((_ extract 47 47) (|hyperram#46| state)) #b1) #b011 (|hyperram#1207| state))) ; $procmux$2890_Y
+(define-fun |hyperram#1209| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#1182| state) (|hyperram#76| state) (|hyperram#1208| state))) ; $procmux$2893_Y
+(define-fun |hyperram#1210| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#1182| state) (|hyperram#76| state) #b010)) ; $procmux$2897_Y
+(define-fun |hyperram#1211| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#1198| state) #b001 (|hyperram#76| state))) ; $procmux$2900_Y
+(define-fun |hyperram#1212| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#106| state) (|hyperram#1211| state) (ite (|hyperram#623| state) (|hyperram#1210| state) (ite (|hyperram#103| state) (|hyperram#1209| state) (ite (|hyperram#332| state) (|hyperram#1206| state) (ite (|hyperram#84| state) (|hyperram#1204| state) (ite (|hyperram#124| state) (|hyperram#1203| state) (ite (|hyperram#400| state) (|hyperram#1202| state) (|hyperram#76| state))))))))) ; $procmux$2869_Y
+(define-fun |hyperram#1213| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#42| state) #b000 (|hyperram#1212| state))) ; $0\bus_state_r[2:0]
+(define-fun |hyperram#1214| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1198| state) (ite (|hyperram#112| state) #b1 #b0) (|hyperram#72| state))) ; $procmux$2977_Y
+(define-fun |hyperram#1215| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#106| state) (|hyperram#1214| state) (|hyperram#72| state))) ; $procmux$2979_Y
+(define-fun |hyperram#1216| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#42| state) #b1 (|hyperram#1215| state))) ; $0\fixed_latency_r[0:0]
+(define-fun |hyperram#1217| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1198| state) (ite (|hyperram#114| state) #b1 #b0) (|hyperram#66| state))) ; $procmux$2964_Y
+(define-fun |hyperram#1218| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#106| state) (|hyperram#1217| state) (|hyperram#66| state))) ; $procmux$2966_Y
+(define-fun |hyperram#1219| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#42| state) #b1 (|hyperram#1218| state))) ; $0\double_latency_r[0:0]
+(define-fun |hyperram#1220| ((state |hyperram_s|)) (_ BitVec 3) (bvsub (|hyperram#56| state) #b001)) ; $sub$hyperram.v:312$380_Y [2:0]
+(define-fun |hyperram#1221| ((state |hyperram_s|)) Bool (distinct (|hyperram#56| state) #b000)) ; $ne$hyperram.v:245$354_Y
+(define-fun |hyperram#1222| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#1221| state) (|hyperram#1220| state) (|hyperram#56| state))) ; $procmux$2715_Y
+(define-fun |hyperram#1223| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#1159| state) (|hyperram#1222| state) (|hyperram#56| state))) ; $procmux$2717_Y
+(define-fun |hyperram#1224| ((state |hyperram_s|)) (_ BitVec 3) (ite (= ((_ extract 46 46) (|hyperram#46| state)) #b1) #b010 #b100)) ; $procmux$2722_Y
+(define-fun |hyperram#1225| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#97| state) (|hyperram#1224| state) (|hyperram#56| state))) ; $procmux$2724_Y
+(define-fun |hyperram#1226| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#103| state) (|hyperram#1225| state) (ite (|hyperram#124| state) (|hyperram#1223| state) (|hyperram#56| state)))) ; $procmux$2719_Y
+(define-fun |hyperram#1227| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#42| state) #b000 (|hyperram#1226| state))) ; $0\read_cnt_r[2:0]
+(define-fun |hyperram#1228| ((state |hyperram_s|)) Bool (and (or  (|hyperram#95| state) false) (or  (|hyperram#1221| state) false))) ; $logic_and$hyperram.v:245$355_Y
+(define-fun |hyperram#1229| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1185| state) (ite (|hyperram#1228| state) #b1 #b0) (|hyperram#53| state))) ; $procmux$2908_Y
+(define-fun |hyperram#1230| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1177| state) #b0 (|hyperram#53| state))) ; $procmux$2912_Y
+(define-fun |hyperram#1231| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#106| state) (|hyperram#1230| state) (ite (|hyperram#124| state) (|hyperram#1229| state) (|hyperram#53| state)))) ; $procmux$2910_Y
+(define-fun |hyperram#1232| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#42| state) #b0 (|hyperram#1231| state))) ; $0\read_timeout_r[0:0]
+(define-fun |hyperram#1233| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1182| state) (|hyperram#49| state) #b0)) ; $procmux$2919_Y
+(define-fun |hyperram#1234| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1177| state) #b1 (|hyperram#49| state))) ; $procmux$2923_Y
+(define-fun |hyperram#1235| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#106| state) (|hyperram#1234| state) (ite (|hyperram#400| state) (|hyperram#1233| state) (|hyperram#49| state)))) ; $procmux$2921_Y
+(define-fun |hyperram#1236| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#42| state) #b0 (|hyperram#1235| state))) ; $0\busy_r[0:0]
+(define-fun |hyperram#1237| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#1177| state) ((_ extract 2 0) (|hyperram#129| state)) ((_ extract 2 0) (|hyperram#46| state)))) ; $procmux$2763_Y
+(define-fun |hyperram#1238| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#106| state) (|hyperram#1237| state) ((_ extract 2 0) (|hyperram#46| state)))) ; $procmux$2765_Y
+(define-fun |hyperram#1239| ((state |hyperram_s|)) (_ BitVec 3) (ite (|hyperram#42| state) #b000 (|hyperram#1238| state))) ; $0\CA_r[47:0] [2:0]
+(define-fun |hyperram#1240| ((state |hyperram_s|)) (_ BitVec 13) (ite (|hyperram#1177| state) #b0000000000000 ((_ extract 15 3) (|hyperram#46| state)))) ; $procmux$2750_Y
+(define-fun |hyperram#1241| ((state |hyperram_s|)) (_ BitVec 13) (ite (|hyperram#106| state) (|hyperram#1240| state) ((_ extract 15 3) (|hyperram#46| state)))) ; $procmux$2752_Y
+(define-fun |hyperram#1242| ((state |hyperram_s|)) (_ BitVec 13) (ite (|hyperram#42| state) #b0000000000000 (|hyperram#1241| state))) ; $0\CA_r[47:0] [15:3]
+(define-fun |hyperram#1243| ((state |hyperram_s|)) (_ BitVec 29) (ite (|hyperram#1177| state) ((_ extract 31 3) (|hyperram#129| state)) ((_ extract 44 16) (|hyperram#46| state)))) ; $procmux$2776_Y
+(define-fun |hyperram#1244| ((state |hyperram_s|)) (_ BitVec 29) (ite (|hyperram#106| state) (|hyperram#1243| state) ((_ extract 44 16) (|hyperram#46| state)))) ; $procmux$2778_Y
+(define-fun |hyperram#1245| ((state |hyperram_s|)) (_ BitVec 29) (ite (|hyperram#42| state) #b00000000000000000000000000000 (|hyperram#1244| state))) ; $0\CA_r[47:0] [44:16]
+(define-fun |hyperram#1246| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1177| state) #b1 ((_ extract 45 45) (|hyperram#46| state)))) ; $procmux$2789_Y
+(define-fun |hyperram#1247| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#106| state) (|hyperram#1246| state) ((_ extract 45 45) (|hyperram#46| state)))) ; $procmux$2791_Y
+(define-fun |hyperram#1248| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#42| state) #b0 (|hyperram#1247| state))) ; $0\CA_r[47:0] [45]
+(define-fun |hyperram#1249| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1177| state) (ite (|hyperram#43| state) #b1 #b0) ((_ extract 46 46) (|hyperram#46| state)))) ; $procmux$2802_Y
+(define-fun |hyperram#1250| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#106| state) (|hyperram#1249| state) ((_ extract 46 46) (|hyperram#46| state)))) ; $procmux$2804_Y
+(define-fun |hyperram#1251| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#42| state) #b0 (|hyperram#1250| state))) ; $0\CA_r[47:0] [46]
+(define-fun |hyperram#1252| ((state |hyperram_s|)) (_ BitVec 1) (bvnot (ite (|hyperram#0| state) #b1 #b0))) ; $not$hyperram.v:155$328_Y
+(define-fun |hyperram#1253| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#1177| state) (|hyperram#1252| state) ((_ extract 47 47) (|hyperram#46| state)))) ; $procmux$2815_Y
+(define-fun |hyperram#1254| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#106| state) (|hyperram#1253| state) ((_ extract 47 47) (|hyperram#46| state)))) ; $procmux$2817_Y
+(define-fun |hyperram#1255| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#42| state) #b0 (|hyperram#1254| state))) ; $0\CA_r[47:0] [47]
+(define-fun |hyperram#1256| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#97| state) (ite (|hyperram#88| state) #b1 #b0) (|hyperram#41| state))) ; $procmux$2731_Y
+(define-fun |hyperram#1257| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#106| state) #b1 (ite (|hyperram#103| state) (|hyperram#1256| state) (|hyperram#41| state)))) ; $procmux$2733_Y
+(define-fun |hyperram#1258| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#42| state) #b1 (|hyperram#1257| state))) ; $0\rwds_2x_latency_r[0:0]
+(define-fun |hyperram#1259| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#124| state) (ite (|hyperram#88| state) #b1 #b0) (|hyperram#38| state))) ; $procmux$2739_Y
+(define-fun |hyperram#1260| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#42| state) #b0 (|hyperram#1259| state))) ; $0\rwds_r[0:0]
+(define-fun |hyperram#1261| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#1177| state) (|hyperram#33| state) (|hyperram#32| state))) ; $procmux$2935_Y
+(define-fun |hyperram#1262| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#106| state) (|hyperram#1261| state) (|hyperram#32| state))) ; $procmux$2937_Y
+(define-fun |hyperram#1263| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#42| state) #b0000 (|hyperram#1262| state))) ; $0\sel_r[3:0]
+(define-fun |hyperram#1264| ((state |hyperram_s|)) Bool (bvuge (|hyperram#29| state) #b0010)) ; $ge$hyperram.v:172$335_Y
+(define-fun |hyperram#1265| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#1264| state) (|hyperram#29| state) #b0010)) ; $ternary$hyperram.v:172$337_Y [3:0]
+(define-fun |hyperram#1266| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#1198| state) (|hyperram#1265| state) (|hyperram#28| state))) ; $procmux$3016_Y
+(define-fun |hyperram#1267| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#106| state) (|hyperram#1266| state) (|hyperram#28| state))) ; $procmux$3018_Y
+(define-fun |hyperram#1268| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#42| state) #b0110 (|hyperram#1267| state))) ; $0\tacc_r[3:0]
+(define-fun |hyperram#1269| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#1198| state) (|hyperram#25| state) (|hyperram#24| state))) ; $procmux$3042_Y
+(define-fun |hyperram#1270| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#106| state) (|hyperram#1269| state) (|hyperram#24| state))) ; $procmux$3044_Y
+(define-fun |hyperram#1271| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#42| state) #b0100 (|hyperram#1270| state))) ; $0\tcsh_r[3:0]
+(define-fun |hyperram#1272| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#1198| state) (|hyperram#21| state) (|hyperram#20| state))) ; $procmux$3003_Y
+(define-fun |hyperram#1273| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#106| state) (|hyperram#1272| state) (|hyperram#20| state))) ; $procmux$3005_Y
+(define-fun |hyperram#1274| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#42| state) #b0100 (|hyperram#1273| state))) ; $0\tpost_r[3:0]
+(define-fun |hyperram#1275| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#1198| state) (|hyperram#17| state) (|hyperram#16| state))) ; $procmux$3029_Y
+(define-fun |hyperram#1276| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#106| state) (|hyperram#1275| state) (|hyperram#16| state))) ; $procmux$3031_Y
+(define-fun |hyperram#1277| ((state |hyperram_s|)) (_ BitVec 4) (ite (|hyperram#42| state) #b0100 (|hyperram#1276| state))) ; $0\tpre_r[3:0]
+(define-fun |hyperram#1278| ((state |hyperram_s|)) Bool (bvuge (|hyperram#13| state) #b00100)) ; $ge$hyperram.v:174$338_Y
+(define-fun |hyperram#1279| ((state |hyperram_s|)) (_ BitVec 5) (ite (|hyperram#1278| state) (|hyperram#13| state) #b00100)) ; $auto$wreduce.cc:454:run$3501 [4:0]
+(define-fun |hyperram#1280| ((state |hyperram_s|)) (_ BitVec 5) (ite (|hyperram#1198| state) (|hyperram#1279| state) (|hyperram#12| state))) ; $procmux$2990_Y
+(define-fun |hyperram#1281| ((state |hyperram_s|)) (_ BitVec 5) (ite (|hyperram#106| state) (|hyperram#1280| state) (|hyperram#12| state))) ; $procmux$2992_Y
+(define-fun |hyperram#1282| ((state |hyperram_s|)) (_ BitVec 5) (ite (|hyperram#42| state) #b10100 (|hyperram#1281| state))) ; $0\trmax_r[4:0]
+(define-fun |hyperram#1283| ((state |hyperram_s|)) (_ BitVec 1) (ite (|hyperram#42| state) #b0 (|hyperram#8| state))) ; $0\valid_r[0:0]
 (define-fun |hyperram_a| ((state |hyperram_s|)) Bool (and
   (|hyperram_a 0| state)
   (|hyperram_a 1| state)
@@ -2325,287 +2327,288 @@
   (|hyperram_u 3| state)
 ))
 (define-fun |hyperram_i| ((state |hyperram_s|)) Bool (and
-  (= (= ((_ extract 0 0) (|hyperram#110| state)) #b1) false) ; f_past_valid
-  (= (= ((_ extract 0 0) (|hyperram#144| state)) #b1) false) ; $formal$hyperram.v:998$275_EN
-  (= (= ((_ extract 0 0) (|hyperram#146| state)) #b1) false) ; $formal$hyperram.v:995$274_EN
-  (= (= ((_ extract 0 0) (|hyperram#148| state)) #b1) false) ; $formal$hyperram.v:992$273_EN
-  (= (= ((_ extract 0 0) (|hyperram#150| state)) #b1) false) ; $formal$hyperram.v:986$272_EN
-  (= (= ((_ extract 0 0) (|hyperram#152| state)) #b1) false) ; $formal$hyperram.v:983$271_EN
-  (= (= ((_ extract 0 0) (|hyperram#154| state)) #b1) false) ; $formal$hyperram.v:980$270_EN
-  (= (= ((_ extract 0 0) (|hyperram#156| state)) #b1) false) ; $formal$hyperram.v:977$269_EN
-  (= (= ((_ extract 0 0) (|hyperram#158| state)) #b1) false) ; $formal$hyperram.v:974$268_EN
-  (= (= ((_ extract 0 0) (|hyperram#160| state)) #b1) false) ; $formal$hyperram.v:971$267_EN
-  (= (= ((_ extract 0 0) (|hyperram#162| state)) #b1) false) ; $formal$hyperram.v:968$266_EN
-  (= (= ((_ extract 0 0) (|hyperram#164| state)) #b1) false) ; $formal$hyperram.v:965$265_EN
-  (= (= ((_ extract 0 0) (|hyperram#166| state)) #b1) false) ; $formal$hyperram.v:962$264_EN
-  (= (= ((_ extract 0 0) (|hyperram#168| state)) #b1) false) ; $formal$hyperram.v:959$263_EN
-  (= (= ((_ extract 0 0) (|hyperram#170| state)) #b1) false) ; $formal$hyperram.v:955$262_EN
-  (= (= ((_ extract 0 0) (|hyperram#172| state)) #b1) false) ; $formal$hyperram.v:949$261_EN
-  (= (= ((_ extract 0 0) (|hyperram#177| state)) #b1) false) ; $formal$hyperram.v:944$257_EN
-  (= (= ((_ extract 0 0) (|hyperram#179| state)) #b1) false) ; $formal$hyperram.v:939$256_EN
-  (= (= ((_ extract 0 0) (|hyperram#181| state)) #b1) false) ; $formal$hyperram.v:937$255_EN
-  (= (= ((_ extract 0 0) (|hyperram#183| state)) #b1) false) ; $formal$hyperram.v:931$254_EN
-  (= (= ((_ extract 0 0) (|hyperram#185| state)) #b1) false) ; $formal$hyperram.v:929$253_EN
-  (= (= ((_ extract 0 0) (|hyperram#187| state)) #b1) false) ; $formal$hyperram.v:925$252_EN
-  (= (= ((_ extract 0 0) (|hyperram#189| state)) #b1) false) ; $formal$hyperram.v:923$251_EN
-  (= (= ((_ extract 0 0) (|hyperram#191| state)) #b1) false) ; $formal$hyperram.v:907$250_EN
-  (= (= ((_ extract 0 0) (|hyperram#193| state)) #b1) false) ; $formal$hyperram.v:893$249_EN
-  (= (= ((_ extract 0 0) (|hyperram#195| state)) #b1) false) ; $formal$hyperram.v:891$248_EN
-  (= (= ((_ extract 0 0) (|hyperram#197| state)) #b1) false) ; $formal$hyperram.v:889$247_EN
-  (= (= ((_ extract 0 0) (|hyperram#201| state)) #b1) false) ; $formal$hyperram.v:879$244_EN
-  (= (= ((_ extract 0 0) (|hyperram#203| state)) #b1) false) ; $formal$hyperram.v:877$243_EN
-  (= (= ((_ extract 0 0) (|hyperram#205| state)) #b1) false) ; $formal$hyperram.v:874$242_EN
-  (= (= ((_ extract 0 0) (|hyperram#207| state)) #b1) false) ; $formal$hyperram.v:872$241_EN
-  (= (= ((_ extract 0 0) (|hyperram#211| state)) #b1) false) ; $formal$hyperram.v:867$238_EN
-  (= (= ((_ extract 0 0) (|hyperram#215| state)) #b1) false) ; $formal$hyperram.v:854$235_EN
-  (= (= ((_ extract 0 0) (|hyperram#245| state)) #b1) false) ; $formal$hyperram.v:405$206_EN
-  (= (= ((_ extract 0 0) (|hyperram#247| state)) #b1) false) ; $formal$hyperram.v:402$205_EN
-  (= (= ((_ extract 0 0) (|hyperram#252| state)) #b1) false) ; $formal$hyperram.v:1084$301_EN
-  (= (= ((_ extract 0 0) (|hyperram#254| state)) #b1) false) ; $formal$hyperram.v:1076$300_EN
-  (= (= ((_ extract 0 0) (|hyperram#256| state)) #b1) false) ; $formal$hyperram.v:1075$299_EN
-  (= (= ((_ extract 0 0) (|hyperram#258| state)) #b1) false) ; $formal$hyperram.v:1074$298_EN
-  (= (= ((_ extract 0 0) (|hyperram#260| state)) #b1) false) ; $formal$hyperram.v:1073$297_EN
-  (= (= ((_ extract 0 0) (|hyperram#262| state)) #b1) false) ; $formal$hyperram.v:1070$296_EN
-  (= (= ((_ extract 0 0) (|hyperram#264| state)) #b1) false) ; $formal$hyperram.v:1065$295_EN
-  (= (= ((_ extract 0 0) (|hyperram#266| state)) #b1) false) ; $formal$hyperram.v:1057$293_EN
-  (= (= ((_ extract 0 0) (|hyperram#268| state)) #b1) false) ; $formal$hyperram.v:1053$292_EN
-  (= (= ((_ extract 0 0) (|hyperram#270| state)) #b1) false) ; $formal$hyperram.v:1051$291_EN
-  (= (= ((_ extract 0 0) (|hyperram#273| state)) #b1) false) ; $formal$hyperram.v:1042$289_EN
-  (= (= ((_ extract 0 0) (|hyperram#275| state)) #b1) false) ; $formal$hyperram.v:1039$288_EN
-  (= (= ((_ extract 0 0) (|hyperram#277| state)) #b1) false) ; $formal$hyperram.v:1036$287_EN
-  (= (= ((_ extract 0 0) (|hyperram#279| state)) #b1) false) ; $formal$hyperram.v:1033$286_EN
-  (= (= ((_ extract 0 0) (|hyperram#282| state)) #b1) false) ; $formal$hyperram.v:1025$284_EN
-  (= (= ((_ extract 0 0) (|hyperram#284| state)) #b1) false) ; $formal$hyperram.v:1022$283_EN
-  (= (= ((_ extract 0 0) (|hyperram#286| state)) #b1) false) ; $formal$hyperram.v:1019$282_EN
-  (= (= ((_ extract 0 0) (|hyperram#288| state)) #b1) false) ; $formal$hyperram.v:1015$281_EN
-  (= (= ((_ extract 0 0) (|hyperram#290| state)) #b1) false) ; $formal$hyperram.v:1013$280_EN
-  (= (= ((_ extract 0 0) (|hyperram#292| state)) #b1) false) ; $formal$hyperram.v:1011$279_EN
-  (= (= ((_ extract 0 0) (|hyperram#294| state)) #b1) false) ; $formal$hyperram.v:1007$278_EN
-  (= (= ((_ extract 0 0) (|hyperram#296| state)) #b1) false) ; $formal$hyperram.v:1005$277_EN
-  (= (= ((_ extract 0 0) (|hyperram#298| state)) #b1) false) ; $formal$hyperram.v:1001$276_EN
-  (= (= ((_ extract 0 0) (|hyperram#3| state)) #b1) true) ; $auto$clk2fflogic.cc:168:execute$3562
-  (= (= ((_ extract 0 0) (|hyperram#36| state)) #b1) false) ; $auto$clk2fflogic.cc:168:execute$3512
+  (= (= ((_ extract 0 0) (|hyperram#113| state)) #b1) false) ; f_past_valid
+  (= (= ((_ extract 0 0) (|hyperram#148| state)) #b1) false) ; $formal$hyperram.v:998$274_EN
+  (= (= ((_ extract 0 0) (|hyperram#150| state)) #b1) false) ; $formal$hyperram.v:995$273_EN
+  (= (= ((_ extract 0 0) (|hyperram#152| state)) #b1) false) ; $formal$hyperram.v:992$272_EN
+  (= (= ((_ extract 0 0) (|hyperram#154| state)) #b1) false) ; $formal$hyperram.v:986$271_EN
+  (= (= ((_ extract 0 0) (|hyperram#156| state)) #b1) false) ; $formal$hyperram.v:983$270_EN
+  (= (= ((_ extract 0 0) (|hyperram#158| state)) #b1) false) ; $formal$hyperram.v:980$269_EN
+  (= (= ((_ extract 0 0) (|hyperram#160| state)) #b1) false) ; $formal$hyperram.v:977$268_EN
+  (= (= ((_ extract 0 0) (|hyperram#162| state)) #b1) false) ; $formal$hyperram.v:974$267_EN
+  (= (= ((_ extract 0 0) (|hyperram#164| state)) #b1) false) ; $formal$hyperram.v:971$266_EN
+  (= (= ((_ extract 0 0) (|hyperram#166| state)) #b1) false) ; $formal$hyperram.v:968$265_EN
+  (= (= ((_ extract 0 0) (|hyperram#168| state)) #b1) false) ; $formal$hyperram.v:965$264_EN
+  (= (= ((_ extract 0 0) (|hyperram#170| state)) #b1) false) ; $formal$hyperram.v:962$263_EN
+  (= (= ((_ extract 0 0) (|hyperram#172| state)) #b1) false) ; $formal$hyperram.v:959$262_EN
+  (= (= ((_ extract 0 0) (|hyperram#174| state)) #b1) false) ; $formal$hyperram.v:955$261_EN
+  (= (= ((_ extract 0 0) (|hyperram#176| state)) #b1) false) ; $formal$hyperram.v:949$260_EN
+  (= (= ((_ extract 0 0) (|hyperram#181| state)) #b1) false) ; $formal$hyperram.v:944$256_EN
+  (= (= ((_ extract 0 0) (|hyperram#183| state)) #b1) false) ; $formal$hyperram.v:939$255_EN
+  (= (= ((_ extract 0 0) (|hyperram#185| state)) #b1) false) ; $formal$hyperram.v:937$254_EN
+  (= (= ((_ extract 0 0) (|hyperram#187| state)) #b1) false) ; $formal$hyperram.v:931$253_EN
+  (= (= ((_ extract 0 0) (|hyperram#189| state)) #b1) false) ; $formal$hyperram.v:929$252_EN
+  (= (= ((_ extract 0 0) (|hyperram#191| state)) #b1) false) ; $formal$hyperram.v:925$251_EN
+  (= (= ((_ extract 0 0) (|hyperram#193| state)) #b1) false) ; $formal$hyperram.v:923$250_EN
+  (= (= ((_ extract 0 0) (|hyperram#195| state)) #b1) false) ; $formal$hyperram.v:907$249_EN
+  (= (= ((_ extract 0 0) (|hyperram#197| state)) #b1) false) ; $formal$hyperram.v:893$248_EN
+  (= (= ((_ extract 0 0) (|hyperram#199| state)) #b1) false) ; $formal$hyperram.v:891$247_EN
+  (= (= ((_ extract 0 0) (|hyperram#201| state)) #b1) false) ; $formal$hyperram.v:889$246_EN
+  (= (= ((_ extract 0 0) (|hyperram#205| state)) #b1) false) ; $formal$hyperram.v:879$243_EN
+  (= (= ((_ extract 0 0) (|hyperram#207| state)) #b1) false) ; $formal$hyperram.v:877$242_EN
+  (= (= ((_ extract 0 0) (|hyperram#209| state)) #b1) false) ; $formal$hyperram.v:874$241_EN
+  (= (= ((_ extract 0 0) (|hyperram#211| state)) #b1) false) ; $formal$hyperram.v:872$240_EN
+  (= (= ((_ extract 0 0) (|hyperram#215| state)) #b1) false) ; $formal$hyperram.v:867$237_EN
+  (= (= ((_ extract 0 0) (|hyperram#219| state)) #b1) false) ; $formal$hyperram.v:854$234_EN
+  (= (= ((_ extract 0 0) (|hyperram#249| state)) #b1) false) ; $formal$hyperram.v:405$205_EN
+  (= (= ((_ extract 0 0) (|hyperram#251| state)) #b1) false) ; $formal$hyperram.v:402$204_EN
+  (= (= ((_ extract 0 0) (|hyperram#256| state)) #b1) false) ; $formal$hyperram.v:1088$300_EN
+  (= (= ((_ extract 0 0) (|hyperram#258| state)) #b1) false) ; $formal$hyperram.v:1080$299_EN
+  (= (= ((_ extract 0 0) (|hyperram#260| state)) #b1) false) ; $formal$hyperram.v:1079$298_EN
+  (= (= ((_ extract 0 0) (|hyperram#262| state)) #b1) false) ; $formal$hyperram.v:1078$297_EN
+  (= (= ((_ extract 0 0) (|hyperram#264| state)) #b1) false) ; $formal$hyperram.v:1077$296_EN
+  (= (= ((_ extract 0 0) (|hyperram#266| state)) #b1) false) ; $formal$hyperram.v:1068$295_EN
+  (= (= ((_ extract 0 0) (|hyperram#268| state)) #b1) false) ; $formal$hyperram.v:1065$294_EN
+  (= (= ((_ extract 0 0) (|hyperram#270| state)) #b1) false) ; $formal$hyperram.v:1057$292_EN
+  (= (= ((_ extract 0 0) (|hyperram#272| state)) #b1) false) ; $formal$hyperram.v:1053$291_EN
+  (= (= ((_ extract 0 0) (|hyperram#274| state)) #b1) false) ; $formal$hyperram.v:1051$290_EN
+  (= (= ((_ extract 0 0) (|hyperram#277| state)) #b1) false) ; $formal$hyperram.v:1042$288_EN
+  (= (= ((_ extract 0 0) (|hyperram#279| state)) #b1) false) ; $formal$hyperram.v:1039$287_EN
+  (= (= ((_ extract 0 0) (|hyperram#281| state)) #b1) false) ; $formal$hyperram.v:1036$286_EN
+  (= (= ((_ extract 0 0) (|hyperram#283| state)) #b1) false) ; $formal$hyperram.v:1033$285_EN
+  (= (= ((_ extract 0 0) (|hyperram#286| state)) #b1) false) ; $formal$hyperram.v:1025$283_EN
+  (= (= ((_ extract 0 0) (|hyperram#288| state)) #b1) false) ; $formal$hyperram.v:1022$282_EN
+  (= (= ((_ extract 0 0) (|hyperram#290| state)) #b1) false) ; $formal$hyperram.v:1019$281_EN
+  (= (= ((_ extract 0 0) (|hyperram#292| state)) #b1) false) ; $formal$hyperram.v:1015$280_EN
+  (= (= ((_ extract 0 0) (|hyperram#294| state)) #b1) false) ; $formal$hyperram.v:1013$279_EN
+  (= (= ((_ extract 0 0) (|hyperram#296| state)) #b1) false) ; $formal$hyperram.v:1011$278_EN
+  (= (= ((_ extract 0 0) (|hyperram#298| state)) #b1) false) ; $formal$hyperram.v:1007$277_EN
+  (= (= ((_ extract 0 0) (|hyperram#300| state)) #b1) false) ; $formal$hyperram.v:1005$276_EN
+  (= (= ((_ extract 0 0) (|hyperram#302| state)) #b1) false) ; $formal$hyperram.v:1001$275_EN
+  (= (= ((_ extract 0 0) (|hyperram#3| state)) #b1) true) ; $auto$clk2fflogic.cc:168:execute$3556
+  (= (= ((_ extract 0 0) (|hyperram#36| state)) #b1) false) ; $auto$clk2fflogic.cc:168:execute$3506
 ))
 (define-fun |hyperram_h| ((state |hyperram_s|)) Bool true)
 (define-fun |hyperram_t| ((state |hyperram_s|) (next_state |hyperram_s|)) Bool (and
-  (= (|hyperram#4| state) (|hyperram#301| next_state)) ; $procdff$3068 $and$hyperram.v:0$1448_Y
-  (= (ite (|hyperram#42| state) #b1 #b0) (|hyperram#300| next_state)) ; $procdff$3066 $and$hyperram.v:0$802_Y
-  (= (|hyperram#314| state) (|hyperram#299| next_state)) ; $procdff$3408 $formal$hyperram.v:1001$276_CHECK
-  (= (|hyperram#316| state) (|hyperram#298| next_state)) ; $procdff$3409 $formal$hyperram.v:1001$276_EN
-  (= (|hyperram#331| state) (|hyperram#297| next_state)) ; $procdff$3410 $formal$hyperram.v:1005$277_CHECK
-  (= (|hyperram#334| state) (|hyperram#296| next_state)) ; $procdff$3411 $formal$hyperram.v:1005$277_EN
-  (= (|hyperram#346| state) (|hyperram#295| next_state)) ; $procdff$3412 $formal$hyperram.v:1007$278_CHECK
-  (= (|hyperram#349| state) (|hyperram#294| next_state)) ; $procdff$3413 $formal$hyperram.v:1007$278_EN
-  (= (|hyperram#359| state) (|hyperram#293| next_state)) ; $procdff$3414 $formal$hyperram.v:1011$279_CHECK
-  (= (|hyperram#361| state) (|hyperram#292| next_state)) ; $procdff$3415 $formal$hyperram.v:1011$279_EN
-  (= (|hyperram#368| state) (|hyperram#291| next_state)) ; $procdff$3416 $formal$hyperram.v:1013$280_CHECK
-  (= (|hyperram#371| state) (|hyperram#290| next_state)) ; $procdff$3417 $formal$hyperram.v:1013$280_EN
-  (= (|hyperram#378| state) (|hyperram#289| next_state)) ; $procdff$3418 $formal$hyperram.v:1015$281_CHECK
-  (= (|hyperram#381| state) (|hyperram#288| next_state)) ; $procdff$3419 $formal$hyperram.v:1015$281_EN
-  (= (|hyperram#386| state) (|hyperram#287| next_state)) ; $procdff$3420 $formal$hyperram.v:1019$282_CHECK
-  (= (|hyperram#388| state) (|hyperram#286| next_state)) ; $procdff$3421 $formal$hyperram.v:1019$282_EN
-  (= (|hyperram#399| state) (|hyperram#285| next_state)) ; $procdff$3422 $formal$hyperram.v:1022$283_CHECK
-  (= (|hyperram#401| state) (|hyperram#284| next_state)) ; $procdff$3423 $formal$hyperram.v:1022$283_EN
-  (= (|hyperram#409| state) (|hyperram#283| next_state)) ; $procdff$3424 $formal$hyperram.v:1025$284_CHECK
-  (= (|hyperram#411| state) (|hyperram#282| next_state)) ; $procdff$3425 $formal$hyperram.v:1025$284_EN
-  (= (|hyperram#414| state) (|hyperram#281| next_state)) ; $procdff$3426 $formal$hyperram.v:1030$285_CHECK
-  (= (|hyperram#423| state) (|hyperram#280| next_state)) ; $procdff$3428 $formal$hyperram.v:1033$286_CHECK
-  (= (|hyperram#425| state) (|hyperram#279| next_state)) ; $procdff$3429 $formal$hyperram.v:1033$286_EN
-  (= (|hyperram#430| state) (|hyperram#278| next_state)) ; $procdff$3430 $formal$hyperram.v:1036$287_CHECK
-  (= (|hyperram#432| state) (|hyperram#277| next_state)) ; $procdff$3431 $formal$hyperram.v:1036$287_EN
-  (= (|hyperram#442| state) (|hyperram#276| next_state)) ; $procdff$3432 $formal$hyperram.v:1039$288_CHECK
-  (= (|hyperram#444| state) (|hyperram#275| next_state)) ; $procdff$3433 $formal$hyperram.v:1039$288_EN
-  (= (|hyperram#448| state) (|hyperram#274| next_state)) ; $procdff$3434 $formal$hyperram.v:1042$289_CHECK
-  (= (|hyperram#450| state) (|hyperram#273| next_state)) ; $procdff$3435 $formal$hyperram.v:1042$289_EN
-  (= (|hyperram#452| state) (|hyperram#272| next_state)) ; $procdff$3436 $formal$hyperram.v:1047$290_CHECK
-  (= (|hyperram#462| state) (|hyperram#271| next_state)) ; $procdff$3438 $formal$hyperram.v:1051$291_CHECK
-  (= (|hyperram#465| state) (|hyperram#270| next_state)) ; $procdff$3439 $formal$hyperram.v:1051$291_EN
-  (= (|hyperram#472| state) (|hyperram#269| next_state)) ; $procdff$3440 $formal$hyperram.v:1053$292_CHECK
-  (= (|hyperram#475| state) (|hyperram#268| next_state)) ; $procdff$3441 $formal$hyperram.v:1053$292_EN
-  (= (|hyperram#483| state) (|hyperram#267| next_state)) ; $procdff$3442 $formal$hyperram.v:1057$293_CHECK
-  (= (|hyperram#485| state) (|hyperram#266| next_state)) ; $procdff$3443 $formal$hyperram.v:1057$293_EN
-  (= (|hyperram#496| state) (|hyperram#265| next_state)) ; $procdff$3446 $formal$hyperram.v:1065$295_CHECK
-  (= (|hyperram#498| state) (|hyperram#264| next_state)) ; $procdff$3447 $formal$hyperram.v:1065$295_EN
-  (= (|hyperram#509| state) (|hyperram#263| next_state)) ; $procdff$3448 $formal$hyperram.v:1070$296_CHECK
-  (= (|hyperram#512| state) (|hyperram#262| next_state)) ; $procdff$3449 $formal$hyperram.v:1070$296_EN
-  (= (|hyperram#520| state) (|hyperram#261| next_state)) ; $procdff$3450 $formal$hyperram.v:1073$297_CHECK
-  (= (|hyperram#523| state) (|hyperram#260| next_state)) ; $procdff$3451 $formal$hyperram.v:1073$297_EN
-  (= (|hyperram#530| state) (|hyperram#259| next_state)) ; $procdff$3452 $formal$hyperram.v:1074$298_CHECK
-  (= (|hyperram#533| state) (|hyperram#258| next_state)) ; $procdff$3453 $formal$hyperram.v:1074$298_EN
-  (= (|hyperram#541| state) (|hyperram#257| next_state)) ; $procdff$3454 $formal$hyperram.v:1075$299_CHECK
-  (= (|hyperram#544| state) (|hyperram#256| next_state)) ; $procdff$3455 $formal$hyperram.v:1075$299_EN
-  (= (|hyperram#552| state) (|hyperram#255| next_state)) ; $procdff$3456 $formal$hyperram.v:1076$300_CHECK
-  (= (|hyperram#555| state) (|hyperram#254| next_state)) ; $procdff$3457 $formal$hyperram.v:1076$300_EN
-  (= (|hyperram#565| state) (|hyperram#253| next_state)) ; $procdff$3458 $formal$hyperram.v:1084$301_CHECK
-  (= (|hyperram#567| state) (|hyperram#252| next_state)) ; $procdff$3459 $formal$hyperram.v:1084$301_EN
-  (= (|hyperram#572| state) (|hyperram#251| next_state)) ; $procdff$3460 $formal$hyperram.v:1085$302_CHECK
-  (= (|hyperram#577| state) (|hyperram#250| next_state)) ; $procdff$3462 $formal$hyperram.v:1086$303_CHECK
-  (= (|hyperram#583| state) (|hyperram#249| next_state)) ; $procdff$3464 $formal$hyperram.v:1087$304_CHECK
-  (= (|hyperram#594| state) (|hyperram#248| next_state)) ; $procdff$3266 $formal$hyperram.v:402$205_CHECK
-  (= (|hyperram#596| state) (|hyperram#247| next_state)) ; $procdff$3267 $formal$hyperram.v:402$205_EN
-  (= (|hyperram#599| state) (|hyperram#246| next_state)) ; $procdff$3268 $formal$hyperram.v:405$206_CHECK
-  (= (|hyperram#600| state) (|hyperram#245| next_state)) ; $procdff$3269 $formal$hyperram.v:405$206_EN
-  (= (|hyperram#604| state) (|hyperram#244| next_state)) ; $procdff$3270 $formal$hyperram.v:412$207_CHECK
-  (= (|hyperram#608| state) (|hyperram#243| next_state)) ; $procdff$3272 $formal$hyperram.v:415$208_CHECK
-  (= (|hyperram#612| state) (|hyperram#242| next_state)) ; $procdff$3274 $formal$hyperram.v:418$209_CHECK
-  (= (|hyperram#616| state) (|hyperram#241| next_state)) ; $procdff$3276 $formal$hyperram.v:421$210_CHECK
-  (= (|hyperram#620| state) (|hyperram#240| next_state)) ; $procdff$3278 $formal$hyperram.v:424$211_CHECK
-  (= (|hyperram#631| state) (|hyperram#239| next_state)) ; $procdff$3280 $formal$hyperram.v:430$212_CHECK
-  (= (|hyperram#648| state) (|hyperram#238| next_state)) ; $procdff$3282 $formal$hyperram.v:445$213_CHECK
-  (= (|hyperram#658| state) (|hyperram#237| next_state)) ; $procdff$3284 $formal$hyperram.v:462$214_CHECK
-  (= (|hyperram#668| state) (|hyperram#236| next_state)) ; $procdff$3286 $formal$hyperram.v:482$215_CHECK
-  (= (|hyperram#678| state) (|hyperram#235| next_state)) ; $procdff$3288 $formal$hyperram.v:502$216_CHECK
-  (= (|hyperram#690| state) (|hyperram#234| next_state)) ; $procdff$3290 $formal$hyperram.v:524$217_CHECK
-  (= (|hyperram#700| state) (|hyperram#233| next_state)) ; $procdff$3292 $formal$hyperram.v:540$218_CHECK
-  (= (|hyperram#712| state) (|hyperram#232| next_state)) ; $procdff$3294 $formal$hyperram.v:559$219_CHECK
-  (= (|hyperram#727| state) (|hyperram#231| next_state)) ; $procdff$3296 $formal$hyperram.v:580$220_CHECK
-  (= (|hyperram#739| state) (|hyperram#230| next_state)) ; $procdff$3298 $formal$hyperram.v:600$221_CHECK
-  (= (|hyperram#751| state) (|hyperram#229| next_state)) ; $procdff$3300 $formal$hyperram.v:622$222_CHECK
-  (= (|hyperram#758| state) (|hyperram#228| next_state)) ; $procdff$3302 $formal$hyperram.v:638$223_CHECK
-  (= (|hyperram#770| state) (|hyperram#227| next_state)) ; $procdff$3304 $formal$hyperram.v:655$224_CHECK
-  (= (|hyperram#782| state) (|hyperram#226| next_state)) ; $procdff$3306 $formal$hyperram.v:675$225_CHECK
-  (= (|hyperram#793| state) (|hyperram#225| next_state)) ; $procdff$3308 $formal$hyperram.v:695$226_CHECK
-  (= (|hyperram#800| state) (|hyperram#224| next_state)) ; $procdff$3310 $formal$hyperram.v:716$227_CHECK
-  (= (|hyperram#807| state) (|hyperram#223| next_state)) ; $procdff$3312 $formal$hyperram.v:733$228_CHECK
-  (= (|hyperram#819| state) (|hyperram#222| next_state)) ; $procdff$3314 $formal$hyperram.v:752$229_CHECK
-  (= (|hyperram#828| state) (|hyperram#221| next_state)) ; $procdff$3316 $formal$hyperram.v:768$230_CHECK
-  (= (|hyperram#836| state) (|hyperram#220| next_state)) ; $procdff$3318 $formal$hyperram.v:784$231_CHECK
-  (= (|hyperram#846| state) (|hyperram#219| next_state)) ; $procdff$3320 $formal$hyperram.v:803$232_CHECK
-  (= (|hyperram#855| state) (|hyperram#218| next_state)) ; $procdff$3322 $formal$hyperram.v:820$233_CHECK
-  (= (|hyperram#862| state) (|hyperram#217| next_state)) ; $procdff$3324 $formal$hyperram.v:838$234_CHECK
-  (= (|hyperram#866| state) (|hyperram#216| next_state)) ; $procdff$3326 $formal$hyperram.v:854$235_CHECK
-  (= (|hyperram#867| state) (|hyperram#215| next_state)) ; $procdff$3327 $formal$hyperram.v:854$235_EN
-  (= (|hyperram#870| state) (|hyperram#214| next_state)) ; $procdff$3328 $formal$hyperram.v:860$236_CHECK
-  (= (|hyperram#873| state) (|hyperram#213| next_state)) ; $procdff$3330 $formal$hyperram.v:861$237_CHECK
-  (= (|hyperram#879| state) (|hyperram#212| next_state)) ; $procdff$3332 $formal$hyperram.v:867$238_CHECK
-  (= (|hyperram#881| state) (|hyperram#211| next_state)) ; $procdff$3333 $formal$hyperram.v:867$238_EN
-  (= (|hyperram#886| state) (|hyperram#210| next_state)) ; $procdff$3334 $formal$hyperram.v:868$239_CHECK
-  (= (|hyperram#891| state) (|hyperram#209| next_state)) ; $procdff$3336 $formal$hyperram.v:869$240_CHECK
-  (= (|hyperram#899| state) (|hyperram#208| next_state)) ; $procdff$3338 $formal$hyperram.v:872$241_CHECK
-  (= (|hyperram#902| state) (|hyperram#207| next_state)) ; $procdff$3339 $formal$hyperram.v:872$241_EN
-  (= (|hyperram#908| state) (|hyperram#206| next_state)) ; $procdff$3340 $formal$hyperram.v:874$242_CHECK
-  (= (|hyperram#911| state) (|hyperram#205| next_state)) ; $procdff$3341 $formal$hyperram.v:874$242_EN
-  (= (|hyperram#919| state) (|hyperram#204| next_state)) ; $procdff$3342 $formal$hyperram.v:877$243_CHECK
-  (= (|hyperram#922| state) (|hyperram#203| next_state)) ; $procdff$3343 $formal$hyperram.v:877$243_EN
-  (= (|hyperram#929| state) (|hyperram#202| next_state)) ; $procdff$3344 $formal$hyperram.v:879$244_CHECK
-  (= (|hyperram#932| state) (|hyperram#201| next_state)) ; $procdff$3345 $formal$hyperram.v:879$244_EN
-  (= (|hyperram#937| state) (|hyperram#200| next_state)) ; $procdff$3346 $formal$hyperram.v:879$245_CHECK
-  (= (|hyperram#942| state) (|hyperram#199| next_state)) ; $procdff$3348 $formal$hyperram.v:881$246_CHECK
-  (= (|hyperram#946| state) (|hyperram#198| next_state)) ; $procdff$3350 $formal$hyperram.v:889$247_CHECK
-  (= (|hyperram#948| state) (|hyperram#197| next_state)) ; $procdff$3351 $formal$hyperram.v:889$247_EN
-  (= (|hyperram#953| state) (|hyperram#196| next_state)) ; $procdff$3352 $formal$hyperram.v:891$248_CHECK
-  (= (|hyperram#955| state) (|hyperram#195| next_state)) ; $procdff$3353 $formal$hyperram.v:891$248_EN
-  (= (|hyperram#962| state) (|hyperram#194| next_state)) ; $procdff$3354 $formal$hyperram.v:893$249_CHECK
-  (= (|hyperram#964| state) (|hyperram#193| next_state)) ; $procdff$3355 $formal$hyperram.v:893$249_EN
-  (= (|hyperram#970| state) (|hyperram#192| next_state)) ; $procdff$3356 $formal$hyperram.v:907$250_CHECK
-  (= (|hyperram#972| state) (|hyperram#191| next_state)) ; $procdff$3357 $formal$hyperram.v:907$250_EN
-  (= (|hyperram#976| state) (|hyperram#190| next_state)) ; $procdff$3358 $formal$hyperram.v:923$251_CHECK
-  (= (|hyperram#978| state) (|hyperram#189| next_state)) ; $procdff$3359 $formal$hyperram.v:923$251_EN
-  (= (|hyperram#983| state) (|hyperram#188| next_state)) ; $procdff$3360 $formal$hyperram.v:925$252_CHECK
-  (= (|hyperram#985| state) (|hyperram#187| next_state)) ; $procdff$3361 $formal$hyperram.v:925$252_EN
-  (= (|hyperram#992| state) (|hyperram#186| next_state)) ; $procdff$3362 $formal$hyperram.v:929$253_CHECK
-  (= (|hyperram#994| state) (|hyperram#185| next_state)) ; $procdff$3363 $formal$hyperram.v:929$253_EN
-  (= (|hyperram#1001| state) (|hyperram#184| next_state)) ; $procdff$3364 $formal$hyperram.v:931$254_CHECK
-  (= (|hyperram#1003| state) (|hyperram#183| next_state)) ; $procdff$3365 $formal$hyperram.v:931$254_EN
-  (= (|hyperram#1005| state) (|hyperram#182| next_state)) ; $procdff$3366 $formal$hyperram.v:937$255_CHECK
-  (= (|hyperram#1006| state) (|hyperram#181| next_state)) ; $procdff$3367 $formal$hyperram.v:937$255_EN
-  (= (|hyperram#1008| state) (|hyperram#180| next_state)) ; $procdff$3368 $formal$hyperram.v:939$256_CHECK
-  (= (|hyperram#1009| state) (|hyperram#179| next_state)) ; $procdff$3369 $formal$hyperram.v:939$256_EN
-  (= (|hyperram#1013| state) (|hyperram#178| next_state)) ; $procdff$3370 $formal$hyperram.v:944$257_CHECK
-  (= (|hyperram#1015| state) (|hyperram#177| next_state)) ; $procdff$3371 $formal$hyperram.v:944$257_EN
-  (= (|hyperram#1020| state) (|hyperram#176| next_state)) ; $procdff$3372 $formal$hyperram.v:945$258_CHECK
-  (= (|hyperram#1024| state) (|hyperram#175| next_state)) ; $procdff$3374 $formal$hyperram.v:946$259_CHECK
-  (= (|hyperram#1028| state) (|hyperram#174| next_state)) ; $procdff$3376 $formal$hyperram.v:947$260_CHECK
-  (= (|hyperram#1036| state) (|hyperram#173| next_state)) ; $procdff$3378 $formal$hyperram.v:949$261_CHECK
-  (= (|hyperram#1039| state) (|hyperram#172| next_state)) ; $procdff$3379 $formal$hyperram.v:949$261_EN
-  (= (|hyperram#1042| state) (|hyperram#171| next_state)) ; $procdff$3380 $formal$hyperram.v:955$262_CHECK
-  (= (|hyperram#1043| state) (|hyperram#170| next_state)) ; $procdff$3381 $formal$hyperram.v:955$262_EN
-  (= (|hyperram#1048| state) (|hyperram#169| next_state)) ; $procdff$3382 $formal$hyperram.v:959$263_CHECK
-  (= (|hyperram#1050| state) (|hyperram#168| next_state)) ; $procdff$3383 $formal$hyperram.v:959$263_EN
-  (= (|hyperram#1056| state) (|hyperram#167| next_state)) ; $procdff$3384 $formal$hyperram.v:962$264_CHECK
-  (= (|hyperram#1058| state) (|hyperram#166| next_state)) ; $procdff$3385 $formal$hyperram.v:962$264_EN
-  (= (|hyperram#1065| state) (|hyperram#165| next_state)) ; $procdff$3386 $formal$hyperram.v:965$265_CHECK
-  (= (|hyperram#1067| state) (|hyperram#164| next_state)) ; $procdff$3387 $formal$hyperram.v:965$265_EN
-  (= (|hyperram#1072| state) (|hyperram#163| next_state)) ; $procdff$3388 $formal$hyperram.v:968$266_CHECK
-  (= (|hyperram#1074| state) (|hyperram#162| next_state)) ; $procdff$3389 $formal$hyperram.v:968$266_EN
-  (= (|hyperram#1081| state) (|hyperram#161| next_state)) ; $procdff$3390 $formal$hyperram.v:971$267_CHECK
-  (= (|hyperram#1083| state) (|hyperram#160| next_state)) ; $procdff$3391 $formal$hyperram.v:971$267_EN
-  (= (|hyperram#1088| state) (|hyperram#159| next_state)) ; $procdff$3392 $formal$hyperram.v:974$268_CHECK
-  (= (|hyperram#1090| state) (|hyperram#158| next_state)) ; $procdff$3393 $formal$hyperram.v:974$268_EN
-  (= (|hyperram#1095| state) (|hyperram#157| next_state)) ; $procdff$3394 $formal$hyperram.v:977$269_CHECK
-  (= (|hyperram#1097| state) (|hyperram#156| next_state)) ; $procdff$3395 $formal$hyperram.v:977$269_EN
-  (= (|hyperram#1105| state) (|hyperram#155| next_state)) ; $procdff$3396 $formal$hyperram.v:980$270_CHECK
-  (= (|hyperram#1107| state) (|hyperram#154| next_state)) ; $procdff$3397 $formal$hyperram.v:980$270_EN
-  (= (|hyperram#1114| state) (|hyperram#153| next_state)) ; $procdff$3398 $formal$hyperram.v:983$271_CHECK
-  (= (|hyperram#1116| state) (|hyperram#152| next_state)) ; $procdff$3399 $formal$hyperram.v:983$271_EN
-  (= (|hyperram#1122| state) (|hyperram#151| next_state)) ; $procdff$3400 $formal$hyperram.v:986$272_CHECK
-  (= (|hyperram#1124| state) (|hyperram#150| next_state)) ; $procdff$3401 $formal$hyperram.v:986$272_EN
-  (= (|hyperram#1133| state) (|hyperram#149| next_state)) ; $procdff$3402 $formal$hyperram.v:992$273_CHECK
-  (= (|hyperram#1135| state) (|hyperram#148| next_state)) ; $procdff$3403 $formal$hyperram.v:992$273_EN
-  (= (|hyperram#1141| state) (|hyperram#147| next_state)) ; $procdff$3404 $formal$hyperram.v:995$274_CHECK
-  (= (|hyperram#1143| state) (|hyperram#146| next_state)) ; $procdff$3405 $formal$hyperram.v:995$274_EN
-  (= (|hyperram#1149| state) (|hyperram#145| next_state)) ; $procdff$3406 $formal$hyperram.v:998$275_CHECK
-  (= (|hyperram#1151| state) (|hyperram#144| next_state)) ; $procdff$3407 $formal$hyperram.v:998$275_EN
-  (= (|hyperram#9| state) (|hyperram#143| next_state)) ; $procdff$3235 $past$hyperram.v:1032$170$0
-  (= (|hyperram#50| state) (|hyperram#142| next_state)) ; $procdff$3073 $past$hyperram.v:1032$171$0
-  (= (ite (|hyperram#1152| state) #b1 #b0) (|hyperram#141| next_state)) ; $procdff$3247 $past$hyperram.v:1064$182$0
-  (= (ite (|hyperram#86| state) #b1 #b0) (|hyperram#140| next_state)) ; $procdff$3248 $past$hyperram.v:1064$183$0
-  (= (|hyperram#102| state) (|hyperram#139| next_state)) ; $procdff$3252 $past$hyperram.v:1069$187$0
-  (= (|hyperram#115| state) (|hyperram#138| next_state)) ; $procdff$3262 $past$hyperram.v:1084$197$0
-  (= (|hyperram#33| state) (|hyperram#137| next_state)) ; $procdff$3263 $past$hyperram.v:1085$198$0
-  (= (ite (|hyperram#43| state) #b1 #b0) (|hyperram#136| next_state)) ; $procdff$3264 $past$hyperram.v:1086$199$0
-  (= (ite (|hyperram#0| state) #b1 #b0) (|hyperram#135| next_state)) ; $procdff$3265 $past$hyperram.v:1087$200$0
-  (= (ite (|hyperram#1153| state) #b1 #b0) (|hyperram#134| next_state)) ; $procdff$3071 $past$hyperram.v:436$6$0
-  (= (|hyperram#25| state) (|hyperram#133| next_state)) ; $procdff$3184 $past$hyperram.v:867$119$0
-  (= (|hyperram#17| state) (|hyperram#132| next_state)) ; $procdff$3185 $past$hyperram.v:868$120$0
-  (= (|hyperram#21| state) (|hyperram#131| next_state)) ; $procdff$3186 $past$hyperram.v:869$121$0
-  (= (|hyperram#13| state) (|hyperram#130| next_state)) ; $procdff$3187 $past$hyperram.v:871$122$0
-  (= (|hyperram#29| state) (|hyperram#129| next_state)) ; $procdff$3189 $past$hyperram.v:876$124$0
-  (= (ite (|hyperram#109| state) #b1 #b0) (|hyperram#128| next_state)) ; $procdff$3191 $past$hyperram.v:881$126$0
-  (= (ite (|hyperram#111| state) #b1 #b0) (|hyperram#127| next_state)) ; $procdff$3192 $past$hyperram.v:882$127$0
-  (= (concat (|hyperram#1173| state) (concat (|hyperram#1169| state) (concat (|hyperram#1165| state) (|hyperram#1161| state)))) (|hyperram#113| next_state)) ; $auto$clk2fflogic.cc:194:execute$3557 $auto$clk2fflogic.cc:192:execute$3556
-  (= (|hyperram#114| state) (|hyperram#112| next_state)) ; $auto$clk2fflogic.cc:158:execute$3551 $auto$clk2fflogic.cc:156:execute$3550
-  (= #b1 (|hyperram#110| next_state)) ; $procdff$3065 \f_past_valid
-  (= (|hyperram#1175| state) (|hyperram#106| next_state)) ; $auto$clk2fflogic.cc:194:execute$3547 $auto$clk2fflogic.cc:192:execute$3546
-  (= (|hyperram#107| state) (|hyperram#105| next_state)) ; $auto$clk2fflogic.cc:158:execute$3541 $auto$clk2fflogic.cc:156:execute$3540
-  (= (|hyperram#1179| state) (|hyperram#91| next_state)) ; $auto$clk2fflogic.cc:194:execute$3637 $auto$clk2fflogic.cc:192:execute$3636
-  (= (|hyperram#92| state) (|hyperram#90| next_state)) ; $auto$clk2fflogic.cc:158:execute$3631 $auto$clk2fflogic.cc:156:execute$3630
-  (= (|hyperram#1200| state) (|hyperram#81| next_state)) ; $auto$clk2fflogic.cc:194:execute$3707 $auto$clk2fflogic.cc:192:execute$3706
-  (= (|hyperram#82| state) (|hyperram#80| next_state)) ; $auto$clk2fflogic.cc:158:execute$3701 $auto$clk2fflogic.cc:156:execute$3700
-  (= (|hyperram#1212| state) (|hyperram#75| next_state)) ; $auto$clk2fflogic.cc:194:execute$3687 $auto$clk2fflogic.cc:192:execute$3686
-  (= (|hyperram#76| state) (|hyperram#74| next_state)) ; $auto$clk2fflogic.cc:158:execute$3681 $auto$clk2fflogic.cc:156:execute$3680
-  (= (|hyperram#1215| state) (|hyperram#71| next_state)) ; $auto$clk2fflogic.cc:194:execute$3617 $auto$clk2fflogic.cc:192:execute$3616
-  (= (|hyperram#72| state) (|hyperram#70| next_state)) ; $auto$clk2fflogic.cc:158:execute$3611 $auto$clk2fflogic.cc:156:execute$3610
-  (= (|hyperram#1218| state) (|hyperram#65| next_state)) ; $auto$clk2fflogic.cc:194:execute$3627 $auto$clk2fflogic.cc:192:execute$3626
-  (= (|hyperram#66| state) (|hyperram#64| next_state)) ; $auto$clk2fflogic.cc:158:execute$3621 $auto$clk2fflogic.cc:156:execute$3620
-  (= (|hyperram#1226| state) (|hyperram#55| next_state)) ; $auto$clk2fflogic.cc:194:execute$3537 $auto$clk2fflogic.cc:192:execute$3536
-  (= (|hyperram#56| state) (|hyperram#54| next_state)) ; $auto$clk2fflogic.cc:158:execute$3531 $auto$clk2fflogic.cc:156:execute$3530
-  (= (|hyperram#1231| state) (|hyperram#52| next_state)) ; $auto$clk2fflogic.cc:194:execute$3677 $auto$clk2fflogic.cc:192:execute$3676
-  (= (|hyperram#53| state) (|hyperram#51| next_state)) ; $auto$clk2fflogic.cc:158:execute$3671 $auto$clk2fflogic.cc:156:execute$3670
-  (= (|hyperram#1235| state) (|hyperram#48| next_state)) ; $auto$clk2fflogic.cc:194:execute$3667 $auto$clk2fflogic.cc:192:execute$3666
-  (= (|hyperram#49| state) (|hyperram#47| next_state)) ; $auto$clk2fflogic.cc:158:execute$3661 $auto$clk2fflogic.cc:156:execute$3660
-  (= (concat (|hyperram#1254| state) (concat (|hyperram#1250| state) (concat (|hyperram#1247| state) (concat (|hyperram#1244| state) (concat (|hyperram#1241| state) (|hyperram#1238| state)))))) (|hyperram#45| next_state)) ; $auto$clk2fflogic.cc:194:execute$3647 $auto$clk2fflogic.cc:192:execute$3646
-  (= (|hyperram#46| state) (|hyperram#44| next_state)) ; $auto$clk2fflogic.cc:158:execute$3641 $auto$clk2fflogic.cc:156:execute$3640
-  (= (|hyperram#1257| state) (|hyperram#40| next_state)) ; $auto$clk2fflogic.cc:194:execute$3527 $auto$clk2fflogic.cc:192:execute$3526
-  (= (|hyperram#41| state) (|hyperram#39| next_state)) ; $auto$clk2fflogic.cc:158:execute$3521 $auto$clk2fflogic.cc:156:execute$3520
-  (= (|hyperram#4| state) (|hyperram#36| next_state)) ; $auto$clk2fflogic.cc:172:execute$3513 $auto$clk2fflogic.cc:168:execute$3512
-  (= (|hyperram#1259| state) (|hyperram#35| next_state)) ; $auto$clk2fflogic.cc:194:execute$3517 $auto$clk2fflogic.cc:192:execute$3516
-  (= (|hyperram#38| state) (|hyperram#34| next_state)) ; $auto$clk2fflogic.cc:158:execute$3511 $auto$clk2fflogic.cc:156:execute$3510
-  (= (|hyperram#1262| state) (|hyperram#31| next_state)) ; $auto$clk2fflogic.cc:194:execute$3657 $auto$clk2fflogic.cc:192:execute$3656
-  (= (|hyperram#32| state) (|hyperram#30| next_state)) ; $auto$clk2fflogic.cc:158:execute$3651 $auto$clk2fflogic.cc:156:execute$3650
-  (= (|hyperram#1267| state) (|hyperram#27| next_state)) ; $auto$clk2fflogic.cc:194:execute$3587 $auto$clk2fflogic.cc:192:execute$3586
-  (= (|hyperram#28| state) (|hyperram#26| next_state)) ; $auto$clk2fflogic.cc:158:execute$3581 $auto$clk2fflogic.cc:156:execute$3580
-  (= (|hyperram#1270| state) (|hyperram#23| next_state)) ; $auto$clk2fflogic.cc:194:execute$3567 $auto$clk2fflogic.cc:192:execute$3566
-  (= (|hyperram#24| state) (|hyperram#22| next_state)) ; $auto$clk2fflogic.cc:158:execute$3561 $auto$clk2fflogic.cc:156:execute$3560
-  (= (|hyperram#1273| state) (|hyperram#19| next_state)) ; $auto$clk2fflogic.cc:194:execute$3597 $auto$clk2fflogic.cc:192:execute$3596
-  (= (|hyperram#20| state) (|hyperram#18| next_state)) ; $auto$clk2fflogic.cc:158:execute$3591 $auto$clk2fflogic.cc:156:execute$3590
-  (= (|hyperram#1276| state) (|hyperram#15| next_state)) ; $auto$clk2fflogic.cc:194:execute$3577 $auto$clk2fflogic.cc:192:execute$3576
-  (= (|hyperram#16| state) (|hyperram#14| next_state)) ; $auto$clk2fflogic.cc:158:execute$3571 $auto$clk2fflogic.cc:156:execute$3570
-  (= (|hyperram#1281| state) (|hyperram#11| next_state)) ; $auto$clk2fflogic.cc:194:execute$3607 $auto$clk2fflogic.cc:192:execute$3606
-  (= (|hyperram#12| state) (|hyperram#10| next_state)) ; $auto$clk2fflogic.cc:158:execute$3601 $auto$clk2fflogic.cc:156:execute$3600
-  (= (|hyperram#4| state) (|hyperram#3| next_state)) ; $auto$clk2fflogic.cc:172:execute$3563 $auto$clk2fflogic.cc:168:execute$3562
-  (= (|hyperram#1282| state) (|hyperram#2| next_state)) ; $auto$clk2fflogic.cc:194:execute$3697 $auto$clk2fflogic.cc:192:execute$3696
-  (= (|hyperram#6| state) (|hyperram#1| next_state)) ; $auto$clk2fflogic.cc:158:execute$3691 $auto$clk2fflogic.cc:156:execute$3690
+  (= (|hyperram#4| state) (|hyperram#305| next_state)) ; $procdff$3061 $and$hyperram.v:0$1445_Y
+  (= (ite (|hyperram#42| state) #b1 #b0) (|hyperram#304| next_state)) ; $procdff$3059 $and$hyperram.v:0$799_Y
+  (= (|hyperram#318| state) (|hyperram#303| next_state)) ; $procdff$3400 $formal$hyperram.v:1001$275_CHECK
+  (= (|hyperram#320| state) (|hyperram#302| next_state)) ; $procdff$3401 $formal$hyperram.v:1001$275_EN
+  (= (|hyperram#335| state) (|hyperram#301| next_state)) ; $procdff$3402 $formal$hyperram.v:1005$276_CHECK
+  (= (|hyperram#338| state) (|hyperram#300| next_state)) ; $procdff$3403 $formal$hyperram.v:1005$276_EN
+  (= (|hyperram#350| state) (|hyperram#299| next_state)) ; $procdff$3404 $formal$hyperram.v:1007$277_CHECK
+  (= (|hyperram#353| state) (|hyperram#298| next_state)) ; $procdff$3405 $formal$hyperram.v:1007$277_EN
+  (= (|hyperram#363| state) (|hyperram#297| next_state)) ; $procdff$3406 $formal$hyperram.v:1011$278_CHECK
+  (= (|hyperram#365| state) (|hyperram#296| next_state)) ; $procdff$3407 $formal$hyperram.v:1011$278_EN
+  (= (|hyperram#372| state) (|hyperram#295| next_state)) ; $procdff$3408 $formal$hyperram.v:1013$279_CHECK
+  (= (|hyperram#375| state) (|hyperram#294| next_state)) ; $procdff$3409 $formal$hyperram.v:1013$279_EN
+  (= (|hyperram#382| state) (|hyperram#293| next_state)) ; $procdff$3410 $formal$hyperram.v:1015$280_CHECK
+  (= (|hyperram#385| state) (|hyperram#292| next_state)) ; $procdff$3411 $formal$hyperram.v:1015$280_EN
+  (= (|hyperram#390| state) (|hyperram#291| next_state)) ; $procdff$3412 $formal$hyperram.v:1019$281_CHECK
+  (= (|hyperram#392| state) (|hyperram#290| next_state)) ; $procdff$3413 $formal$hyperram.v:1019$281_EN
+  (= (|hyperram#403| state) (|hyperram#289| next_state)) ; $procdff$3414 $formal$hyperram.v:1022$282_CHECK
+  (= (|hyperram#405| state) (|hyperram#288| next_state)) ; $procdff$3415 $formal$hyperram.v:1022$282_EN
+  (= (|hyperram#413| state) (|hyperram#287| next_state)) ; $procdff$3416 $formal$hyperram.v:1025$283_CHECK
+  (= (|hyperram#415| state) (|hyperram#286| next_state)) ; $procdff$3417 $formal$hyperram.v:1025$283_EN
+  (= (|hyperram#418| state) (|hyperram#285| next_state)) ; $procdff$3418 $formal$hyperram.v:1030$284_CHECK
+  (= (|hyperram#427| state) (|hyperram#284| next_state)) ; $procdff$3420 $formal$hyperram.v:1033$285_CHECK
+  (= (|hyperram#429| state) (|hyperram#283| next_state)) ; $procdff$3421 $formal$hyperram.v:1033$285_EN
+  (= (|hyperram#434| state) (|hyperram#282| next_state)) ; $procdff$3422 $formal$hyperram.v:1036$286_CHECK
+  (= (|hyperram#436| state) (|hyperram#281| next_state)) ; $procdff$3423 $formal$hyperram.v:1036$286_EN
+  (= (|hyperram#446| state) (|hyperram#280| next_state)) ; $procdff$3424 $formal$hyperram.v:1039$287_CHECK
+  (= (|hyperram#448| state) (|hyperram#279| next_state)) ; $procdff$3425 $formal$hyperram.v:1039$287_EN
+  (= (|hyperram#452| state) (|hyperram#278| next_state)) ; $procdff$3426 $formal$hyperram.v:1042$288_CHECK
+  (= (|hyperram#454| state) (|hyperram#277| next_state)) ; $procdff$3427 $formal$hyperram.v:1042$288_EN
+  (= (|hyperram#456| state) (|hyperram#276| next_state)) ; $procdff$3428 $formal$hyperram.v:1047$289_CHECK
+  (= (|hyperram#466| state) (|hyperram#275| next_state)) ; $procdff$3430 $formal$hyperram.v:1051$290_CHECK
+  (= (|hyperram#469| state) (|hyperram#274| next_state)) ; $procdff$3431 $formal$hyperram.v:1051$290_EN
+  (= (|hyperram#476| state) (|hyperram#273| next_state)) ; $procdff$3432 $formal$hyperram.v:1053$291_CHECK
+  (= (|hyperram#479| state) (|hyperram#272| next_state)) ; $procdff$3433 $formal$hyperram.v:1053$291_EN
+  (= (|hyperram#487| state) (|hyperram#271| next_state)) ; $procdff$3434 $formal$hyperram.v:1057$292_CHECK
+  (= (|hyperram#489| state) (|hyperram#270| next_state)) ; $procdff$3435 $formal$hyperram.v:1057$292_EN
+  (= (|hyperram#494| state) (|hyperram#269| next_state)) ; $procdff$3438 $formal$hyperram.v:1065$294_CHECK
+  (= (|hyperram#496| state) (|hyperram#268| next_state)) ; $procdff$3439 $formal$hyperram.v:1065$294_EN
+  (= (|hyperram#507| state) (|hyperram#267| next_state)) ; $procdff$3440 $formal$hyperram.v:1068$295_CHECK
+  (= (|hyperram#509| state) (|hyperram#266| next_state)) ; $procdff$3441 $formal$hyperram.v:1068$295_EN
+  (= (|hyperram#520| state) (|hyperram#265| next_state)) ; $procdff$3442 $formal$hyperram.v:1077$296_CHECK
+  (= (|hyperram#523| state) (|hyperram#264| next_state)) ; $procdff$3443 $formal$hyperram.v:1077$296_EN
+  (= (|hyperram#530| state) (|hyperram#263| next_state)) ; $procdff$3444 $formal$hyperram.v:1078$297_CHECK
+  (= (|hyperram#533| state) (|hyperram#262| next_state)) ; $procdff$3445 $formal$hyperram.v:1078$297_EN
+  (= (|hyperram#541| state) (|hyperram#261| next_state)) ; $procdff$3446 $formal$hyperram.v:1079$298_CHECK
+  (= (|hyperram#544| state) (|hyperram#260| next_state)) ; $procdff$3447 $formal$hyperram.v:1079$298_EN
+  (= (|hyperram#552| state) (|hyperram#259| next_state)) ; $procdff$3448 $formal$hyperram.v:1080$299_CHECK
+  (= (|hyperram#555| state) (|hyperram#258| next_state)) ; $procdff$3449 $formal$hyperram.v:1080$299_EN
+  (= (|hyperram#565| state) (|hyperram#257| next_state)) ; $procdff$3450 $formal$hyperram.v:1088$300_CHECK
+  (= (|hyperram#567| state) (|hyperram#256| next_state)) ; $procdff$3451 $formal$hyperram.v:1088$300_EN
+  (= (|hyperram#572| state) (|hyperram#255| next_state)) ; $procdff$3452 $formal$hyperram.v:1089$301_CHECK
+  (= (|hyperram#577| state) (|hyperram#254| next_state)) ; $procdff$3454 $formal$hyperram.v:1090$302_CHECK
+  (= (|hyperram#583| state) (|hyperram#253| next_state)) ; $procdff$3456 $formal$hyperram.v:1091$303_CHECK
+  (= (|hyperram#594| state) (|hyperram#252| next_state)) ; $procdff$3258 $formal$hyperram.v:402$204_CHECK
+  (= (|hyperram#596| state) (|hyperram#251| next_state)) ; $procdff$3259 $formal$hyperram.v:402$204_EN
+  (= (|hyperram#599| state) (|hyperram#250| next_state)) ; $procdff$3260 $formal$hyperram.v:405$205_CHECK
+  (= (|hyperram#600| state) (|hyperram#249| next_state)) ; $procdff$3261 $formal$hyperram.v:405$205_EN
+  (= (|hyperram#604| state) (|hyperram#248| next_state)) ; $procdff$3262 $formal$hyperram.v:412$206_CHECK
+  (= (|hyperram#608| state) (|hyperram#247| next_state)) ; $procdff$3264 $formal$hyperram.v:415$207_CHECK
+  (= (|hyperram#612| state) (|hyperram#246| next_state)) ; $procdff$3266 $formal$hyperram.v:418$208_CHECK
+  (= (|hyperram#616| state) (|hyperram#245| next_state)) ; $procdff$3268 $formal$hyperram.v:421$209_CHECK
+  (= (|hyperram#620| state) (|hyperram#244| next_state)) ; $procdff$3270 $formal$hyperram.v:424$210_CHECK
+  (= (|hyperram#631| state) (|hyperram#243| next_state)) ; $procdff$3272 $formal$hyperram.v:430$211_CHECK
+  (= (|hyperram#648| state) (|hyperram#242| next_state)) ; $procdff$3274 $formal$hyperram.v:445$212_CHECK
+  (= (|hyperram#658| state) (|hyperram#241| next_state)) ; $procdff$3276 $formal$hyperram.v:462$213_CHECK
+  (= (|hyperram#668| state) (|hyperram#240| next_state)) ; $procdff$3278 $formal$hyperram.v:482$214_CHECK
+  (= (|hyperram#678| state) (|hyperram#239| next_state)) ; $procdff$3280 $formal$hyperram.v:502$215_CHECK
+  (= (|hyperram#690| state) (|hyperram#238| next_state)) ; $procdff$3282 $formal$hyperram.v:524$216_CHECK
+  (= (|hyperram#700| state) (|hyperram#237| next_state)) ; $procdff$3284 $formal$hyperram.v:540$217_CHECK
+  (= (|hyperram#712| state) (|hyperram#236| next_state)) ; $procdff$3286 $formal$hyperram.v:559$218_CHECK
+  (= (|hyperram#727| state) (|hyperram#235| next_state)) ; $procdff$3288 $formal$hyperram.v:580$219_CHECK
+  (= (|hyperram#739| state) (|hyperram#234| next_state)) ; $procdff$3290 $formal$hyperram.v:600$220_CHECK
+  (= (|hyperram#751| state) (|hyperram#233| next_state)) ; $procdff$3292 $formal$hyperram.v:622$221_CHECK
+  (= (|hyperram#758| state) (|hyperram#232| next_state)) ; $procdff$3294 $formal$hyperram.v:638$222_CHECK
+  (= (|hyperram#770| state) (|hyperram#231| next_state)) ; $procdff$3296 $formal$hyperram.v:655$223_CHECK
+  (= (|hyperram#782| state) (|hyperram#230| next_state)) ; $procdff$3298 $formal$hyperram.v:675$224_CHECK
+  (= (|hyperram#793| state) (|hyperram#229| next_state)) ; $procdff$3300 $formal$hyperram.v:695$225_CHECK
+  (= (|hyperram#800| state) (|hyperram#228| next_state)) ; $procdff$3302 $formal$hyperram.v:716$226_CHECK
+  (= (|hyperram#807| state) (|hyperram#227| next_state)) ; $procdff$3304 $formal$hyperram.v:733$227_CHECK
+  (= (|hyperram#819| state) (|hyperram#226| next_state)) ; $procdff$3306 $formal$hyperram.v:752$228_CHECK
+  (= (|hyperram#828| state) (|hyperram#225| next_state)) ; $procdff$3308 $formal$hyperram.v:768$229_CHECK
+  (= (|hyperram#836| state) (|hyperram#224| next_state)) ; $procdff$3310 $formal$hyperram.v:784$230_CHECK
+  (= (|hyperram#846| state) (|hyperram#223| next_state)) ; $procdff$3312 $formal$hyperram.v:803$231_CHECK
+  (= (|hyperram#855| state) (|hyperram#222| next_state)) ; $procdff$3314 $formal$hyperram.v:820$232_CHECK
+  (= (|hyperram#862| state) (|hyperram#221| next_state)) ; $procdff$3316 $formal$hyperram.v:838$233_CHECK
+  (= (|hyperram#866| state) (|hyperram#220| next_state)) ; $procdff$3318 $formal$hyperram.v:854$234_CHECK
+  (= (|hyperram#867| state) (|hyperram#219| next_state)) ; $procdff$3319 $formal$hyperram.v:854$234_EN
+  (= (|hyperram#870| state) (|hyperram#218| next_state)) ; $procdff$3320 $formal$hyperram.v:860$235_CHECK
+  (= (|hyperram#873| state) (|hyperram#217| next_state)) ; $procdff$3322 $formal$hyperram.v:861$236_CHECK
+  (= (|hyperram#879| state) (|hyperram#216| next_state)) ; $procdff$3324 $formal$hyperram.v:867$237_CHECK
+  (= (|hyperram#881| state) (|hyperram#215| next_state)) ; $procdff$3325 $formal$hyperram.v:867$237_EN
+  (= (|hyperram#886| state) (|hyperram#214| next_state)) ; $procdff$3326 $formal$hyperram.v:868$238_CHECK
+  (= (|hyperram#891| state) (|hyperram#213| next_state)) ; $procdff$3328 $formal$hyperram.v:869$239_CHECK
+  (= (|hyperram#899| state) (|hyperram#212| next_state)) ; $procdff$3330 $formal$hyperram.v:872$240_CHECK
+  (= (|hyperram#902| state) (|hyperram#211| next_state)) ; $procdff$3331 $formal$hyperram.v:872$240_EN
+  (= (|hyperram#908| state) (|hyperram#210| next_state)) ; $procdff$3332 $formal$hyperram.v:874$241_CHECK
+  (= (|hyperram#911| state) (|hyperram#209| next_state)) ; $procdff$3333 $formal$hyperram.v:874$241_EN
+  (= (|hyperram#919| state) (|hyperram#208| next_state)) ; $procdff$3334 $formal$hyperram.v:877$242_CHECK
+  (= (|hyperram#922| state) (|hyperram#207| next_state)) ; $procdff$3335 $formal$hyperram.v:877$242_EN
+  (= (|hyperram#929| state) (|hyperram#206| next_state)) ; $procdff$3336 $formal$hyperram.v:879$243_CHECK
+  (= (|hyperram#932| state) (|hyperram#205| next_state)) ; $procdff$3337 $formal$hyperram.v:879$243_EN
+  (= (|hyperram#937| state) (|hyperram#204| next_state)) ; $procdff$3338 $formal$hyperram.v:879$244_CHECK
+  (= (|hyperram#942| state) (|hyperram#203| next_state)) ; $procdff$3340 $formal$hyperram.v:881$245_CHECK
+  (= (|hyperram#948| state) (|hyperram#202| next_state)) ; $procdff$3342 $formal$hyperram.v:889$246_CHECK
+  (= (|hyperram#950| state) (|hyperram#201| next_state)) ; $procdff$3343 $formal$hyperram.v:889$246_EN
+  (= (|hyperram#954| state) (|hyperram#200| next_state)) ; $procdff$3344 $formal$hyperram.v:891$247_CHECK
+  (= (|hyperram#956| state) (|hyperram#199| next_state)) ; $procdff$3345 $formal$hyperram.v:891$247_EN
+  (= (|hyperram#963| state) (|hyperram#198| next_state)) ; $procdff$3346 $formal$hyperram.v:893$248_CHECK
+  (= (|hyperram#965| state) (|hyperram#197| next_state)) ; $procdff$3347 $formal$hyperram.v:893$248_EN
+  (= (|hyperram#971| state) (|hyperram#196| next_state)) ; $procdff$3348 $formal$hyperram.v:907$249_CHECK
+  (= (|hyperram#973| state) (|hyperram#195| next_state)) ; $procdff$3349 $formal$hyperram.v:907$249_EN
+  (= (|hyperram#978| state) (|hyperram#194| next_state)) ; $procdff$3350 $formal$hyperram.v:923$250_CHECK
+  (= (|hyperram#980| state) (|hyperram#193| next_state)) ; $procdff$3351 $formal$hyperram.v:923$250_EN
+  (= (|hyperram#984| state) (|hyperram#192| next_state)) ; $procdff$3352 $formal$hyperram.v:925$251_CHECK
+  (= (|hyperram#986| state) (|hyperram#191| next_state)) ; $procdff$3353 $formal$hyperram.v:925$251_EN
+  (= (|hyperram#993| state) (|hyperram#190| next_state)) ; $procdff$3354 $formal$hyperram.v:929$252_CHECK
+  (= (|hyperram#995| state) (|hyperram#189| next_state)) ; $procdff$3355 $formal$hyperram.v:929$252_EN
+  (= (|hyperram#1002| state) (|hyperram#188| next_state)) ; $procdff$3356 $formal$hyperram.v:931$253_CHECK
+  (= (|hyperram#1004| state) (|hyperram#187| next_state)) ; $procdff$3357 $formal$hyperram.v:931$253_EN
+  (= (|hyperram#1006| state) (|hyperram#186| next_state)) ; $procdff$3358 $formal$hyperram.v:937$254_CHECK
+  (= (|hyperram#1007| state) (|hyperram#185| next_state)) ; $procdff$3359 $formal$hyperram.v:937$254_EN
+  (= (|hyperram#1009| state) (|hyperram#184| next_state)) ; $procdff$3360 $formal$hyperram.v:939$255_CHECK
+  (= (|hyperram#1010| state) (|hyperram#183| next_state)) ; $procdff$3361 $formal$hyperram.v:939$255_EN
+  (= (|hyperram#1014| state) (|hyperram#182| next_state)) ; $procdff$3362 $formal$hyperram.v:944$256_CHECK
+  (= (|hyperram#1016| state) (|hyperram#181| next_state)) ; $procdff$3363 $formal$hyperram.v:944$256_EN
+  (= (|hyperram#1021| state) (|hyperram#180| next_state)) ; $procdff$3364 $formal$hyperram.v:945$257_CHECK
+  (= (|hyperram#1025| state) (|hyperram#179| next_state)) ; $procdff$3366 $formal$hyperram.v:946$258_CHECK
+  (= (|hyperram#1029| state) (|hyperram#178| next_state)) ; $procdff$3368 $formal$hyperram.v:947$259_CHECK
+  (= (|hyperram#1037| state) (|hyperram#177| next_state)) ; $procdff$3370 $formal$hyperram.v:949$260_CHECK
+  (= (|hyperram#1040| state) (|hyperram#176| next_state)) ; $procdff$3371 $formal$hyperram.v:949$260_EN
+  (= (|hyperram#1043| state) (|hyperram#175| next_state)) ; $procdff$3372 $formal$hyperram.v:955$261_CHECK
+  (= (|hyperram#1044| state) (|hyperram#174| next_state)) ; $procdff$3373 $formal$hyperram.v:955$261_EN
+  (= (|hyperram#1049| state) (|hyperram#173| next_state)) ; $procdff$3374 $formal$hyperram.v:959$262_CHECK
+  (= (|hyperram#1051| state) (|hyperram#172| next_state)) ; $procdff$3375 $formal$hyperram.v:959$262_EN
+  (= (|hyperram#1057| state) (|hyperram#171| next_state)) ; $procdff$3376 $formal$hyperram.v:962$263_CHECK
+  (= (|hyperram#1059| state) (|hyperram#170| next_state)) ; $procdff$3377 $formal$hyperram.v:962$263_EN
+  (= (|hyperram#1066| state) (|hyperram#169| next_state)) ; $procdff$3378 $formal$hyperram.v:965$264_CHECK
+  (= (|hyperram#1068| state) (|hyperram#168| next_state)) ; $procdff$3379 $formal$hyperram.v:965$264_EN
+  (= (|hyperram#1073| state) (|hyperram#167| next_state)) ; $procdff$3380 $formal$hyperram.v:968$265_CHECK
+  (= (|hyperram#1075| state) (|hyperram#166| next_state)) ; $procdff$3381 $formal$hyperram.v:968$265_EN
+  (= (|hyperram#1082| state) (|hyperram#165| next_state)) ; $procdff$3382 $formal$hyperram.v:971$266_CHECK
+  (= (|hyperram#1084| state) (|hyperram#164| next_state)) ; $procdff$3383 $formal$hyperram.v:971$266_EN
+  (= (|hyperram#1089| state) (|hyperram#163| next_state)) ; $procdff$3384 $formal$hyperram.v:974$267_CHECK
+  (= (|hyperram#1091| state) (|hyperram#162| next_state)) ; $procdff$3385 $formal$hyperram.v:974$267_EN
+  (= (|hyperram#1096| state) (|hyperram#161| next_state)) ; $procdff$3386 $formal$hyperram.v:977$268_CHECK
+  (= (|hyperram#1098| state) (|hyperram#160| next_state)) ; $procdff$3387 $formal$hyperram.v:977$268_EN
+  (= (|hyperram#1106| state) (|hyperram#159| next_state)) ; $procdff$3388 $formal$hyperram.v:980$269_CHECK
+  (= (|hyperram#1108| state) (|hyperram#158| next_state)) ; $procdff$3389 $formal$hyperram.v:980$269_EN
+  (= (|hyperram#1115| state) (|hyperram#157| next_state)) ; $procdff$3390 $formal$hyperram.v:983$270_CHECK
+  (= (|hyperram#1117| state) (|hyperram#156| next_state)) ; $procdff$3391 $formal$hyperram.v:983$270_EN
+  (= (|hyperram#1123| state) (|hyperram#155| next_state)) ; $procdff$3392 $formal$hyperram.v:986$271_CHECK
+  (= (|hyperram#1125| state) (|hyperram#154| next_state)) ; $procdff$3393 $formal$hyperram.v:986$271_EN
+  (= (|hyperram#1134| state) (|hyperram#153| next_state)) ; $procdff$3394 $formal$hyperram.v:992$272_CHECK
+  (= (|hyperram#1136| state) (|hyperram#152| next_state)) ; $procdff$3395 $formal$hyperram.v:992$272_EN
+  (= (|hyperram#1142| state) (|hyperram#151| next_state)) ; $procdff$3396 $formal$hyperram.v:995$273_CHECK
+  (= (|hyperram#1144| state) (|hyperram#150| next_state)) ; $procdff$3397 $formal$hyperram.v:995$273_EN
+  (= (|hyperram#1150| state) (|hyperram#149| next_state)) ; $procdff$3398 $formal$hyperram.v:998$274_CHECK
+  (= (|hyperram#1152| state) (|hyperram#148| next_state)) ; $procdff$3399 $formal$hyperram.v:998$274_EN
+  (= (|hyperram#9| state) (|hyperram#147| next_state)) ; $procdff$3228 $past$hyperram.v:1032$170$0
+  (= (|hyperram#50| state) (|hyperram#146| next_state)) ; $procdff$3066 $past$hyperram.v:1032$171$0
+  (= (ite (|hyperram#623| state) #b1 #b0) (|hyperram#145| next_state)) ; $procdff$3239 $past$hyperram.v:1064$181$0
+  (= (ite (|hyperram#1153| state) #b1 #b0) (|hyperram#144| next_state)) ; $procdff$3241 $past$hyperram.v:1067$183$0
+  (= (ite (|hyperram#88| state) #b1 #b0) (|hyperram#143| next_state)) ; $procdff$3242 $past$hyperram.v:1067$184$0
+  (= (|hyperram#105| state) (|hyperram#142| next_state)) ; $procdff$3246 $past$hyperram.v:1077$188$0
+  (= (|hyperram#118| state) (|hyperram#141| next_state)) ; $procdff$3254 $past$hyperram.v:1088$196$0
+  (= (|hyperram#33| state) (|hyperram#140| next_state)) ; $procdff$3255 $past$hyperram.v:1089$197$0
+  (= (ite (|hyperram#43| state) #b1 #b0) (|hyperram#139| next_state)) ; $procdff$3256 $past$hyperram.v:1090$198$0
+  (= (ite (|hyperram#0| state) #b1 #b0) (|hyperram#138| next_state)) ; $procdff$3257 $past$hyperram.v:1091$199$0
+  (= (ite (|hyperram#1154| state) #b1 #b0) (|hyperram#137| next_state)) ; $procdff$3064 $past$hyperram.v:436$6$0
+  (= (|hyperram#25| state) (|hyperram#136| next_state)) ; $procdff$3177 $past$hyperram.v:867$119$0
+  (= (|hyperram#17| state) (|hyperram#135| next_state)) ; $procdff$3178 $past$hyperram.v:868$120$0
+  (= (|hyperram#21| state) (|hyperram#134| next_state)) ; $procdff$3179 $past$hyperram.v:869$121$0
+  (= (|hyperram#13| state) (|hyperram#133| next_state)) ; $procdff$3180 $past$hyperram.v:871$122$0
+  (= (|hyperram#29| state) (|hyperram#132| next_state)) ; $procdff$3182 $past$hyperram.v:876$124$0
+  (= (ite (|hyperram#112| state) #b1 #b0) (|hyperram#131| next_state)) ; $procdff$3184 $past$hyperram.v:881$126$0
+  (= (ite (|hyperram#114| state) #b1 #b0) (|hyperram#130| next_state)) ; $procdff$3185 $past$hyperram.v:882$127$0
+  (= (concat (|hyperram#1174| state) (concat (|hyperram#1170| state) (concat (|hyperram#1166| state) (|hyperram#1162| state)))) (|hyperram#116| next_state)) ; $auto$clk2fflogic.cc:194:execute$3551 $auto$clk2fflogic.cc:192:execute$3550
+  (= (|hyperram#117| state) (|hyperram#115| next_state)) ; $auto$clk2fflogic.cc:158:execute$3545 $auto$clk2fflogic.cc:156:execute$3544
+  (= #b1 (|hyperram#113| next_state)) ; $procdff$3058 \f_past_valid
+  (= (|hyperram#1176| state) (|hyperram#109| next_state)) ; $auto$clk2fflogic.cc:194:execute$3541 $auto$clk2fflogic.cc:192:execute$3540
+  (= (|hyperram#110| state) (|hyperram#108| next_state)) ; $auto$clk2fflogic.cc:158:execute$3535 $auto$clk2fflogic.cc:156:execute$3534
+  (= (|hyperram#1180| state) (|hyperram#93| next_state)) ; $auto$clk2fflogic.cc:194:execute$3631 $auto$clk2fflogic.cc:192:execute$3630
+  (= (|hyperram#94| state) (|hyperram#92| next_state)) ; $auto$clk2fflogic.cc:158:execute$3625 $auto$clk2fflogic.cc:156:execute$3624
+  (= (|hyperram#1201| state) (|hyperram#80| next_state)) ; $auto$clk2fflogic.cc:194:execute$3701 $auto$clk2fflogic.cc:192:execute$3700
+  (= (|hyperram#81| state) (|hyperram#79| next_state)) ; $auto$clk2fflogic.cc:158:execute$3695 $auto$clk2fflogic.cc:156:execute$3694
+  (= (|hyperram#1213| state) (|hyperram#75| next_state)) ; $auto$clk2fflogic.cc:194:execute$3681 $auto$clk2fflogic.cc:192:execute$3680
+  (= (|hyperram#76| state) (|hyperram#74| next_state)) ; $auto$clk2fflogic.cc:158:execute$3675 $auto$clk2fflogic.cc:156:execute$3674
+  (= (|hyperram#1216| state) (|hyperram#71| next_state)) ; $auto$clk2fflogic.cc:194:execute$3611 $auto$clk2fflogic.cc:192:execute$3610
+  (= (|hyperram#72| state) (|hyperram#70| next_state)) ; $auto$clk2fflogic.cc:158:execute$3605 $auto$clk2fflogic.cc:156:execute$3604
+  (= (|hyperram#1219| state) (|hyperram#65| next_state)) ; $auto$clk2fflogic.cc:194:execute$3621 $auto$clk2fflogic.cc:192:execute$3620
+  (= (|hyperram#66| state) (|hyperram#64| next_state)) ; $auto$clk2fflogic.cc:158:execute$3615 $auto$clk2fflogic.cc:156:execute$3614
+  (= (|hyperram#1227| state) (|hyperram#55| next_state)) ; $auto$clk2fflogic.cc:194:execute$3531 $auto$clk2fflogic.cc:192:execute$3530
+  (= (|hyperram#56| state) (|hyperram#54| next_state)) ; $auto$clk2fflogic.cc:158:execute$3525 $auto$clk2fflogic.cc:156:execute$3524
+  (= (|hyperram#1232| state) (|hyperram#52| next_state)) ; $auto$clk2fflogic.cc:194:execute$3671 $auto$clk2fflogic.cc:192:execute$3670
+  (= (|hyperram#53| state) (|hyperram#51| next_state)) ; $auto$clk2fflogic.cc:158:execute$3665 $auto$clk2fflogic.cc:156:execute$3664
+  (= (|hyperram#1236| state) (|hyperram#48| next_state)) ; $auto$clk2fflogic.cc:194:execute$3661 $auto$clk2fflogic.cc:192:execute$3660
+  (= (|hyperram#49| state) (|hyperram#47| next_state)) ; $auto$clk2fflogic.cc:158:execute$3655 $auto$clk2fflogic.cc:156:execute$3654
+  (= (concat (|hyperram#1255| state) (concat (|hyperram#1251| state) (concat (|hyperram#1248| state) (concat (|hyperram#1245| state) (concat (|hyperram#1242| state) (|hyperram#1239| state)))))) (|hyperram#45| next_state)) ; $auto$clk2fflogic.cc:194:execute$3641 $auto$clk2fflogic.cc:192:execute$3640
+  (= (|hyperram#46| state) (|hyperram#44| next_state)) ; $auto$clk2fflogic.cc:158:execute$3635 $auto$clk2fflogic.cc:156:execute$3634
+  (= (|hyperram#1258| state) (|hyperram#40| next_state)) ; $auto$clk2fflogic.cc:194:execute$3521 $auto$clk2fflogic.cc:192:execute$3520
+  (= (|hyperram#41| state) (|hyperram#39| next_state)) ; $auto$clk2fflogic.cc:158:execute$3515 $auto$clk2fflogic.cc:156:execute$3514
+  (= (|hyperram#4| state) (|hyperram#36| next_state)) ; $auto$clk2fflogic.cc:172:execute$3507 $auto$clk2fflogic.cc:168:execute$3506
+  (= (|hyperram#1260| state) (|hyperram#35| next_state)) ; $auto$clk2fflogic.cc:194:execute$3511 $auto$clk2fflogic.cc:192:execute$3510
+  (= (|hyperram#38| state) (|hyperram#34| next_state)) ; $auto$clk2fflogic.cc:158:execute$3505 $auto$clk2fflogic.cc:156:execute$3504
+  (= (|hyperram#1263| state) (|hyperram#31| next_state)) ; $auto$clk2fflogic.cc:194:execute$3651 $auto$clk2fflogic.cc:192:execute$3650
+  (= (|hyperram#32| state) (|hyperram#30| next_state)) ; $auto$clk2fflogic.cc:158:execute$3645 $auto$clk2fflogic.cc:156:execute$3644
+  (= (|hyperram#1268| state) (|hyperram#27| next_state)) ; $auto$clk2fflogic.cc:194:execute$3581 $auto$clk2fflogic.cc:192:execute$3580
+  (= (|hyperram#28| state) (|hyperram#26| next_state)) ; $auto$clk2fflogic.cc:158:execute$3575 $auto$clk2fflogic.cc:156:execute$3574
+  (= (|hyperram#1271| state) (|hyperram#23| next_state)) ; $auto$clk2fflogic.cc:194:execute$3561 $auto$clk2fflogic.cc:192:execute$3560
+  (= (|hyperram#24| state) (|hyperram#22| next_state)) ; $auto$clk2fflogic.cc:158:execute$3555 $auto$clk2fflogic.cc:156:execute$3554
+  (= (|hyperram#1274| state) (|hyperram#19| next_state)) ; $auto$clk2fflogic.cc:194:execute$3591 $auto$clk2fflogic.cc:192:execute$3590
+  (= (|hyperram#20| state) (|hyperram#18| next_state)) ; $auto$clk2fflogic.cc:158:execute$3585 $auto$clk2fflogic.cc:156:execute$3584
+  (= (|hyperram#1277| state) (|hyperram#15| next_state)) ; $auto$clk2fflogic.cc:194:execute$3571 $auto$clk2fflogic.cc:192:execute$3570
+  (= (|hyperram#16| state) (|hyperram#14| next_state)) ; $auto$clk2fflogic.cc:158:execute$3565 $auto$clk2fflogic.cc:156:execute$3564
+  (= (|hyperram#1282| state) (|hyperram#11| next_state)) ; $auto$clk2fflogic.cc:194:execute$3601 $auto$clk2fflogic.cc:192:execute$3600
+  (= (|hyperram#12| state) (|hyperram#10| next_state)) ; $auto$clk2fflogic.cc:158:execute$3595 $auto$clk2fflogic.cc:156:execute$3594
+  (= (|hyperram#4| state) (|hyperram#3| next_state)) ; $auto$clk2fflogic.cc:172:execute$3557 $auto$clk2fflogic.cc:168:execute$3556
+  (= (|hyperram#1283| state) (|hyperram#2| next_state)) ; $auto$clk2fflogic.cc:194:execute$3691 $auto$clk2fflogic.cc:192:execute$3690
+  (= (|hyperram#6| state) (|hyperram#1| next_state)) ; $auto$clk2fflogic.cc:158:execute$3685 $auto$clk2fflogic.cc:156:execute$3684
 )) ; end of module hyperram
 ; yosys-smt2-topmod hyperram
 ; end of yosys output

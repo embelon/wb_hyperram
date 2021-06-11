@@ -35,9 +35,9 @@ module hyperram
 	output			hb_clk_o,
 	output			hb_clkn_o,					// #CLK
 	output			hb_rwds_o,
-	output			hb_rwds_oen,
+	output			hb_rwds_oen,				// #RWDS_OE
 	output	[7:0]	hb_dq_o,
-	output			hb_dq_oen,
+	output			hb_dq_oen,					// #DQ_OE
 	input			hb_rwds_i,
 	input	[7:0]	hb_dq_i
 );
@@ -330,12 +330,12 @@ assign hb_clk_o = bus_clk_r;
 assign hb_clkn_o = ~hb_clk_o;
 
 // when writing to register space, rwds must not be driven by ip
-assign hb_rwds_oen = (bus_state_r == S_WRITE) && (!reg_access);
+assign hb_rwds_oen = (bus_state_r != S_WRITE) || reg_access;
 // when writing to memory space, rwds is masking signal for individual bytes
 assign hb_rwds_o = ((bus_state_r == S_WRITE) && (!reg_access)) ? ~sel_r[cycle_cnt_r] : 0;
 
 // DQ is driven only during CA and WRITE
-assign hb_dq_oen = (bus_state_r == S_CA) || (bus_state_r == S_WRITE);
+assign hb_dq_oen = (bus_state_r != S_CA) && (bus_state_r != S_WRITE);
 
 logic [7:0] hb_data_out;
 //always @(bus_state_r, cycle_cnt_r, dataw_r) begin
@@ -886,9 +886,9 @@ always @($global_clock) begin
 	// DQ & DQ_oen
 	if (f_past_valid && !rst_i) begin
 		if ((bus_state_r == S_CA) || (bus_state_r == S_WRITE))
-			_hb_dq_oen_: 	assert( hb_dq_oen );			
+			_hb_dq_oen_: 	assert( !hb_dq_oen );			
 		else
-			_hb_dq_noen_:	assert( !hb_dq_oen ); 
+			_hb_dq_noen_:	assert( hb_dq_oen ); 
 
 		if (bus_state_r == S_CA) begin
 			assert( hb_dq_o == CA_r[8*cycle_cnt_r+7:8*cycle_cnt_r] );
@@ -920,9 +920,9 @@ always @($global_clock) begin
 	// RWDS, RWDS_oen
 	if (f_past_valid && !rst_i) begin
 		if ((bus_state_r == S_WRITE) && !reg_access)
-			_hb_rwds_oen_: 	assert( hb_rwds_oen );			
+			_hb_rwds_oen_: 	assert( !hb_rwds_oen );			
 		else
-			_hb_rwds_noen_:	assert( !hb_rwds_oen ); 
+			_hb_rwds_noen_:	assert( hb_rwds_oen ); 
 
 		if (bus_state_r == S_WRITE) begin
 			if (!reg_access) 
