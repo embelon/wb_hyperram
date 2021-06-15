@@ -405,7 +405,7 @@ module s27kl0641
     reg [7:0] tmp_char1; //Identify Speed option
     integer found = 1'b0;
 
-    reg SPEED100 = 0;
+    reg SPEED100 = 1;
 
     //Power Up time;
     initial
