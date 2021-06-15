@@ -52,23 +52,23 @@ async def test_all(dut):
     await ClockCycles(dut.wb_clk_i, 5) 
 
     # read register space
-    #read = await wb_master.read(0x30800000, 0x0f)
-    #assert read != 0
+    read = await wb_master.read(0x30801000, 0x0f)
+    assert read != 0
 
     await ClockCycles(dut.wb_clk_i, 5) 
 
     # HyperRAM should be filled according to s27kl0641/model/s27kl0641.mem file
-    #read = await wb_master.read(0x30000006, 0x0f)
-    #assert read != 0
-    #assert read == 7
+    read = await wb_master.read(0x30000006, 0x0f)
+    assert read != 0
+    assert read == 0x00040005
 
     await ClockCycles(dut.wb_clk_i, 5) 
 
     # write and read some value to memory space
     value = 0xa5a54224
     await wb_master.write(0x30001000, 0x0f, value)
-    #read = await wb_master.read(0x30001000, 0x0f)
-    #assert read == value
+    read = await wb_master.read(0x30001000, 0x0f)
+    assert read == value
 
 
 
