@@ -1,5 +1,19 @@
+[tasks]
+bmc
+cover
+prove
+
 [options]
+
+bmc: 
 mode bmc
+
+cover:
+mode cover
+
+prove:
+mode prove
+--
 
 [engines]
 smtbmc
