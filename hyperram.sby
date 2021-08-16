@@ -1,7 +1,24 @@
+[tasks]
+bmc
+cover
+prove
+
 [options]
-mode bmc
+
 multiclock on
+
+bmc:
+mode bmc
 depth 100
+
+cover:
+mode cover
+depth 1000
+
+prove:
+mode prove
+#depth 1000
+--
 
 [engines]
 smtbmc
