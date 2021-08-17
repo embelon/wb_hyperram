@@ -1,0 +1,13 @@
+# running in sby/hyperram_bmc/src/
+read -formal hyperram.v
+prep -top hyperram
+
+memory_nordff
+clk2fflogic
+chformal -live -fair -cover -remove
+opt_clean
+setundef -anyseq
+opt -keepdc -fast
+check
+hierarchy -simcheck
+write_ilang ../model/design.il

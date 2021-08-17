@@ -1,0 +1,9 @@
+Elapsed clock time [H:MM:SS (secs)]: 0:34:57 (2097)
+Elapsed process time [H:MM:SS (secs)]: 0:35:23 (2123)
+engine_0 (smtbmc) returned pass
+trace: sby/wb_hyperram_cover/engine_0/trace0.vcd
+trace: sby/wb_hyperram_cover/engine_0/trace1.vcd
+trace: sby/wb_hyperram_cover/engine_0/trace2.vcd
+trace: sby/wb_hyperram_cover/engine_0/trace3.vcd
+trace: sby/wb_hyperram_cover/engine_0/trace4.vcd
+and 45 further traces
