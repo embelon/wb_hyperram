@@ -33,16 +33,16 @@ module wb_hyperram
 
 	// 3000_0000 - 307f_ffff -> RAM
 	// 3080_00xx -> register space
-	// 3090_00xx -> CSR
+	// 3081_00xx -> CSR
 	parameter HB_RAM_ADDR_MASK = 32'hff80_0000;
 	// RAM memory base address, RAM is first in the space
 	parameter HB_RAM_BASE = BASE_ADDR;
-	// Differentiate between register space (inside HB chip) and SoC CSRs
-	parameter HB_REG_OR_CSR_ADDR_MASK = 32'hffc0_0000;
+	// Differentiation between register space (inside HB chip) and SoC CSRs
+	parameter HB_REG_OR_CSR_ADDR_MASK = 32'hffff_0000;
 	// Register space base address
 	parameter HB_REG_BASE = BASE_ADDR + 32'h0080_0000;
 	// CSRs base address
-	parameter CSR_BASE = BASE_ADDR + 32'h00c0_0000;
+	parameter CSR_BASE = BASE_ADDR + 32'h0081_0000;
 	
 	// Combinatorial decoding
 	wire hb_ram_valid;
