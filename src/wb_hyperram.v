@@ -11,11 +11,11 @@ module wb_hyperram
 	input			wbs_stb_i,
 	input			wbs_cyc_i,
 	input			wbs_we_i,
-	input	[3:0] 	wbs_sel_i,
-	input 	[31:0] 	wbs_dat_i,
-	input	[31:0] 	wbs_addr_i,
+	input	[3:0] 		wbs_sel_i,
+	input 	[31:0] 		wbs_dat_i,
+	input	[31:0] 		wbs_adr_i,
 	output			wbs_ack_o,
-	output	[31:0] 	wbs_dat_o,	
+	output	[31:0] 		wbs_dat_o,	
 
 	input			rst_i,
 
@@ -24,11 +24,11 @@ module wb_hyperram
 	output			hb_clk_o,
 	output			hb_clkn_o,					// #CLK
 	output			hb_rwds_o,
-	output			hb_rwds_oen,				// #RWDS_OE
-	output	[7:0]	hb_dq_o,
+	output			hb_rwds_oen,					// #RWDS_OE
+	output	[7:0]		hb_dq_o,
 	output			hb_dq_oen,					// #DQ_OE
 	input			hb_rwds_i,
-	input	[7:0]	hb_dq_i
+	input	[7:0]		hb_dq_i
 );
 
 	// 3000_0000 - 307f_ffff -> RAM
@@ -49,9 +49,9 @@ module wb_hyperram
 	wire hb_reg_valid;
 	wire csr_valid;	
 	
-	assign hb_ram_valid = wbs_stb_i && wbs_cyc_i && ((wbs_addr_i & HB_RAM_ADDR_MASK) == HB_RAM_BASE);
-	assign hb_reg_valid = wbs_stb_i && wbs_cyc_i && ((wbs_addr_i & HB_REG_OR_CSR_ADDR_MASK) == HB_REG_BASE);
-	assign csr_valid = wbs_stb_i && wbs_cyc_i && ((wbs_addr_i & HB_REG_OR_CSR_ADDR_MASK) == CSR_BASE);
+	assign hb_ram_valid = wbs_stb_i && wbs_cyc_i && ((wbs_adr_i & HB_RAM_ADDR_MASK) == HB_RAM_BASE);
+	assign hb_reg_valid = wbs_stb_i && wbs_cyc_i && ((wbs_adr_i & HB_REG_OR_CSR_ADDR_MASK) == HB_REG_BASE);
+	assign csr_valid = wbs_stb_i && wbs_cyc_i && ((wbs_adr_i & HB_REG_OR_CSR_ADDR_MASK) == CSR_BASE);
 	
 	// last cycle value of csr_valid
 	// needed to satisfy Wishbone handshake on wbs_ack_o -> wbs_stb_i
@@ -66,9 +66,9 @@ module wb_hyperram
 	logic [31:0] sub_address;
 	always @(*) begin
 		if (hb_ram_valid)
-			sub_address <= wbs_addr_i & ~HB_RAM_ADDR_MASK;
+			sub_address <= wbs_adr_i & ~HB_RAM_ADDR_MASK;
 		else if (hb_reg_valid || csr_valid)
-			sub_address <= wbs_addr_i & ~HB_REG_OR_CSR_ADDR_MASK;
+			sub_address <= wbs_adr_i & ~HB_REG_OR_CSR_ADDR_MASK;
 		else
 			sub_address <= 0;
 	end
@@ -81,11 +81,11 @@ module wb_hyperram
 	
 	wire csr_latency_valid, csr_tpre_tpost_valid, csr_tcsh_valid, csr_trmax_valid, csr_status_valid;
 	
-	assign csr_latency_valid = csr_valid && (wbs_addr_i == CSR_LATENCY_BASE);
-	assign csr_tpre_tpost_valid = csr_valid && (wbs_addr_i == CSR_TPRE_TPOST_BASE);
-	assign csr_tcsh_valid = csr_valid && (wbs_addr_i == CSR_TCSH_BASE);
-	assign csr_trmax_valid = csr_valid && (wbs_addr_i == CSR_TRMAX_BASE);
-	assign csr_status_valid = csr_valid && (wbs_addr_i == CSR_STATUS_BASE);
+	assign csr_latency_valid = csr_valid && (wbs_adr_i == CSR_LATENCY_BASE);
+	assign csr_tpre_tpost_valid = csr_valid && (wbs_adr_i == CSR_TPRE_TPOST_BASE);
+	assign csr_tcsh_valid = csr_valid && (wbs_adr_i == CSR_TCSH_BASE);
+	assign csr_trmax_valid = csr_valid && (wbs_adr_i == CSR_TRMAX_BASE);
+	assign csr_status_valid = csr_valid && (wbs_adr_i == CSR_STATUS_BASE);
 
 	// CSRs values
 	wire fixed_latency;
@@ -195,14 +195,14 @@ module wb_hyperram
 		if (wbs_we_i) begin
 			data_out <= 32'h0000_0000;
 		end else begin
-			case (wbs_addr_i)
+			case (wbs_adr_i)
 				CSR_LATENCY_BASE: 		data_out <= {26'h00_0000, fixed_latency, double_latency, tacc};
-				CSR_TPRE_TPOST_BASE:	data_out <= {24'h00_0000, tpre, tpost};
+				CSR_TPRE_TPOST_BASE:		data_out <= {24'h00_0000, tpre, tpost};
 				CSR_TCSH_BASE:			data_out <= {28'h00_0000, tcsh};
 				CSR_TRMAX_BASE:			data_out <= {29'h00_0000, trmax};
 				CSR_STATUS_BASE:		data_out <= {31'h0000_0000, hb_read_timeout};
 				default: begin
-					if (((wbs_addr_i & HB_RAM_ADDR_MASK) == HB_RAM_BASE) || ((wbs_addr_i & HB_REG_OR_CSR_ADDR_MASK) == HB_REG_BASE))
+					if (((wbs_adr_i & HB_RAM_ADDR_MASK) == HB_RAM_BASE) || ((wbs_adr_i & HB_REG_OR_CSR_ADDR_MASK) == HB_REG_BASE))
 						data_out <= hb_data_out;
 					else
 						data_out <= 32'h0000_0000;
@@ -327,7 +327,7 @@ always @($global_clock) begin
 	if (wb_state == WB_WAITING) begin
 		assume(wbs_cyc_i);
 		assume(wbs_stb_i);
-		assume($stable(wbs_addr_i));
+		assume($stable(wbs_adr_i));
 		assume($stable(wbs_dat_i));
 		assume($stable(wbs_sel_i));
 		assume($stable(wbs_we_i));
@@ -335,7 +335,7 @@ always @($global_clock) begin
 	
 	if (wb_state == WB_FINISH) begin
 		assume(!wbs_stb_i);
-		assume($stable(wbs_addr_i));
+		assume($stable(wbs_adr_i));
 		assume($stable(wbs_dat_i));
 		assume($stable(wbs_sel_i));
 		assume($stable(wbs_we_i));
@@ -451,7 +451,7 @@ always @($global_clock) begin
 							&& $past(wbs_we_i)							
 							&& ($past(wbs_dat_i) == 32'h78123456) 
 							&& ($past(wbs_sel_i) == 4'b1010) 
-							&& ($past(wbs_addr_i[2:0]) == 2)
+							&& ($past(wbs_adr_i[2:0]) == 2)
 						);   
 
 	// READ REGISTER
@@ -500,7 +500,7 @@ always @($global_clock) begin
 							&& $past(wbs_we_i)														
 							&& ($past(wbs_dat_i) == 32'h78123456)
 							&& ($past(wbs_sel_i) == 4'b0110) 
-							&& ($past(wbs_addr_i[2:0]) == 3)							
+							&& ($past(wbs_adr_i[2:0]) == 3)							
 						);  
 
 	// READ MEMORY
@@ -527,45 +527,45 @@ always @($global_clock) begin
 
 	// reading CSRs
 	if (f_past_valid && !rst_i && !wb_rst_i) begin
-		if (hb_read_timeout && wbs_cyc_i && wbs_stb_i && !wbs_we_i && (wbs_addr_i == CSR_STATUS_BASE))
+		if (hb_read_timeout && wbs_cyc_i && wbs_stb_i && !wbs_we_i && (wbs_adr_i == CSR_STATUS_BASE))
 			_read_status_timeout_: 		assert(wbs_dat_o == 1);
-		if (wbs_cyc_i && wbs_stb_i && !wbs_we_i && (wbs_addr_i == CSR_LATENCY_BASE))
+		if (wbs_cyc_i && wbs_stb_i && !wbs_we_i && (wbs_adr_i == CSR_LATENCY_BASE))
 			_read_latency_reg:			assert(wbs_dat_o == {26'h000_0000, fixed_latency, double_latency, tacc});
-		if (wbs_cyc_i && wbs_stb_i && !wbs_we_i && (wbs_addr_i == CSR_TPRE_TPOST_BASE))
+		if (wbs_cyc_i && wbs_stb_i && !wbs_we_i && (wbs_adr_i == CSR_TPRE_TPOST_BASE))
 			_read_tpre_tpost_reg:		assert(wbs_dat_o == {24'h00_0000, tpre, tpost});
-		if (wbs_cyc_i && wbs_stb_i && !wbs_we_i && (wbs_addr_i == CSR_TRMAX_BASE))
+		if (wbs_cyc_i && wbs_stb_i && !wbs_we_i && (wbs_adr_i == CSR_TRMAX_BASE))
 			_read_trmax_reg:			assert(wbs_dat_o == {29'h000_0000, trmax});
-		if (wbs_cyc_i && wbs_stb_i && !wbs_we_i && (wbs_addr_i == CSR_TCSH_BASE))
+		if (wbs_cyc_i && wbs_stb_i && !wbs_we_i && (wbs_adr_i == CSR_TCSH_BASE))
 			_read_tcsh_reg:				assert(wbs_dat_o == {28'h000_0000, tcsh});
 	end
 
 	// writing CSRs
 	if (f_past_valid && !rst_i && !wb_rst_i) begin
 		if ($rose(wb_clk_i) && $past(wbs_cyc_i) && $past(wbs_stb_i) && $past(wbs_we_i) && ($past(wbs_sel_i[0]) == 1)) begin
-			if ($past(wbs_addr_i) == CSR_LATENCY_BASE)
+			if ($past(wbs_adr_i) == CSR_LATENCY_BASE)
 				_write_latency_reg:			assert(wbs_dat_i[5:0] == {fixed_latency, double_latency, tacc});
-			if ($past(wbs_addr_i) == CSR_TPRE_TPOST_BASE)
+			if ($past(wbs_adr_i) == CSR_TPRE_TPOST_BASE)
 				_write_tpre_tpost_reg:		assert(wbs_dat_i[7:0] == {tpre, tpost});
-			if ($past(wbs_addr_i) == CSR_TRMAX_BASE)
+			if ($past(wbs_adr_i) == CSR_TRMAX_BASE)
 				_write_trmax_reg:			assert(wbs_dat_i[4:0] == trmax);
-			if (wbs_addr_i == CSR_TCSH_BASE)
+			if (wbs_adr_i == CSR_TCSH_BASE)
 				_write_tcsh_reg:			assert(wbs_dat_i[3:0] == tcsh);
 		end
 	end
 
 	// reading hyperram
 	if (f_past_valid && !rst_i && !wb_rst_i) begin
-		if (wbs_cyc_i && wbs_stb_i && !wbs_we_i && ((wbs_addr_i & HB_RAM_ADDR_MASK) == HB_RAM_BASE))
+		if (wbs_cyc_i && wbs_stb_i && !wbs_we_i && ((wbs_adr_i & HB_RAM_ADDR_MASK) == HB_RAM_BASE))
 			_read_hb_ram_:				assert(wbs_dat_o == hb_data_out);
-		if (wbs_cyc_i && wbs_stb_i && !wbs_we_i && ((wbs_addr_i & HB_REG_OR_CSR_ADDR_MASK) == HB_REG_BASE))
+		if (wbs_cyc_i && wbs_stb_i && !wbs_we_i && ((wbs_adr_i & HB_REG_OR_CSR_ADDR_MASK) == HB_REG_BASE))
 			_read_hb_reg_:				assert(wbs_dat_o == hb_data_out);
 	end
 
 	// hyperram operation
 	if (f_past_valid && !rst_i && !wb_rst_i) begin
-		if (wbs_cyc_i && wbs_stb_i && wbs_we_i && ((wbs_addr_i & HB_RAM_ADDR_MASK) == HB_RAM_BASE) && !hb_csn_o)
+		if (wbs_cyc_i && wbs_stb_i && wbs_we_i && ((wbs_adr_i & HB_RAM_ADDR_MASK) == HB_RAM_BASE) && !hb_csn_o)
 			_rd_wr_hb_ram_:				assert(!wbs_ack_o);
-		if (wbs_cyc_i && wbs_stb_i && wbs_we_i && ((wbs_addr_i & HB_REG_OR_CSR_ADDR_MASK) == HB_REG_BASE) && !hb_csn_o)
+		if (wbs_cyc_i && wbs_stb_i && wbs_we_i && ((wbs_adr_i & HB_REG_OR_CSR_ADDR_MASK) == HB_REG_BASE) && !hb_csn_o)
 			_rd_wr_hb_reg_:				assert(!wbs_ack_o);			
 	end
 
