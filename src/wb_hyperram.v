@@ -5,6 +5,10 @@ module wb_hyperram
 	parameter MEM_SIZE = 32'h0080_0000		// 8MB
 )
 (
+`ifdef USE_POWER_PINS
+    	inout vccd1,	// User area 1 1.8V supply
+    	inout vssd1,	// User area 1 digital ground
+`endif	
 	input			wb_clk_i,
 	input			wb_rst_i,
 	
