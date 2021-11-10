@@ -22,6 +22,10 @@ set ::env(VERILOG_FILES) [glob $::env(DESIGN_DIR)/src/*.v]
 # Fill this
 set ::env(CLOCK_PORT) "wb_clk_i"
 
+# Overfixing slack
+#set ::env(PL_RESIZER_HOLD_SLACK_MARGIN) 0.7
+#set ::env(GLB_RESIZER_HOLD_SLACK_MARGIN) 0.7
+
 # macro needs to work inside Caravel, so can't be core and can't use metal 5
 set ::env(DESIGN_IS_CORE) 0
 set ::env(GLB_RT_MAXLAYER) 5
