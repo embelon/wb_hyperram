@@ -8,6 +8,7 @@ SEED = 1
 
 # COCOTB variables
 export COCOTB_REDUCED_LOG_FMT=1
+export LIBPYTHON_LOC=$(shell cocotb-config --libpython)
 
 all: test_wb_hyperram
 
