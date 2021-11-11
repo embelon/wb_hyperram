@@ -30,7 +30,7 @@ module wb_hyperram
 	output			hb_rwds_o,
 	output			hb_rwds_oen,					// #RWDS_OE
 	output	[7:0]		hb_dq_o,
-	output			hb_dq_oen,					// #DQ_OE
+	output  [7:0]		hb_dq_oen,					// #DQ_OE
 	input			hb_rwds_i,
 	input	[7:0]		hb_dq_i
 );

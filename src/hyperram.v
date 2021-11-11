@@ -37,8 +37,8 @@ module hyperram
 	output			hb_rwds_o,
 	output			hb_rwds_oen,				// #RWDS_OE
 	output	[7:0]	hb_dq_o,
-	output			hb_dq_oen,					// #DQ_OE
-	input			hb_rwds_i,
+	output	[7:0]	hb_dq_oen,					// #DQ_OE
+	input		hb_rwds_i,
 	input	[7:0]	hb_dq_i
 );
 
@@ -335,7 +335,7 @@ assign hb_rwds_oen = (bus_state_r != S_WRITE) || reg_access;
 assign hb_rwds_o = ((bus_state_r == S_WRITE) && (!reg_access)) ? ~sel_r[cycle_cnt_r] : 0;
 
 // DQ is driven only during CA and WRITE
-assign hb_dq_oen = (bus_state_r != S_CA) && (bus_state_r != S_WRITE);
+assign hb_dq_oen = ((bus_state_r != S_CA) && (bus_state_r != S_WRITE)) ? 8'hff : 8'h00;
 
 logic [7:0] hb_data_out;
 //always @(bus_state_r, cycle_cnt_r, dataw_r) begin
