@@ -21,6 +21,7 @@ test_wb_hyperram:
 	mkdir sim_build/
 	iverilog -o sim_build/sim.vvp -s test_top -s dump -g2012 test/test_top.v test/s27kl0641/model/s27kl0641.v test/dump_test_top.v src/wb_hyperram.v src/hyperram.v src/register_rw.v
 	PYTHONOPTIMIZE=${NOASSERT} MODULE=test.test_wb_hyperram vvp -M $$(cocotb-config --prefix)/cocotb/libs -m libcocotbvpi_icarus sim_build/sim.vvp
+	! grep failure results.xml
 
 show_%: %.vcd %.gtkw
 	gtkwave $^
