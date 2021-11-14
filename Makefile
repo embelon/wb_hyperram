@@ -1,10 +1,3 @@
-# FPGA variables
-PROJECT = fpga/wb_hyperram
-SOURCES= fpga/fpga_top.v src/wb_hyperram.v src/hyperram.v src/register_rw.v
-ICE_DEVICE = up5k
-ICE_PACKAGE = sg48
-ICE_BOARD_PIN_DEF = fpga/upduino.pcf
-SEED = 1
 
 # COCOTB variables
 export COCOTB_REDUCED_LOG_FMT=1
@@ -25,23 +18,6 @@ test_wb_hyperram:
 
 show_%: %.vcd %.gtkw
 	gtkwave $^
-
-# FPGA recipes
-
-show_synth_%: src/%.v
-	yosys -p "read_verilog $<; proc; opt; show -colors 2 -width -signed"
-
-%.json: $(SOURCES)
-	yosys -l fpga/yosys.log -p 'synth_ice40 -top fpga_top -json $(PROJECT).json' $(SOURCES)
-
-%.asc: %.json $(ICE_BOARD_PIN_DEF) 
-	nextpnr-ice40 -l fpga/nextpnr.log --seed $(SEED) --freq 20 --package $(ICE_PACKAGE) --$(ICE_DEVICE) --asc $@ --pcf $(ICE_BOARD_PIN_DEF) --json $<
-
-%.bin: %.asc
-	icepack $< $@
-
-prog: $(PROJECT).bin
-	iceprog $<
 
 # general recipes
 
