@@ -1,11 +1,11 @@
 # 12 MHz clock
-set_io clk          35
+#set_io clk          35
 
 # SPI Flash
 set_io flash_clk    15
 set_io flash_csb    16
-set_io flash_io0    14        #Flash.DI
-set_io flash_io1    17        #Flash.DO
+set_io flash_sdi    14        #Flash.DI
+set_io flash_sdo    17        #Flash.DO
 
 # Onboard LEDs
 set_io led_blue     39
