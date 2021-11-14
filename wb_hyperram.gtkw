@@ -1,0 +1,78 @@
+[*]
+[*] GTKWave Analyzer v3.3.111 (w)1999-2020 BSI
+[*] Sun Nov 14 13:00:19 2021
+[*]
+[dumpfile] "/home/zwierzak/Projects/ZeroToAsic/OpenRAM_mpw3a_1kB/wb_hyperram/wb_hyperram.vcd"
+[dumpfile_mtime] "Sun Nov 14 12:51:48 2021"
+[dumpfile_size] 38708
+[savefile] "/home/zwierzak/Projects/ZeroToAsic/OpenRAM_mpw3a_1kB/wb_hyperram/wb_hyperram.gtkw"
+[timestart] 0
+[size] 2560 1393
+[pos] -57 -54
+*-28.200001 2 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] test_top.
+[sst_width] 297
+[signals_width] 278
+[sst_expanded] 1
+[sst_vpaned_height] 433
+@28
+test_top.rst_i
+test_top.wb_rst_i
+test_top.wb_clk_i
+test_top.wbs_cyc_i
+test_top.wbs_stb_i
+test_top.wbs_we_i
+@22
+test_top.wbs_sel_i[3:0]
+test_top.wbs_addr_i[31:0]
+test_top.wbs_dat_i[31:0]
+test_top.wbs_dat_o[31:0]
+@28
+test_top.wbs_ack_o
+test_top.HB_RSTN
+test_top.HB_CSN
+test_top.HB_CLK
+test_top.HB_RWDS
+@22
+test_top.HB_DQ[7:0]
+@200
+-HyperRAM driver internals below
+@28
+test_top.hyperram_drv.rst_i
+test_top.hyperram_drv.hb_ready
+@23
+test_top.hyperram_drv.sub_address[31:0]
+@28
+test_top.hyperram_drv.csr_valid
+test_top.hyperram_drv.csr_latency_valid
+@22
+test_top.hyperram_drv.tacc[3:0]
+@28
+test_top.hyperram_drv.csr_status_valid
+test_top.hyperram_drv.csr_tcsh_valid
+@22
+test_top.hyperram_drv.tcsh[3:0]
+@28
+test_top.hyperram_drv.csr_tpre_tpost_valid
+@22
+test_top.hyperram_drv.tpre[3:0]
+test_top.hyperram_drv.tpost[3:0]
+@28
+test_top.hyperram_drv.csr_trmax_valid
+@22
+test_top.hyperram_drv.trmax[4:0]
+@28
+test_top.hyperram_drv.hb_reg_valid
+test_top.hyperram_drv.hb_ram_valid
+test_top.hyperram_drv.fixed_latency
+test_top.hyperram_drv.double_latency
+test_top.hyperram_drv.hb_rwds_i
+test_top.hyperram_drv.hb_rwds_o
+test_top.hyperram_drv.hb_rwds_oen
+@22
+test_top.hyperram_drv.hb_dq_i[7:0]
+test_top.hyperram_drv.hb_dq_o[7:0]
+@28
+test_top.hyperram_drv.hb_dq_oen
+[pattern_trace] 1
+[pattern_trace] 0
