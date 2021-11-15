@@ -10,10 +10,10 @@ updusim: upduino_tb.vvp upduino_fw.hex
 updusynsim: upduino_syn_tb.vvp upduino_fw.hex
 	vvp -N $< +firmware=upduino_fw.hex
 
-upduino.json: upduino.v ice40up5k_spram.v spimemio.v simpleuart.v picosoc.v picorv32.v
+upduino.json: upduino.sv ice40up5k_spram.v spimemio.v simpleuart.v picosoc.v picorv32.v ../src/hyperram.sv ../src/register_rw.v ../src/wb_hyperram.sv
 	yosys -ql upduino.log -p 'synth_ice40 -top upduino -json upduino.json' $^
 
-upduino_tb.vvp: upduino_tb.v upduino.v ice40up5k_spram.v spimemio.v simpleuart.v picosoc.v ../picorv32.v spiflash.v
+upduino_tb.vvp: upduino_tb.v upduino.sv ice40up5k_spram.v spimemio.v simpleuart.v picosoc.v picorv32.v spiflash.v
 	iverilog -s testbench -o $@ $^ `yosys-config --datdir/ice40/cells_sim.v`
 
 upduino_syn_tb.vvp: upduino_tb.v upduino_syn.v spiflash.v

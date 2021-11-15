@@ -17,9 +17,9 @@ set_io ser_rx       26
 set_io ser_tx       27
 
 # HyperBus
-set_io hb_rstn_o	2
-set_io hb_clk_o	    46
-set_io hb_clkn_o  	47
+set_io hb_rstn 	    2
+set_io hb_clk	    46
+set_io hb_clkn  	47
 set_io hb_dq7		3
 set_io hb_dq6		4
 set_io hb_dq5		44

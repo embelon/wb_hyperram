@@ -326,7 +326,7 @@ void main()
 {
 	reg_leds = 1;
 	reg_uart_clkdiv = 104;
-	print("Booting..\n");
+	print("\n\n\nBooting..\n");
 
 	reg_leds = 2;
 	set_flash_mode_spi();
@@ -341,13 +341,16 @@ void main()
 	cmd_print_spi_state();
 	print("\n");
 
+	print("Flash ID: ");
 	cmd_read_flash_id();
 
+	print("Flash regs: ");
 	cmd_read_flash_regs();
+	print("\n");
 
 	cmd_print_spi_state();
 
-	reg_leds = 3;
+	reg_leds = 0;
 
 	while (1);
 }

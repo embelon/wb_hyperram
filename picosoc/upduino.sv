@@ -34,12 +34,27 @@ module upduino (
 	output flash_csb,
 	output flash_clk,
 	inout  flash_sdi,
-	inout  flash_sdo
+	inout  flash_sdo,
+
+	// HyperBus
+	output hb_rstn,
+	output hb_clk,	
+	output hb_clkn,
+	output hb_cs1n,
+	inout hb_dq7,
+	inout hb_dq6,
+	inout hb_dq5,
+	inout hb_dq4,
+	inout hb_dq3,
+	inout hb_dq2,
+	inout hb_dq1,
+	inout hb_dq0,
+	inout hb_rwds
 );
 	parameter integer MEM_WORDS = 32768;
 
     wire clk;
-    SB_HFOSC #(.CLKHF_DIV("0b10")) inthosc(.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(clk));
+    SB_HFOSC #(.CLKHF_DIV("0b11")) inthosc(.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(clk));
 
 	reg [5:0] reset_cnt = 0;
 	wire resetn = &reset_cnt;
@@ -63,12 +78,9 @@ module upduino (
 		.D_IN_0({flash_io1_di, flash_io0_di})
 	);
 
-	wire        iomem_valid;
-	reg         iomem_ready;
-	wire [3:0]  iomem_wstrb;
-	wire [31:0] iomem_addr;
-	wire [31:0] iomem_wdata;
-	reg  [31:0] iomem_rdata;
+
+	// GPIOs = LEDs
+	reg [31:0] gpio;
 /*
 	wire [7:0] led_red_pwm, led_green_pwm, led_blue_pwm;
 
@@ -95,19 +107,32 @@ module upduino (
     assign led_green_pwm = gpio[15:8];
     assign led_blue_pwm = gpio[7:0];
 */
-	reg [31:0] gpio;
 	assign led_red = gpio[2];
     assign led_green = gpio[2];
     assign led_blue = gpio[0];
+
+
+	// picosoc iomem bus
+	wire        iomem_valid;
+	logic       iomem_ready;
+	wire [3:0]  iomem_wstrb;
+	wire [31:0] iomem_addr;
+	wire [31:0] iomem_wdata;
+	logic [31:0] iomem_rdata;
+
+	// GPIO bus signals
+
+	reg gpio_ready;
+	reg [31:0] gpio_rdata;
 
 	always @(posedge clk) begin
 		if (!resetn) begin
 			gpio <= 0;
 		end else begin
-			iomem_ready <= 0;
-			if (iomem_valid && !iomem_ready && iomem_addr[31:24] == 8'h 03) begin
-				iomem_ready <= 1;
-				iomem_rdata <= gpio;
+			gpio_ready <= 0;
+			if (iomem_valid && !gpio_ready && iomem_addr[31:24] == 8'h 03) begin
+				gpio_ready <= 1;
+				gpio_rdata <= gpio;
 				if (iomem_wstrb[0]) gpio[ 7: 0] <= iomem_wdata[ 7: 0];
 				if (iomem_wstrb[1]) gpio[15: 8] <= iomem_wdata[15: 8];
 				if (iomem_wstrb[2]) gpio[23:16] <= iomem_wdata[23:16];
@@ -115,6 +140,88 @@ module upduino (
 			end
 		end
 	end
+
+
+
+
+	// HyperRAM IP <-> IO pads (internal)
+    wire [7:0] hb_dq_o;
+	wire [7:0] hb_dq_i;
+    wire hb_dq_oen;
+    wire hb_rwds_o, hb_rwds_i, hb_rwds_oen;
+
+	SB_IO #(
+		.PIN_TYPE(6'b 1010_01),
+		.PULLUP(1'b 0)
+	) hyperram_io_buf [8:0] (
+		.PACKAGE_PIN({ hb_rwds, hb_dq7, hb_dq6, hb_dq5, hb_dq4, hb_dq3, hb_dq2, hb_dq1, hb_dq0 }),
+		.OUTPUT_ENABLE({ !hb_rwds_oen, {8{hb_dq_oen}} }),
+		.D_OUT_0({ hb_rwds_o, hb_dq_o }),
+		.D_IN_0({ hb_rwds_i, hb_dq_i })
+	);
+
+	// Wishbone signals
+	wire wb_clk_o, wb_rst_o;
+	wire wbm_stb_o, wbm_cyc_o, wbm_we_o;
+	wire [3:0] wbm_sel_o;
+	wire [31:0] wbm_addr_o;
+	wire [31:0] wbm_dat_o;
+	wire [31:0] wbm_dat_i;
+	wire wbm_ack_i;
+
+    wb_hyperram hyperram_drv (
+        .wb_clk_i       (wb_clk_o),
+        .wb_rst_i       (wb_rst_o),
+        
+        .wbs_stb_i      (wbm_stb_o),
+        .wbs_cyc_i      (wbm_cyc_o),
+        .wbs_we_i       (wbm_we_o),
+        .wbs_sel_i      (wbm_sel_o),
+        .wbs_dat_i      (wbm_dat_o),
+        .wbs_addr_i     (wbm_addr_o),
+        .wbs_ack_o      (wbm_ack_i),
+        .wbs_dat_o      (wbm_dat_i),	
+
+        .rst_i			(!resetn),
+
+        .hb_rstn_o      (hb_rstn),	    // #RST
+        .hb_csn_o       (hb_cs1n),	    // #CS
+        .hb_clk_o       (hb_clk),
+        .hb_clkn_o      (hb_clkn),      // #CLK
+        .hb_rwds_o      (hb_rwds_o),
+        .hb_rwds_oen    (hb_rwds_oen),	// #RWDS_OE
+        .hb_dq_o        (hb_dq_o),
+        .hb_dq_oen      (hb_dq_oen),    // #DQ_OE
+        .hb_rwds_i      (hb_rwds_i),
+        .hb_dq_i        (hb_dq_i)
+    );
+    
+	assign wb_clk_o = clk;
+	assign wb_rst_o = !resetn;
+
+    assign wbm_cyc_o = iomem_valid;
+	assign wbm_stb_o = iomem_valid && (iomem_addr[31:24] == 8'h 30);
+	assign wbm_sel_o = ~iomem_wstrb;
+	assign wbm_we_o = ! &iomem_wstrb;
+	assign wbm_addr_o = iomem_addr;
+	assign wbm_dat_o = iomem_wdata;
+
+	always @(*) begin
+		if (wbm_stb_o) begin
+			iomem_rdata <= wbm_dat_i;
+			iomem_ready <= wbm_ack_i;			
+		end
+		else if (iomem_valid && (iomem_addr[31:24] == 8'h 03)) begin
+			iomem_rdata <= gpio_rdata;
+			iomem_ready <= gpio_ready;
+		end
+		else begin
+			iomem_rdata <= 32'h 0000_0000;
+			iomem_ready <= 0;
+		end
+	end
+
+
 
 	picosoc #(
 		.BARREL_SHIFTER(0),
