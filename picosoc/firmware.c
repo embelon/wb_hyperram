@@ -333,54 +333,96 @@ void cmd_echo()
 
 void hyperram_test()
 {
-	volatile uint32_t read = 0;
+	volatile uint32_t value = 0;
+	volatile uint32_t status = 0;
 
-//	reg_leds = LED_GREEN;
+	print("\nHyperRAM test....\n");
 
+	getchar();
+
+	reg_leds = LED_GREEN;
+
+	// read CSRs inside HyperRAM driver
+	value = hyperram_csr_latency;
+	print("Latency CSR: ");
+	print_hex(value, 4);
 	print("\n");
-	print("HyperRAM test....");
+	value = hyperram_csr_tcsh;
+	print("Tcsh CSR: ");
+	print_hex(value, 4);
+	print("\n");
+	value = hyperram_csr_tpre_tpost;
+	print("Tpre Tpost CSR: ");
+	print_hex(value, 4);
+	print("\n");
+	value = hyperram_csr_trmax;
+	print("Read timeout CSR: ");
+	print_hex(value, 4);
+	print("\n");
+	status = hyperram_csr_status;
+	print("Status CSR: ");
+	print_hex(status, 4);
+	print("\n");
+
+	value = hyperram_reg(0);
+	print("Chip ID0: ");
+	print_hex(value, 4);
+	print("\n");
+
+	value = hyperram_reg(0x800);
+	print("Chip CFG0: ");
+	print_hex(value, 4);
 	print("\n");
 
 	// write something
-	hyperram_mem(0x1234) = 0xfecdba89;
-	// read back
-	read = hyperram_mem(0x1234);
-	print("Read data: ");
-	print_hex(read, 8);
-	print("\n");
-
-	// read CSRs inside HyperRAM driver
-	read = hyperram_csr_latency;
-	print("Latency CSR: ");
-	print_hex(read, 4);
-	print("\n");
-	read = hyperram_csr_tcsh;
-	print("Tcsh CSR: ");
-	print_hex(read, 4);
-	print("\n");
-	read = hyperram_csr_tpre_tpost;
-	print("Tpre Tpost CSR: ");
-	print_hex(read, 4);
-	print("\n");
-	read = hyperram_csr_trmax;
-	print("Read timeout CSR: ");
-	print_hex(read, 4);
-	print("\n");
-	read = hyperram_csr_status;
+	hyperram_mem(0x7ffff4) = 0x12874562;
+	// read back	
+	value = hyperram_mem(0x7ffff4);			// value
+	status = hyperram_csr_status;			// status, 1 -> timeout on read
 	print("Status CSR: ");
-	print_hex(read, 4);
+	print_hex(status, 4);
 	print("\n");
+	print("Read data: ");
+	print_hex(value, 8);	
+	print("\n");
+	
+	reg_leds = LED_BLUE;
 
-	read = hyperram_reg(0);
-	print("Chip ID0: ");
-	print_hex(read, 4);
-	print("\n");
-	read = hyperram_reg(1);
-	print("Chip ID1: ");
-	print_hex(read, 4);
-	print("\n");
+	print("Changing latency to 3 cycles\n");
+	value = hyperram_reg(0x800);			// CFG0
+	status = hyperram_csr_status;			// status, 1 -> timeout on read
+	if (!status || !value)
+	{
+		value &= 0xff0f;
+		value |= 0x00e0;
 
-//	reg_leds = LEDS_OFF;
+		hyperram_reg(0x800) = value;
+		hyperram_csr_latency = 0x33;		// double, fixed, 3 cycles
+
+		if (hyperram_csr_latency == 0x33)
+		{
+			hyperram_mem(0x1234) = 0xfecdba89;
+			value = hyperram_mem(0x1234);
+			status = hyperram_csr_status;			// status, 1 -> timeout on read
+			print("Status CSR: ");
+			print_hex(status, 4);
+			print("\n");
+			print("Read data: ");
+			print_hex(value, 8);	
+			print("\n");
+		}
+		else
+		{
+			print("Setting latency in CSR failed\n");
+		}
+	}
+	else
+	{
+		print("Reading CFG0 failed\n");
+	}
+
+
+	reg_leds = LEDS_OFF;
 /*
 	// write memory, low address, default tacc (latency) is 6 cycles (default)
 	hyperram_mem(0x1234) = 0xfecdba89;
@@ -448,7 +490,10 @@ void main()
 
 	reg_leds = LEDS_OFF;
 
-    hyperram_test();
+	while (1)
+	{
+    	hyperram_test();
+	}
 
 	while (1);
 }
