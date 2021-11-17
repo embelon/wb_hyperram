@@ -20,15 +20,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-#ifdef ICEBREAKER
-#  define MEM_TOTAL 0x20000 /* 128 KB */
-#elif UPDUINO
-#  define MEM_TOTAL 0x20000 /* 128 KB */
-#elif HX8KDEMO
-#  define MEM_TOTAL 0x200 /* 2 KB */
-#else
-#  error "Set -DUPDUINO when compiling firmware.c"
-#endif
+#define MEM_TOTAL 0x20000 /* 128 KB */
 
 // a pointer to this is a null pointer, but the compiler does not
 // know that because "sram" is a linker symbol from sections.lds.
@@ -38,6 +30,11 @@ extern uint32_t sram;
 #define reg_uart_clkdiv (*(volatile uint32_t*)0x02000004)
 #define reg_uart_data (*(volatile uint32_t*)0x02000008)
 #define reg_leds (*(volatile uint32_t*)0x03000000)
+
+#define LEDS_OFF	(~0ul)
+#define LED_RED		(~4ul)
+#define LED_GREEN	(~1ul)
+#define LED_BLUE	(~2ul)
 
 // --------------------------------------------------------
 
@@ -57,8 +54,6 @@ void flashio(uint8_t *data, int len, uint8_t wrencmd)
 	((void(*)(uint8_t*, uint32_t, uint32_t))func)(data, len, wrencmd);
 }
 
-#ifdef UPDUINO
-
 void set_flash_latency(uint8_t value)
 {
 	reg_spictrl = (reg_spictrl & ~0x007f0000) | ((value & 15) << 16);
@@ -72,10 +67,6 @@ void set_flash_mode_spi()
 {
 	reg_spictrl = (reg_spictrl & ~0x00700000) | 0x00000000;
 }
-
-#endif
-
-
 
 // --------------------------------------------------------
 
@@ -279,7 +270,6 @@ void cmd_read_flash_id()
 
 // --------------------------------------------------------
 
-#ifdef UPDUINO
 uint8_t cmd_read_flash_regs_print(uint32_t addr, const char *name)
 {
 	set_flash_latency(8);
@@ -308,7 +298,6 @@ void cmd_read_flash_regs()
 	uint8_t cr3v = cmd_read_flash_regs_print(0x800004, "CR3V");
 	uint8_t vdlp = cmd_read_flash_regs_print(0x800005, "VDLP");
 }
-#endif
 
 // --------------------------------------------------------
 
@@ -322,20 +311,125 @@ void cmd_echo()
 
 // --------------------------------------------------------
 
+// HyperRAM is mapped to 0x30xx_xxxx address space on Wishbone bus
+// HyperRAM has 8MB -> mask is 0x007fffff
+// 0x3000_0000 till 307f_ffff -> RAM / MEM inisde chip
+#define hyperram_mem_base_address	0x30000000
+#define hyperram_mem_mask			0x007fffff
+#define hyperram_mem(offset)		(*(volatile uint32_t*)(hyperram_mem_base_address + (offset & hyperram_mem_mask)))
+// 0x3080_xxxx -> register space inside chip
+#define hyperram_reg_base_address	0x30800000
+#define hyperram_reg_mask			0x0000ffff
+#define hyperram_reg(num)			(*(volatile uint32_t*)(hyperram_reg_base_address + ((2 * num) & hyperram_reg_mask)))
+// 0x3081_xxxx -> CSR space for driver / peripheral configuration
+#define hyperram_csr_base_address	0x30c00000
+#define hyperram_csr_mask			0x0000ffff
+#define hyperram_csr_latency		(*(volatile uint32_t*)(hyperram_csr_base_address + 0x00))
+#define hyperram_csr_tpre_tpost		(*(volatile uint32_t*)(hyperram_csr_base_address + 0x04))
+#define hyperram_csr_tcsh			(*(volatile uint32_t*)(hyperram_csr_base_address + 0x08))
+#define hyperram_csr_trmax			(*(volatile uint32_t*)(hyperram_csr_base_address + 0x0c))
+#define hyperram_csr_status			(*(volatile uint32_t*)(hyperram_csr_base_address + 0x10))
+
+
+void hyperram_test()
+{
+	volatile uint32_t read = 0;
+
+//	reg_leds = LED_GREEN;
+
+	print("\n");
+	print("HyperRAM test....");
+	print("\n");
+
+	// write something
+	hyperram_mem(0x1234) = 0xfecdba89;
+	// read back
+	read = hyperram_mem(0x1234);
+	print("Read data: ");
+	print_hex(read, 8);
+	print("\n");
+
+	// read CSRs inside HyperRAM driver
+	read = hyperram_csr_latency;
+	print("Latency CSR: ");
+	print_hex(read, 4);
+	print("\n");
+	read = hyperram_csr_tcsh;
+	print("Tcsh CSR: ");
+	print_hex(read, 4);
+	print("\n");
+	read = hyperram_csr_tpre_tpost;
+	print("Tpre Tpost CSR: ");
+	print_hex(read, 4);
+	print("\n");
+	read = hyperram_csr_trmax;
+	print("Read timeout CSR: ");
+	print_hex(read, 4);
+	print("\n");
+	read = hyperram_csr_status;
+	print("Status CSR: ");
+	print_hex(read, 4);
+	print("\n");
+
+	read = hyperram_reg(0);
+	print("Chip ID0: ");
+	print_hex(read, 4);
+	print("\n");
+	read = hyperram_reg(1);
+	print("Chip ID1: ");
+	print_hex(read, 4);
+	print("\n");
+
+//	reg_leds = LEDS_OFF;
+/*
+	// write memory, low address, default tacc (latency) is 6 cycles (default)
+	hyperram_mem(0x1234) = 0xfecdba89;
+
+	// write latency csr
+	// fixed & double latency
+	// tacc = 4 cycles
+	hyperram_csr_latency = 0x34;
+	// read latency csr
+	volatile uint32_t read = hyperram_csr_latency;
+	if (read != 0x34)
+	{
+		// if write unsucessful, instant fail
+
+		reg_leds = LED_RED;
+		return;
+	}
+
+	// write memory, high address, tacc should be now 4 cycles
+	hyperram_mem(0x7ffff4) = 0x12874562;
+
+	// try to read memory and trigger timeout, if there's no chip connected
+	read = hyperram_mem(0x135);
+	read = hyperram_csr_status;
+	if (hyperram_csr_status != 1)
+	{
+		reg_leds = LED_RED;
+		return; 							// instant fail
+	}
+*/	
+}
+
+// --------------------------------------------------------
+
 void main()
 {
-	reg_leds = 1;
-	reg_uart_clkdiv = 104;
+	reg_leds = LED_RED;
+
+	reg_uart_clkdiv = 52;			// 115200bps @ 6MHz
 	print("\n\n\nBooting..\n");
 
-	reg_leds = 2;
 	set_flash_mode_spi();
-
-	reg_leds = 4;
 
 	print("Total memory: ");
 	print_dec(MEM_TOTAL / 1024);
 	print(" KiB\n");
+	print("\n");
+
+	cmd_memtest();
 	print("\n");
 
 	cmd_print_spi_state();
@@ -343,14 +437,18 @@ void main()
 
 	print("Flash ID: ");
 	cmd_read_flash_id();
+	print("\n");
 
 	print("Flash regs: ");
 	cmd_read_flash_regs();
 	print("\n");
 
 	cmd_print_spi_state();
+	print("\n");
 
-	reg_leds = 0;
+	reg_leds = LEDS_OFF;
+
+    hyperram_test();
 
 	while (1);
 }
