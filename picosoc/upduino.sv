@@ -201,8 +201,8 @@ module upduino (
 
     assign wbm_cyc_o = iomem_valid;
 	assign wbm_stb_o = iomem_valid && (iomem_addr[31:24] == 8'h 30);
-	assign wbm_sel_o = ~iomem_wstrb;
-	assign wbm_we_o = ! &iomem_wstrb;
+	assign wbm_sel_o = iomem_wstrb;
+	assign wbm_we_o = |iomem_wstrb;
 	assign wbm_addr_o = iomem_addr;
 	assign wbm_dat_o = iomem_wdata;
 
