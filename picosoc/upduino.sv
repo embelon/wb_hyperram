@@ -155,7 +155,7 @@ module upduino (
 		.PULLUP(1'b 0)
 	) hyperram_io_buf [8:0] (
 		.PACKAGE_PIN({ hb_rwds, hb_dq7, hb_dq6, hb_dq5, hb_dq4, hb_dq3, hb_dq2, hb_dq1, hb_dq0 }),
-		.OUTPUT_ENABLE({ !hb_rwds_oen, {8{hb_dq_oen}} }),
+		.OUTPUT_ENABLE({ !hb_rwds_oen, {8{!hb_dq_oen}} }),
 		.D_OUT_0({ hb_rwds_o, hb_dq_o }),
 		.D_IN_0({ hb_rwds_i, hb_dq_i })
 	);
