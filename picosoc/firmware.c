@@ -312,6 +312,8 @@ void cmd_echo()
 // --------------------------------------------------------
 
 // HyperRAM is mapped to 0x30xx_xxxx address space on Wishbone bus
+#define hyperram_mem_size			((8ul*1024ul*1024ul))
+#define hyperram_mem_size_words		((hyperram_mem_size / 4))
 // HyperRAM has 8MB -> mask is 0x007fffff
 // 0x3000_0000 till 307f_ffff -> RAM / MEM inisde chip
 #define hyperram_mem_base_address	0x30000000
@@ -330,9 +332,78 @@ void cmd_echo()
 #define hyperram_csr_trmax			(*(volatile uint32_t*)(hyperram_csr_base_address + 0x0c))
 #define hyperram_csr_status			(*(volatile uint32_t*)(hyperram_csr_base_address + 0x10))
 
+void hyperram_memtest()
+{
+	uint32_t cyc_count = 5;
+	uint32_t stride = 256;
+	uint32_t state;
+
+	print("Running hyperram memtest ");
+
+	for (uint32_t i = 1; i <= cyc_count; i++) 
+	{
+		state = i;
+
+		for (uint32_t word = 0; word < hyperram_mem_size_words; word += stride) 
+		{
+			hyperram_mem(word) = xorshift32(&state);
+		}
+
+		state = i;
+
+		for (uint32_t word = 0; word < hyperram_mem_size_words; word += stride) 
+		{
+			if (hyperram_mem(word) != xorshift32(&state)) 
+			{
+				print(" ***FAILED WORD*** at ");
+				print_hex(4*word, 4);
+				print("\n");
+				return;
+			}
+		}
+
+		print(".");
+	}
+}
+
+void hyperram_write_read(uint32_t address, uint32_t data)
+{
+	volatile uint32_t value = 0;
+	volatile uint32_t status = 0;
+
+	// write
+	hyperram_mem(address) = data;
+	print("Write ");
+	print_hex(data, 8);
+	print(" to address ");
+	print_hex(address, 8);
+	print("\n");
+	// read back	
+	value = hyperram_mem(address);			// value
+	status = hyperram_csr_status;			// status, 1 -> timeout on read
+	print("Status CSR: ");
+	print_hex(status, 4);
+	print("\n");
+	print("Read data: ");
+	print_hex(value, 8);	
+	print("\n");
+	if (status & 1)
+	{
+		print("Read timeout!\n");
+	}
+	else if (value != data)
+	{
+		print("Write-read failed!\n");
+	}
+	else
+	{
+		print("Write-read ok!\n");
+	}
+}
 
 void hyperram_test()
 {
+	uint32_t pattern;
 	volatile uint32_t value = 0;
 	volatile uint32_t status = 0;
 
@@ -364,30 +435,42 @@ void hyperram_test()
 	print_hex(status, 4);
 	print("\n");
 
+	// read chip ID
 	value = hyperram_reg(0);
 	print("Chip ID0: ");
 	print_hex(value, 4);
 	print("\n");
 
+	// read chip configuration
 	value = hyperram_reg(0x800);
-	print("Chip CFG0: ");
-	print_hex(value, 4);
-	print("\n");
+	status = hyperram_csr_status;			// status, 1 -> timeout on read	
+	if (!status || !value)
+	{
+		print("Chip CFG0: ");
+		print_hex(value, 4);
+		print("\n");
 
-	// write something
-	hyperram_mem(0x7ffff4) = 0x12874562;
-	// read back	
-	value = hyperram_mem(0x7ffff4);			// value
-	status = hyperram_csr_status;			// status, 1 -> timeout on read
-	print("Status CSR: ");
-	print_hex(status, 4);
-	print("\n");
-	print("Read data: ");
-	print_hex(value, 8);	
-	print("\n");
+		// set default configuration, fixed 6 cycles latency
+		value = 0x8f1f;
+
+		hyperram_reg(0x800) = value;
+		hyperram_csr_latency = 0x36;		// double, fixed, 6 cycles
+
+		if (hyperram_csr_latency != 0x36)
+		{
+			print("Setting default latency in CSR failed\n");
+		}
+	}
+	else
+	{
+		print("Reading CFG0 failed\n");
+	}
+
+	hyperram_write_read(0x7ffff4, 0x12874562);
 	
 	reg_leds = LED_BLUE;
 
+	// change latency in both HyperRAM chip and driver
 	print("Changing latency to 3 cycles\n");
 	value = hyperram_reg(0x800);			// CFG0
 	status = hyperram_csr_status;			// status, 1 -> timeout on read
@@ -401,15 +484,7 @@ void hyperram_test()
 
 		if (hyperram_csr_latency == 0x33)
 		{
-			hyperram_mem(0x1234) = 0xfecdba89;
-			value = hyperram_mem(0x1234);
-			status = hyperram_csr_status;			// status, 1 -> timeout on read
-			print("Status CSR: ");
-			print_hex(status, 4);
-			print("\n");
-			print("Read data: ");
-			print_hex(value, 8);	
-			print("\n");
+			hyperram_write_read(0x1234, 0x00caffe0);
 		}
 		else
 		{
@@ -421,38 +496,43 @@ void hyperram_test()
 		print("Reading CFG0 failed\n");
 	}
 
+/*
+	// Change fixed 2 times latency (default) to variable latency (according to RWDS state during CA phase)
+	print("Changing fixed to variable latency\n");
+	value = hyperram_reg(0x800);			// CFG0
+	status = hyperram_csr_status;			// status, 1 -> timeout on read
+	if (!status || !value)
+	{
+		value &= 0xfff7;
+
+		hyperram_reg(0x800) = value;
+		hyperram_csr_latency = 0x13;
+
+		if (hyperram_csr_latency == 0x13)
+		{
+			hyperram_write_read(0x55741, 0xdeadbeef);
+		}
+		else
+		{
+			print("Setting latency in CSR failed\n");
+		}
+	}
+	else
+	{
+		print("Reading CFG0 failed\n");
+	}	
+*/
+	reg_leds = LEDS_OFF;
+
+	print("\nHyperRAM memtest....\n");
+
+	getchar();
+
+	reg_leds = LED_RED;
+
+	hyperram_memtest();
 
 	reg_leds = LEDS_OFF;
-/*
-	// write memory, low address, default tacc (latency) is 6 cycles (default)
-	hyperram_mem(0x1234) = 0xfecdba89;
-
-	// write latency csr
-	// fixed & double latency
-	// tacc = 4 cycles
-	hyperram_csr_latency = 0x34;
-	// read latency csr
-	volatile uint32_t read = hyperram_csr_latency;
-	if (read != 0x34)
-	{
-		// if write unsucessful, instant fail
-
-		reg_leds = LED_RED;
-		return;
-	}
-
-	// write memory, high address, tacc should be now 4 cycles
-	hyperram_mem(0x7ffff4) = 0x12874562;
-
-	// try to read memory and trigger timeout, if there's no chip connected
-	read = hyperram_mem(0x135);
-	read = hyperram_csr_status;
-	if (hyperram_csr_status != 1)
-	{
-		reg_leds = LED_RED;
-		return; 							// instant fail
-	}
-*/	
 }
 
 // --------------------------------------------------------
