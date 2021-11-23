@@ -191,7 +191,7 @@ module s27kl0641
 
     reg t_RWR_CHK = 1'b0;
 
-    parameter UserPreload     = 1;
+    parameter UserPreload     = 0;
     parameter mem_file_name   = "test/s27kl0641/model/s27kl0641.mem";
 
     parameter TimingModel = "DefaultTimingModel";
