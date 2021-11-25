@@ -35,9 +35,13 @@ set_io hb_cs1n	    21
 
 # /CS0 - HyperFlash (not populated)
 #set_io hb_cs0n	    12
-#set_io hb_psc     45
-#set_io hb_pscn    48
+#set_io hb_psc      45
+#set_io hb_pscn     48
 
 # synchronous reset
 # set_io reset      4
 
+# additional io / debug
+set_io gpio2        37
+set_io gpio1        34
+set_io gpio0        31
