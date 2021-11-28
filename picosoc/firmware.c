@@ -476,6 +476,23 @@ void hyperram_read_chip_cfg()
 		default: break;
 	}
 	print("\n");
+	if ((cfg & 0x0003) != 0)
+	{
+		// make distributed refresh interval shorter (for low frequency acccess)
+		hyperram_reg(HYPERRAM_CHIP_CFG1) = 2;
+
+		cfg = hyperram_reg(HYPERRAM_CHIP_CFG1);
+		status = hyperram_csr_status;			// status, 1 -> timeout on read 
+
+		if (!status || ((cfg & 0x0003) != 2))
+		{
+			print("Setting default Distributed Refresh Interval failed!\n");
+		}
+		else
+		{
+			print("Distributed Refresh Interval set to default\n");
+		}
+	}
 }
 
 
@@ -593,32 +610,31 @@ void hyperram_write_read(uint32_t address, uint32_t data)
 
 	// write
 	hyperram_mem(address) = data;
-	print("\nWrite ");
-	print_hex(data, 8);
-	print(" to address ");
+	print("\nWriting to address: ");
 	print_hex(address, 8);
-	print("\n");
+	print("\nValue: ");
+	print_hex(data, 8);	
+	
 	// read back	
 	value = hyperram_mem(address);			// value
 	status = hyperram_csr_status;			// status, 1 -> timeout on read
-	print("Status CSR: ");
-	print_hex(status, 4);
-	print("\n");
+	print("\nRead Status: ");
+	if (status)
+	{
+		print("TIMEOUT!\n");
+		return;
+	}
+	print("OK!\n");
+
 	print("Read data: ");
 	print_hex(value, 8);	
 	print("\n");
-	if (status & 1)
-	{
-		print("Read timeout!\n");
-	}
-	else if (value != data)
+	if (value != data)
 	{
 		print("Write-read failed!\n");
+		return;
 	}
-	else
-	{
-		print("Write-read ok!\n");
-	}
+	print("Write-read ok!\n");
 }
 
 void hyperram_test()
