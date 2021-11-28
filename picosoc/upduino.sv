@@ -31,6 +31,10 @@ module upduino (
 	output led_green,
     output led_blue,
 
+	output gpioA,
+	output gpioB,
+	output gpioC,
+
 	output flash_csb,
 	output flash_clk,
 	inout  flash_sdi,
@@ -65,8 +69,6 @@ module upduino (
 
 	wire flash_io0_oe, flash_io0_do, flash_io0_di;
 	wire flash_io1_oe, flash_io1_do, flash_io1_di;
-	wire flash_io2_oe, flash_io2_do, flash_io2_di;
-	wire flash_io3_oe, flash_io3_do, flash_io3_di;
 
 	SB_IO #(
 		.PIN_TYPE(6'b 1010_01),
@@ -107,10 +109,13 @@ module upduino (
     assign led_green_pwm = gpio[15:8];
     assign led_blue_pwm = gpio[7:0];
 */
-	assign led_red = gpio[2];
+	assign led_red = gpio[1];
     assign led_green = gpio[2];
     assign led_blue = gpio[0];
-
+	
+	assign gpioA = gpio[0];
+	assign gpioB = gpio[1];
+	assign gpioC = gpio[2];
 
 	// picosoc iomem bus
 	wire        iomem_valid;
@@ -239,18 +244,14 @@ module upduino (
 
 		.flash_io0_oe (flash_io0_oe),
 		.flash_io1_oe (flash_io1_oe),
-		.flash_io2_oe (flash_io2_oe),
-		.flash_io3_oe (flash_io3_oe),
 
 		.flash_io0_do (flash_io0_do),
 		.flash_io1_do (flash_io1_do),
-		.flash_io2_do (flash_io2_do),
-		.flash_io3_do (flash_io3_do),
 
 		.flash_io0_di (flash_io0_di),
 		.flash_io1_di (flash_io1_di),
-		.flash_io2_di (flash_io2_di),
-		.flash_io3_di (flash_io3_di),
+		.flash_io2_di (1'b0		   ),
+		.flash_io3_di (1'b0		   ),		
 
 		.irq_5        (1'b0        ),
 		.irq_6        (1'b0        ),

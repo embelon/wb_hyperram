@@ -42,6 +42,6 @@ set_io hb_cs1n	    21
 # set_io reset      4
 
 # additional io / debug
-set_io gpio2        37
-set_io gpio1        34
-set_io gpio0        31
+set_io gpioC        37
+set_io gpioB        34
+set_io gpioA        31
