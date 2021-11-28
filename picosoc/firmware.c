@@ -476,7 +476,7 @@ void hyperram_read_chip_cfg()
 		default: break;
 	}
 	print("\n");
-	if ((cfg & 0x0003) != 0)
+	if ((cfg & 0x0003) != 2)
 	{
 		// make distributed refresh interval shorter (for low frequency acccess)
 		hyperram_reg(HYPERRAM_CHIP_CFG1) = 2;
@@ -511,7 +511,15 @@ void hyperram_set_latency(uint8_t fixed, uint8_t cycles)
 
 	print("\nChanging latency to: ");
 	print_dec(cycles);
-	print(" cycles\n");
+	print(" cycles");
+	if (fixed)
+	{
+		print(", Fixed 2 times\n");
+	}
+	else
+	{
+		print(", Variable\n");
+	}
 
 	if ((cycles < 3) || (cycles > 6))
 	{
@@ -665,6 +673,9 @@ void hyperram_test()
 	hyperram_set_latency(0, 6);
 	hyperram_write_read(0x456008, 0xdeadbeef);
 
+	hyperram_set_latency(0, 4);
+	hyperram_write_read(0x002c00, 0xbeefbeef);
+
 	reg_leds = LEDS_OFF;
 
 	print("\nHyperRAM memtest....\n");
@@ -685,7 +696,8 @@ void main()
 {
 	reg_leds = LED_RED;
 
-	reg_uart_clkdiv = 52;			// 115200bps @ 6MHz
+//	reg_uart_clkdiv = 52;			// 115200bps @ 6MHz
+	reg_uart_clkdiv = 87;			// 115200bps @ 10MHz
 	print("\n\n\nBooting..\n");
 
 	set_flash_mode_spi();
