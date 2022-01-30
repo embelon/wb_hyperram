@@ -12,6 +12,8 @@ Currently implemented:
 - read timeout in case of external HyperRAM connection failure
 
 TODO:
+- make it faster
+- reimplement CSR registers
 - add burst transfers
 - cache up to few writes (in DFF SRAM) with instant acknowledging on Wishbone bus
 - add additional Wishbone bus for connecting external sram as cache
