@@ -1,0 +1,47 @@
+# 12 MHz clock
+#set_io clk          35
+
+# SPI Flash
+set_io flash_clk    15
+set_io flash_csb    16
+set_io flash_sdi    14        #Flash.DI
+set_io flash_sdo    17        #Flash.DO
+
+# Onboard LEDs
+set_io led_blue     39
+set_io led_green    40
+set_io led_red      41
+
+# RS232
+set_io ser_rx       26
+set_io ser_tx       27
+
+# HyperBus
+set_io hb_rstn 	    2
+set_io hb_clk	    46
+set_io hb_clkn  	47
+set_io hb_dq7		3
+set_io hb_dq6		4
+set_io hb_dq5		44
+set_io hb_dq4		6
+set_io hb_dq3		9
+set_io hb_dq2		11
+set_io hb_dq1		18
+set_io hb_dq0		19
+set_io hb_rwds	    13
+
+# /CS1 - HyperRAM
+set_io hb_cs1n	    21
+
+# /CS0 - HyperFlash (not populated)
+#set_io hb_cs0n	    12
+#set_io hb_psc      45
+#set_io hb_pscn     48
+
+# synchronous reset
+# set_io reset      4
+
+# additional io / debug
+set_io gpioC        37
+set_io gpioB        34
+set_io gpioA        31

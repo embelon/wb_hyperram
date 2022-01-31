@@ -1,3 +1,10 @@
+picosoc/*.asc
+picosoc/*.elf
+picosoc/*.bin
+picosoc/*.hex
+picosoc/upduino*.lds
+picosoc/*.json
+picosoc/*.rpt
 *vcd
 *log
 *bin
