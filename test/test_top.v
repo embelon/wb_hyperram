@@ -40,7 +40,7 @@ module test_top (
     );
 
     wire [7:0] hb_dq_o;
-    wire hb_dq_oen;
+    wire [7:0] hb_dq_oen;
     wire hb_rwds_o, hb_rwds_oen;
 
     wb_hyperram hyperram_drv (
@@ -71,6 +71,6 @@ module test_top (
     );
     
     assign HB_RWDS = hb_rwds_oen ? 1'bZ : hb_rwds_o;
-    assign HB_DQ = hb_dq_oen ? 8'bZZZZZZZZ : hb_dq_o;
+    assign HB_DQ = hb_dq_oen[0] ? 8'bZZZZZZZZ : hb_dq_o;
 
 endmodule
