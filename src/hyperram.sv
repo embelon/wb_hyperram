@@ -139,7 +139,7 @@ always @(posedge clk_i) begin
 		case (bus_state_r)
 			S_IDLE: begin			
 				// waiting for new operation and counting cycles to satisfy tcshi time
-				if (cycle_cnt_r) begin
+				if (|cycle_cnt_r) begin
 					cycle_cnt_r <= cycle_cnt_r - 1;
 				end 
 				if (valid_start && !busy_r) begin
@@ -165,7 +165,7 @@ always @(posedge clk_i) begin
 					// tcsh satisfied now, so may start new or queued operation
 
 					bus_state_r <= S_PRE;
-					cycle_cnt_r <= tpre_i;
+					cycle_cnt_r <= {2'b00, tpre_i};
 					
 					tcsh_r <= tcsh_i;
 					tpre_r <= tpre_i;
@@ -179,7 +179,7 @@ always @(posedge clk_i) begin
 			S_PRE: begin
 				// short delay for tcss
 				// waiting configured number of cycles between CS going active and first edge of hb_clk
-				if (cycle_cnt_r) begin
+				if (|cycle_cnt_r) begin
 					cycle_cnt_r <= cycle_cnt_r - 1;
 				end else begin
 					bus_state_r <= S_CA;
@@ -189,7 +189,7 @@ always @(posedge clk_i) begin
 			S_CA: begin
 				// CA = Command-Address phase
 				// transfering 6 bytes defining operation type and address
-				if (cycle_cnt_r) begin
+				if (|cycle_cnt_r) begin
 					cycle_cnt_r <= cycle_cnt_r - 1;
 				end else begin
 					cycle_cnt_r <= latency_cycles;
@@ -212,7 +212,7 @@ always @(posedge clk_i) begin
 			end
 			S_LATENCY: begin
 				// latency phase for reads and memory space writes
-				if (cycle_cnt_r) begin
+				if (|cycle_cnt_r) begin
 					cycle_cnt_r <= cycle_cnt_r - 1;
 				end else begin
 					if (read_op) begin
@@ -229,32 +229,32 @@ always @(posedge clk_i) begin
 			end
 			S_WRITE: begin
 				// write to memory of register space
-				if (cycle_cnt_r) begin
+				if (|cycle_cnt_r) begin
 					cycle_cnt_r <= cycle_cnt_r - 1;
 				end else begin
 					bus_state_r <= S_POST;
-					cycle_cnt_r <= tpost_r;
+					cycle_cnt_r <= {2'b00, tpost_r};
 				end
 			end
 			S_READ: begin	
-				if ((cycle_cnt_r == 0) || (read_cnt_r == 0)) begin
+				if (~|cycle_cnt_r || (read_cnt_r == 0)) begin
 					bus_state_r <= S_POST;
-					cycle_cnt_r <= tpost_r;
+					cycle_cnt_r <= {2'b00, tpost_r};
 
 					// timeout occured if device wasnt driving rwds signal during READ phase
 					read_timeout_r <= (cycle_cnt_r == 0) && (read_cnt_r != 0);
-				end else if (cycle_cnt_r) begin
+				end else if (|cycle_cnt_r) begin
 					cycle_cnt_r <= cycle_cnt_r - 1;
 				end				
 			end
 			S_POST: begin
 				// short delay for tcsh
 				// waiting configured number of cycles between last edge of hb_clk and cs inactive
-				if (cycle_cnt_r) begin
+				if (|cycle_cnt_r) begin
 					cycle_cnt_r <= cycle_cnt_r - 1;
 				end else begin
 					bus_state_r <= S_IDLE;
-					cycle_cnt_r <= tcsh_r;
+					cycle_cnt_r <= {2'b00, tcsh_r};
 					busy_r <= 0;
 				end					
 			end
@@ -308,7 +308,7 @@ always @(negedge clk_i) begin
 				rwds_r <= hb_rwds_i;					// store rwds input for "B"-bytes, where rwds input is low
 				if ((hb_rwds_i && !read_cnt_r[0]) || (rwds_r && read_cnt_r[0])) begin
 					// count only valid bytes, according to rwds state in this clock cycle and previous clock cycle
-					if (read_cnt_r) begin						
+					if (|read_cnt_r) begin						
 						read_cnt_r <= read_cnt_r - 1;						
 					end
 					// read data
@@ -332,7 +332,7 @@ assign hb_clkn_o = ~hb_clk_o;
 // when writing to register space, rwds must not be driven by ip
 assign hb_rwds_oen = (bus_state_r != S_WRITE) || reg_access;
 // when writing to memory space, rwds is masking signal for individual bytes
-assign hb_rwds_o = ((bus_state_r == S_WRITE) && (!reg_access)) ? ~sel_r[cycle_cnt_r] : 0;
+assign hb_rwds_o = ((bus_state_r == S_WRITE) && (!reg_access)) ? ~sel_r[cycle_cnt_r[1:0]] : 0;
 
 // DQ is driven only during CA and WRITE
 assign hb_dq_oen = ((bus_state_r != S_CA) && (bus_state_r != S_WRITE)) ? 8'hff : 8'h00;

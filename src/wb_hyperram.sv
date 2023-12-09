@@ -203,7 +203,7 @@ module wb_hyperram
 				CSR_LATENCY_BASE: 		data_out <= {26'h00_0000, fixed_latency, double_latency, tacc};
 				CSR_TPRE_TPOST_BASE:		data_out <= {24'h00_0000, tpre, tpost};
 				CSR_TCSH_BASE:			data_out <= {28'h00_0000, tcsh};
-				CSR_TRMAX_BASE:			data_out <= {29'h00_0000, trmax};
+				CSR_TRMAX_BASE:			data_out <= {27'h00_0000, trmax};
 				CSR_STATUS_BASE:		data_out <= {31'h0000_0000, hb_read_timeout};
 				default: begin
 					if (((wbs_adr_i & HB_RAM_ADDR_MASK) == HB_RAM_BASE) || ((wbs_adr_i & HB_REG_OR_CSR_ADDR_MASK) == HB_REG_BASE))
